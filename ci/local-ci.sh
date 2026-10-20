@@ -60,19 +60,70 @@ fi
 # The engine and the font, from the same script the workflows call.
 export RUNNER_TEMP="$WORK/runner"
 mkdir -p "$RUNNER_TEMP"
-eval "$("$SOURCE/ci/provision-engine.sh")"
+export FIGCRAFT_ENV_FILE="$WORK/engine.env"
+: > "$FIGCRAFT_ENV_FILE"
+"$SOURCE/ci/provision-engine.sh" > /dev/null
 
 cd "$SOURCE"
-python3 -VV
 
-echo "▸ running the qualification in $SOURCE"
-python3 -m tools.ci
+# The dependencies, at the versions the workflow installs. They are checked
+# rather than installed: this machine's Python is externally managed, and
+# installing into it is not the simulation's business. A version that is not
+# the pinned one is reported, because that is what the runner would have.
+python3 - <<'CHECK'
+import re, sys
+from importlib.metadata import version
+wanted = {}
+for line in open("requirements.txt"):
+    line = line.strip()
+    if line and not line.startswith("#") and "==" in line:
+        name, pin = line.split("==")
+        wanted[name] = pin
+bad = []
+for name, pin in wanted.items():
+    try:
+        found = version(name)
+    except Exception:
+        bad.append(f"{name} is not installed (the workflow installs {pin})")
+        continue
+    if found != pin:
+        bad.append(f"{name} is {found}, the workflow installs {pin}")
+if bad:
+    for line in bad:
+        print("  " + line, file=sys.stderr)
+    print("  the local environment does not match the pinned one", file=sys.stderr)
+CHECK
+
+# The qualification runs in a fresh shell that reads the environment file
+# the provisioning wrote, exactly as a later GitHub Actions step does. A
+# single shell would hide a step that forgets to hand the engine on, and
+# that is the kind of thing the runner is the wrong place to find out
+# about.
+echo "▸ running the qualification in $SOURCE (fresh shell)"
+(
+  set -euo pipefail
+  set -a
+  # shellcheck disable=SC1090
+  . "$FIGCRAFT_ENV_FILE"
+  set +a
+  python3 -VV
+  python3 -m tools.ci
+)
 
 if [[ $RELEASE -eq 1 ]]; then
-  echo "▸ building the distributable archive"
-  python3 -m tools.release build
-  echo "▸ checking the release is publishable"
-  python3 -m tools.release status
+  # Each step runs in a fresh shell that reads the environment file, the
+  # way a later GitHub Actions step reads what the earlier one handed on.
+  echo "▸ building the distributable archive (fresh shell)"
+  (
+    set -euo pipefail
+    set -a
+    # shellcheck disable=SC1090
+    . "$FIGCRAFT_ENV_FILE"
+    set +a
+    python3 -m tools.release build
+    echo "▸ checking the release is publishable"
+    python3 -m tools.release status
+  )
   echo "▸ the release path is proven locally; publish with:"
   echo "    git push origin v$(cat VERSION)"
 fi

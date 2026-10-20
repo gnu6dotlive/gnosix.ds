@@ -57,6 +57,30 @@ cat > "$WORK/xdg/fonts.conf" <<FONTCONF
 </fontconfig>
 FONTCONF
 
+EXPORTS="FIGCRAFT_CLI=$WORK/figcraft-engine/bin/figcraft-cli
+FONTCONFIG_FILE=$WORK/xdg/fonts.conf
+XDG_DATA_HOME=$WORK/xdg"
+
+# A GitHub Actions step runs in its own shell, so an export in one step is
+# gone by the next one. The environment file is how a step hands something
+# to the steps that follow, and the release job needs the engine in the
+# step that qualifies and in the step that builds.
+if [[ -n "${GITHUB_ENV:-}" ]]; then
+  while read -r line; do
+    echo "$line" >> "$GITHUB_ENV"
+  done <<< "$EXPORTS"
+fi
+
+# The same file, for a caller that is not GitHub: the local simulation
+# writes it, then runs the qualification in a fresh shell that reads it, so
+# that the step boundary is reproduced rather than assumed.
+if [[ -n "${FIGCRAFT_ENV_FILE:-}" ]]; then
+  while read -r line; do
+    echo "$line" >> "$FIGCRAFT_ENV_FILE"
+  done <<< "$EXPORTS"
+fi
+
+# And on stdout, for a caller that evaluates the output.
 cat <<ENV
 export FIGCRAFT_CLI="$WORK/figcraft-engine/bin/figcraft-cli"
 export FONTCONFIG_FILE="$WORK/xdg/fonts.conf"
