@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WEB = "profiles/web/tokens.css"
 ANDROID = "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixColors.kt"
+NATIVE = "profiles/native/src/theme.rs"
 
 
 def words(name: str) -> list[str]:
@@ -76,12 +77,107 @@ def render_kotlin(tokens: dict) -> str:
     for family, shade, value in colors(tokens):
         name = "".join(part[:1].upper() + part[1:] for part in words(family)) + shade[:1].upper() + shade[1:]
         rows.append(f"    val {name} = Color(0xFF{value[1:]})\n")
-    return "".join(rows) + "}\n"
+    rows.append("}\n")
+
+    # The surface layer travels with the palette, so a Compose surface is
+    # the system's own and not a second one written by hand.
+    surfaces = load_surfaces()
+    if surfaces:
+        rows.append("\nobject GnosixSurfaces {\n")
+        for spec in surfaces["families"].values():
+            for step in spec["steps"]:
+                rows.append(f"    val {kotlin_name(step['id'])} = Color(0xFF{step['value'].lstrip('#')})\n")
+        for accent in surfaces["accents"]:
+            rows.append(f"    val {kotlin_name(accent['id'])} = Color(0xFF{accent['value'].lstrip('#')})\n")
+        rows.append("}\n")
+    return "".join(rows)
+
+
+def kotlin_name(identifier: str) -> str:
+    """A step's identifier as a Kotlin constant name."""
+    parts = re.split(r"[^A-Za-z0-9]+", identifier)
+    return "".join(part[:1].upper() + part[1:] for part in parts if part)
+
+
+def rust_name(identifier: str) -> str:
+    """A step's identifier as a Rust constant name.
+
+    The camelCase of the token source is split first, so the constant reads
+    NEUTRAL_SHELL_WHITE and not NEUTRAL_SHELLWHITE.
+    """
+    spaced = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", identifier)
+    name = re.sub(r"[^A-Za-z0-9]+", "_", spaced).upper()
+    # A Rust identifier cannot start with a digit, and the spacing steps do:
+    # 2xs, 3xl, 4xl, 5xl. The prefix keeps them apart as well as legal.
+    if name and name[0].isdigit():
+        name = "S_" + name
+    return name
+
+
+def load_surfaces() -> dict:
+    path = ROOT / "core/SURFACES.json"
+    if not path.is_file():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def render_rust(tokens: dict) -> str:
+    """The native projection: Rust constants, no handwritten second palette.
+
+    The profile is a mapping, not a crate that depends on GPUI: the engine
+    is pre-1.0 and its API is version-scoped. What can be ratified is the
+    projection itself - the same values, under the same names, that the web
+    and the Android profiles get - and that is what this file is.
+    """
+    surfaces = load_surfaces()
+    rows = [
+        "//! Generated from core/TOKENS.json and core/SURFACES.json. Do not edit.\n",
+        "//!\n",
+        "//! The gnosix portable contract as Rust constants: the palette, the\n",
+        "//! surfaces, the measured contrast ratios, the spacing and the weights.\n",
+        "//! A target implementation consumes these; it does not restate them.\n",
+        "\n",
+        "#![allow(dead_code)]\n",
+        "\n",
+        "/// The approved palette.\n",
+        "pub mod colour {\n",
+    ]
+    for family, shade, value in colors(tokens):
+        rows.append(f'    pub const {rust_name(family + "-" + shade)}: &str = "{value}";\n')
+    rows.append("}\n\n")
+
+    rows.append("/// The surface layer.\n")
+    rows.append("pub mod surface {\n")
+    for spec in surfaces.get("families", {}).values():
+        for step in spec["steps"]:
+            rows.append(f'    pub const {rust_name(step["id"])}: &str = "{step["value"]}";\n')
+    for accent in surfaces.get("accents", []):
+        rows.append(f'    pub const {rust_name(accent["id"])}: &str = "{accent["value"]}";\n')
+    rows.append("}\n\n")
+
+    rows.append("/// The measured contrast of each approved pairing.\n")
+    rows.append("pub mod contrast {\n")
+    for pairing, ratio in tokens.get("contrast", {}).items():
+        rows.append(f"    pub const {rust_name(pairing)}: f64 = {ratio};\n")
+    rows.append("}\n\n")
+
+    rows.append("/// The ratified spacing steps.\n")
+    rows.append("pub mod spacing {\n")
+    for step, value in tokens.get("spacing", {}).items():
+        rows.append(f"    pub const {rust_name(step)}: f64 = {value}.0;\n")
+    rows.append("}\n\n")
+
+    rows.append("/// The ratified weights.\n")
+    rows.append("pub mod weight {\n")
+    for role, value in tokens.get("typography", {}).get("weights", {}).items():
+        rows.append(f"    pub const {rust_name(role)}: u16 = {int(value)};\n")
+    rows.append("}\n")
+    return "".join(rows)
 
 
 def outputs(root: Path) -> dict[str, str]:
     tokens = json.loads((root / "core/TOKENS.json").read_text(encoding="utf-8"))
-    return {WEB: render_css(tokens), ANDROID: render_kotlin(tokens)}
+    return {WEB: render_css(tokens), ANDROID: render_kotlin(tokens), NATIVE: render_rust(tokens)}
 
 
 def check_projection(root: Path) -> list[str]:

@@ -1,5 +1,5 @@
 {
-  "version": "3.4.2",
+  "version": "3.6.0",
   "status": "CURRENT",
   "principle": "Portable meaning is authoritative; each target maps roles, state and evidence without importing another toolkit's component model.",
   "rows": [
@@ -105,6 +105,17 @@
       "android": "Neutral-surface placement only; alpha compositing is a declared surface decision rather than a draw-order side effect.",
       "native": "Neutral-surface placement only; the mark is composited onto a surface that has been chosen and can be named.",
       "gate": "Over Signal Orange, Royal Blue or Beret Green the opaque master appears, and the cube's dark faces stay distinguishable from the surface."
+    },
+    {
+      "id": "tokens.interchange",
+      "rules": [
+        "COL-001"
+      ],
+      "portable": "The token source, exported in the formats other tools already read.",
+      "web": "The DTCG and Style Dictionary exports under profiles/interchange/.",
+      "android": "Not applicable: the exports are for tools that read tokens.",
+      "native": "Not applicable, for the same reason.",
+      "gate": "tools/export_tokens.py --check: the exports match the token source."
     }
   ]
 }

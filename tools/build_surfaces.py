@@ -124,7 +124,21 @@ def role_for(item: dict) -> tuple[str, str]:
     return "surface-light", "a raised surface on the light substrate"
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser(description="generate the surface layer")
+    parser.add_argument("--force", action="store_true",
+                        help="overwrite an existing layer")
+    args = parser.parse_args(argv)
+
+    # The layer started as a reading of the colours the site already used.
+    # It is now a declared part of the contract, like the token source, and
+    # the site is rewritten from it. Regenerating it would read the site that
+    # was rewritten from it, which is a loop, not a source.
+    if OUT.exists() and not args.force:
+        print(f"{OUT.relative_to(ROOT)} exists; it is a source now. "
+              f"Use --force to rebuild it from the first-party surfaces.")
+        return 0
+
     items = collect()
 
     base_hue = rgb_to_oklch(hex_to_rgb("#111418"))[2]
@@ -173,7 +187,8 @@ def main() -> int:
                 name = "surface-warm"
                 role = "the warm glow behind the hero"
             accent_rows.append({
-                "id": f"{name}-l{round(item['lightness'] * 1000)}",
+                "id": (f"{name}-l{round(item['lightness'] * 1000)}"
+                       f"c{round(item['chroma'] * 1000)}"),
                 "role_id": name,
                 "value": item["value"],
                 "lightness": item["lightness"],
@@ -206,7 +221,11 @@ def main() -> int:
     for family, rows in families.items():
         rows.sort(key=lambda r: r["lightness"])
         for row in rows:
-            row["id"] = f"{family}-l{round(row['lightness'] * 1000)}"
+            # The lightness and the chroma together: two steps can share a
+            # lightness, and an id that is not unique is an id that two
+            # surfaces would fight over.
+            row["id"] = (f"{family}-l{round(row['lightness'] * 1000)}"
+                         f"c{round(row['chroma'] * 1000)}")
 
     document = {
         "schema": "gnosix_DS.surfaces.v1",
@@ -252,6 +271,14 @@ def main() -> int:
         },
         "accents": accent_rows,
     }
+
+    # Two steps may not share an id: the custom properties would collide and
+    # one surface would silently take the other's colour.
+    ids = [step["id"] for spec in document["families"].values() for step in spec["steps"]]
+    ids += [accent["id"] for accent in document["accents"]]
+    duplicates = [name for name, count in collections.Counter(ids).items() if count > 1]
+    if duplicates:
+        raise SystemExit(f"two surfaces share an id: {duplicates}")
 
     OUT.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     total = sum(len(f["steps"]) for f in document["families"].values()) + len(accent_rows)

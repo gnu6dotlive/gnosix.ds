@@ -42,6 +42,25 @@ Upstream references:
 - `https://github.com/zed-industries/zed/blob/main/crates/gpui/README.md`
 - `https://github.com/zed-industries/zed/blob/main/crates/gpui/examples/README.md`
 
+## The projection
+
+`src/` is a crate that carries the contract as Rust constants: the palette,
+the surface layer, the measured contrast ratios, the spacing steps and the
+weights. It is generated from `core/TOKENS.json` and `core/SURFACES.json` by
+`tools/project_tokens.py`, so the native projection is the same values under
+the same names as the web and the Android ones. There is no second palette
+to keep in step.
+
+```sh
+cargo test --manifest-path profiles/native/Cargo.toml
+```
+
+The crate has no dependencies, on purpose. The GPUI adapter is version-scoped
+and belongs to the implementation that uses it; what is ratified here is the
+projection, and that needs nothing but the standard library.
+
 ## Status
 
-This profile is `mapped`. No compiled gnos.ux fixture or target capture is included in this package, so it must not be called rendered or verified.
+This profile is `mapped`. The projection is generated and checked in every
+qualification, but no compiled gnos.ux fixture or target capture is included
+in this package, so it must not be called rendered or verified.

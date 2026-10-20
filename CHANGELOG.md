@@ -51,6 +51,44 @@ layer whole, and `figcraft/check_tokens.py` checks the two against each
 other on values with the names normalised, because they name the same token
 differently and a diff of the text would fail on two systems that agree.
 
+## [3.6.0] — 2026-10-20
+
+The contract stops being one shape and starts being portable.
+
+**The contrast table is derived.** `core/TOKENS.json` stated seven approved
+pairings and the ratio each one measures, and those numbers were written by
+hand - so a colour could change and the ratio beside it would keep saying
+what it said before. `tools/contrast.py` computes every declared ratio from
+the palette it names and fails when the two disagree. A pairing name reads
+`ink_on_substrate`, the way the contract reads it, where COL-002 puts white
+essential text on Signal Orange; a name that is a family means that
+family's base. Measured: changing Signal Orange by one unit moves the ratio
+from 6.43 to 6.47, and the gate says so.
+
+**The Android profile carries the surface layer.** `GnosixColors.kt` held
+the palette; it now holds the surfaces too, in `GnosixSurfaces`, generated
+from `core/SURFACES.json` like everything else. A Compose surface is the
+system's own and not a second one written by hand.
+
+**The native profile is not a stub.** `profiles/native/` was a status file
+and a README. It now ships the projection as Rust constants - the palette,
+the surfaces, the measured contrast ratios, the spacing and the weights -
+in a crate with no dependencies, generated from the one token source, with
+tests that say the palette is the approved one. It stays `mapped`: the
+projection is ratified, the fixture is not, and no render is claimed.
+
+**The tokens are exported in the formats other tools speak.** A design
+system is portable when the tools that consume it can read it, and a
+Tailwind config or a Style Dictionary build cannot read `core/TOKENS.json`
+without being told how. `profiles/interchange/` carries the W3C Design
+Tokens Community Group format and the Style Dictionary source format, both
+generated from the token source and both checked in every qualification.
+Neither is a second palette; they are the same values, reshaped for a
+consumer that already knows how to read them.
+
+The rules are not exported, on purpose. A format that carries values cannot
+carry a constraint, and a rule that is not checked is documentation.
+
 ## [Unreleased]
 
 Nothing yet. The next release is cut with

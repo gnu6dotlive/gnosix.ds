@@ -1,0 +1,17 @@
+[package]
+name = "gnosix-ds"
+version = "0.0.0"
+edition = "2021"
+description = "The gnosix portable contract as Rust constants, for a gnos.ux implementation to consume."
+license = "MIT"
+publish = false
+
+# No dependencies on purpose. The GPUI adapter is version-scoped and belongs
+# to the implementation that uses it; what is ratified here is the projection
+# - the values and the names - and that needs nothing but the standard
+# library.
+[dependencies]
+
+# This crate stands alone: it is a projection, not a member of any workspace
+# around it, and a checkout next to an unrelated Cargo.toml must not change it.
+[workspace]

@@ -1,0 +1,10 @@
+{
+  "profile": "interchange",
+  "status": "mapped",
+  "evidence": [],
+  "gaps": [
+    "No consumer of either export format is included in this package",
+    "The rules are not exported: a format that carries values cannot carry a constraint",
+    "The contrast ratios are exported as values, but only the measured pairings are derived"
+  ]
+}

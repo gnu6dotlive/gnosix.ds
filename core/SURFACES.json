@@ -13,7 +13,7 @@
       "role": "the raised surfaces of the dark substrate",
       "steps": [
         {
-          "id": "surface-dark-l166",
+          "id": "surface-dark-l166c12",
           "value": "#0B0F14",
           "lightness": 0.1665,
           "chroma": 0.0124,
@@ -23,7 +23,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l207",
+          "id": "surface-dark-l207c10",
           "value": "#14181C",
           "lightness": 0.2066,
           "chroma": 0.0101,
@@ -33,7 +33,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l211",
+          "id": "surface-dark-l211c10",
           "value": "#15191D",
           "lightness": 0.211,
           "chroma": 0.01,
@@ -43,7 +43,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l216",
+          "id": "surface-dark-l216c12",
           "value": "#161A1F",
           "lightness": 0.2158,
           "chroma": 0.0116,
@@ -53,7 +53,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l220",
+          "id": "surface-dark-l220c12",
           "value": "#171B20",
           "lightness": 0.2202,
           "chroma": 0.0115,
@@ -63,7 +63,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l236",
+          "id": "surface-dark-l236c12",
           "value": "#1A1F24",
           "lightness": 0.2364,
           "chroma": 0.0122,
@@ -73,7 +73,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l250",
+          "id": "surface-dark-l250c14",
           "value": "#1D2228",
           "lightness": 0.2495,
           "chroma": 0.0136,
@@ -83,7 +83,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l262",
+          "id": "surface-dark-l262c12",
           "value": "#20252A",
           "lightness": 0.2616,
           "chroma": 0.0119,
@@ -93,7 +93,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l262",
+          "id": "surface-dark-l262c13",
           "value": "#20252B",
           "lightness": 0.262,
           "chroma": 0.0134,
@@ -103,7 +103,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l282",
+          "id": "surface-dark-l282c16",
           "value": "#242A31",
           "lightness": 0.2821,
           "chroma": 0.0155,
@@ -113,7 +113,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l285",
+          "id": "surface-dark-l285c15",
           "value": "#242B31",
           "lightness": 0.2848,
           "chroma": 0.0148,
@@ -123,7 +123,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l343",
+          "id": "surface-dark-l343c15",
           "value": "#323A40",
           "lightness": 0.3434,
           "chroma": 0.0151,
@@ -133,7 +133,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l348",
+          "id": "surface-dark-l348c16",
           "value": "#343B42",
           "lightness": 0.3485,
           "chroma": 0.0155,
@@ -143,7 +143,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l372",
+          "id": "surface-dark-l372c19",
           "value": "#39414A",
           "lightness": 0.3715,
           "chroma": 0.0188,
@@ -153,7 +153,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l486",
+          "id": "surface-dark-l486c23",
           "value": "#55616C",
           "lightness": 0.4864,
           "chroma": 0.0231,
@@ -163,7 +163,7 @@
           "aliases": []
         },
         {
-          "id": "surface-dark-l505",
+          "id": "surface-dark-l505c22",
           "value": "#5B6671",
           "lightness": 0.5049,
           "chroma": 0.0221,
@@ -179,7 +179,7 @@
       "role": "the raised surfaces of the light substrate",
       "steps": [
         {
-          "id": "surface-light-l700",
+          "id": "surface-light-l700c24",
           "value": "#93A0AD",
           "lightness": 0.6997,
           "chroma": 0.0241,
@@ -189,7 +189,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l886",
+          "id": "surface-light-l886c7",
           "value": "#D6DADE",
           "lightness": 0.8864,
           "chroma": 0.007,
@@ -199,7 +199,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l908",
+          "id": "surface-light-l908c6",
           "value": "#DDE1E4",
           "lightness": 0.9075,
           "chroma": 0.006,
@@ -209,7 +209,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l920",
+          "id": "surface-light-l920c6",
           "value": "#E1E5E8",
           "lightness": 0.9197,
           "chroma": 0.0059,
@@ -219,7 +219,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l933",
+          "id": "surface-light-l933c4",
           "value": "#E9E9E6",
           "lightness": 0.9332,
           "chroma": 0.004,
@@ -229,7 +229,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l952",
+          "id": "surface-light-l952c7",
           "value": "#F1EFEA",
           "lightness": 0.9523,
           "chroma": 0.007,
@@ -239,7 +239,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l953",
+          "id": "surface-light-l953c2",
           "value": "#EEF0EF",
           "lightness": 0.9533,
           "chroma": 0.0025,
@@ -249,7 +249,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l966",
+          "id": "surface-light-l966c2",
           "value": "#F2F4F5",
           "lightness": 0.9659,
           "chroma": 0.0025,
@@ -259,7 +259,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l969",
+          "id": "surface-light-l969c2",
           "value": "#F3F5F6",
           "lightness": 0.9689,
           "chroma": 0.0025,
@@ -269,7 +269,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l978",
+          "id": "surface-light-l978c1",
           "value": "#F7F8F8",
           "lightness": 0.9784,
           "chroma": 0.0011,
@@ -279,7 +279,7 @@
           "aliases": []
         },
         {
-          "id": "surface-light-l988",
+          "id": "surface-light-l988c0",
           "value": "#FBFBFB",
           "lightness": 0.9881,
           "chroma": 0.0,
@@ -295,7 +295,7 @@
       "role": "the text on the dark substrate",
       "steps": [
         {
-          "id": "ink-on-dark-l678",
+          "id": "ink-on-dark-l678c24",
           "value": "#8D99A6",
           "lightness": 0.6776,
           "chroma": 0.0237,
@@ -305,7 +305,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l766",
+          "id": "ink-on-dark-l766c20",
           "value": "#AAB4C0",
           "lightness": 0.7658,
           "chroma": 0.0205,
@@ -315,7 +315,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l775",
+          "id": "ink-on-dark-l775c18",
           "value": "#ADB7C1",
           "lightness": 0.7747,
           "chroma": 0.0181,
@@ -325,7 +325,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l775",
+          "id": "ink-on-dark-l775c16",
           "value": "#AEB7C0",
           "lightness": 0.7751,
           "chroma": 0.0163,
@@ -335,7 +335,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l836",
+          "id": "ink-on-dark-l836c12",
           "value": "#C3CAD1",
           "lightness": 0.8357,
           "chroma": 0.0124,
@@ -345,7 +345,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l840",
+          "id": "ink-on-dark-l840c10",
           "value": "#C6CBD1",
           "lightness": 0.84,
           "chroma": 0.01,
@@ -355,7 +355,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l858",
+          "id": "ink-on-dark-l858c12",
           "value": "#CBD1D8",
           "lightness": 0.8581,
           "chroma": 0.0117,
@@ -365,7 +365,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l873",
+          "id": "ink-on-dark-l873c10",
           "value": "#D0D6DC",
           "lightness": 0.8732,
           "chroma": 0.0105,
@@ -375,7 +375,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l883",
+          "id": "ink-on-dark-l883c10",
           "value": "#D4D9DF",
           "lightness": 0.8832,
           "chroma": 0.0099,
@@ -385,7 +385,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-dark-l884",
+          "id": "ink-on-dark-l884c8",
           "value": "#D5D9DE",
           "lightness": 0.8837,
           "chroma": 0.0081,
@@ -401,7 +401,7 @@
       "role": "the text on the light substrate",
       "steps": [
         {
-          "id": "ink-on-light-l445",
+          "id": "ink-on-light-l445c22",
           "value": "#4B5560",
           "lightness": 0.4449,
           "chroma": 0.0221,
@@ -411,7 +411,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l454",
+          "id": "ink-on-light-l454c24",
           "value": "#4C5863",
           "lightness": 0.4541,
           "chroma": 0.0235,
@@ -421,7 +421,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l461",
+          "id": "ink-on-light-l461c23",
           "value": "#4E5A65",
           "lightness": 0.4613,
           "chroma": 0.0234,
@@ -431,7 +431,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l468",
+          "id": "ink-on-light-l468c23",
           "value": "#505C67",
           "lightness": 0.4685,
           "chroma": 0.0233,
@@ -441,7 +441,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l481",
+          "id": "ink-on-light-l481c25",
           "value": "#52606B",
           "lightness": 0.4812,
           "chroma": 0.0248,
@@ -451,7 +451,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l487",
+          "id": "ink-on-light-l487c21",
           "value": "#56616B",
           "lightness": 0.4868,
           "chroma": 0.0211,
@@ -461,7 +461,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l495",
+          "id": "ink-on-light-l495c20",
           "value": "#59636D",
           "lightness": 0.4947,
           "chroma": 0.0202,
@@ -471,7 +471,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l499",
+          "id": "ink-on-light-l499c23",
           "value": "#5A6470",
           "lightness": 0.499,
           "chroma": 0.0228,
@@ -481,7 +481,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l509",
+          "id": "ink-on-light-l509c20",
           "value": "#5D6771",
           "lightness": 0.5088,
           "chroma": 0.0201,
@@ -491,7 +491,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l539",
+          "id": "ink-on-light-l539c22",
           "value": "#64707B",
           "lightness": 0.539,
           "chroma": 0.0225,
@@ -501,7 +501,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l546",
+          "id": "ink-on-light-l546c22",
           "value": "#66727D",
           "lightness": 0.5459,
           "chroma": 0.0225,
@@ -511,7 +511,7 @@
           "aliases": []
         },
         {
-          "id": "ink-on-light-l554",
+          "id": "ink-on-light-l554c23",
           "value": "#697480",
           "lightness": 0.5539,
           "chroma": 0.0229,
@@ -527,7 +527,7 @@
       "role": "the hairlines between surfaces",
       "steps": [
         {
-          "id": "hairline-l310",
+          "id": "hairline-l310c15",
           "value": "#2B3138",
           "lightness": 0.3103,
           "chroma": 0.0151,
@@ -537,7 +537,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l345",
+          "id": "hairline-l345c13",
           "value": "#343A40",
           "lightness": 0.3451,
           "chroma": 0.0133,
@@ -547,7 +547,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l353",
+          "id": "hairline-l353c15",
           "value": "#363C43",
           "lightness": 0.3533,
           "chroma": 0.0146,
@@ -557,7 +557,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l405",
+          "id": "hairline-l405c17",
           "value": "#424A52",
           "lightness": 0.4049,
           "chroma": 0.017,
@@ -567,7 +567,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l431",
+          "id": "hairline-l431c20",
           "value": "#48515B",
           "lightness": 0.4307,
           "chroma": 0.0202,
@@ -577,7 +577,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l489",
+          "id": "hairline-l489c18",
           "value": "#59616A",
           "lightness": 0.4889,
           "chroma": 0.0175,
@@ -587,7 +587,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l705",
+          "id": "hairline-l705c17",
           "value": "#98A1AA",
           "lightness": 0.7046,
           "chroma": 0.0167,
@@ -597,7 +597,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l714",
+          "id": "hairline-l714c14",
           "value": "#9CA4AB",
           "lightness": 0.7145,
           "chroma": 0.0137,
@@ -607,7 +607,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l785",
+          "id": "hairline-l785c7",
           "value": "#B6B9BD",
           "lightness": 0.7846,
           "chroma": 0.0066,
@@ -617,7 +617,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l804",
+          "id": "hairline-l804c10",
           "value": "#B9C0C5",
           "lightness": 0.8038,
           "chroma": 0.0105,
@@ -627,7 +627,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l858",
+          "id": "hairline-l858c6",
           "value": "#CDD1D4",
           "lightness": 0.8585,
           "chroma": 0.006,
@@ -637,7 +637,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l865",
+          "id": "hairline-l865c6",
           "value": "#CFD3D6",
           "lightness": 0.8646,
           "chroma": 0.006,
@@ -647,7 +647,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l871",
+          "id": "hairline-l871c7",
           "value": "#D1D5D9",
           "lightness": 0.8711,
           "chroma": 0.007,
@@ -657,7 +657,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l907",
+          "id": "hairline-l907c7",
           "value": "#DCE1E4",
           "lightness": 0.9068,
           "chroma": 0.0068,
@@ -667,7 +667,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l917",
+          "id": "hairline-l917c4",
           "value": "#E1E4E6",
           "lightness": 0.9171,
           "chroma": 0.0042,
@@ -677,7 +677,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l921",
+          "id": "hairline-l921c5",
           "value": "#E3E5E8",
           "lightness": 0.9212,
           "chroma": 0.0046,
@@ -687,7 +687,7 @@
           "aliases": []
         },
         {
-          "id": "hairline-l926",
+          "id": "hairline-l926c4",
           "value": "#E4E7E9",
           "lightness": 0.9262,
           "chroma": 0.0042,
@@ -701,7 +701,7 @@
   },
   "accents": [
     {
-      "id": "ink-positive-l377",
+      "id": "ink-positive-l377c22",
       "role_id": "ink-positive",
       "value": "#39453C",
       "lightness": 0.3766,
@@ -712,7 +712,7 @@
       "aliases": []
     },
     {
-      "id": "surface-positive-l909",
+      "id": "surface-positive-l909c18",
       "role_id": "surface-positive",
       "value": "#DCE4D8",
       "lightness": 0.9094,
@@ -723,7 +723,7 @@
       "aliases": []
     },
     {
-      "id": "surface-warm-l971",
+      "id": "surface-warm-l971c18",
       "role_id": "surface-warm",
       "value": "#FFF3EA",
       "lightness": 0.9711,

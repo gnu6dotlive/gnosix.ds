@@ -63,3 +63,17 @@ def oklch_to_rgb(lightness: float, chroma: float, hue: float) -> tuple[int, int,
     g = -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s
     bb = -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s
     return (linear_to_srgb(r), linear_to_srgb(g), linear_to_srgb(bb))
+
+
+def relative_luminance(rgb) -> float:
+    """The WCAG relative luminance of a colour."""
+    r, g, b = (srgb_to_linear(c) for c in rgb)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast_ratio(first, second) -> float:
+    """The WCAG contrast ratio between two colours, 1 to 21."""
+    a = relative_luminance(first)
+    b = relative_luminance(second)
+    lighter, darker = max(a, b), min(a, b)
+    return (lighter + 0.05) / (darker + 0.05)

@@ -29,7 +29,15 @@ class CoreTests(unittest.TestCase):
         self.assertIn("RoyalBlueBase = Color(0xFF4169E1)", kotlin)
         self.assertIn("SignalOrangeBase = Color(0xFFFF6A00)", kotlin)
         self.assertIn("BeretGreenBase = Color(0xFF5F7F52)", kotlin)
-        self.assertEqual(kotlin.count(" = Color("), sum(len(ramp) for ramp in tokens["color"].values()))
+        # The palette and the surface layer are two blocks, and each carries
+        # only its own values: a surface is not a palette colour, and the
+        # projection does not blur the two.
+        palette = kotlin.split("object GnosixColors {")[1].split("}")[0]
+        surfaces = kotlin.split("object GnosixSurfaces {")[1].split("}")[0]
+        self.assertEqual(palette.count(" = Color("), sum(len(ramp) for ramp in tokens["color"].values()))
+        layer = json.loads((ROOT / "core/SURFACES.json").read_text())
+        expected = sum(len(spec["steps"]) for spec in layer["families"].values()) + len(layer["accents"])
+        self.assertEqual(surfaces.count(" = Color("), expected)
 
     def test_changed_web_projection_is_rejected(self):
         tokens = json.loads((ROOT / "core/TOKENS.json").read_text())

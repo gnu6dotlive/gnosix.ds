@@ -64,7 +64,8 @@ def public_form(version: str) -> str:
 
 def json_slots() -> list[tuple[str, str]]:
     """(relative path, dotted key path) for every JSON file that states a version."""
-    slots = [("core/rules.json", "version"), ("profiles/motion/motion.json", "version")]
+    slots = [("core/rules.json", "version"), ("profiles/motion/motion.json", "version"),
+             ("profiles/projection-map.json", "version")]
     for path in sorted((ROOT / "references").glob("*.json")):
         slots.append((f"references/{path.name}", "version"))
     return slots
@@ -245,6 +246,14 @@ def check_tag(version: str) -> list[str]:
     are two statements about the same state and may not disagree.
     """
     if not (ROOT / ".git").exists():
+        return []
+    # The tag speaks about a committed state. A working tree that is being
+    # edited may legitimately be ahead of the last commit - a version bump
+    # lands there before the release commit that carries it - and a tag
+    # says nothing about a state that has not been committed yet.
+    status = subprocess.run(["git", "status", "--porcelain"], cwd=ROOT,
+                            capture_output=True, text=True, check=False)
+    if status.returncode != 0 or status.stdout.strip():
         return []
     try:
         described = subprocess.run(

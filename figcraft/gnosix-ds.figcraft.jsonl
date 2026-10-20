@@ -54,144 +54,144 @@
 {"command": "style.create", "params": {"type": "paint", "name": "semantic / alert", "value": [{"type": "solid", "color": "#E5484D"}]}}
 {"command": "style.create", "params": {"type": "paint", "name": "semantic / warn", "value": [{"type": "solid", "color": "#F5A524"}]}}
 {"command": "variable.createCollection", "params": {"name": "Surface", "modes": ["Default"]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l166", "type": "color", "value": "#0B0F14"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l166", "value": [{"type": "solid", "color": "#0B0F14"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l207", "type": "color", "value": "#14181C"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l207", "value": [{"type": "solid", "color": "#14181C"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l211", "type": "color", "value": "#15191D"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l211", "value": [{"type": "solid", "color": "#15191D"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l216", "type": "color", "value": "#161A1F"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l216", "value": [{"type": "solid", "color": "#161A1F"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l220", "type": "color", "value": "#171B20"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l220", "value": [{"type": "solid", "color": "#171B20"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l236", "type": "color", "value": "#1A1F24"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l236", "value": [{"type": "solid", "color": "#1A1F24"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l250", "type": "color", "value": "#1D2228"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l250", "value": [{"type": "solid", "color": "#1D2228"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l262", "type": "color", "value": "#20252A"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l262", "value": [{"type": "solid", "color": "#20252A"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l262", "type": "color", "value": "#20252B"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l262", "value": [{"type": "solid", "color": "#20252B"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l282", "type": "color", "value": "#242A31"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l282", "value": [{"type": "solid", "color": "#242A31"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l285", "type": "color", "value": "#242B31"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l285", "value": [{"type": "solid", "color": "#242B31"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l343", "type": "color", "value": "#323A40"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l343", "value": [{"type": "solid", "color": "#323A40"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l348", "type": "color", "value": "#343B42"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l348", "value": [{"type": "solid", "color": "#343B42"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l372", "type": "color", "value": "#39414A"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l372", "value": [{"type": "solid", "color": "#39414A"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l486", "type": "color", "value": "#55616C"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l486", "value": [{"type": "solid", "color": "#55616C"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l505", "type": "color", "value": "#5B6671"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l505", "value": [{"type": "solid", "color": "#5B6671"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l700", "type": "color", "value": "#93A0AD"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l700", "value": [{"type": "solid", "color": "#93A0AD"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l886", "type": "color", "value": "#D6DADE"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l886", "value": [{"type": "solid", "color": "#D6DADE"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l908", "type": "color", "value": "#DDE1E4"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l908", "value": [{"type": "solid", "color": "#DDE1E4"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l920", "type": "color", "value": "#E1E5E8"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l920", "value": [{"type": "solid", "color": "#E1E5E8"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l933", "type": "color", "value": "#E9E9E6"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l933", "value": [{"type": "solid", "color": "#E9E9E6"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l952", "type": "color", "value": "#F1EFEA"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l952", "value": [{"type": "solid", "color": "#F1EFEA"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l953", "type": "color", "value": "#EEF0EF"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l953", "value": [{"type": "solid", "color": "#EEF0EF"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l966", "type": "color", "value": "#F2F4F5"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l966", "value": [{"type": "solid", "color": "#F2F4F5"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l969", "type": "color", "value": "#F3F5F6"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l969", "value": [{"type": "solid", "color": "#F3F5F6"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l978", "type": "color", "value": "#F7F8F8"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l978", "value": [{"type": "solid", "color": "#F7F8F8"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l988", "type": "color", "value": "#FBFBFB"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l988", "value": [{"type": "solid", "color": "#FBFBFB"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l678", "type": "color", "value": "#8D99A6"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l678", "value": [{"type": "solid", "color": "#8D99A6"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l766", "type": "color", "value": "#AAB4C0"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l766", "value": [{"type": "solid", "color": "#AAB4C0"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l775", "type": "color", "value": "#ADB7C1"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l775", "value": [{"type": "solid", "color": "#ADB7C1"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l775", "type": "color", "value": "#AEB7C0"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l775", "value": [{"type": "solid", "color": "#AEB7C0"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l836", "type": "color", "value": "#C3CAD1"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l836", "value": [{"type": "solid", "color": "#C3CAD1"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l840", "type": "color", "value": "#C6CBD1"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l840", "value": [{"type": "solid", "color": "#C6CBD1"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l858", "type": "color", "value": "#CBD1D8"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l858", "value": [{"type": "solid", "color": "#CBD1D8"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l873", "type": "color", "value": "#D0D6DC"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l873", "value": [{"type": "solid", "color": "#D0D6DC"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l883", "type": "color", "value": "#D4D9DF"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l883", "value": [{"type": "solid", "color": "#D4D9DF"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l884", "type": "color", "value": "#D5D9DE"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l884", "value": [{"type": "solid", "color": "#D5D9DE"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l445", "type": "color", "value": "#4B5560"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l445", "value": [{"type": "solid", "color": "#4B5560"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l454", "type": "color", "value": "#4C5863"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l454", "value": [{"type": "solid", "color": "#4C5863"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l461", "type": "color", "value": "#4E5A65"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l461", "value": [{"type": "solid", "color": "#4E5A65"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l468", "type": "color", "value": "#505C67"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l468", "value": [{"type": "solid", "color": "#505C67"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l481", "type": "color", "value": "#52606B"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l481", "value": [{"type": "solid", "color": "#52606B"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l487", "type": "color", "value": "#56616B"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l487", "value": [{"type": "solid", "color": "#56616B"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l495", "type": "color", "value": "#59636D"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l495", "value": [{"type": "solid", "color": "#59636D"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l499", "type": "color", "value": "#5A6470"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l499", "value": [{"type": "solid", "color": "#5A6470"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l509", "type": "color", "value": "#5D6771"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l509", "value": [{"type": "solid", "color": "#5D6771"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l539", "type": "color", "value": "#64707B"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l539", "value": [{"type": "solid", "color": "#64707B"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l546", "type": "color", "value": "#66727D"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l546", "value": [{"type": "solid", "color": "#66727D"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l554", "type": "color", "value": "#697480"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l554", "value": [{"type": "solid", "color": "#697480"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l310", "type": "color", "value": "#2B3138"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l310", "value": [{"type": "solid", "color": "#2B3138"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l345", "type": "color", "value": "#343A40"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l345", "value": [{"type": "solid", "color": "#343A40"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l353", "type": "color", "value": "#363C43"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l353", "value": [{"type": "solid", "color": "#363C43"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l405", "type": "color", "value": "#424A52"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l405", "value": [{"type": "solid", "color": "#424A52"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l431", "type": "color", "value": "#48515B"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l431", "value": [{"type": "solid", "color": "#48515B"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l489", "type": "color", "value": "#59616A"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l489", "value": [{"type": "solid", "color": "#59616A"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l705", "type": "color", "value": "#98A1AA"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l705", "value": [{"type": "solid", "color": "#98A1AA"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l714", "type": "color", "value": "#9CA4AB"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l714", "value": [{"type": "solid", "color": "#9CA4AB"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l785", "type": "color", "value": "#B6B9BD"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l785", "value": [{"type": "solid", "color": "#B6B9BD"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l804", "type": "color", "value": "#B9C0C5"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l804", "value": [{"type": "solid", "color": "#B9C0C5"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l858", "type": "color", "value": "#CDD1D4"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l858", "value": [{"type": "solid", "color": "#CDD1D4"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l865", "type": "color", "value": "#CFD3D6"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l865", "value": [{"type": "solid", "color": "#CFD3D6"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l871", "type": "color", "value": "#D1D5D9"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l871", "value": [{"type": "solid", "color": "#D1D5D9"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l907", "type": "color", "value": "#DCE1E4"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l907", "value": [{"type": "solid", "color": "#DCE1E4"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l917", "type": "color", "value": "#E1E4E6"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l917", "value": [{"type": "solid", "color": "#E1E4E6"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l921", "type": "color", "value": "#E3E5E8"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l921", "value": [{"type": "solid", "color": "#E3E5E8"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l926", "type": "color", "value": "#E4E7E9"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l926", "value": [{"type": "solid", "color": "#E4E7E9"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-positive-l377", "type": "color", "value": "#39453C"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-positive-l377", "value": [{"type": "solid", "color": "#39453C"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-positive-l909", "type": "color", "value": "#DCE4D8"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-positive-l909", "value": [{"type": "solid", "color": "#DCE4D8"}]}}
-{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-warm-l971", "type": "color", "value": "#FFF3EA"}}
-{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-warm-l971", "value": [{"type": "solid", "color": "#FFF3EA"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l166c12", "type": "color", "value": "#0B0F14"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l166c12", "value": [{"type": "solid", "color": "#0B0F14"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l207c10", "type": "color", "value": "#14181C"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l207c10", "value": [{"type": "solid", "color": "#14181C"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l211c10", "type": "color", "value": "#15191D"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l211c10", "value": [{"type": "solid", "color": "#15191D"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l216c12", "type": "color", "value": "#161A1F"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l216c12", "value": [{"type": "solid", "color": "#161A1F"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l220c12", "type": "color", "value": "#171B20"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l220c12", "value": [{"type": "solid", "color": "#171B20"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l236c12", "type": "color", "value": "#1A1F24"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l236c12", "value": [{"type": "solid", "color": "#1A1F24"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l250c14", "type": "color", "value": "#1D2228"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l250c14", "value": [{"type": "solid", "color": "#1D2228"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l262c12", "type": "color", "value": "#20252A"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l262c12", "value": [{"type": "solid", "color": "#20252A"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l262c13", "type": "color", "value": "#20252B"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l262c13", "value": [{"type": "solid", "color": "#20252B"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l282c16", "type": "color", "value": "#242A31"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l282c16", "value": [{"type": "solid", "color": "#242A31"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l285c15", "type": "color", "value": "#242B31"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l285c15", "value": [{"type": "solid", "color": "#242B31"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l343c15", "type": "color", "value": "#323A40"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l343c15", "value": [{"type": "solid", "color": "#323A40"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l348c16", "type": "color", "value": "#343B42"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l348c16", "value": [{"type": "solid", "color": "#343B42"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l372c19", "type": "color", "value": "#39414A"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l372c19", "value": [{"type": "solid", "color": "#39414A"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l486c23", "type": "color", "value": "#55616C"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l486c23", "value": [{"type": "solid", "color": "#55616C"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-dark-l505c22", "type": "color", "value": "#5B6671"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-dark-l505c22", "value": [{"type": "solid", "color": "#5B6671"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l700c24", "type": "color", "value": "#93A0AD"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l700c24", "value": [{"type": "solid", "color": "#93A0AD"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l886c7", "type": "color", "value": "#D6DADE"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l886c7", "value": [{"type": "solid", "color": "#D6DADE"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l908c6", "type": "color", "value": "#DDE1E4"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l908c6", "value": [{"type": "solid", "color": "#DDE1E4"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l920c6", "type": "color", "value": "#E1E5E8"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l920c6", "value": [{"type": "solid", "color": "#E1E5E8"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l933c4", "type": "color", "value": "#E9E9E6"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l933c4", "value": [{"type": "solid", "color": "#E9E9E6"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l952c7", "type": "color", "value": "#F1EFEA"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l952c7", "value": [{"type": "solid", "color": "#F1EFEA"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l953c2", "type": "color", "value": "#EEF0EF"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l953c2", "value": [{"type": "solid", "color": "#EEF0EF"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l966c2", "type": "color", "value": "#F2F4F5"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l966c2", "value": [{"type": "solid", "color": "#F2F4F5"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l969c2", "type": "color", "value": "#F3F5F6"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l969c2", "value": [{"type": "solid", "color": "#F3F5F6"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l978c1", "type": "color", "value": "#F7F8F8"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l978c1", "value": [{"type": "solid", "color": "#F7F8F8"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-light-l988c0", "type": "color", "value": "#FBFBFB"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-light-l988c0", "value": [{"type": "solid", "color": "#FBFBFB"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l678c24", "type": "color", "value": "#8D99A6"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l678c24", "value": [{"type": "solid", "color": "#8D99A6"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l766c20", "type": "color", "value": "#AAB4C0"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l766c20", "value": [{"type": "solid", "color": "#AAB4C0"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l775c18", "type": "color", "value": "#ADB7C1"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l775c18", "value": [{"type": "solid", "color": "#ADB7C1"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l775c16", "type": "color", "value": "#AEB7C0"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l775c16", "value": [{"type": "solid", "color": "#AEB7C0"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l836c12", "type": "color", "value": "#C3CAD1"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l836c12", "value": [{"type": "solid", "color": "#C3CAD1"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l840c10", "type": "color", "value": "#C6CBD1"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l840c10", "value": [{"type": "solid", "color": "#C6CBD1"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l858c12", "type": "color", "value": "#CBD1D8"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l858c12", "value": [{"type": "solid", "color": "#CBD1D8"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l873c10", "type": "color", "value": "#D0D6DC"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l873c10", "value": [{"type": "solid", "color": "#D0D6DC"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l883c10", "type": "color", "value": "#D4D9DF"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l883c10", "value": [{"type": "solid", "color": "#D4D9DF"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-dark-l884c8", "type": "color", "value": "#D5D9DE"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-dark-l884c8", "value": [{"type": "solid", "color": "#D5D9DE"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l445c22", "type": "color", "value": "#4B5560"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l445c22", "value": [{"type": "solid", "color": "#4B5560"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l454c24", "type": "color", "value": "#4C5863"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l454c24", "value": [{"type": "solid", "color": "#4C5863"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l461c23", "type": "color", "value": "#4E5A65"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l461c23", "value": [{"type": "solid", "color": "#4E5A65"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l468c23", "type": "color", "value": "#505C67"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l468c23", "value": [{"type": "solid", "color": "#505C67"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l481c25", "type": "color", "value": "#52606B"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l481c25", "value": [{"type": "solid", "color": "#52606B"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l487c21", "type": "color", "value": "#56616B"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l487c21", "value": [{"type": "solid", "color": "#56616B"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l495c20", "type": "color", "value": "#59636D"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l495c20", "value": [{"type": "solid", "color": "#59636D"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l499c23", "type": "color", "value": "#5A6470"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l499c23", "value": [{"type": "solid", "color": "#5A6470"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l509c20", "type": "color", "value": "#5D6771"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l509c20", "value": [{"type": "solid", "color": "#5D6771"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l539c22", "type": "color", "value": "#64707B"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l539c22", "value": [{"type": "solid", "color": "#64707B"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l546c22", "type": "color", "value": "#66727D"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l546c22", "value": [{"type": "solid", "color": "#66727D"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-on-light-l554c23", "type": "color", "value": "#697480"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-on-light-l554c23", "value": [{"type": "solid", "color": "#697480"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l310c15", "type": "color", "value": "#2B3138"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l310c15", "value": [{"type": "solid", "color": "#2B3138"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l345c13", "type": "color", "value": "#343A40"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l345c13", "value": [{"type": "solid", "color": "#343A40"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l353c15", "type": "color", "value": "#363C43"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l353c15", "value": [{"type": "solid", "color": "#363C43"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l405c17", "type": "color", "value": "#424A52"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l405c17", "value": [{"type": "solid", "color": "#424A52"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l431c20", "type": "color", "value": "#48515B"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l431c20", "value": [{"type": "solid", "color": "#48515B"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l489c18", "type": "color", "value": "#59616A"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l489c18", "value": [{"type": "solid", "color": "#59616A"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l705c17", "type": "color", "value": "#98A1AA"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l705c17", "value": [{"type": "solid", "color": "#98A1AA"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l714c14", "type": "color", "value": "#9CA4AB"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l714c14", "value": [{"type": "solid", "color": "#9CA4AB"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l785c7", "type": "color", "value": "#B6B9BD"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l785c7", "value": [{"type": "solid", "color": "#B6B9BD"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l804c10", "type": "color", "value": "#B9C0C5"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l804c10", "value": [{"type": "solid", "color": "#B9C0C5"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l858c6", "type": "color", "value": "#CDD1D4"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l858c6", "value": [{"type": "solid", "color": "#CDD1D4"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l865c6", "type": "color", "value": "#CFD3D6"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l865c6", "value": [{"type": "solid", "color": "#CFD3D6"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l871c7", "type": "color", "value": "#D1D5D9"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l871c7", "value": [{"type": "solid", "color": "#D1D5D9"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l907c7", "type": "color", "value": "#DCE1E4"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l907c7", "value": [{"type": "solid", "color": "#DCE1E4"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l917c4", "type": "color", "value": "#E1E4E6"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l917c4", "value": [{"type": "solid", "color": "#E1E4E6"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l921c5", "type": "color", "value": "#E3E5E8"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l921c5", "value": [{"type": "solid", "color": "#E3E5E8"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "hairline-l926c4", "type": "color", "value": "#E4E7E9"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / hairline-l926c4", "value": [{"type": "solid", "color": "#E4E7E9"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "ink-positive-l377c22", "type": "color", "value": "#39453C"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / ink-positive-l377c22", "value": [{"type": "solid", "color": "#39453C"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-positive-l909c18", "type": "color", "value": "#DCE4D8"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-positive-l909c18", "value": [{"type": "solid", "color": "#DCE4D8"}]}}
+{"command": "variable.create", "params": {"collection": "Surface", "name": "surface-warm-l971c18", "type": "color", "value": "#FFF3EA"}}
+{"command": "style.create", "params": {"type": "paint", "name": "Surface / surface-warm-l971c18", "value": [{"type": "solid", "color": "#FFF3EA"}]}}
 {"command": "page.add", "params": {"name": "Library"}}
 {"command": "node.create", "params": {"type": "frame", "name": "Library / board", "x": 0, "y": 0, "width": 1200, "height": 900, "props": {"fills": [{"type": "solid", "color": "#F7F3ED"}]}, "parent": null}}
 {"command": "node.create", "params": {"type": "frame", "name": "Rule Card", "x": 0, "y": 0, "width": 520, "height": 152, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 12}, "parent": {"$step": 195}}}

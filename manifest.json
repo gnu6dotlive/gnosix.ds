@@ -1,7 +1,7 @@
 {
-  "version": "3.5.0",
-  "name": "gnosix_DS V3.5.0 motion contract and alpha compositing variants",
-  "contract_digest": "ad90678cfbf1b5ee0258959dea28080e1d458578a150d87c4b28f48845cccb7c",
+  "version": "3.6.0",
+  "name": "gnosix_DS V3.6.0 motion contract and alpha compositing variants",
+  "contract_digest": "b7337764fb52bfb9118c94435463a70b2b109a58f514c5a4a87b6d187e4ea90e",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "7c80d8573e56c697bfba2a046a5c5ce248a9b45968dcbfbb8948f6913196285e"
+      "sha256": "f82fb80f1156630244cdd4af700489126f597b34ee82c4ef6a604302275557ea"
     },
     {
       "class": "evidence",
@@ -42,7 +42,7 @@
     {
       "class": "evidence",
       "path": "VERSION",
-      "sha256": "76120c1f2c4311c2154c22a6b58e00e411e0ebe76afae0daf608d9196c61f114"
+      "sha256": "138203e3f604a08fad0c4d0a297efe2c486219820dcdd053e72b7d843504c7a1"
     },
     {
       "class": "evidence",
@@ -442,7 +442,7 @@
     {
       "class": "core",
       "path": "core/SURFACES.json",
-      "sha256": "d8ed25684fcadd92d5a6e396de236a70250e5f054a4e0ea01002bdda924d0953"
+      "sha256": "672e825393db0e260b2ae1673bb779a7ffda8dd45caf1b870a83169f60aad116"
     },
     {
       "class": "core",
@@ -457,7 +457,7 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "bdaafd4e6e13516bbf076a76624a8371bc1f4f3ceafcc6ea45c64d98c02a0fa7"
+      "sha256": "b751127ad02a400fe59861677fbc4fefc63fcb30e2fc5c926f0ea0f48afb57ac"
     },
     {
       "class": "profile",
@@ -477,7 +477,7 @@
     {
       "class": "profile",
       "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixColors.kt",
-      "sha256": "c4e59e5c77a8dcf8fc1cc212e03c44cf537609f0bf7fb3a01fa4da73c7f27109"
+      "sha256": "99c0784d9b6f07adf785d4dcca3eb32569f3fb785e7f3e2f4ecc06ddd64adcb9"
     },
     {
       "class": "profile",
@@ -521,13 +521,33 @@
     },
     {
       "class": "profile",
+      "path": "profiles/interchange/README.md",
+      "sha256": "2e5422e475e00c617cbca79c661224a36574f07df9482bf8215adead8f69578e"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/interchange/gnosix.style-dictionary.json",
+      "sha256": "06eb0c60a29a1b7f25a12ebf08a8eee6769efa8273331b600476bfba3c680a5e"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/interchange/gnosix.tokens.json",
+      "sha256": "f8355a2053010650d70d25ee9bf07b985b744e676c1e2cb0a3984732797a4fa8"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/interchange/status.json",
+      "sha256": "9ff460c10e0ea0ea6c39d9ba0df144dd41c53919b21965452f208635b1c06405"
+    },
+    {
+      "class": "profile",
       "path": "profiles/motion/README.md",
       "sha256": "be40b150a5e61660ae084ad569993e51ccd157c9f5a24cf8704822d6e24748fb"
     },
     {
       "class": "profile",
       "path": "profiles/motion/motion.json",
-      "sha256": "7758f7587a1e72d9711780ff59336b6b3d181cba1f0f48e43b506d8e6025c009"
+      "sha256": "9d404b30bf6942cdafc08fcb7782f81960df18eedc081620ddd933ab045fe6e0"
     },
     {
       "class": "profile",
@@ -536,8 +556,28 @@
     },
     {
       "class": "profile",
+      "path": "profiles/native/Cargo.lock",
+      "sha256": "57b2bdc89007123bd513850cf45071fc4c173d5f8c42dbece95fe91cb3de6589"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/native/Cargo.toml",
+      "sha256": "b03f0f0f34b4fb008c92231139bae9ecee92dcbbbc1050da959134eef7dc6d3a"
+    },
+    {
+      "class": "profile",
       "path": "profiles/native/README.md",
-      "sha256": "f40d0d5ba3aab78bfb7fe4e1b7bd5147f7a452b04f19f2a5f67e6a4dab9dcc63"
+      "sha256": "8b928dba65b03d7155d6b5f6282b062afbf20198afbcd1f3a9f6c173c44276e4"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/native/src/lib.rs",
+      "sha256": "15ee4a07a95407a36af38bdc71868197817375b83331309681fb58d524b0700b"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/native/src/theme.rs",
+      "sha256": "66c1c6abcc7a30d4987cc1b53b3d056db97884fcbac8467c5b940fccecacc90d"
     },
     {
       "class": "profile",
@@ -547,7 +587,7 @@
     {
       "class": "profile",
       "path": "profiles/projection-map.json",
-      "sha256": "e479d9f20116a4b5b3d94fd07a7350fcf836401b220664bed66eead0827ae2f1"
+      "sha256": "72269c3c316f52a1c45cd4639fbd75025ab7b048d4445084e943a46585c8bb96"
     },
     {
       "class": "profile",
@@ -567,7 +607,7 @@
     {
       "class": "profile",
       "path": "profiles/web/demo.html",
-      "sha256": "abca896167a64d8e1ad509450c9cc03d54566bdbe30871b875a3500f99c089fa"
+      "sha256": "b4a5460a983bad4c2f4b30fc25c95c2180ac1fa73e1fa4822ad1bb00eaaadd8a"
     },
     {
       "class": "profile",
@@ -592,7 +632,7 @@
     {
       "class": "profile",
       "path": "profiles/web/tokens.css",
-      "sha256": "fc2f617ab83beccea0280c2574973fde88f0e3c3e86117d4df1ad61954e11e71"
+      "sha256": "89423cfeb35840ddcc22967f3d528b4ee0a8ecdef2cf36fd051a7833b6ec69b3"
     },
     {
       "class": "evidence",
@@ -602,62 +642,62 @@
     {
       "class": "reference",
       "path": "references/actions.json",
-      "sha256": "cf63519b4d63de07a028e62a0804a6d140c0722b0572b96bf60abb0c7c382509"
+      "sha256": "74a0be6cd6ce0af542a7b61e4759ddd23311655511942fd183c923658a0d1015"
     },
     {
       "class": "reference",
       "path": "references/actions.svg",
-      "sha256": "c212de7f8b4ce79f67f514af3b564134645d9d9473541d822bf204b9900e1059"
+      "sha256": "44610c7bc41f7e9fe833b7a608af6f73dbd69fa87cc5c781e97f20a1826da701"
     },
     {
       "class": "reference",
       "path": "references/adaptive.json",
-      "sha256": "9b25979ac9cbce1ecd4733638a813d31c0717a8a1c4e6bd13f4daff96963b8d9"
+      "sha256": "d979f887ea0f07d31f23a255ef0965224ef7fd73cde52796ef45819a128e17be"
     },
     {
       "class": "reference",
       "path": "references/adaptive.svg",
-      "sha256": "f7f81b19b052e3cc65b172d6607ebc2400c8883bb02227e2d3a7e681bfb8140d"
+      "sha256": "66a2ac04bd843b7d5eea0ec2646447df2f2ea691589d519cad458c257195e08d"
     },
     {
       "class": "reference",
       "path": "references/fields.json",
-      "sha256": "e9a32b5e5501e7b5ee3a89ca660f3d46899ac05d1fc49d9c0f2a82267f10a36c"
+      "sha256": "078e765d8279fa16c4c2b454db567170c984c3df962fcb4c28ce75199c677ee2"
     },
     {
       "class": "reference",
       "path": "references/fields.svg",
-      "sha256": "2a787e0e68a3d2081524b63f455606880a396e3a994e6311ca31f06aba3065b8"
+      "sha256": "68e34b7d9cf89cf4a06df7e28f573d0d537322fb3beb8e45cec6dd5b1275fa2d"
     },
     {
       "class": "reference",
       "path": "references/identity.json",
-      "sha256": "6093bb1ac9afbc7bbb59de3855a1e28a706006aea965384d6ae0f2d3f5aa589f"
+      "sha256": "4ea184ab29889db2c5bb91a7f5a5c020052543005e207e7546e52b50b2538e36"
     },
     {
       "class": "reference",
       "path": "references/identity.svg",
-      "sha256": "b23110a53add085038ffc7104954c592b1167bba6968e5525e1e32732004b9ed"
+      "sha256": "889058a782c4d9104d276acbb982c01cbcbb4a5d904da3b0271cda789dd178f8"
     },
     {
       "class": "reference",
       "path": "references/state.json",
-      "sha256": "5dfb55f5c1ffb62c25e59990e25dfdc0c03f61544a9a4eff1c65c2397be1f729"
+      "sha256": "f1bdd30721db8679be3d83d7231ca2c6f64a7cbe1c31a182b419050b4a7aa261"
     },
     {
       "class": "reference",
       "path": "references/state.svg",
-      "sha256": "b2ff0e4a0329e56f6a0be57418e8099a5551e34da60d6ed6716cc05129d95165"
+      "sha256": "4438f884400c1d1c5cb97046d552e17743ccb837658fc7472a9fbf767579ccd8"
     },
     {
       "class": "reference",
       "path": "references/surfaces.json",
-      "sha256": "e11f3a63d94081b1c19490ee2ec1be06855d6edfe420ce1717f39b2229fd0f63"
+      "sha256": "f9639df73a71c42e6766c76bf76d496d3c540e7ed7982ee8a4d67bfcd6c274ca"
     },
     {
       "class": "reference",
       "path": "references/surfaces.svg",
-      "sha256": "dcb4460ba3feb873bf03f917d8f8c4db3bbad45ddd9f83a1715b7e8c4380c54c"
+      "sha256": "54c36bc59e3c7d9f221cc7ac0dc05772945cf9a5abfb4a5ba0a5ed5630cd048a"
     },
     {
       "class": "evidence",
@@ -722,7 +762,7 @@
     {
       "class": "evidence",
       "path": "site/index.html",
-      "sha256": "12eb4959ebd2df9a6661b8ffe3b4d3e8616b2ddec23408510e1e5f738712d74a"
+      "sha256": "533b02273355fc30b6ea6ca3c6cbdbd68902d0c7351ff4371ff2efe70509e679"
     },
     {
       "class": "evidence",
@@ -732,12 +772,12 @@
     {
       "class": "evidence",
       "path": "site/site.webmanifest",
-      "sha256": "e28532151fcd823421dba03f927285b01db7aa43fc51c50afc0167f6c7665809"
+      "sha256": "db20d3a093e8962d0ccd5993b29f1a92d3aa281f487403c536a22021f03debce"
     },
     {
       "class": "evidence",
       "path": "site/style.css",
-      "sha256": "29daca9500150b708f710ed0d04fe1be556a30f4a2693148bcd7b2ac254540cf"
+      "sha256": "8900ac991625a55be979b3af57d6c69cba53268d79a2d5c0685bdd4b87b02026"
     },
     {
       "class": "evidence",
@@ -762,7 +802,7 @@
     {
       "class": "evidence",
       "path": "tests/test_core.py",
-      "sha256": "206684693c1ef0fb5c7057f0a3bb99d3771d35b333c5a9352b11ac30cb16d023"
+      "sha256": "20be4a69b53685104139a3ff903198281157e4b19cef9eac4b91e5440e57b2cf"
     },
     {
       "class": "evidence",
@@ -812,7 +852,7 @@
     {
       "class": "evidence",
       "path": "tools/build_surfaces.py",
-      "sha256": "25deb783ad6420cf8771d395bc5daaeca4404eb6da1e1f9a28df354e248b5a0c"
+      "sha256": "b8967017f897bbdc49f83ecd53d5765c2f13cb10b1355c18b0f1ef1924bfa7ad"
     },
     {
       "class": "evidence",
@@ -822,7 +862,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "a263de9d7c7136f90f0be432e39a7117b83f23b46c03544911bf04f247bffb70"
+      "sha256": "de1b678b5fd0be5b65c5620bb26b0f3365d23eaa5bdef68e6e79317123d99fa2"
     },
     {
       "class": "evidence",
@@ -836,18 +876,28 @@
     },
     {
       "class": "evidence",
+      "path": "tools/contrast.py",
+      "sha256": "ab79183a3332fef99e64243d29f80b02c8894da8443818a3849562ca2d5c41df"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/export_tokens.py",
+      "sha256": "8927269c180d1af8642a9fcf1f26bd61e3b8c96f8c6d55f241930a7ff5a6a628"
+    },
+    {
+      "class": "evidence",
       "path": "tools/fixtures.py",
       "sha256": "50636e8ac795677d1ab651021c6d9f6241fa2b04f2df2153b46cde162ed2ad8e"
     },
     {
       "class": "evidence",
       "path": "tools/oklch.py",
-      "sha256": "c7bbd4c655940f9ef0c69a1ae8d8bc82c45f856fd0a9e9fdf1c38bea32eb7c9a"
+      "sha256": "d8ca414c5ec140a0c99700b94e81cd679208f13d5b17e03ca99456e5ac4536b3"
     },
     {
       "class": "evidence",
       "path": "tools/project_tokens.py",
-      "sha256": "6f22164040ed33e6e1957ba73c509772f69e45ee84886d2e98e49482242982ab"
+      "sha256": "2d743c4cfc661390c03ae893024282dc57d5d2275bc4d6045614e9b48ff340c6"
     },
     {
       "class": "evidence",
@@ -887,7 +937,7 @@
     {
       "class": "evidence",
       "path": "tools/version.py",
-      "sha256": "9a2675845f6a32385bd95ac41c4cfac2d16aed73dcd965775fbe2806ca7f5b63"
+      "sha256": "98651f9004bdaad74dab8d95d89f9141bea797d11bcad8945a180d99b402d301"
     }
   ]
 }

@@ -8,4 +8,7 @@ __pycache__/
 # `python -m tools.release build` and is attached to the GitHub release; it
 # is not committed.
 dist/
+
+# The Rust build output of the native projection.
+target/
 .release-proof.json
