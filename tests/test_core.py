@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 from tools.project_tokens import (check_projection, layer_names, render_css,
-                                  render_kotlin, surface_names)
+                                  render_kotlin, spacing_names, surface_names)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,7 +56,8 @@ class CoreTests(unittest.TestCase):
         published = set(re.findall(r"(--gnosix-[A-Za-z0-9-]+)\s*:", css))
         roles = {name for name in published
                  if name.startswith(("--gnosix-font-", "--gnosix-weight-"))}
-        self.assertEqual(published - roles, layer_names(tokens) | surface_names())
+        self.assertEqual(published - roles,
+                         layer_names(tokens) | surface_names() | spacing_names(tokens))
 
     def test_changed_web_projection_is_rejected(self):
         tokens = json.loads((ROOT / "core/TOKENS.json").read_text())

@@ -33,6 +33,11 @@ def published_name(*parts: str) -> str:
     return "--gnosix-" + "-".join(word.lower() for word in out)
 
 
+def spacing_names(tokens: dict) -> set[str]:
+    """The names the contract's spacing scale publishes."""
+    return {published_name("space", step) for step in (tokens.get("spacing") or {})}
+
+
 def layer_names(tokens: dict) -> set[str]:
     """The names the contract's colour layers publish."""
     return {published_name(family, shade) for family, shade, _ in colors(tokens)}

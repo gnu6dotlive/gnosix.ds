@@ -857,7 +857,7 @@
     {
       "class": "evidence",
       "path": "tests/test_core.py",
-      "sha256": "5f632b24aea0e72ecc00922c22e0c933d502bf1e7a813c0935a6772de021e2c4"
+      "sha256": "72eee577caa2642de9eb126dbad35ad323a276f19334c2baceed4abedb3516f0"
     },
     {
       "class": "evidence",
@@ -987,7 +987,7 @@
     {
       "class": "evidence",
       "path": "tools/project_tokens.py",
-      "sha256": "278c5cf53549cc9493b91ce597b662b7da550dfc443428baee8e4093859792e1"
+      "sha256": "f939b8a27d63504a753df0208cd92079fbb3e7f8fe25de04f94f90a2cb37efec"
     },
     {
       "class": "evidence",
