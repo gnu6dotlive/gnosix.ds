@@ -631,6 +631,11 @@
     },
     {
       "class": "profile",
+      "path": "profiles/native/tests/readme_example.rs",
+      "sha256": "0f75cf4904665a8c3236e37d24f4d87b6b8a3b297d83ed789375d5d89285a2f1"
+    },
+    {
+      "class": "profile",
       "path": "profiles/projection-map.json",
       "sha256": "631e989bc2a54c1d612f0d78f489b02d37b8608bcb32b19dc02fd5b7e7c7bb36"
     },
@@ -917,7 +922,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "293a5514db5b0215d58b57fb0b897897b4d0fc5da05fe5ec927e6e434be130e3"
+      "sha256": "3d1ace7f3c4c35e6cc5bccc9f9af10d6f596df1e8ad86058b6aa19951f576df1"
     },
     {
       "class": "evidence",
@@ -948,6 +953,11 @@
       "class": "evidence",
       "path": "tools/fixtures.py",
       "sha256": "50636e8ac795677d1ab651021c6d9f6241fa2b04f2df2153b46cde162ed2ad8e"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/native_check.py",
+      "sha256": "eaf874aee7669491c6f9c04576feec48a9e189527bd67d494c937dfdfcd9ed55"
     },
     {
       "class": "evidence",

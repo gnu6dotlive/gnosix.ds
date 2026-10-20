@@ -54,6 +54,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("the FigCraft projection matches the source", ["figcraft/generate.py", "--check"]),
     ("the two token projections agree", ["figcraft/check_tokens.py"]),
     ("the web code matches the design", ["figcraft/handoff.py", "--board", "Web / Landing", "--check"]),
+    ("the native profile compiles and its tests pass", ["tools/native_check.py"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or
