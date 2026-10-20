@@ -340,24 +340,37 @@ def contract_vocabulary() -> set[str]:
     return names
 
 
-def declared_components(manifest: dict | None) -> set[str]:
-    """The component names a consumer declares as its own.
+def declared_components(manifest: dict | None) -> tuple[set[str], set[str]]:
+    """The component names a consumer declares, and the ones it owns.
 
     A product has components of its own — the things only it has. The
-    contract governs the interface, and the interface's components are the
-    contract's. What is left is the consumer's own vocabulary, and it
+    contract governs the interface, and the interface's components are
+    the contract's. What is left is the consumer's own vocabulary, and it
     says so, in a list, with the reason.
+
+    A declaration may also name the contract's component it *is*, under
+    another spelling: a field that calls the system's button
+    `button-variant` has not invented a button, it has spelled one
+    differently. Those names are the contract's, and the gate does not
+    count them against the consumer.
     """
     if not isinstance(manifest, dict):
-        return set()
-    out = set()
+        return set(), set()
+    own: set[str] = set()
+    translated: set[str] = set()
     for item in manifest.get("components") or []:
         if not isinstance(item, dict):
             continue
-        for name in item.get("names") or ([item["name"]] if "name" in item else []):
-            if isinstance(name, str):
-                out.add(name)
-    return out
+        names = item.get("names") or ([item["name"]] if "name" in item else [])
+        target = item.get("target")
+        for name in names:
+            if not isinstance(name, str):
+                continue
+            if target:
+                translated.add(name)
+            else:
+                own.add(name)
+    return own, translated
 
 
 def exempt_paths(consumer: Path) -> list[str]:
@@ -478,8 +491,11 @@ def report(consumer: Path, scan_result: dict) -> tuple[str, list[str]]:
         lines.append(f"- **The version of the system it honours:** {version or 'not declared'}")
 
     vocabulary = contract_vocabulary()
-    declared_own = declared_components(declared)
+    declared_own, translated = declared_components(declared)
     own_components = scan_result.get("components", set()) - vocabulary
+    # A name the consumer declares as the contract's own component, under
+    # another spelling, is the contract's and not a component of its own.
+    own_components -= translated
     undeclared = own_components - declared_own
     lines.append(f"- **Components the consumer defines that the contract has:** "
                  f"{len(scan_result.get('components', set()) & vocabulary)}")
