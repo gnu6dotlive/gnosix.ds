@@ -422,7 +422,7 @@
     {
       "class": "evidence",
       "path": "ci/GATES.md",
-      "sha256": "4ef749fbfc34f883a3360561ac807446ce20a43dc2b262a8e713b32c7a2d98f1"
+      "sha256": "da7c186712b4f16239403f64a2c55e8570ed630c176a1d50b6b5c559a0805e7a"
     },
     {
       "class": "core",
@@ -1016,8 +1016,13 @@
     },
     {
       "class": "evidence",
+      "path": "tools/check_workplace.py",
+      "sha256": "5b888bf73712d65d24ce26220637435b91e82ec132cc40d183556de7e5bdc4f8"
+    },
+    {
+      "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "31cb698f8e0122a915be2136e1895eb1bc16bd30aec89ec728140fb48033797c"
+      "sha256": "018506c63e087119fb878e0f4cd3f200502909974433ad0c4b71ad381dd19950"
     },
     {
       "class": "evidence",

@@ -241,4 +241,12 @@ python3 tools/eye.py
 
 Expected: `PASS: the surfaces render as the system carries them`.
 
+## 29. The work's own places are inside the repository
+
+```bash
+python3 tools/check_workplace.py
+```
+
+Expected: `PASS: the work's own places are inside the repository`.
+
 ---
