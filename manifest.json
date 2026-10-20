@@ -470,6 +470,31 @@
       "sha256": "b3b512481a93153b38e7014ab6f19315a7a64b4b13e3b43dc58772afafbdad20"
     },
     {
+      "class": "evidence",
+      "path": "packaging/gnu6-design/README.md",
+      "sha256": "cdaa8dfce0e80e6f858f572f925d019d945c70a8a9915157a655bb79a6bc5ddd"
+    },
+    {
+      "class": "evidence",
+      "path": "packaging/gnu6-design/gnu6-design.lock.json",
+      "sha256": "d02ec6878a6e056f6828acb92edb6e5ae6768d0eb7bac1fe1dc40bc5503181eb"
+    },
+    {
+      "class": "evidence",
+      "path": "packaging/gnu6-design/gnu6.css",
+      "sha256": "762e24fcafa93f8a439b1fe3032bc3e9a5f0bed4f9c4f573346dd856e471902c"
+    },
+    {
+      "class": "evidence",
+      "path": "packaging/gnu6-design/legacy/SpaceGrotesk-OFL.txt",
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    },
+    {
+      "class": "evidence",
+      "path": "packaging/gnu6-design/legacy/gnu6-1.1.1.css",
+      "sha256": "203051c2db426f809b63c7f131cd585b31f789d3bde7e187ab3ea29528286534"
+    },
+    {
       "class": "profile",
       "path": "profiles/android/README.md",
       "sha256": "b7afd7abc1eed253d5005027879cbf99ba2e1b4c3d125232e9ff44e87a2adfd2"
@@ -927,7 +952,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "3d1ace7f3c4c35e6cc5bccc9f9af10d6f596df1e8ad86058b6aa19951f576df1"
+      "sha256": "8631893dfaa6b6d545b7e0b6e6a001f52da9fac7eede7d22db39503da2ae866d"
     },
     {
       "class": "evidence",
@@ -973,6 +998,11 @@
       "class": "evidence",
       "path": "tools/oklch.py",
       "sha256": "d8ca414c5ec140a0c99700b94e81cd679208f13d5b17e03ca99456e5ac4536b3"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/package_gnu6_design.py",
+      "sha256": "fbaec8b64056fd23eeb1e54ac616fc124b4a00e40bee5cff9f5ca8d80614ef71"
     },
     {
       "class": "evidence",
