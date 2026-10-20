@@ -112,6 +112,33 @@ it is used rather than something its own lightness settles. So a hairline
 must reach 3:1 against the base of at least one of the two substrates, or
 it is a line nobody can see.
 
+## [3.7.0] — 2026-10-20
+
+The contract gains a component layer.
+
+`core/COMPONENTS.json` states the four components the contract defines -
+the action, the input, the state and the system text - with the roles each
+carries, the states it has, the tokens it uses and the accessibility it
+owes. The tokens are named, never valued, so a component that names a
+token the contract does not have is refused rather than projecting a custom
+property that resolves to nothing.
+
+`profiles/web/components.css` was written by hand, which meant the styles
+a consumer shipped and the contract behind them were two things that could
+disagree. It is now projected from the specification, and the projection is
+checked in every qualification. The difference is small and one of the
+differences is a repair: the hand-written stylesheet declared two of the
+three states of the state component, and the projection declares all three.
+
+The specification keeps the rules each component carries, so the rules are
+attached to the thing they govern rather than to a paragraph somewhere.
+
+What the specification does not do: it does not say that the public
+reference uses these components. The site styles its own layouts with its
+own class names and does not import the component stylesheet at all. That
+is a real gap - the contract's components are used in one place out of two -
+and it is the next thing to settle, not something to paper over here.
+
 ## [Unreleased]
 
 Nothing yet. The next release is cut with

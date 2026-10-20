@@ -1,6 +1,6 @@
 {
   "id": "fields",
-  "version": "3.6.1",
+  "version": "3.7.0",
   "artwork": "references/fields.svg",
   "roles": [
     "scalar-field",

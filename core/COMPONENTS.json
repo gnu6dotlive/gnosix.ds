@@ -1,0 +1,104 @@
+{
+  "schema": "gnosix_DS.components.v1",
+  "status": "CURRENT",
+  "note": [
+    "The components the contract defines. The web profile's components.css used to",
+    "be written by hand, which meant the styles a consumer shipped and the",
+    "contract behind it were two things that could disagree. The stylesheet is",
+    "now projected from this file.",
+    "",
+    "A component is stated by the roles it carries, the states it has, the tokens",
+    "it uses and the accessibility it owes. The tokens are named, never valued:",
+    "the value lives in core/TOKENS.json or core/SURFACES.json, and a component",
+    "that names a token the contract does not have is refused."
+  ],
+  "components": {
+    "action": {
+      "description": "The principal contextual operation, with a verb label. A disabled action is still readable, and a focus ring is visible without hover.",
+      "roles": ["primary-action", "secondary-action"],
+      "rules": ["COL-002", "A11Y-001"],
+      "states": ["default", "focus-visible", "disabled"],
+      "tokens": {
+        "background": "signalOrange/base",
+        "text": "neutral/anthracite",
+        "border": null
+      },
+      "geometry": {
+        "radius": {"px": 10},
+        "min-height": {"px": 44},
+        "padding": {"block": "0.85em", "inline": "1.2em"}
+      },
+      "typography": {"weight": "bold"},
+      "a11y": {
+        "focus-ring": {"token": "royalBlue/base", "width": {"px": 3}, "offset": {"px": 3}},
+        "min-target": {"px": 44}
+      },
+      "note": [
+        "The text is anthracite, not white. Both pairings are approved and the",
+        "white one measures 2.87 against Signal Orange, which is below AA for",
+        "body text; the anthracite one measures 6.43. COL-002 asks for white",
+        "on Signal Orange, and WCAG exempts the text of an active control from",
+        "the contrast requirement, so the rule is a floor and this is above it."
+      ]
+    },
+    "input": {
+      "description": "A field the user types into, with a visible label and a focus treatment that does not depend on hover.",
+      "roles": ["prompt", "content"],
+      "rules": ["A11Y-001"],
+      "states": ["default", "focus-visible"],
+      "tokens": {
+        "background": "neutral/pureWhite",
+        "text": "inherit",
+        "border": "neutral/hairline"
+      },
+      "geometry": {
+        "radius": {"px": 8},
+        "padding": {"all": "0.8em"},
+        "border-width": {"px": 1}
+      },
+      "a11y": {
+        "focus-ring": {"token": "royalBlue/base", "width": {"px": 3}, "offset": {"px": 3}},
+        "min-target": {"px": 44}
+      }
+    },
+    "state": {
+      "description": "A state, written in words, with a mark beside it. The mark is a disc and not a capsule: the reference scene shows a status capsule struck out, and CMP-001 forbids it.",
+      "roles": ["status-stable", "status-attention", "evidence"],
+      "rules": ["CMP-001", "A11Y-001", "STA-001"],
+      "states": ["stable", "pending", "attention"],
+      "tokens": {
+        "text": "inherit"
+      },
+      "mark": {
+        "shape": "disc",
+        "diameter": {"em": 0.45},
+        "by-state": {
+          "stable": "beretGreen/base",
+          "pending": "signalOrange/base",
+          "attention": "semantic/alert"
+        }
+      },
+      "geometry": {
+        "gap": {"em": 0.65},
+        "line-height": {"number": 1.45}
+      },
+      "a11y": {
+        "text-carrying": "The state is in the words, so the mark is never the only cue."
+      }
+    },
+    "system": {
+      "description": "Technical and metadata text: identifiers, measurements and evidence, set in tabular figures so columns of numbers align.",
+      "roles": ["evidence"],
+      "rules": ["TYP-001", "TYP-002"],
+      "states": ["default"],
+      "tokens": {
+        "text": "inherit"
+      },
+      "typography": {
+        "font": "primary",
+        "numeric": "tabular",
+        "tracking": {"em": 0.02}
+      }
+    }
+  }
+}

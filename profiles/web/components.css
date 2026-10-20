@@ -46,7 +46,7 @@ select {
 
 .gnosix-action {
   min-height: 44px;
-  padding: .85em 1.2em;
+  padding: 0.85em 1.2em;
   border: 1px solid transparent;
   border-radius: 10px;
   background: var(--gnosix-signal-orange-base);
@@ -67,7 +67,7 @@ select {
 }
 
 .gnosix-input {
-  padding: .8em;
+  padding: 0.8em;
   border: 1px solid var(--gnosix-neutral-hairline);
   border-radius: 8px;
   background: var(--gnosix-neutral-pure-white);
@@ -76,14 +76,14 @@ select {
 
 .gnosix-state {
   display: flex;
-  gap: .65em;
+  gap: 0.65em;
   align-items: baseline;
   line-height: 1.45;
 }
 
 .gnosix-state::before {
-  width: .45em;
-  height: .45em;
+  width: 0.45em;
+  height: 0.45em;
   border-radius: 50%;
   background: var(--gnosix-beret-green-base);
   content: "";
@@ -92,6 +92,10 @@ select {
 
 .gnosix-state[data-status="pending"]::before {
   background: var(--gnosix-signal-orange-base);
+}
+
+.gnosix-state[data-status="attention"]::before {
+  background: var(--gnosix-semantic-alert);
 }
 
 @media (prefers-reduced-motion: reduce) {

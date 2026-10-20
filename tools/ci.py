@@ -38,6 +38,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("the surface layer is derived", ["tools/surfaces.py", "--check"]),
     ("the contrast table measures what the palette says", ["tools/contrast.py", "--check"]),
     ("the token exports are current", ["tools/export_tokens.py", "--check"]),
+    ("the component stylesheet is what the spec projects", ["tools/project_components.py", "--check"]),
     ("every colour is one of ours", ["tools/contract_colors.py"]),
     ("the surfaces use the system's colours", ["tools/apply_surfaces.py", "--check"]),
     ("version authority", ["tools/version.py", "--check"]),
