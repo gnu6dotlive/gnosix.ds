@@ -8,6 +8,49 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [3.5.0] — 2026-10-20
+
+The contract gains a **surface layer**, and COL-001 becomes executable.
+
+**The package was breaking its own rule.** COL-001 says to read exact
+approved colours from core/TOKENS.json. The package's own public reference
+broke it in ninety-four places, with fifty-nine colours the contract never
+stated: a cool neutral ramp, from the dark substrate's elevation to the
+lightest hairline, with a couple of deliberate tints beside it. The web
+profile's demo had a second palette of its own. Nothing noticed, because
+nothing looked.
+
+`core/SURFACES.json` now states that layer: sixty-six steps and three
+accents, each with its lightness, its chroma and its role. The hue comes from
+the family's base token, so a step cannot drift out of the palette's family
+without the check noticing. The site's colours, the demo's colours and the
+reference scenes' colours are all now the system's own, and
+`tools/contract_colors.py` refuses any colour that is not a token, a step or
+a declared accent.
+
+The result is the same page, rendered from the system's own colours: the
+public reference and the version before it differ by **zero pixels** over
+twelve million, measured in a browser rather than argued.
+
+**The neutral ramp was already there.** The greys the site used are all at
+the hue of anthracite, with a chroma that rises as they get lighter — a
+perceptual ramp, arrived at by hand and never written down. The layer writes
+it down, and derives the values from what it states.
+
+**A step is named by its lightness, not by its position.** That is a
+correction of a mistake made in this release: the first version numbered the
+steps, and adding one renumbered the rest, and every file that referred to
+the old names quietly lost its colour — a custom property that resolves to
+nothing falls back to whatever the cascade gives it, so the page drained its
+own colour without a word. The names are now stable under insertion, and
+`tools/apply_surfaces.py --check` refuses a surface that refers to a
+property nothing defines.
+
+Also: the web projection and the FigCraft projection now carry the surface
+layer whole, and `figcraft/check_tokens.py` checks the two against each
+other on values with the names normalised, because they name the same token
+differently and a diff of the text would fail on two systems that agree.
+
 ## [Unreleased]
 
 Nothing yet. The next release is cut with

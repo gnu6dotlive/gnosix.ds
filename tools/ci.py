@@ -35,6 +35,9 @@ ROOT = Path(__file__).resolve().parents[1]
 # interpreter, so a gate behaves the same here and in CI.
 GATES: list[tuple[str, list[str]]] = [
     ("tokens project cleanly", ["tools/project_tokens.py", "--check"]),
+    ("the surface layer is derived", ["tools/surfaces.py", "--check"]),
+    ("every colour is one of ours", ["tools/contract_colors.py"]),
+    ("the surfaces use the system's colours", ["tools/apply_surfaces.py", "--check"]),
     ("version authority", ["tools/version.py", "--check"]),
     ("contract validates", ["tools/contract.py", "--validate", "."]),
     ("manifest matches the tree", ["tools/rebuild_manifest.py", "--check"]),

@@ -949,6 +949,35 @@ def token_variables(script: Script, tokens: dict) -> None:
                        value=[{"type": "solid", "color": value}])
 
 
+def surface_variables(script: Script, source: Path) -> int:
+    """The surface layer, as variables and styles.
+
+    The layer is stated in core/SURFACES.json, and the projection carries it
+    whole, so the surfaces a consumer draws with are the system's own rather
+    than a consumer's own.
+    """
+    path = source / "core/SURFACES.json"
+    if not path.is_file():
+        return 0
+    document = json.loads(path.read_text(encoding="utf-8"))
+    script.add("variable.createCollection", name="Surface", modes=["Default"])
+    count = 0
+    for spec in document.get("families", {}).values():
+        for step in spec.get("steps", []):
+            script.add("variable.create", collection="Surface", name=step["id"],
+                       type="color", value=step["value"].upper())
+            script.add("style.create", type="paint", name=f"Surface / {step['id']}",
+                       value=[{"type": "solid", "color": step["value"].upper()}])
+            count += 1
+    for accent in document.get("accents", []):
+        script.add("variable.create", collection="Surface", name=accent["id"],
+                   type="color", value=accent["value"].upper())
+        script.add("style.create", type="paint", name=f"Surface / {accent['id']}",
+                   value=[{"type": "solid", "color": accent["value"].upper()}])
+        count += 1
+    return count
+
+
 def build_script(source: Path) -> Script:
     """The command script that produces the project from the token source."""
     tokens = json.loads((source / "core/TOKENS.json").read_text(encoding="utf-8"))
@@ -978,6 +1007,7 @@ def build_script(source: Path) -> Script:
     script.add("file.rename", name=DOCUMENT_NAME)
 
     token_variables(script, tokens)
+    surface_variables(script, source)
     # The library first: the boards place instances of its mains.
     build_library_page(ctx, script, tokens, colour, manifest, source, mains)
     build_colour_page(ctx, script, tokens, colour)

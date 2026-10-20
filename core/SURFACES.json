@@ -1,0 +1,739 @@
+{
+  "schema": "gnosix_DS.surfaces.v1",
+  "status": "CURRENT",
+  "derivation": {
+    "space": "oklch",
+    "hue": "from the base token of the family",
+    "neutral_chroma_max": 0.008,
+    "note": "A surface is a step of its family's hue. The lightness and the chroma are chosen; the family is not. A step whose chroma is below neutral_chroma_max is achromatic, and its hue carries no information, so the family's hue does not apply to it. A colour outside this layer and outside the token source is not a colour of the system."
+  },
+  "families": {
+    "surface-dark": {
+      "base": "neutral/anthracite",
+      "role": "the raised surfaces of the dark substrate",
+      "steps": [
+        {
+          "id": "surface-dark-l166",
+          "value": "#0B0F14",
+          "lightness": 0.1665,
+          "chroma": 0.0124,
+          "hue": 254.2,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l207",
+          "value": "#14181C",
+          "lightness": 0.2066,
+          "chroma": 0.0101,
+          "hue": 248.3,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l211",
+          "value": "#15191D",
+          "lightness": 0.211,
+          "chroma": 0.01,
+          "hue": 248.3,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l216",
+          "value": "#161A1F",
+          "lightness": 0.2158,
+          "chroma": 0.0116,
+          "hue": 254.1,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l220",
+          "value": "#171B20",
+          "lightness": 0.2202,
+          "chroma": 0.0115,
+          "hue": 254.1,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l236",
+          "value": "#1A1F24",
+          "lightness": 0.2364,
+          "chroma": 0.0122,
+          "hue": 248.3,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l250",
+          "value": "#1D2228",
+          "lightness": 0.2495,
+          "chroma": 0.0136,
+          "hue": 253.1,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l262",
+          "value": "#20252A",
+          "lightness": 0.2616,
+          "chroma": 0.0119,
+          "hue": 248.3,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l262",
+          "value": "#20252B",
+          "lightness": 0.262,
+          "chroma": 0.0134,
+          "hue": 253.1,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l282",
+          "value": "#242A31",
+          "lightness": 0.2821,
+          "chroma": 0.0155,
+          "hue": 252.4,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l285",
+          "value": "#242B31",
+          "lightness": 0.2848,
+          "chroma": 0.0148,
+          "hue": 244.2,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l343",
+          "value": "#323A40",
+          "lightness": 0.3434,
+          "chroma": 0.0151,
+          "hue": 240.4,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l348",
+          "value": "#343B42",
+          "lightness": 0.3485,
+          "chroma": 0.0155,
+          "hue": 248.3,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l372",
+          "value": "#39414A",
+          "lightness": 0.3715,
+          "chroma": 0.0188,
+          "hue": 251.4,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l486",
+          "value": "#55616C",
+          "lightness": 0.4864,
+          "chroma": 0.0231,
+          "hue": 246.0,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-dark-l505",
+          "value": "#5B6671",
+          "lightness": 0.5049,
+          "chroma": 0.0221,
+          "hue": 248.3,
+          "role": "a raised surface on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        }
+      ]
+    },
+    "surface-light": {
+      "base": "neutral/anthracite",
+      "role": "the raised surfaces of the light substrate",
+      "steps": [
+        {
+          "id": "surface-light-l700",
+          "value": "#93A0AD",
+          "lightness": 0.6997,
+          "chroma": 0.0241,
+          "hue": 248.2,
+          "role": "a raised surface on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l886",
+          "value": "#D6DADE",
+          "lightness": 0.8864,
+          "chroma": 0.007,
+          "hue": 247.9,
+          "role": "a raised surface on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l908",
+          "value": "#DDE1E4",
+          "lightness": 0.9075,
+          "chroma": 0.006,
+          "hue": 239.8,
+          "role": "a raised surface on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l920",
+          "value": "#E1E5E8",
+          "lightness": 0.9197,
+          "chroma": 0.0059,
+          "hue": 239.8,
+          "role": "a raised surface on the light substrate",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l933",
+          "value": "#E9E9E6",
+          "lightness": 0.9332,
+          "chroma": 0.004,
+          "hue": 106.5,
+          "role": "a raised surface on the light substrate",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l952",
+          "value": "#F1EFEA",
+          "lightness": 0.9523,
+          "chroma": 0.007,
+          "hue": 88.6,
+          "role": "a raised surface on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l953",
+          "value": "#EEF0EF",
+          "lightness": 0.9533,
+          "chroma": 0.0025,
+          "hue": 165.1,
+          "role": "a raised surface on the light substrate",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l966",
+          "value": "#F2F4F5",
+          "lightness": 0.9659,
+          "chroma": 0.0025,
+          "hue": 228.8,
+          "role": "a raised surface on the light substrate",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l969",
+          "value": "#F3F5F6",
+          "lightness": 0.9689,
+          "chroma": 0.0025,
+          "hue": 228.8,
+          "role": "a raised surface on the light substrate",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l978",
+          "value": "#F7F8F8",
+          "lightness": 0.9784,
+          "chroma": 0.0011,
+          "hue": 197.1,
+          "role": "a raised surface on the light substrate",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "surface-light-l988",
+          "value": "#FBFBFB",
+          "lightness": 0.9881,
+          "chroma": 0.0,
+          "hue": 89.9,
+          "role": "a raised surface on the light substrate",
+          "neutral": true,
+          "aliases": []
+        }
+      ]
+    },
+    "ink-on-dark": {
+      "base": "neutral/anthracite",
+      "role": "the text on the dark substrate",
+      "steps": [
+        {
+          "id": "ink-on-dark-l678",
+          "value": "#8D99A6",
+          "lightness": 0.6776,
+          "chroma": 0.0237,
+          "hue": 250.3,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l766",
+          "value": "#AAB4C0",
+          "lightness": 0.7658,
+          "chroma": 0.0205,
+          "hue": 252.9,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l775",
+          "value": "#ADB7C1",
+          "lightness": 0.7747,
+          "chroma": 0.0181,
+          "hue": 248.1,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l775",
+          "value": "#AEB7C0",
+          "lightness": 0.7751,
+          "chroma": 0.0163,
+          "hue": 248.0,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l836",
+          "value": "#C3CAD1",
+          "lightness": 0.8357,
+          "chroma": 0.0124,
+          "hue": 248.0,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l840",
+          "value": "#C6CBD1",
+          "lightness": 0.84,
+          "chroma": 0.01,
+          "hue": 252.8,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l858",
+          "value": "#CBD1D8",
+          "lightness": 0.8581,
+          "chroma": 0.0117,
+          "hue": 252.1,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l873",
+          "value": "#D0D6DC",
+          "lightness": 0.8732,
+          "chroma": 0.0105,
+          "hue": 247.9,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l883",
+          "value": "#D4D9DF",
+          "lightness": 0.8832,
+          "chroma": 0.0099,
+          "hue": 252.8,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-dark-l884",
+          "value": "#D5D9DE",
+          "lightness": 0.8837,
+          "chroma": 0.0081,
+          "hue": 253.9,
+          "role": "text on the dark substrate",
+          "neutral": false,
+          "aliases": []
+        }
+      ]
+    },
+    "ink-on-light": {
+      "base": "neutral/anthracite",
+      "role": "the text on the light substrate",
+      "steps": [
+        {
+          "id": "ink-on-light-l445",
+          "value": "#4B5560",
+          "lightness": 0.4449,
+          "chroma": 0.0221,
+          "hue": 250.8,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l454",
+          "value": "#4C5863",
+          "lightness": 0.4541,
+          "chroma": 0.0235,
+          "hue": 246.0,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l461",
+          "value": "#4E5A65",
+          "lightness": 0.4613,
+          "chroma": 0.0234,
+          "hue": 246.0,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l468",
+          "value": "#505C67",
+          "lightness": 0.4685,
+          "chroma": 0.0233,
+          "hue": 246.0,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l481",
+          "value": "#52606B",
+          "lightness": 0.4812,
+          "chroma": 0.0248,
+          "hue": 241.8,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l487",
+          "value": "#56616B",
+          "lightness": 0.4868,
+          "chroma": 0.0211,
+          "hue": 245.7,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l495",
+          "value": "#59636D",
+          "lightness": 0.4947,
+          "chroma": 0.0202,
+          "hue": 248.2,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l499",
+          "value": "#5A6470",
+          "lightness": 0.499,
+          "chroma": 0.0228,
+          "hue": 253.0,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l509",
+          "value": "#5D6771",
+          "lightness": 0.5088,
+          "chroma": 0.0201,
+          "hue": 248.2,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l539",
+          "value": "#64707B",
+          "lightness": 0.539,
+          "chroma": 0.0225,
+          "hue": 245.9,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l546",
+          "value": "#66727D",
+          "lightness": 0.5459,
+          "chroma": 0.0225,
+          "hue": 245.9,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "ink-on-light-l554",
+          "value": "#697480",
+          "lightness": 0.5539,
+          "chroma": 0.0229,
+          "hue": 250.5,
+          "role": "text on the light substrate",
+          "neutral": false,
+          "aliases": []
+        }
+      ]
+    },
+    "hairline": {
+      "base": "neutral/anthracite",
+      "role": "the hairlines between surfaces",
+      "steps": [
+        {
+          "id": "hairline-l310",
+          "value": "#2B3138",
+          "lightness": 0.3103,
+          "chroma": 0.0151,
+          "hue": 252.3,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l345",
+          "value": "#343A40",
+          "lightness": 0.3451,
+          "chroma": 0.0133,
+          "hue": 248.2,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l353",
+          "value": "#363C43",
+          "lightness": 0.3533,
+          "chroma": 0.0146,
+          "hue": 252.3,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l405",
+          "value": "#424A52",
+          "lightness": 0.4049,
+          "chroma": 0.017,
+          "hue": 248.2,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l431",
+          "value": "#48515B",
+          "lightness": 0.4307,
+          "chroma": 0.0202,
+          "hue": 251.1,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l489",
+          "value": "#59616A",
+          "lightness": 0.4889,
+          "chroma": 0.0175,
+          "hue": 251.3,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l705",
+          "value": "#98A1AA",
+          "lightness": 0.7046,
+          "chroma": 0.0167,
+          "hue": 248.1,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l714",
+          "value": "#9CA4AB",
+          "lightness": 0.7145,
+          "chroma": 0.0137,
+          "hue": 244.3,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l785",
+          "value": "#B6B9BD",
+          "lightness": 0.7846,
+          "chroma": 0.0066,
+          "hue": 255.5,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l804",
+          "value": "#B9C0C5",
+          "lightness": 0.8038,
+          "chroma": 0.0105,
+          "hue": 238.5,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l858",
+          "value": "#CDD1D4",
+          "lightness": 0.8585,
+          "chroma": 0.006,
+          "hue": 239.8,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l865",
+          "value": "#CFD3D6",
+          "lightness": 0.8646,
+          "chroma": 0.006,
+          "hue": 239.8,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l871",
+          "value": "#D1D5D9",
+          "lightness": 0.8711,
+          "chroma": 0.007,
+          "hue": 247.9,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l907",
+          "value": "#DCE1E4",
+          "lightness": 0.9068,
+          "chroma": 0.0068,
+          "hue": 233.6,
+          "role": "a hairline between surfaces",
+          "neutral": false,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l917",
+          "value": "#E1E4E6",
+          "lightness": 0.9171,
+          "chroma": 0.0042,
+          "hue": 236.5,
+          "role": "a hairline between surfaces",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l921",
+          "value": "#E3E5E8",
+          "lightness": 0.9212,
+          "chroma": 0.0046,
+          "hue": 258.3,
+          "role": "a hairline between surfaces",
+          "neutral": true,
+          "aliases": []
+        },
+        {
+          "id": "hairline-l926",
+          "value": "#E4E7E9",
+          "lightness": 0.9262,
+          "chroma": 0.0042,
+          "hue": 236.5,
+          "role": "a hairline between surfaces",
+          "neutral": true,
+          "aliases": []
+        }
+      ]
+    }
+  },
+  "accents": [
+    {
+      "id": "ink-positive-l377",
+      "role_id": "ink-positive",
+      "value": "#39453C",
+      "lightness": 0.3766,
+      "chroma": 0.0218,
+      "hue": 152.9,
+      "role": "the green ink of a confirmed state",
+      "neutral": false,
+      "aliases": []
+    },
+    {
+      "id": "surface-positive-l909",
+      "role_id": "surface-positive",
+      "value": "#DCE4D8",
+      "lightness": 0.9094,
+      "chroma": 0.0182,
+      "hue": 134.9,
+      "role": "the green ground of a confirmed state",
+      "neutral": false,
+      "aliases": []
+    },
+    {
+      "id": "surface-warm-l971",
+      "role_id": "surface-warm",
+      "value": "#FFF3EA",
+      "lightness": 0.9711,
+      "chroma": 0.0177,
+      "hue": 59.5,
+      "role": "the warm glow behind the hero",
+      "neutral": false,
+      "aliases": [
+        "#FFF4EA"
+      ]
+    }
+  ]
+}

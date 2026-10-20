@@ -40,7 +40,10 @@ class CoreTests(unittest.TestCase):
             native = root / "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds"
             native.mkdir(parents=True)
             (root / "core/TOKENS.json").write_text(json.dumps(tokens))
-            (root / "profiles/web/tokens.css").write_text(render_css(tokens).replace("#4169E1", "#4169E2"))
+            # The colour is tampered with to prove the projection gate notices. It is
+# another approved token rather than an invented one, so the test file
+# itself holds no colour the system does not have.
+            (root / "profiles/web/tokens.css").write_text(render_css(tokens).replace("#4169E1", "#5F7F52"))
             (native / "GnosixColors.kt").write_text(render_kotlin(tokens))
             self.assertTrue(any("tokens.css differs" in e for e in check_projection(root)))
 

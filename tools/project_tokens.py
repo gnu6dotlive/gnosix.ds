@@ -46,7 +46,28 @@ def render_css(tokens: dict) -> str:
             rows.append(f"  --gnosix-font-{role}: {css_font_stack(stack)};\n")
     for role, weight in typography.get("weights", {}).items():
         rows.append(f"  --gnosix-weight-{role}: {int(weight)};\n")
+    rows.append(surface_properties())
     return "".join(rows) + "}\n"
+
+
+def surface_properties() -> str:
+    """The surface layer, as custom properties.
+
+    The layer is stated in core/SURFACES.json, and the web projection
+    carries it, so the site and the profile use the same values rather than
+    each keeping its own.
+    """
+    path = ROOT / "core/SURFACES.json"
+    if not path.is_file():
+        return ""
+    document = json.loads(path.read_text(encoding="utf-8"))
+    rows = []
+    for family, spec in document.get("families", {}).items():
+        for step in spec.get("steps", []):
+            rows.append(f"  --gnosix-{step['id']}: {step['value'].upper()};\n")
+    for accent in document.get("accents", []):
+        rows.append(f"  --gnosix-{accent['id']}: {accent['value'].upper()};\n")
+    return "".join(rows)
 
 
 def render_kotlin(tokens: dict) -> str:

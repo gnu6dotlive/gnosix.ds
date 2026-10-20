@@ -1,6 +1,6 @@
 {
   "id": "state",
-  "version": "3.4.2",
+  "version": "3.5.0",
   "artwork": "references/state.svg",
   "roles": [
     "prompt",
