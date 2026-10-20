@@ -68,8 +68,14 @@ DIST = ROOT / "dist"
 #
 # "handoff" is the web code generated from the projection: the repository's
 # own surface, not part of the contract it ships.
+#
+# "packaging" is the gnu6-design package, and it is in the package on
+# purpose: it is the artefact a consumer vendors, cut from the contract
+# by a tool that ships with the contract. A package whose whole purpose
+# is to be distributed is not distributed otherwise.
 PACKAGED_DIRS = [
     "assets",
+    "packaging",
     "core",
     "profiles",
     "references",
