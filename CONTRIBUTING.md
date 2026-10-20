@@ -42,14 +42,21 @@ not properly qualified locally first. So the job is run locally, in the
 runner's conditions, before anything is pushed:
 
 ```sh
-./ci/local-ci.sh
+./ci/local-ci.sh            # the CI job
+./ci/local-ci.sh --release  # the release job: qualify, build, check
 ```
 
 It reproduces the runner rather than approximating it: a fresh clone at a
 different path, the FigCraft engine pinned by its digest, the packaged font
 in the layout the engine reads it from, and the same qualification command.
-The setup lines are duplicated in `.github/workflows/ci.yml`, so if one
-changes the other must change with it.
+The provisioning is `ci/provision-engine.sh`, which the two workflows and
+this script all call, so the three cannot drift apart.
+
+**A release is proved with `--release` before the tag is pushed.** The
+release job qualifies the tagged state, builds the archive and publishes it;
+the simulation does the first two and checks that the third would accept
+what was built. Pushing a tag whose release job was never run locally is
+spending credit to find out whether the release script works.
 
 A change is ready to push when that command is green. A workflow is not
 ready to push when the local simulation cannot faithfully reproduce the

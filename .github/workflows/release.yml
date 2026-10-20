@@ -54,6 +54,15 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
 
+      # The release qualifies the tagged state before it ships it, and the
+      # qualification rebuilds the FigCraft projection, so it needs the
+      # engine and the font exactly as the CI job does. The same script
+      # provisions them in both, so the two cannot drift apart.
+      - name: Provision the FigCraft engine
+        run: |
+          set -euo pipefail
+          eval "$(ci/provision-engine.sh)"
+
       # A release that ships a state the gates reject is a release of a
       # broken contract. Qualification runs before the archive is built, not
       # after it is uploaded.

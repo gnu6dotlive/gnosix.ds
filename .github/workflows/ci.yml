@@ -60,44 +60,18 @@ jobs:
 
       # The FigCraft projection gate rebuilds the committed project and
       # compares it byte for byte, so it needs the FigCraft engine and the
-      # same font. The engine is pinned by its digest: a tool whose version
-      # is not stated is a tool whose verdict is not reproducible.
+      # same font. The engine is pinned by its digest, and the font is the one
+      # this repository packages, because the text layout is part of the
+      # file: a machine without it lays the text out differently and the
+      # bytes differ with the same script.
       #
-      # The font is the one this repository packages, and it is the only one
-      # that matters: the text layout is part of the file, so a machine
-      # without it lays the text out differently and the bytes differ with
-      # the same script.
-      #
-      # It goes in through XDG_DATA_HOME, which is where the engine reads
-      # user fonts from on Linux - its own documented mechanism, rather than
-      # a fontconfig file the engine does not read the way one expects. An
-      # earlier attempt to hand it over through FONTCONFIG_FILE worked
-      # locally and found no font at all on the runner.
-      #
-      # The system's own fonts are not pinned, and do not need to be: the
-      # same bytes come out with five fonts installed and with sixteen
-      # hundred, because every glyph in the projection is in Space Grotesk
-      # and nothing falls back.
+      # The provisioning is a script, not a block of YAML, so the CI job, the
+      # release job and the local simulation run the same one and cannot
+      # drift apart.
       - name: Provision the FigCraft engine
         run: |
           set -euo pipefail
-          url="https://github.com/storytold/figcraft/releases/download/v0.7.0/figcraft-0.7.0-linux-x86_64.tar.gz"
-          expected="f3ddf6194d2bbd523cd3195df90fa2cd5782d3946fc7833b7f6bf88fda37908d"
-          # Everything lands under the runner's temporary directory, not in
-          # the checkout: the manifest gate reads the tree, and an engine
-          # extracted into it would be reported as a hundred files the
-          # manifest does not describe.
-          curl -fsSL -o "$RUNNER_TEMP/figcraft-engine.tar.gz" "$url"
-          echo "$expected  $RUNNER_TEMP/figcraft-engine.tar.gz" | sha256sum --check --strict
-          mkdir -p "$RUNNER_TEMP/figcraft-engine"
-          tar xzf "$RUNNER_TEMP/figcraft-engine.tar.gz" -C "$RUNNER_TEMP/figcraft-engine" --strip-components=1
-          chmod +x "$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli"
-          "$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli" --version
-
-          mkdir -p "$RUNNER_TEMP/xdg/fonts"
-          cp assets/fonts/SpaceGrotesk-native.ttf "$RUNNER_TEMP/xdg/fonts/"
-          echo "XDG_DATA_HOME=$RUNNER_TEMP/xdg" >> "$GITHUB_ENV"
-          echo "FIGCRAFT_CLI=$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli" >> "$GITHUB_ENV"
+          eval "$(ci/provision-engine.sh)"
 
       # Report the environment before the qualification rather than after a
       # failure. A verdict without the versions that produced it is not
