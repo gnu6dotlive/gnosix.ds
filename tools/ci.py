@@ -44,7 +44,16 @@ GATES: list[tuple[str, list[str]]] = [
     ("favicons are the right crop", ["tools/build_favicons.py", "--check"]),
     ("icon subset is vendored", ["tools/vendor_icons.py", "--check"]),
     ("no ad-hoc glyphs", ["tools/apply_icons.py", "--check"]),
+    ("the FigCraft projection matches the source", ["figcraft/generate.py", "--check"]),
 ]
+
+# A gate may report that it could not run, rather than that it passed or
+# failed. The FigCraft projection gate is the case: the projection is not
+# part of the package, so a copy of the package has nothing to compare, and
+# the comparison of the project itself needs a FigCraft CLI that a CI
+# runner does not have. Exit code 3 is that third answer, and it is not a
+# pass.
+SKIP = 3
 
 # The suite runs on the standard library so that qualification never depends
 # on a package that is not installed. pytest is run as well when it is
@@ -71,16 +80,29 @@ def main(argv: list[str] | None = None) -> int:
     if args.only:
         gates = [(label, cmd) for label, cmd in GATES if args.only in label]
 
-    results: list[tuple[str, bool, float, str]] = []
+    results: list[tuple[str, str, float, str]] = []
     started = time.monotonic()
 
     for label, cmd in gates:
         began = time.monotonic()
+        # A gate whose script is not in this copy of the package cannot run.
+        # The FigCraft projection is not package content, so the package
+        # itself has no projection to check; that is a skip, not a failure.
+        if not (ROOT / cmd[0]).exists():
+            results.append((label, "SKIP", time.monotonic() - began,
+                            f"not present in this copy: {cmd[0]}"))
+            print(f"SKIP  {label}  (not present in this copy)")
+            continue
         code, output = run(cmd)
         elapsed = time.monotonic() - began
-        ok = code == 0
-        results.append((label, ok, elapsed, output))
-        print(f"{'PASS' if ok else 'FAIL'}  {label}  ({elapsed:.1f}s)")
+        if code == SKIP:
+            verdict = "SKIP"
+        elif code == 0:
+            verdict = "PASS"
+        else:
+            verdict = "FAIL"
+        results.append((label, verdict, elapsed, output))
+        print(f"{verdict}  {label}  ({elapsed:.1f}s)")
 
     # --gates-only exists so that the gates can be run without the test
     # suite. The suite contains a test that extracts the distributable
@@ -92,7 +114,7 @@ def main(argv: list[str] | None = None) -> int:
         code, output = run(TEST_SUITE)
         elapsed = time.monotonic() - began
         ok = code == 0
-        results.append(("test suite", ok, elapsed, output))
+        results.append(("test suite", "PASS" if ok else "FAIL", elapsed, output))
         print(f"{'PASS' if ok else 'FAIL'}  test suite  ({elapsed:.1f}s)")
 
     if not args.only and not args.gates_only:
@@ -105,10 +127,11 @@ def main(argv: list[str] | None = None) -> int:
             code, output = run(["-m", "pytest", "-q"])
             elapsed = time.monotonic() - began
             ok = code == 0
-            results.append(("pytest", ok, elapsed, output))
+            results.append(("pytest", "PASS" if ok else "FAIL", elapsed, output))
             print(f"{'PASS' if ok else 'FAIL'}  pytest  ({elapsed:.1f}s)")
 
-    failed = [(label, output) for label, ok, _, output in results if not ok]
+    failed = [(label, output) for label, verdict, _, output in results if verdict == "FAIL"]
+    skipped = [(label, output) for label, verdict, _, output in results if verdict == "SKIP"]
     total = time.monotonic() - started
 
     print()
@@ -120,7 +143,13 @@ def main(argv: list[str] | None = None) -> int:
             print(output[-4000:] if len(output) > 4000 else output)
         return 1
 
-    print(f"PASS: {len(results)} gates in {total:.1f}s")
+    for label, output in skipped:
+        reason = output.splitlines()[0] if output else "no reason given"
+        print(f"SKIP  {label}: {reason}")
+
+    passed = len(results) - len(failed) - len(skipped)
+    print(f"PASS: {passed} gates in {total:.1f}s"
+          + (f" ({len(skipped)} skipped)" if skipped else ""))
     return 0
 
 

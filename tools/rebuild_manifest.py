@@ -51,11 +51,12 @@ def iter_package_files(root: Path) -> list[str]:
     # is built from would make the manifest depend on whether the archive
     # happened to exist.
     #
-    # ".github" is the CI configuration. It is not package content: it
-    # describes how the repository is built, and the package is the thing
-    # that is built. The manifest describes the package, so a file the
-    # package does not carry is not a file the manifest hashes.
-    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github"}
+    # ".github" is the CI configuration and "figcraft" is the FigCraft
+    # projection. Neither is package content: they describe how the
+    # repository is built and consumed, and the package is the thing that is
+    # built. The manifest describes the package, so a file the package does
+    # not carry is not a file the manifest hashes.
+    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "figcraft"}
     out = []
     for path in sorted(root.rglob("*")):
         if not path.is_file():

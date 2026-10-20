@@ -58,6 +58,47 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements.txt
 
+      # The FigCraft projection gate rebuilds the committed project and
+      # compares it byte for byte, so it needs the FigCraft engine and the
+      # same fonts. The engine is pinned by its digest: a tool whose version
+      # is not stated is a tool whose verdict is not reproducible.
+      #
+      # The font is the one this repository packages, and it is the only one
+      # that matters: the text layout is part of the file, so a machine
+      # without it lays the text out differently and the bytes differ with
+      # the same script. Fontconfig is pointed at a directory holding just
+      # that font so the result does not depend on what the runner happens
+      # to have installed.
+      - name: Provision the FigCraft engine
+        run: |
+          set -euo pipefail
+          url="https://github.com/storytold/figcraft/releases/download/v0.7.0/figcraft-0.7.0-linux-x86_64.tar.gz"
+          expected="f3ddf6194d2bbd523cd3195df90fa2cd5782d3946fc7833b7f6bf88fda37908d"
+          # Everything lands under the runner's temporary directory, not in
+          # the checkout: the manifest gate reads the tree, and an engine
+          # extracted into it would be reported as a hundred files the
+          # manifest does not describe.
+          curl -fsSL -o "$RUNNER_TEMP/figcraft-engine.tar.gz" "$url"
+          echo "$expected  $RUNNER_TEMP/figcraft-engine.tar.gz" | sha256sum --check --strict
+          mkdir -p "$RUNNER_TEMP/figcraft-engine"
+          tar xzf "$RUNNER_TEMP/figcraft-engine.tar.gz" -C "$RUNNER_TEMP/figcraft-engine" --strip-components=1
+          chmod +x "$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli"
+          "$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli" --version
+
+          mkdir -p "$RUNNER_TEMP/fonts" "$RUNNER_TEMP/fontcache"
+          cp assets/fonts/SpaceGrotesk-native.ttf "$RUNNER_TEMP/fonts/"
+          cat > "$RUNNER_TEMP/fonts.conf" <<FONTCONF
+          <?xml version="1.0"?>
+          <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+          <fontconfig>
+            <dir>$RUNNER_TEMP/fonts</dir>
+            <cachedir>$RUNNER_TEMP/fontcache</cachedir>
+            <include ignore_missing="yes">/etc/fonts/conf.d</include>
+          </fontconfig>
+          FONTCONF
+          echo "FONTCONFIG_FILE=$RUNNER_TEMP/fonts.conf" >> "$GITHUB_ENV"
+          echo "FIGCRAFT_CLI=$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli" >> "$GITHUB_ENV"
+
       # Report the environment before the qualification rather than after a
       # failure. A verdict without the versions that produced it is not
       # reproducible, and the versions are part of what the verdict is about.
@@ -66,6 +107,7 @@ jobs:
           set -euo pipefail
           python3 -VV
           python3 -c "import numpy, PIL; print('numpy', numpy.__version__); print('pillow', PIL.__version__)"
+          "$FIGCRAFT_CLI" --version
           git rev-parse HEAD
           git status --porcelain && echo "(clean tree above)"
 
