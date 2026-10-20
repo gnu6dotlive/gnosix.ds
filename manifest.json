@@ -1,6 +1,6 @@
 {
-  "version": "3.7.0",
-  "name": "gnosix_DS V3.7.0 motion contract and alpha compositing variants",
+  "version": "3.8.0",
+  "name": "gnosix_DS V3.8.0 motion contract and alpha compositing variants",
   "contract_digest": "cb16438de565f844872af023dffa44fd993d224351bfc677611667b70618868a",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [

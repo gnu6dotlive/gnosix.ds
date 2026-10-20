@@ -1,5 +1,5 @@
 {
-  "version": "3.7.0",
+  "version": "3.8.0",
   "rules": [
     {
       "id": "ID-001",
@@ -165,6 +165,17 @@
       ],
       "observable": "Every interface glyph in a consumer surface resolves to a file listed in assets/icons/icon-manifest.json, at the upstream digest recorded there. Country and organisation flags resolve to the ratified Tabler Flags subset.",
       "test": "Run tools/vendor_icons.py --check and confirm no consumer surface contains a hand-authored <svg> glyph or a Unicode character standing in for an icon."
+    },
+    {
+      "id": "NAM-001",
+      "level": "MUST",
+      "domain": "naming",
+      "statement": "A published token name is the layer id, kebab-cased, under the --gnosix- prefix. No projection may rename a layer id, and no consumer may write a name the system does not publish.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "The set of --gnosix-* names in the published web projection equals the set derived from the layer ids in core/TOKENS.json and core/SURFACES.json by the one published function.",
+      "test": "The naming gate derives the expected name set from the contract and compares it with the published projection. The rule was moved out of the projection and into the contract because a vendored copy of the namespace drifted in spelling while every projection still agreed with itself."
     }
   ]
 }

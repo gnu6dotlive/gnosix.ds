@@ -1,10 +1,12 @@
 import hashlib
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
 
-from tools.project_tokens import check_projection, render_css, render_kotlin
+from tools.project_tokens import (check_projection, layer_names, render_css,
+                                  render_kotlin, surface_names)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,6 +40,23 @@ class CoreTests(unittest.TestCase):
         layer = json.loads((ROOT / "core/SURFACES.json").read_text())
         expected = sum(len(spec["steps"]) for spec in layer["families"].values()) + len(layer["accents"])
         self.assertEqual(surfaces.count(" = Color("), expected)
+
+    def test_published_names_follow_the_naming_rule(self):
+        """Every published name is a layer id, kebab-cased, under the prefix.
+
+        The rule is NAM-001 in core/rules.json, and its implementation is
+        published_name(). The gate asks the same function the projection
+        asks, so it cannot pass by agreeing with a second copy of the
+        rule. This is the gate that would have caught the vendored copy
+        of the namespace, which drifted in fifteen spellings while every
+        projection still agreed with itself.
+        """
+        tokens = json.loads((ROOT / "core/TOKENS.json").read_text())
+        css = (ROOT / "profiles/web/tokens.css").read_text(encoding="utf-8")
+        published = set(re.findall(r"(--gnosix-[A-Za-z0-9-]+)\s*:", css))
+        roles = {name for name in published
+                 if name.startswith(("--gnosix-font-", "--gnosix-weight-"))}
+        self.assertEqual(published - roles, layer_names(tokens) | surface_names())
 
     def test_changed_web_projection_is_rejected(self):
         tokens = json.loads((ROOT / "core/TOKENS.json").read_text())

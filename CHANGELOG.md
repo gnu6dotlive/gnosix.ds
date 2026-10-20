@@ -8,6 +8,43 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [3.8.0] — 2026-10-20
+
+The system is audited against the ten private frontends that use it, and
+one rule that was living in the wrong place comes home.
+
+**The namespace had drifted without anybody being able to check it.** The
+rule that a published token name is the layer id, kebab-cased, under the
+`--gnosix-` prefix, lived in `tools/project_tokens.py` — inside a
+projection, not in the contract. Two repositories ship a vendored copy of
+the namespace, and their copy is spelled differently: fifteen of its
+twenty-one names disagree with the published spelling while **all
+twenty-one values are identical**. Not one colour has drifted. Fifteen
+spellings have. The copy also carries twenty-one of the ninety colours the
+system publishes.
+
+Nothing could have caught this. Each projection agreed with itself, and
+the rule that decided the spelling was not written down anywhere a reader
+could check it against. **NAM-001** now states it in `core/rules.json`,
+its implementation is one function in `tools/project_tokens.py`, and a gate
+asserts that the published name set equals the name set derived from the
+contract. The gate was proved to bite: with the vendored spelling
+substituted, it fails.
+
+**The audit.** `tools/audit_frontends.py` walks the ten frontends and
+produces a matrix and an inventory under `profiles/frontend-audit/`. The
+matrix is the work list — colours, families and lengths each frontend uses
+that the contract does not sanction — and the counts are the point, because
+a yes/no would have hidden the size of the job. `ABSORPTION.md` reads the
+numbers: what each frontend must change, in what order, and the four
+decisions that are the owner's to make.
+
+The palette is already shared. Eight of the ten frontends carry the
+system's colours, to the byte, under their own names. The gap is spelling
+and components, not taste. Two of the ten are not consumers at all, and
+one of those claims in its source that it derives from a gnosix path that
+does not exist.
+
 ## [3.5.0] — 2026-10-20
 
 The contract gains a **surface layer**, and COL-001 becomes executable.

@@ -16,6 +16,43 @@ def words(name: str) -> list[str]:
     return re.sub(r"([a-z])([A-Z])", r"\1 \2", name).split()
 
 
+def published_name(*parts: str) -> str:
+    """The published name of a layer.
+
+    One rule, one place. The published name of a layer is its id,
+    kebab-cased, under the --gnosix- prefix. The rule lives here, in the
+    tool, rather than in a projection, so that a consumer, a projection
+    and a gate can all ask for it and get the same answer. It used to
+    live only in the web projection, which is how a vendored copy of the
+    namespace was able to drift for so long without anybody being able to
+    check it against anything.
+    """
+    out = []
+    for part in parts:
+        out.extend(words(part))
+    return "--gnosix-" + "-".join(word.lower() for word in out)
+
+
+def layer_names(tokens: dict) -> set[str]:
+    """The names the contract's colour layers publish."""
+    return {published_name(family, shade) for family, shade, _ in colors(tokens)}
+
+
+def surface_names() -> set[str]:
+    """The names the contract's surface layer publishes."""
+    path = ROOT / "core/SURFACES.json"
+    if not path.is_file():
+        return set()
+    document = json.loads(path.read_text(encoding="utf-8"))
+    names = set()
+    for spec in document.get("families", {}).values():
+        for step in spec.get("steps", []):
+            names.add(published_name(step["id"]))
+    for accent in document.get("accents", []):
+        names.add(published_name(accent["id"]))
+    return names
+
+
 def colors(tokens: dict):
     for family, ramp in tokens["color"].items():
         for shade, value in ramp.items():
@@ -37,9 +74,7 @@ def css_font_stack(values: list[str]) -> str:
 def render_css(tokens: dict) -> str:
     rows = [":root {\n"]
     for family, shade, value in colors(tokens):
-        name = "-".join(part.lower() for part in words(family))
-        shade_name = "-".join(part.lower() for part in words(shade))
-        rows.append(f"  --gnosix-{name}-{shade_name}: {value};\n")
+        rows.append(f"  {published_name(family, shade)}: {value};\n")
     typography = tokens.get("typography", {})
     for role in ("primary", "display", "body", "navigation", "controls", "technical"):
         stack = typography.get(role)
@@ -65,9 +100,9 @@ def surface_properties() -> str:
     rows = []
     for family, spec in document.get("families", {}).items():
         for step in spec.get("steps", []):
-            rows.append(f"  --gnosix-{step['id']}: {step['value'].upper()};\n")
+            rows.append(f"  {published_name(step['id'])}: {step['value'].upper()};\n")
     for accent in document.get("accents", []):
-        rows.append(f"  --gnosix-{accent['id']}: {accent['value'].upper()};\n")
+        rows.append(f"  {published_name(accent['id'])}: {accent['value'].upper()};\n")
     return "".join(rows)
 
 
