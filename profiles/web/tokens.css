@@ -77,6 +77,7 @@
   --gnosix-ink-on-dark-l873c10: #D0D6DC;
   --gnosix-ink-on-dark-l883c10: #D4D9DF;
   --gnosix-ink-on-dark-l884c8: #D5D9DE;
+  --gnosix-ink-on-light-l342c06: #37393C;
   --gnosix-ink-on-light-l445c22: #4B5560;
   --gnosix-ink-on-light-l454c24: #4C5863;
   --gnosix-ink-on-light-l461c23: #4E5A65;
@@ -109,4 +110,5 @@
   --gnosix-ink-positive-l377c22: #39453C;
   --gnosix-surface-positive-l909c18: #DCE4D8;
   --gnosix-surface-warm-l971c18: #FFF3EA;
+  --gnosix-surface-selection-l354c90: #25396B;
 }

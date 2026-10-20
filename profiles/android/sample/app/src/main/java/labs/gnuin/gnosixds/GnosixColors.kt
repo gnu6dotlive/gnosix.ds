@@ -64,6 +64,7 @@ object GnosixSurfaces {
     val InkOnDarkL873c10 = Color(0xFFD0D6DC)
     val InkOnDarkL883c10 = Color(0xFFD4D9DF)
     val InkOnDarkL884c8 = Color(0xFFD5D9DE)
+    val InkOnLightL342c06 = Color(0xFF37393C)
     val InkOnLightL445c22 = Color(0xFF4B5560)
     val InkOnLightL454c24 = Color(0xFF4C5863)
     val InkOnLightL461c23 = Color(0xFF4E5A65)
@@ -96,4 +97,5 @@ object GnosixSurfaces {
     val InkPositiveL377c22 = Color(0xFF39453C)
     val SurfacePositiveL909c18 = Color(0xFFDCE4D8)
     val SurfaceWarmL971c18 = Color(0xFFFFF3EA)
+    val SurfaceSelectionL354c90 = Color(0xFF25396B)
 }

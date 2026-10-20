@@ -1,6 +1,6 @@
 {
   "adopted": "gnu6-design 1.1.1",
   "from": "Gnosix-DS-V3.4.1",
-  "foreign_colours": 27,
-  "note": "The component blocks of the legacy vocabulary carry the colours that vocabulary was drawn with. The ratchet in tools/package_gnu6_design.py refuses to let that number grow. It can only shrink, as the legacy components are mapped onto the system's own."
+  "foreign_colours": 0,
+  "note": "The component blocks of the legacy vocabulary carried the colours that vocabulary was drawn with: twenty-seven of them. They were the sheet's own hand-made role layer, and the system's role layer replaced it. The ratchet in tools/package_gnu6_design.py now stands at zero, and the colour gate examines the package like any other part of the tree."
 }

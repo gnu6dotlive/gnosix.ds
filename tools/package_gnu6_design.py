@@ -37,6 +37,7 @@ from oklch import hex_to_rgb, rgb_to_oklch  # noqa: E402
 
 PACKAGE = ROOT / "packaging/gnu6-design"
 LEGACY = PACKAGE / "legacy/gnu6-1.1.1.css"
+ROLES = PACKAGE / "legacy/roles.json"
 SHEET = PACKAGE / "gnu6.css"
 LOCK = PACKAGE / "gnu6-design.lock.json"
 
@@ -99,6 +100,26 @@ def rebind(text: str) -> tuple[str, list[str]]:
     return GNOSIX_VAR.sub(substitute, text), changed
 
 
+def bind_roles(text: str) -> str:
+    """The sheet's own role layer, bound to the system.
+
+    The sheet declared thirty-four roles for the dark substrate and
+    thirty-four for the light one, by hand. Each colour it declared is
+    bound here to the step of the system that carries it, so the sheet
+    names the system instead of carrying a colour of its own.
+    """
+    binding = json.loads(ROLES.read_text(encoding="utf-8"))["colours"]
+
+    def substitute(match: re.Match) -> str:
+        value = match.group(0).upper()
+        name = binding.get(value)
+        if not name:
+            return match.group(0)
+        return f"var({name})"
+
+    return re.sub(r"#[0-9A-Fa-f]{6}\b", substitute, text)
+
+
 def system_block() -> str:
     """The names the sheet omits, written the way the system writes them."""
     tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
@@ -147,6 +168,9 @@ def foreign(sheet: str) -> list[str]:
 
 def build() -> tuple[str, list[str], str]:
     legacy = LEGACY.read_text(encoding="utf-8")
+    # The hand-made role layer goes first: it is the sheet's own colours
+    # that the system does not have.
+    legacy = bind_roles(legacy)
     rebound, changed = rebind(legacy)
     # The header states the version it was cut from, and the re-cut states
     # the version it is cut from now.

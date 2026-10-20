@@ -18,6 +18,7 @@
   --gnosix-accent: var(--gnosix-signal-orange-base);
   --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
   --gnosix-focus: var(--gnosix-royal-blue-base);
+  --gnosix-selection: var(--gnosix-royal-blue-100);
   --gnosix-positive: var(--gnosix-beret-green-base);
   --gnosix-positive-surface: var(--gnosix-beret-green-100);
   --gnosix-caution: var(--gnosix-semantic-warn);
@@ -35,6 +36,7 @@
   --gnosix-accent: var(--gnosix-signal-orange-base);
   --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
   --gnosix-focus: var(--gnosix-royal-blue-base);
+  --gnosix-selection: var(--gnosix-surface-selection-l354c90);
   --gnosix-positive: var(--gnosix-beret-green-300);
   --gnosix-positive-surface: var(--gnosix-beret-green-700);
   --gnosix-caution: var(--gnosix-semantic-warn);

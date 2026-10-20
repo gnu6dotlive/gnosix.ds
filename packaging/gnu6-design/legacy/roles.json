@@ -1,0 +1,78 @@
+{
+  "schema": "gnosix_DS.roles.v1",
+  "note": [
+    "The gnu6-design sheet bound its own roles by hand: thirty-four of them,",
+    "for the dark substrate and for the light one, in two :root blocks. That is",
+    "a hand-made role layer, and it is where the sheet's colours that the",
+    "system does not have came from.",
+    "",
+    "This is the binding the system publishes, expressed in the sheet's own",
+    "variable names. Each colour the sheet declared is bound to the step of the",
+    "system that carries it, so the sheet names the system instead of carrying",
+    "a colour of its own.",
+    "",
+    "The family decides the hue and the sheet's own lightness decides the step,",
+    "which is the rule the surface layer is built on. Three of the bindings are",
+    "judgements rather than a nearest step, and they say so."
+  ],
+  "colours": {
+    "#111418": "--gnosix-neutral-anthracite",
+    "#F7F3ED": "--gnosix-neutral-shell-white",
+    "#FFFFFF": "--gnosix-neutral-pure-white",
+    "#191C20": "--gnosix-surface-dark-l207c10",
+    "#212327": "--gnosix-surface-dark-l250c14",
+    "#151C29": "--gnosix-surface-dark-l220c12",
+    "#201E1D": "--gnosix-surface-dark-l220c12",
+    "#1B263F": "--gnosix-surface-dark-l236c12",
+    "#272A2D": "--gnosix-surface-dark-l282c16",
+    "#2D3033": "--gnosix-hairline-l310c15",
+    "#515254": "--gnosix-hairline-l343c15",
+    "#C8C6C2": "--gnosix-ink-on-dark-l775c18",
+    "#CDCAC7": "--gnosix-ink-on-dark-l858c12",
+    "#A1A6AD": "--gnosix-ink-on-dark-l678c24",
+    "#87A0F4": "--gnosix-royal-blue-300",
+    "#E8EDFF": "--gnosix-royal-blue-100",
+    "#4169E1": "--gnosix-royal-blue-base",
+    "#2446A8": "--gnosix-royal-blue-700",
+    "#5F7F52": "--gnosix-beret-green-base",
+    "#8DA982": "--gnosix-beret-green-300",
+    "#455F3D": "--gnosix-beret-green-700",
+    "#FF6A00": "--gnosix-signal-orange-base",
+    "#C95400": "--gnosix-signal-orange-700",
+    "#F5A524": "--gnosix-semantic-warn",
+    "#ED706D": "--gnosix-semantic-alert",
+    "#A03B3E": "--gnosix-semantic-alert",
+    "#A54916": "--gnosix-semantic-warn",
+    "#EBE7E2": "--gnosix-surface-light-l933c4",
+    "#D2CFCB": "--gnosix-hairline-l858c6",
+    "#A09F9D": "--gnosix-hairline-l705c17",
+    "#37393C": "--gnosix-ink-on-light-l342c06",
+    "#5B6477": "--gnosix-ink-on-light-l445c22",
+    "#4A5262": "--gnosix-ink-on-light-l445c22",
+    "#182646": "--gnosix-ink-on-light-l342c06",
+    "#1D3572": "--gnosix-royal-blue-700",
+    "#C7D2EE": "--gnosix-royal-blue-100",
+    "#DCE1EE": "--gnosix-surface-light-l933c4",
+    "#E9EAEE": "--gnosix-surface-light-l920c6",
+    "#F8EAD9": "--gnosix-surface-warm-l971c18",
+    "#DDDAD5": "--gnosix-surface-light-l920c6",
+    "#25396B": "--gnosix-surface-selection-l354c90"
+  },
+  "judgements": [
+    {
+      "colour": "#1D3572",
+      "bound": "--gnosix-royal-blue-700",
+      "why": "The light substrate's link hover was a blue darker than the system's darkest blue step. The system owns the blue, so the link takes its base and the hover takes the 700 step: the affordance the sheet had - the hover moves away from the substrate - is preserved, and the system's base is the system's canonical blue."
+    },
+    {
+      "colour": "#182646",
+      "bound": "--gnosix-ink-on-light-l342c06",
+      "why": "The light substrate's action hover was a navy tint of the strong ink. The system's step is a neutral one, so the hover becomes a neutral lift rather than a blue one. The system's neutral is the system's."
+    },
+    {
+      "colour": "#37393C",
+      "bound": "--gnosix-ink-on-light-l342c06",
+      "why": "The middle ink of the light substrate. The system's light ink ramp began at 0.445 and its strong ink was at 0.14, so there was a hole in the coverage and the field's converged value fell into it. The step was added to the ramp, and this is where it was already wanted."
+    }
+  ]
+}

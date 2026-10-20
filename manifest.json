@@ -1,7 +1,7 @@
 {
   "version": "4.0.0",
   "name": "gnosix_DS V4.0.0 motion contract and alpha compositing variants",
-  "contract_digest": "7271513683d05db51cabc1d595aaaa1d43e79c3cc48eda30354320d955ba944d",
+  "contract_digest": "31b985c96505b398500cd0cabfd2cab5c57c69cfee8424f42c619b935e1eee6d",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -442,7 +442,7 @@
     {
       "class": "core",
       "path": "core/ROLES.json",
-      "sha256": "60841b593f7600a24ecbff1a4c5c043dc96bb282da74121e2c41661576581a17"
+      "sha256": "a0333c4f9631ddc5f7f108eb0b0edfa92a2c6e5e3c7e3f0cbf7bc4f795476320"
     },
     {
       "class": "core",
@@ -452,7 +452,7 @@
     {
       "class": "core",
       "path": "core/SURFACES.json",
-      "sha256": "672e825393db0e260b2ae1673bb779a7ffda8dd45caf1b870a83169f60aad116"
+      "sha256": "54037c872e15fbfd805d70857836ddedd3cd28a007cc044d6018f662e5716225"
     },
     {
       "class": "core",
@@ -477,12 +477,12 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6-design.lock.json",
-      "sha256": "d02ec6878a6e056f6828acb92edb6e5ae6768d0eb7bac1fe1dc40bc5503181eb"
+      "sha256": "5d24353aa80a09cd0a428f5786885d73193f3015cc42ef0473c7ef83f1d7745e"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6.css",
-      "sha256": "762e24fcafa93f8a439b1fe3032bc3e9a5f0bed4f9c4f573346dd856e471902c"
+      "sha256": "a7bf970318825aa8404ba4e09cf73aa9892cab15c14c0509e521ba1f2ff66d96"
     },
     {
       "class": "evidence",
@@ -492,12 +492,17 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/legacy/adoption.json",
-      "sha256": "3983fec5718858daba1063c65ce20c013c824a14a793d877e8754682e3d3bec5"
+      "sha256": "bdfc14b47baae1fcdb452b468a6904464e7c3f590bf7132ea0fa31046d3d5586"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/legacy/gnu6-1.1.1.css",
       "sha256": "203051c2db426f809b63c7f131cd585b31f789d3bde7e187ab3ea29528286534"
+    },
+    {
+      "class": "evidence",
+      "path": "packaging/gnu6-design/legacy/roles.json",
+      "sha256": "b4deacc3ab910e289e7dd58e3acbbcbe0dd92133ba9923b892bd1974380ee734"
     },
     {
       "class": "profile",
@@ -517,12 +522,12 @@
     {
       "class": "profile",
       "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixColors.kt",
-      "sha256": "99c0784d9b6f07adf785d4dcca3eb32569f3fb785e7f3e2f4ecc06ddd64adcb9"
+      "sha256": "fbdfa1ae1fe548b15a6013c22859b686752b2e320a25f0ed54392da696f4fa82"
     },
     {
       "class": "profile",
       "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixRoles.kt",
-      "sha256": "9b374fafdbc6635b6acde33bdae6a3e015cf16079ec87ecd2f01792dffcc0b30"
+      "sha256": "8093a54c8ace9c2099a0dc7499027f17cc8224a36357374c74d57c425fa56f69"
     },
     {
       "class": "profile",
@@ -647,12 +652,12 @@
     {
       "class": "profile",
       "path": "profiles/native/src/roles.rs",
-      "sha256": "8bd35c29c8c8ae4f1ee52f79f13408355441c59754f29878afe5afef2c0c8ec3"
+      "sha256": "1700fbb9c0293f7508a85291199a9e3379e3afed7d8155580e5729f0ffa95250"
     },
     {
       "class": "profile",
       "path": "profiles/native/src/theme.rs",
-      "sha256": "66c1c6abcc7a30d4987cc1b53b3d056db97884fcbac8467c5b940fccecacc90d"
+      "sha256": "fb812e475de002b6328fcc8b46df8a5ca791f10b96a4f765bbaf59f4abb0a865"
     },
     {
       "class": "profile",
@@ -697,7 +702,7 @@
     {
       "class": "profile",
       "path": "profiles/web/roles.css",
-      "sha256": "c9a6105f56f81f61e2fb232cdd6343fd3d28b80e716bce72e872cd52de858149"
+      "sha256": "df02f7c75e8394ed5caab55b4089a65c586f743cb40e4474280f8b7ccac02aab"
     },
     {
       "class": "profile",
@@ -717,7 +722,7 @@
     {
       "class": "profile",
       "path": "profiles/web/tokens.css",
-      "sha256": "4676f2e89aba7497f5acdcd171ba42f45ab2acfc8b635f96eb70216b2b1a126d"
+      "sha256": "fd971fdb20b477349ba0e3d2b293a6209b5c0e8ff0980cdf9afec7f4c3a43d3c"
     },
     {
       "class": "evidence",
@@ -982,7 +987,7 @@
     {
       "class": "evidence",
       "path": "tools/contract_colors.py",
-      "sha256": "5b11fe9b3950c3b747e7c89dafa123ad33459442e85bba986c11148434680304"
+      "sha256": "52cc7bc9f700d583ae259c2f84b9cf2e30d28038f286d3f718bbf1da1fb3e079"
     },
     {
       "class": "evidence",
@@ -1012,7 +1017,7 @@
     {
       "class": "evidence",
       "path": "tools/package_gnu6_design.py",
-      "sha256": "065c2ff9537b2b6e9ff99f2c912f9553154b0ecc1e07520298a2d8110b8335df"
+      "sha256": "a0fbd242b10b18eb9f4e46c0ca0f6c9c0b9a236a549aafb31f85f891465583e5"
     },
     {
       "class": "evidence",

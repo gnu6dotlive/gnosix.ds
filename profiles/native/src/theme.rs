@@ -70,6 +70,7 @@ pub mod surface {
     pub const INK_ON_DARK_L873C10: &str = "#D0D6DC";
     pub const INK_ON_DARK_L883C10: &str = "#D4D9DF";
     pub const INK_ON_DARK_L884C8: &str = "#D5D9DE";
+    pub const INK_ON_LIGHT_L342C06: &str = "#37393C";
     pub const INK_ON_LIGHT_L445C22: &str = "#4B5560";
     pub const INK_ON_LIGHT_L454C24: &str = "#4C5863";
     pub const INK_ON_LIGHT_L461C23: &str = "#4E5A65";
@@ -102,6 +103,7 @@ pub mod surface {
     pub const INK_POSITIVE_L377C22: &str = "#39453C";
     pub const SURFACE_POSITIVE_L909C18: &str = "#DCE4D8";
     pub const SURFACE_WARM_L971C18: &str = "#FFF3EA";
+    pub const SURFACE_SELECTION_L354C90: &str = "#25396B";
 }
 
 /// The measured contrast of each approved pairing.

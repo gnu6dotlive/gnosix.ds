@@ -401,6 +401,16 @@
       "role": "the text on the light substrate",
       "steps": [
         {
+          "id": "ink-on-light-l342c06",
+          "value": "#37393C",
+          "lightness": 0.3419,
+          "chroma": 0.0059,
+          "hue": 257.9,
+          "role": "the middle ink of the light substrate, between the strong ink and the ramp",
+          "neutral": true,
+          "aliases": []
+        },
+        {
           "id": "ink-on-light-l445c22",
           "value": "#4B5560",
           "lightness": 0.4449,
@@ -734,6 +744,17 @@
       "aliases": [
         "#FFF4EA"
       ]
+    },
+    {
+      "id": "surface-selection-l354c90",
+      "role_id": "surface-selection",
+      "value": "#25396B",
+      "lightness": 0.3541,
+      "chroma": 0.0905,
+      "hue": 265.6,
+      "role": "the ground of a selected row, on the dark substrate",
+      "neutral": false,
+      "aliases": []
     }
   ]
 }

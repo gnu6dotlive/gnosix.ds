@@ -37,14 +37,13 @@ HEX = re.compile(r"#[0-9A-Fa-f]{6}\b")
 # inventory quotes them in order to name them, and a gate that asked a
 # quotation to be a token would forbid the report that says where the system
 # is not yet used.
-# The gnu6-design package is a projection of the field's legacy component
-# vocabulary, whose component blocks still carry the colours that
-# vocabulary was drawn with. The re-cut rebinds the names and adds the
-# system's own vocabulary, and the number of colours the legacy
-# vocabulary still carries is a ratchet: tools/package_gnu6_design.py
-# refuses to let it grow.
+# The adopted legacy vocabulary is exempt because it is a record: it is
+# the sheet as it was, kept so that the re-cut can be read against what
+# it replaced. It quotes the colours the system does not have because
+# that is what it was. The re-cut beside it carries none, and the gate
+# examines the re-cut like any other part of the tree.
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "dist", "handoff", "figcraft",
-             "frontend-audit", "packaging"}
+             "frontend-audit", "legacy"}
 # The audit's configuration quotes the same colours its reports do, and is
 # exempt for the same reason.
 SKIP_FILES = {"frontend-audit.json"}

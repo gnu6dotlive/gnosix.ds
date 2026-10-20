@@ -100,6 +100,14 @@
         "A11Y-001"
       ]
     },
+    "selection": {
+      "meaning": "The ground of a chosen thing. The choice is carried by a surface and by the accessible state, never by a hue alone.",
+      "light": "royalBlue/100",
+      "dark": "surface-selection-l354c90",
+      "rules": [
+        "A11Y-001"
+      ]
+    },
     "positive": {
       "meaning": "A condition that is observed and is well, carried as a mark: a pip, a dot, an edge. It is never a background behind body text, because the approved green measures 4.09 against the light substrate and would not read.",
       "light": "beretGreen/base",
