@@ -116,6 +116,20 @@ class ReleaseLifecycleTests(unittest.TestCase):
                 result.returncode, 0,
                 (result.stdout + result.stderr)[-4000:])
 
+    def test_a_published_digest_is_read_from_the_release_notes(self):
+        """The digest a release claims is read out of its own notes.
+
+        The digest is the one a consumer can check on their own machine:
+        the sha256 of the uncompressed tar, which does not depend on the
+        zlib build that produced the gzip wrapper.
+        """
+        digest = "0" * 64
+        notes = (f"## 3.8.0\n\nSomething.\n\n---\n\nContent digest "
+                 f"(sha256 of the uncompressed tar): `{digest}`\n")
+        self.assertEqual(release_tool.published_digest(notes), digest)
+        self.assertIsNone(release_tool.published_digest("no digest in these notes"))
+        self.assertIsNone(release_tool.published_digest(None))
+
     def test_bump_computes_the_next_version(self):
         self.assertEqual(release_tool.bump("3.4.2", "patch"), "3.4.3")
         self.assertEqual(release_tool.bump("3.4.2", "minor"), "3.5.0")

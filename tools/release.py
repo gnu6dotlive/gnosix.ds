@@ -402,6 +402,35 @@ def changelog_section(version_value: str) -> str | None:
     return match.group(0).strip() if match else None
 
 
+def existing_release(name: str) -> dict | None:
+    """The release that already carries this tag, if any.
+
+    The release may already exist: the tag is pushed, the workflow
+    publishes it, and a person may also have published it by hand
+    before the workflow reached that step. A collision is not a reason to
+    fail a release that is already correct.
+    """
+    result = run(["gh", "release", "view", name, "--json", "body,assets,tagName,isDraft"])
+    if result.returncode != 0:
+        return None
+    try:
+        return json.loads(result.stdout)
+    except (json.JSONDecodeError, TypeError):
+        return None
+
+
+def published_digest(notes: str | None) -> str | None:
+    """The content digest a published release claims, read from its notes.
+
+    The digest is the one a consumer can check on their own machine: the
+    sha256 of the uncompressed tar, which does not depend on the zlib
+    build that produced the gzip wrapper.
+    """
+    match = re.search(r"Content digest \(sha256 of the uncompressed tar\):\s*`([0-9a-f]{64})`",
+                      notes or "")
+    return match.group(1) if match else None
+
+
 def cmd_publish(args) -> int:
     version_value = version()
     name = tag_name(version_value)
@@ -444,6 +473,26 @@ def cmd_publish(args) -> int:
         f"\n\n---\n\nContent digest (sha256 of the uncompressed tar): "
         f"`{tar_stream_digest(target)}`\n"
     )
+
+    # A release that already exists is not a failure when it is already
+    # the one this tree would publish. The tag is pushed, the workflow
+    # publishes it, and a person may have published it by hand first; the
+    # two must not argue over the same release. The content digest decides
+    # it, because that is the one number that is a statement about the
+    # source rather than about the machine that compressed it.
+    existing = existing_release(name)
+    if existing is not None:
+        local_digest = tar_stream_digest(target)
+        remote_digest = published_digest(existing.get("body"))
+        if remote_digest == local_digest:
+            print(f"{name} is already published with the same content digest")
+            print(f"  {local_digest}")
+            print("nothing to do: the published release is the one this tree would publish")
+            return 0
+        print(f"{name} already exists, with a different content digest")
+        print(f"  published: {remote_digest or 'none'}")
+        print(f"  this tree: {local_digest}")
+        return 1
 
     argv = ["gh", "release", "create", name, str(target.relative_to(ROOT))]
     if notes:

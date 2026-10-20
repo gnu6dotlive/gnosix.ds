@@ -38,10 +38,17 @@ jobs:
     timeout-minutes: 20
 
     steps:
+      # The tag is the subject of the release. A push of a tag carries it
+      # in github.ref; a manual dispatch carries it in the input, and the
+      # input used to be declared and then ignored, so a manual dispatch
+      # checked out the default branch and then refused to publish because
+      # the branch is not tagged. The dispatch path now takes the tag it
+      # was asked for.
       - name: Check out the tagged source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          ref: ${{ github.event.inputs.tag || github.ref }}
 
       - name: Provision the qualified interpreter
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0

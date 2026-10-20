@@ -8,6 +8,31 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [3.8.1] — 2026-10-20
+
+Publishing a release becomes idempotent, and the release workflow learns
+to read the tag it is given.
+
+**A release and a workflow argued over the same release.** The 3.8.0 tag
+was pushed and the release was published by hand; the workflow then
+reached its publication step, found the release already there, and failed
+on it. The failure was a collision between two correct things, and it
+cost a runner run — which is the method failure this repository's own
+policy is about.
+
+`tools.release publish` now looks for the release before it creates one.
+If the release exists and carries the same content digest — the sha256 of
+the uncompressed tar, which is a statement about the source rather than
+about the machine that compressed it — the publication is already done and
+the command says so. If it exists with a *different* digest, the command
+refuses and prints both, because a different archive under a tag that is
+already published is a real problem and not a race.
+
+The release workflow also had a latent fault: it declared a `tag` input
+for a manual dispatch and then ignored it, so a manual dispatch checked
+out the default branch and refused to publish because a branch is not
+tagged. It now takes the tag it was asked for.
+
 ## [3.8.0] — 2026-10-20
 
 The system is audited against the ten private frontends that use it, and
