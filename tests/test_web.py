@@ -30,9 +30,39 @@ class WebTests(unittest.TestCase):
         self.assertEqual(check_projection(ROOT), [])
 
     def test_component_styles_reference_defined_tokens(self):
+        """Every custom property a component uses is one the profile defines.
+
+        The profile has two tiers now: the tokens, which carry the palette
+        and the surfaces, and the roles, which bind a role to a token on
+        each substrate. A component names a role, so both tiers have to be
+        read for this to mean anything.
+        """
         defined = set(re.findall(r"(--gnosix-[a-z0-9-]+):", (ROOT / "profiles/web/tokens.css").read_text()))
+        defined |= set(re.findall(r"(--gnosix-[a-z0-9-]+):", (ROOT / "profiles/web/roles.css").read_text()))
         used = set(re.findall(r"var\((--gnosix-[A-Za-z0-9-]+)\)", (ROOT / "profiles/web/components.css").read_text()))
         self.assertEqual(used - defined, set())
+
+    def test_the_role_layer_is_bound_to_the_contract(self):
+        """Every role binds to a token the contract has, on both substrates.
+
+        A role that binds to a token the contract does not have would
+        project a custom property that resolves to nothing, and the
+        surface would fall back to whatever the cascade gives it.
+        """
+        roles = json.loads((ROOT / "core/ROLES.json").read_text())
+        tokens = json.loads((ROOT / "core/TOKENS.json").read_text())
+        surfaces = json.loads((ROOT / "core/SURFACES.json").read_text())
+
+        known = set()
+        for family, ramp in tokens["color"].items():
+            known |= {f"{family}/{shade}" for shade in ramp}
+        for spec in surfaces["families"].values():
+            known |= {step["id"] for step in spec["steps"]}
+        known |= {accent["id"] for accent in surfaces["accents"]}
+
+        for name, spec in roles["roles"].items():
+            for substrate in ("light", "dark"):
+                self.assertIn(spec[substrate], known, f"{name}.{substrate}")
 
     def test_static_site_exposes_six_accessible_visual_fixtures(self):
         html = (ROOT / "site/index.html").read_text()
