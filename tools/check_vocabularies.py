@@ -45,22 +45,29 @@ def main() -> int:
         if not isinstance(vocabulary, dict):
             continue
         entries = vocabulary.get("components") or {}
+        # A vocabulary that names a package is checked against it, both
+        # ways. A vocabulary that names no package — the native shell's,
+        # which the field writes and does not vendored — is checked for its
+        # shape only: there is nothing here to compare it with.
+        vendored = "package" in vocabulary
 
-        # A component the contract classifies but the package does not
-        # declare is a stale classification.
-        for name in entries:
-            if name not in base:
-                problems.append(f"{name}: the contract classifies it and the "
-                                f"package does not declare it")
+        if vendored:
+            # A component the contract classifies but the package does not
+            # declare is a stale classification.
+            for name in entries:
+                if name not in base:
+                    problems.append(f"{name}: the contract classifies it and "
+                                    f"the package does not declare it")
 
-        # A name the package declares that no classified component owns is
-        # unclassified. A part belongs to the component that prefixes it.
-        for name in sorted(base):
-            if name in entries:
-                continue
-            if not any(name.startswith(owner + "-") for owner in entries):
-                problems.append(f"{name}: the package declares it and the "
-                                f"contract does not classify it")
+            # A name the package declares that no classified component owns
+            # is unclassified. A part belongs to the component that prefixes
+            # it.
+            for name in sorted(base):
+                if name in entries:
+                    continue
+                if not any(name.startswith(owner + "-") for owner in entries):
+                    problems.append(f"{name}: the package declares it and the "
+                                    f"contract does not classify it")
 
         for name, entry in entries.items():
             kind = entry.get("is")
@@ -74,8 +81,11 @@ def main() -> int:
                                     f"the contract does not declare")
             elif kind in ("pattern", "primitive"):
                 # A name the field declares and the contract classifies as
-                # an arrangement must be an arrangement the contract holds.
-                if name not in arrangements:
+                # an arrangement must be an arrangement the contract holds
+                # — for a vocabulary that is vendored. A vocabulary nobody
+                # vendored is a translation: it says what the field made,
+                # and the system has not adopted it.
+                if name not in arrangements and vendored:
                     problems.append(f"{name}: classified as a {kind}, which the "
                                     f"contract does not specify")
             else:

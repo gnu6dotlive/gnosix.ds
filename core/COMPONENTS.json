@@ -1273,17 +1273,30 @@
   },
   "vocabularies": {
     "note": [
-      "The field's own vocabularies, and what each of their components is in the",
-      "system's terms. The gnu6-design package carries the g6-* vocabulary, which",
-      "the field uses and the system does not declare. This is the translation.",
+      "The field's own vocabularies, and what each of their components is in",
+      "the system's terms. The gnu6-design package carries the g6-*",
+      "vocabulary, which the field uses and the system did not declare. This",
+      "is the translation.",
+      "",
+      "There is a second one. The native shell has thirty-one arrangements of",
+      "its own — windows, trays, widgets, nested panels, the arrangements it",
+      "offers to an agent — and the system did not declare them either. They",
+      "are carried as a translation, by name and by shape. The shell has no",
+      "licence, so nothing of its implementation travels; what travels is the",
+      "fact that the field made these arrangements and what each one is for.",
+      "",
+      "The package carries thirty-nine names of the field's and fourteen of the",
+      "system's, published under the same prefix: the package is the",
+      "contract's projection into the vocabulary the field writes in, and a",
+      "consumer that has adopted it has both without knowing which is which.",
       "",
       "Three kinds of entry, and the difference matters:",
       "",
       "  a component  the system's own element, under its canonical name",
       "  a pattern    a composition the system states but does not declare as an",
-      "               element, because it is an arrangement rather than a thing",
+      "                element, because it is an arrangement rather than a thing",
       "  a primitive  a thing the system's type, spacing or accessibility tier",
-      "               governs, with no component of its own",
+      "                governs, with no component of its own",
       "",
       "The mapping is checked against the package: a name the package declares and",
       "the contract does not classify is a failure, so the two cannot drift."
@@ -1901,6 +1914,260 @@
         "The mapping is checked against the package: a name the package declares and",
         "the contract does not classify is a failure, so the two cannot drift."
       ]
+    },
+    "gnu-in-shell": {
+      "source": "the In-Shell's native arrangements, read from the field. The shell is not vendored here, so this is a record of what the field made and nothing checks it against the shell: the system has not adopted these arrangements, and the native profile still carries no vocabulary of its own.",
+      "prefix": "",
+      "components": {
+        "EmptySpaceStandard": {
+          "is": "pattern",
+          "note": "The space a surface shows when it has nothing to put in it.",
+          "family": "empty",
+          "layout": "panel",
+          "backed": true,
+          "density": "mouse"
+        },
+        "EmptySpaceBranded": {
+          "is": "pattern",
+          "note": "The space a surface shows when it has nothing to put in it.",
+          "family": "empty",
+          "layout": "panel-header",
+          "backed": true,
+          "density": "mouse"
+        },
+        "EmptySpaceRadial": {
+          "is": "pattern",
+          "note": "The space a surface shows when it has nothing to put in it.",
+          "family": "empty",
+          "layout": "radial",
+          "backed": false,
+          "density": "touch"
+        },
+        "WidgetInline": {
+          "is": "pattern",
+          "note": "A thing the shell carries: inline, as a card, or as pills.",
+          "family": "widget",
+          "layout": "panel",
+          "backed": true,
+          "density": "mouse"
+        },
+        "WidgetCard": {
+          "is": "pattern",
+          "note": "A thing the shell carries: inline, as a card, or as pills.",
+          "family": "widget",
+          "layout": "card",
+          "backed": false,
+          "density": "mouse"
+        },
+        "WidgetPills": {
+          "is": "pattern",
+          "note": "A thing the shell carries: inline, as a card, or as pills.",
+          "family": "widget",
+          "layout": "pills",
+          "backed": false,
+          "density": "touch"
+        },
+        "WindowStandard": {
+          "is": "pattern",
+          "note": "A window of the shell: the standard one, the tiled diagram, the compact bar.",
+          "family": "window",
+          "layout": "panel",
+          "backed": true,
+          "density": "mouse"
+        },
+        "WindowTileDiagram": {
+          "is": "pattern",
+          "note": "A window of the shell: the standard one, the tiled diagram, the compact bar.",
+          "family": "window",
+          "layout": "tile-grid",
+          "backed": false,
+          "density": "mouse"
+        },
+        "WindowCompact": {
+          "is": "pattern",
+          "note": "A window of the shell: the standard one, the tiled diagram, the compact bar.",
+          "family": "window",
+          "layout": "compact-bar",
+          "backed": false,
+          "density": "mouse"
+        },
+        "NestedCascade": {
+          "is": "pattern",
+          "note": "A panel inside a panel: a cascade, a drill in place, a mega panel of columns.",
+          "family": "nested",
+          "layout": "cascade",
+          "backed": true,
+          "density": "mouse"
+        },
+        "NestedDrill": {
+          "is": "pattern",
+          "note": "A panel inside a panel: a cascade, a drill in place, a mega panel of columns.",
+          "family": "nested",
+          "layout": "drill-in-place",
+          "backed": true,
+          "density": "mouse"
+        },
+        "NestedMegaPanel": {
+          "is": "pattern",
+          "note": "A panel inside a panel: a cascade, a drill in place, a mega panel of columns.",
+          "family": "nested",
+          "layout": "mega-columns",
+          "backed": true,
+          "density": "mouse"
+        },
+        "TrayAudio": {
+          "is": "pattern",
+          "note": "A tray of the shell: the audio, the network, the power.",
+          "family": "tray",
+          "layout": "panel-right",
+          "backed": true,
+          "density": "mouse"
+        },
+        "TrayNetwork": {
+          "is": "pattern",
+          "note": "A tray of the shell: the audio, the network, the power.",
+          "family": "tray",
+          "layout": "panel-right",
+          "backed": true,
+          "density": "mouse"
+        },
+        "TrayPower": {
+          "is": "pattern",
+          "note": "A tray of the shell: the audio, the network, the power.",
+          "family": "tray",
+          "layout": "panel-right",
+          "backed": true,
+          "density": "mouse"
+        },
+        "RadialDetached": {
+          "is": "pattern",
+          "note": "An arrangement the shell is trying out, and names as such.",
+          "family": "experiment",
+          "layout": "radial-detached",
+          "backed": false,
+          "density": "mouse"
+        },
+        "NestedRadialPill": {
+          "is": "pattern",
+          "note": "An arrangement the shell is trying out, and names as such.",
+          "family": "experiment",
+          "layout": "radial-then-pills",
+          "backed": false,
+          "density": "mouse"
+        },
+        "NestedConcentric": {
+          "is": "pattern",
+          "note": "An arrangement the shell is trying out, and names as such.",
+          "family": "experiment",
+          "layout": "concentric-rings",
+          "backed": false,
+          "density": "mouse"
+        },
+        "NestedFractal": {
+          "is": "pattern",
+          "note": "An arrangement the shell is trying out, and names as such.",
+          "family": "experiment",
+          "layout": "fractal-cascade",
+          "backed": true,
+          "density": "mouse"
+        },
+        "NestedBubbleTree": {
+          "is": "pattern",
+          "note": "An arrangement the shell is trying out, and names as such.",
+          "family": "experiment",
+          "layout": "bubble-tree",
+          "backed": false,
+          "density": "mouse"
+        },
+        "EmptyRadialPill": {
+          "is": "pattern",
+          "note": "An arrangement the shell is trying out, and names as such.",
+          "family": "experiment",
+          "layout": "radial-mode-pills",
+          "backed": false,
+          "density": "mouse"
+        },
+        "ClipboardHistory": {
+          "is": "pattern",
+          "note": "A recipe the shell offers: the clipboard history, the swatches, the media controls, the command search, the file context, the share grid.",
+          "family": "recipe",
+          "layout": "panel-search",
+          "backed": true,
+          "density": "mouse"
+        },
+        "ColorSwatches": {
+          "is": "pattern",
+          "note": "A recipe the shell offers: the clipboard history, the swatches, the media controls, the command search, the file context, the share grid.",
+          "family": "recipe",
+          "layout": "swatch-grid",
+          "backed": true,
+          "density": "mouse"
+        },
+        "MediaControls": {
+          "is": "pattern",
+          "note": "A recipe the shell offers: the clipboard history, the swatches, the media controls, the command search, the file context, the share grid.",
+          "family": "recipe",
+          "layout": "transport",
+          "backed": true,
+          "density": "mouse"
+        },
+        "SearchCommand": {
+          "is": "pattern",
+          "note": "A recipe the shell offers: the clipboard history, the swatches, the media controls, the command search, the file context, the share grid.",
+          "family": "recipe",
+          "layout": "command-palette",
+          "backed": true,
+          "density": "mouse"
+        },
+        "FileContext": {
+          "is": "pattern",
+          "note": "A recipe the shell offers: the clipboard history, the swatches, the media controls, the command search, the file context, the share grid.",
+          "family": "recipe",
+          "layout": "panel-fileheader",
+          "backed": true,
+          "density": "mouse"
+        },
+        "ShareGrid": {
+          "is": "pattern",
+          "note": "A recipe the shell offers: the clipboard history, the swatches, the media controls, the command search, the file context, the share grid.",
+          "family": "recipe",
+          "layout": "target-grid",
+          "backed": true,
+          "density": "mouse"
+        },
+        "AgenticGnuContextMenu": {
+          "is": "pattern",
+          "note": "An arrangement the shell offers to an agent: the context menu, the plan confirmation, the suggestion, the keyboard navigation.",
+          "family": "agentic",
+          "layout": "agentic-panel",
+          "backed": true,
+          "density": "mouse"
+        },
+        "AgenticPlanConfirm": {
+          "is": "pattern",
+          "note": "An arrangement the shell offers to an agent: the context menu, the plan confirmation, the suggestion, the keyboard navigation.",
+          "family": "agentic",
+          "layout": "agentic-confirm",
+          "backed": true,
+          "density": "mouse"
+        },
+        "AgenticSuggestBubble": {
+          "is": "pattern",
+          "note": "An arrangement the shell offers to an agent: the context menu, the plan confirmation, the suggestion, the keyboard navigation.",
+          "family": "agentic",
+          "layout": "agentic-suggest",
+          "backed": false,
+          "density": "mouse"
+        },
+        "AgenticKeyboardNav": {
+          "is": "pattern",
+          "note": "An arrangement the shell offers to an agent: the context menu, the plan confirmation, the suggestion, the keyboard navigation.",
+          "family": "agentic",
+          "layout": "agentic-panel",
+          "backed": true,
+          "density": "mouse"
+        }
+      }
     }
   },
   "patterns": {

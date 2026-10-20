@@ -123,6 +123,21 @@ def probe_the_components_name_a_radius_step() -> list[str]:
     return problems
 
 
+def probe_the_spacing_scale_has_ten_steps() -> list[str]:
+    """The ten steps stand, and the three that are not in them are not."""
+    tokens = json.loads((ROOT / "core" / "TOKENS.json").read_text(encoding="utf-8"))
+    spacing = tokens.get("spacing") or {}
+    problems = []
+    if len(spacing) != 10:
+        problems.append(f"the spacing scale has {len(spacing)} steps, and the "
+                        f"decision was that ten stand")
+    for value in (20, 40, 80):
+        if value in spacing.values():
+            problems.append(f"the spacing scale carries {value}, which is "
+                            f"mapped rather than inserted")
+    return problems
+
+
 PROBES = {
     "no_self_reference": probe_no_self_reference,
     "no_foreign_literal": probe_no_foreign_literal,
@@ -130,6 +145,7 @@ PROBES = {
     "the_package_carries_the_elements": probe_the_package_carries_the_elements,
     "the_cited_path_exists": probe_the_cited_path_exists,
     "the_components_name_a_radius_step": probe_the_components_name_a_radius_step,
+    "the_spacing_scale_has_ten_steps": probe_the_spacing_scale_has_ten_steps,
 }
 
 

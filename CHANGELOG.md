@@ -31,13 +31,25 @@ and the law says motion does not idle. The numbers — the milliseconds,
 the curves, the delays — are the target's expression, and they stay
 there.
 
-**And two findings are left open, deliberately.** The In-Shell's scale
-of spacing has three steps the system's does not, and the system's scale
-is published and ordered, so inserting one renames the steps after it:
-that is a decision for the owner and it is not taken here. The native
-profile carries tokens and roles and no vocabulary at all, while the
-In-Shell names thirty-one arrangements of the native shell; that one is
-the next unit.
+**The native shell's thirty-one arrangements are carried as a
+translation.** Windows, trays, widgets, nested panels, the arrangements
+it offers to an agent — the field made them, the system did not declare
+them, and now the contract says what they are and what shape each one
+has. The shell has no licence, so nothing of its implementation travels:
+what travels is the fact that the field made these arrangements and what
+each one is for. The shell is not vendored here, so this is a record, and
+the native profile still carries no vocabulary of its own — that is the
+next unit.
+
+**Two findings were left open and are now closed by decisions that were
+already taken.** The In-Shell's scale of spacing has three steps the
+system's does not, and the decision was already made: the ten steps
+stand, and a frontend's own scale is mapped onto them. An ordered scale
+that is published does not renumber itself in the middle, and the three
+are mapped rather than inserted. And a duration named for idling is not
+carried either: the law forbids motion that idles, and a vocabulary that
+offers it invites it. The pulse stays — a pulse tied to a state change
+is lawful; it is the untied one that is refused.
 
 ## [4.2.1] — 2026-10-20
 

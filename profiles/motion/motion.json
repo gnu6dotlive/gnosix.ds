@@ -348,14 +348,13 @@
       "base",
       "fast",
       "flash",
-      "idle",
       "instant",
       "pulse",
       "slow",
       "smooth",
       "unfurl"
     ],
-    "note_atoms": "The mechanisms the field works with, carried by name and by meaning. They are the field's vocabulary, and the system judges them: an atom that idles is refused, because a law is a law whichever field wrote the atom. The numbers — the milliseconds, the curves, the delays — are the target's expression and live under the targets. A duration the field composes, such as a base plus a delay, is carried as the base here and as the delay there."
+    "note_atoms": "The mechanisms the field works with, carried by name and by meaning. They are the field's vocabulary, and the system judges them: an atom that idles is refused, because a law is a law whichever field wrote the atom. The numbers — the milliseconds, the curves, the delays — are the target's expression and live under the targets. A duration the field composes, such as a base plus a delay, is carried as the base here and as the delay there. A duration named for idling is not carried either: the law forbids motion that idles, and a vocabulary that offers it invites it. The pulse stays, because a pulse tied to a state change is lawful — it is the untied one that is refused."
   },
   "targets": {
     "remotion": {
@@ -411,8 +410,7 @@
         "smooth": 280,
         "slow": 360,
         "unfurl": 420,
-        "pulse": 1400,
-        "idle": 3200
+        "pulse": 1400
       },
       "easing_curves": {
         "standard": {

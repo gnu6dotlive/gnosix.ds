@@ -1,7 +1,7 @@
 {
   "version": "4.3.0",
   "name": "gnosix_DS V4.3.0 motion contract and alpha compositing variants",
-  "contract_digest": "c986cdc5a2bd5e8ec0691eeba48c80b1bac64d2722bb26c0b5f95cc22a8b5cc8",
+  "contract_digest": "33d2aff1af9ed505fbef030d66088fc3a3be079a2b3abb96b2db18b77b06d3c6",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "ca4ab43560595af55f7767dc255b8a5b5c28d4f084c2359e26fb1702f517fdda"
+      "sha256": "2f85a9a3bf64386e682858c13b210984ebb87071107a20dff57aaeb438604a46"
     },
     {
       "class": "evidence",
@@ -432,12 +432,12 @@
     {
       "class": "core",
       "path": "core/COMPONENTS.json",
-      "sha256": "f87d738492d84a3f01823420283d5bbe3df546075c12a7dcb97317562a17b55d"
+      "sha256": "3560b9e2a7ae52ad656139b2eb04661892511872a02d80cdc8dde7bea968b9f3"
     },
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "0a64ab9f58b0f619980e85281ba63ae244a29a8d0322f236156344a11d591caf"
+      "sha256": "9afd0a3f56d67a3316394ea8fc2ab2963ec868c291340a1dfd8c58ca4690b91c"
     },
     {
       "class": "core",
@@ -632,7 +632,7 @@
     {
       "class": "profile",
       "path": "profiles/motion/motion.json",
-      "sha256": "63d8730b9df94b068c5e4fbadc1ebe2c27030af4018977073dcbf7bca377c3bf"
+      "sha256": "a12582a69a90ee560cdf30b700e9f6f9273e7f5866d608e917cb373b433a255b"
     },
     {
       "class": "profile",
@@ -972,7 +972,7 @@
     {
       "class": "evidence",
       "path": "tools/check_deviations.py",
-      "sha256": "025074b639db783c8749807851960fbe2b23c9eb92c330aeb226e44599df8268"
+      "sha256": "aa5131fab27e65dadd81ee9d0935688191d17d8e27b51ccb8ed7dc2074fb5742"
     },
     {
       "class": "evidence",
@@ -982,7 +982,7 @@
     {
       "class": "evidence",
       "path": "tools/check_vocabularies.py",
-      "sha256": "1ed027e452066db024a65c3951538d870b1fe9a27166bb0997f35833702afdf4"
+      "sha256": "dc8f52e29b5d99066186bc93f4518f9ddcdbc832db6f64fe649c1a2b48849474"
     },
     {
       "class": "evidence",

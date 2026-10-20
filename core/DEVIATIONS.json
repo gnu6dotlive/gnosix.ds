@@ -118,11 +118,13 @@
     },
     {
       "id": "DEV-012",
-      "what": "The In-Shell's scale of spacing has three steps the system's does not — twenty, forty and eighty. The system's scale is published and ordered, so inserting a step renames the steps after it; the three are a decision the owner has not taken, and they are not in the scale until it is.",
+      "what": "The In-Shell's scale of spacing has three steps the system's does not — twenty, forty and eighty. The decision was already taken: the ten steps stand, and a frontend's own scale is mapped onto them. The three are mapped, not inserted, because an ordered scale that is published does not renumber itself in the middle.",
       "severity": "minor",
-      "state": "open",
+      "state": "closed",
       "owner": "the owner",
-      "proof": "profiles/frontend-audit/INVENTORY.md"
+      "proof": "profiles/frontend-audit/ABSORPTION.md — the spacing scale decision",
+      "closed_by": "4.3.0",
+      "probe": "the_spacing_scale_has_ten_steps"
     },
     {
       "id": "DEV-013",
