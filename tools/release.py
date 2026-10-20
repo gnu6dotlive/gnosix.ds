@@ -406,10 +406,14 @@ def cmd_publish(args) -> int:
     version_value = version()
     name = tag_name(version_value)
 
-    problem = check_proof()
-    if problem:
-        print(f"the release job has not been proved locally: {problem}")
-        return 1
+    # The proof is what a *person* is stopped from publishing an unproved
+    # state. The release workflow is the proved job itself, running on the
+    # runner, and it has no local proof to present.
+    if not args.skip_proof:
+        problem = check_proof()
+        if problem:
+            print(f"the release job has not been proved locally: {problem}")
+            return 1
 
     dirty = tree_is_dirty()
     if dirty:
@@ -505,6 +509,8 @@ def main(argv: list[str] | None = None) -> int:
     publish_parser.add_argument("--draft", action="store_true")
     publish_parser.add_argument("--title")
     publish_parser.add_argument("--allow-missing-notes", action="store_true")
+    publish_parser.add_argument("--skip-proof", action="store_true",
+                                help="publish without a local proof (the release workflow)")
     publish_parser.set_defaults(func=cmd_publish)
 
     args = parser.parse_args(argv)
