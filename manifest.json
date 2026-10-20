@@ -477,12 +477,12 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6-design.lock.json",
-      "sha256": "5d24353aa80a09cd0a428f5786885d73193f3015cc42ef0473c7ef83f1d7745e"
+      "sha256": "aad0e6976a4770976365160c7aad75282f512f0946101d4072b5a7690aa9d0ae"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6.css",
-      "sha256": "a7bf970318825aa8404ba4e09cf73aa9892cab15c14c0509e521ba1f2ff66d96"
+      "sha256": "9d13de281e4d5c966618dfeef87a0639b68c4bd95b84f5f2bd483fe14181a65e"
     },
     {
       "class": "evidence",
