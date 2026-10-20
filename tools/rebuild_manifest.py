@@ -58,11 +58,17 @@ def iter_package_files(root: Path) -> list[str]:
     # package, so a file the package does not carry is not a file the
     # manifest hashes.
     skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "ci", "figcraft", "handoff"}
+
+    # The local release proof is a record of what was proved on this machine,
+    # not part of the package.
+    skip_files = {".release-proof.json"}
     out = []
     for path in sorted(root.rglob("*")):
         if not path.is_file():
             continue
         if any(part in skip_dirs for part in path.parts):
+            continue
+        if path.name in skip_files:
             continue
         if path.name == "manifest.json":
             continue

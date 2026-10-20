@@ -16,11 +16,6 @@
     },
     {
       "class": "evidence",
-      "path": ".release-proof.json",
-      "sha256": "37fd1337c0bfcadbfd8ca6d1ec6bd3be6adcfbfadd327bdd0962cf3bfaf3f9f1"
-    },
-    {
-      "class": "evidence",
       "path": "CHANGELOG.md",
       "sha256": "7c80d8573e56c697bfba2a046a5c5ce248a9b45968dcbfbb8948f6913196285e"
     },
@@ -857,7 +852,7 @@
     {
       "class": "evidence",
       "path": "tools/rebuild_manifest.py",
-      "sha256": "10b19c8edcc388f371ef2f4001fc902299a0df20f30861dd9fd356419c809a2b"
+      "sha256": "e892f271bf420f9bcbf7ccc8629f994982d0fe6b276f7e8c488c06856c03ecbd"
     },
     {
       "class": "evidence",
