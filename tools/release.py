@@ -326,8 +326,18 @@ def cmd_prove(args) -> int:
     installed = ROOT / ".git" / "hooks" / "pre-push"
     if hook.is_file():
         installed.parent.mkdir(parents=True, exist_ok=True)
-        if not installed.exists() or installed.read_bytes() != hook.read_bytes():
-            installed.write_bytes(hook.read_bytes())
+        # The guard is a wrapper, not a copy. A copy goes stale the moment
+        # the repository's own guard changes, and a guard that has gone
+        # stale is a guard that is not there: the installed copy was from
+        # the day before the guard learned to qualify a branch, and it had
+        # been pushing unqualified commits ever since. The installed hook
+        # runs the repository's own file, so the two cannot differ.
+        wrapper = ("#!/usr/bin/env bash\n"
+                   "# Installed by tools.release prove. It runs the repository's\n"
+                   "# own guard, so the guard cannot go stale.\n"
+                   'exec "$(git rev-parse --show-toplevel)/ci/pre-push.sh" "$@"\n')
+        if not installed.exists() or installed.read_text(encoding="utf-8") != wrapper:
+            installed.write_text(wrapper, encoding="utf-8")
             installed.chmod(0o755)
             print(f"installed the push guard at {installed}")
 
