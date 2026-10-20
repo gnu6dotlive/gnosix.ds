@@ -53,6 +53,10 @@ from pathlib import Path
 # that only exists on one machine.
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
+# The document's name, which is what a published library is called.
+DOCUMENT_NAME = "gnosix.ds"
+LIBRARY_DESCRIPTION = "The gnosix design system: approved colours, spacing, type and the rules that govern them."
+
 # ---------------------------------------------------------------- layout
 
 PAGE_W = 1200
@@ -110,6 +114,9 @@ class Ctx:
     def __init__(self, script: Script):
         self.script = script
         self.parent: dict | None = None
+        # How many pages have been created, so the library can be moved to
+        # the last position without a magic number.
+        self.pages = 0
 
 
 class _Inherit:
@@ -184,19 +191,172 @@ def section_label(ctx: Ctx, label: str, x: int, y: int, colour: dict) -> None:
 
 def open_board(ctx: Ctx, script: Script, page: str, name: str, height: int, colour: dict) -> dict:
     """Start a page and put one board frame on it."""
-    if page == "Colour":
-        # The document's first page is reused rather than left empty beside
-        # the real one.
-        script.add("page.rename", name=page)
-    else:
-        # page.add does not switch the current page, so the board would be
-        # built on whichever page was current before.
-        added = script.add("page.add", name=page)
-        script.add("page.select", id=script.ref(added))
+    # Every board gets its own page. The document's default page is left
+    # empty and deleted at the end, because renaming the current page is
+    # how a board ends up on the wrong page: page.rename without an id
+    # renames whichever page is current, and the current page is the one
+    # the last board was built on.
+    added = script.add("page.add", name=page)
+    script.add("page.select", id=script.ref(added))
+    ctx.pages += 1
     # The board sits on the page, not inside the previous page's board.
     board = frame(ctx, name, 0, 0, PAGE_W, height, fill=colour["shellWhite"], parent=None)
     ctx.parent = script.ref(board)
     return script.ref(board)
+
+
+
+# ------------------------------------------------------- the library
+
+class Mains:
+    """The component mains, created once on the Library page.
+
+    The boards place instances of these. A main is what the library
+    publishes: `library.publish` offers components, component sets, styles
+    and variable collections, so anything that is not a component cannot
+    travel to another file.
+    """
+
+    def __init__(self):
+        self.library_page: int | None = None
+        self.rule_card: int | None = None
+        self.state_pip: int | None = None
+        self.specimen: int | None = None
+
+
+def build_rule_card_main(ctx: Ctx, script: Script, colour: dict, x: int = 0, y: int = 0) -> int:
+    """The rule card: a badge, the statement, the scene it governs.
+
+    Three text properties, so a consumer places the card and writes the
+    rule into it without knowing how the card is laid out.
+    """
+    card = frame(ctx, "Rule Card", x, y, 520, 152, fill=colour["pureWhite"], radius=12)
+    script.add("node.set", ids=[script.ref(card)], props={"strokes": [
+        {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
+    badge = frame(ctx, "ID", 20, 20, 92, 24, fill=colour["royalBlue"], radius=12,
+                  parent=script.ref(card))
+    badge_text = text(ctx, "ID-000", 12, 5, 12, colour["pureWhite"], "Bold",
+                       parent=script.ref(badge))
+    statement = text(ctx, "The statement of the rule.", 20, 56, 14, colour["anthracite"],
+                     width=480, parent=script.ref(card))
+    scene = text(ctx, "scene: reference", 20, 124, 11, colour["muted"],
+                 parent=script.ref(card))
+
+    script.add("component.create", ids=[script.ref(card)])
+    for name, layer, default in (("id", badge_text, "ID-000"),
+                                  ("rule", statement, "The statement of the rule."),
+                                  ("scene", scene, "scene: reference")):
+        script.add("component.addProperty", id=script.ref(card), name=name, type="text",
+                   layer=script.ref(layer), default=default)
+    return card
+
+
+def build_state_pip_main(ctx: Ctx, script: Script, colour: dict, x: int = 0, y: int = 0) -> int:
+    """The state pip: a mark whose shape carries the state.
+
+    The reference scene forbids the rounded status capsule and prescribes
+    "text + pip instead", so the pip is a mark and not a badge, and its
+    shape differs between the two states. The shape is the non-colour cue
+    A11Y-001 asks for; the words beside it carry the meaning.
+
+    Two variants under one variant property. The engine creates the
+    property and its values itself when components are combined, and
+    names them "Property 1", "Default" and "Variant2"; they are renamed
+    afterwards, because a published library that offers a variant called
+    "Variant2" is not a library anybody can use.
+    """
+    # A component is a frame or a group, so the mark is a shape inside a
+    # transparent frame rather than the shape itself. The frame carries no
+    # fill, so nothing is drawn but the mark.
+    #
+    # Three states, not two: a pairing that meets the body threshold and one
+    # that meets only the large threshold are not the same state, and a pip
+    # that said "fail" on a passing pairing would be lying. The shapes are
+    # the grammar - a filled disc, a ring, a triangle - and the words
+    # beside them say which threshold was met.
+    body = frame(ctx, "State Pip / body", x, y, 16, 16, fill=None)
+    script.add("node.create", type="ellipse", name="mark", x=2, y=2, width=12, height=12,
+               parent=script.ref(body),
+               props={"fills": [{"type": "solid", "color": colour["beretGreen"]}]})
+    large = frame(ctx, "State Pip / large", x + 40, y, 16, 16, fill=None)
+    ring = script.add("node.create", type="ellipse", name="mark", x=2, y=2, width=12, height=12,
+                      parent=script.ref(large),
+                      props={"strokes": [{"type": "solid", "color": colour["royalBlue"],
+                                          "strokeWeight": 2}]})
+    script.add("object.removeFill", ids=[script.ref(ring)])
+    failing = frame(ctx, "State Pip / fail", x + 80, y, 16, 16, fill=None)
+    script.add("node.create", type="polygon", name="mark", x=2, y=2, width=12, height=12,
+               parent=script.ref(failing),
+               props={"fills": [{"type": "solid", "color": colour["alert"]}],
+                      "pointCount": 3})
+    script.add("component.create", ids=[script.ref(body)])
+    script.add("component.create", ids=[script.ref(large)])
+    script.add("component.create", ids=[script.ref(failing)])
+    script.add("component.combineVariants",
+               ids=[script.ref(body), script.ref(large), script.ref(failing)])
+    set_id = script.ref(body)
+
+    script.add("component.editProperty", id=set_id, name="Property 1", newName="state",
+               value="Default", newValue="body")
+    script.add("component.editProperty", id=set_id, name="state",
+               value="Variant2", newValue="large")
+    script.add("component.editProperty", id=set_id, name="state",
+               value="Variant3", newValue="fail")
+    return body
+
+
+def build_specimen_main(ctx: Ctx, script: Script, colour: dict, weights: dict, x: int = 0, y: int = 0) -> int:
+    """The type specimen, one variant per ratified weight.
+
+    The weight is a variant rather than a text property, because a text
+    property carries a string and not a typographic weight: the specimen's
+    own weight is the thing being demonstrated.
+    """
+    styles = {"regular": "Regular", "medium": "Medium",
+              "semibold": "SemiBold", "bold": "Bold"}
+    parts = []
+    for index, (weight_name, weight) in enumerate(weights.items()):
+        # A frame and not a bare text layer: a component is a frame or a
+        # group, and the frame also gives the specimen a box to sit in.
+        line = frame(ctx, f"Specimen / {weight_name}", x, y + index * 80, 1072, 60, fill=None)
+        text(ctx, "Ship interfaces, not mockups", 0, 0, 40, colour["anthracite"],
+             styles.get(weight_name, "Regular"), parent=script.ref(line))
+        script.add("component.create", ids=[script.ref(line)])
+        parts.append(line)
+    # All of them at once. Combining a set with another component replaces
+    # the set rather than adding to it, so a set built two at a time keeps
+    # only the last pair.
+    first = parts[0]
+    script.add("component.combineVariants", ids=[script.ref(part) for part in parts])
+    # The engine names the property and its values itself; a published
+    # library that offers a variant called "Variant2" is not usable.
+    script.add("component.editProperty", id=script.ref(first), name="Property 1",
+               newName="weight", value="Default", newValue="regular")
+    for index, weight_name in enumerate(list(weights)[1:], start=2):
+        script.add("component.editProperty", id=script.ref(first), name="weight",
+                   value=f"Variant{index}", newValue=weight_name)
+    return first
+
+
+def build_library_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, mains: Mains) -> None:
+    """The component mains.
+
+    The library's published assets live here, and the boards place instances
+    of them. The page is built first because the boards need the mains, and
+    moved to the end afterwards: a reader opening the project wants the
+    boards, not the machinery.
+    """
+    library_page = script.add("page.add", name="Library")
+    mains.library_page = library_page
+    ctx.pages += 1
+    board = frame(ctx, "Library / board", 0, 0, PAGE_W, 900, fill=colour["shellWhite"],
+                  parent=None)
+    ctx.parent = script.ref(board)
+
+    mains.rule_card = build_rule_card_main(ctx, script, colour, x=0, y=0)
+    mains.state_pip = build_state_pip_main(ctx, script, colour, x=0, y=200)
+    weights = tokens.get("typography", {}).get("weights", {})
+    mains.specimen = build_specimen_main(ctx, script, colour, weights, x=0, y=260)
 
 
 # --------------------------------------------------------------- the pages
@@ -247,7 +407,7 @@ def build_colour_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) -> N
         y += rows * pitch + 24
 
 
-def build_contrast_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) -> None:
+def build_contrast_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, mains: Mains) -> None:
     """The approved pairings, drawn as they are used."""
     contrast = tokens.get("contrast", {})
     open_board(ctx, script, "Contrast", "Contrast / board", 210 + len(contrast) * 112 + 80, colour)
@@ -289,15 +449,33 @@ def build_contrast_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) ->
         text(ctx, "contrast ratio", 660, 60, 12, colour["slate"],
              parent=script.ref(row))
 
-        verdict = "AA body" if ratio >= 4.5 else ("AA large" if ratio >= 3.0 else "fails AA")
-        badge = frame(ctx, f"Verdict / {pairing}", 900, 32, 140, 32,
-                      fill=colour["beretGreen"] if ratio >= 4.5 else colour["signalOrange"],
-                      radius=16, parent=script.ref(row))
-        text(ctx, verdict, 16, 9, 12, colour["pureWhite"], "Bold", parent=script.ref(badge))
+        # The verdict is written in words, and marked with a pip whose shape
+        # differs. A rounded status capsule is the forbidden form: the
+        # reference scene shows one struck through, with "text + pip
+        # instead", and CMP-001 is the rule that forbids it. The words are
+        # also the non-colour state cue A11Y-001 asks for.
+        #
+        # The ink is the neutral one, because the palette has no colour that
+        # reads as a failure and still passes AA on white: Signal Orange is
+        # 2.87 against white, and the approved pairings do not include a
+        # failing ink. The pip carries the tone; the words carry the
+        # meaning.
+        if ratio >= 4.5:
+            verdict, state = "AA body", "body"
+        elif ratio >= 3.0:
+            verdict, state = "AA large", "large"
+        else:
+            verdict, state = "fails AA", "fail"
+        pip = script.add("instance.create", component=script.ref(mains.state_pip),
+                         x=900, y=42, parent=script.ref(row))
+        script.add("instance.setProperties", ids=[script.ref(pip)],
+                   properties={"state": state})
+        text(ctx, verdict, 924, 44, 12, colour["anthracite"], "Medium",
+             parent=script.ref(row))
         y += 112
 
 
-def build_type_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) -> None:
+def build_type_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, mains: Mains) -> None:
     """The ratified weights, as specimens and as text styles."""
     typography = tokens.get("typography", {})
     weights = typography.get("weights", {})
@@ -312,8 +490,11 @@ def build_type_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) -> Non
     for weight_name, weight in weights.items():
         section_label(ctx, f"{weight_name} / {weight}", MARGIN, y, colour)
         y += 28
-        text(ctx, "Ship interfaces, not mockups", MARGIN, y, 40,
-             colour["anthracite"], "Bold" if weight >= 600 else "Regular")
+        # An instance of the specimen set, with the weight as a variant.
+        specimen = script.add("instance.create", component=script.ref(mains.specimen),
+                              x=MARGIN, y=y, parent=ctx.parent)
+        script.add("instance.setProperties", ids=[script.ref(specimen)],
+                   properties={"weight": weight_name})
         y += 62
         text(ctx, "A design source of truth your agents can edit, render and "
                  "hand off as code.", MARGIN, y, 16, colour["slate"], width=CONTENT_W)
@@ -439,7 +620,7 @@ def build_scenes_page(ctx: Ctx, script: Script, references: list[dict], colour: 
         y += 720 + 56
 
 
-def build_rules_page(ctx: Ctx, script: Script, rules: list[dict], references: list[dict], colour: dict) -> None:
+def build_rules_page(ctx: Ctx, script: Script, rules: list[dict], references: list[dict], colour: dict, mains: Mains) -> None:
     """The fifteen rules, each as a card carrying the rule as an annotation."""
     by_id = {}
     for reference in references:
@@ -459,19 +640,17 @@ def build_rules_page(ctx: Ctx, script: Script, rules: list[dict], references: li
         row = index // per_row
         x = MARGIN + column * (card_w + gap)
         y = 210 + row * (card_h + gap)
-        card = frame(ctx, f"Rule / {rule['id']}", x, y, card_w, card_h,
-                     fill=colour["pureWhite"], radius=12)
-        script.add("node.set", ids=[script.ref(card)], props={"strokes": [
-            {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
-        badge = frame(ctx, f"ID / {rule['id']}", 20, 20, 92, 24,
-                      fill=colour["royalBlue"], radius=12, parent=script.ref(card))
-        text(ctx, rule["id"], 12, 5, 12, colour["pureWhite"], "Bold", parent=script.ref(badge))
-        text(ctx, rule.get("statement", ""), 20, 56, 14, colour["anthracite"],
-             width=card_w - 40, parent=script.ref(card))
         scene = by_id.get(rule["id"])
-        if scene:
-            text(ctx, f"scene: {scene}", 20, card_h - 28, 11, colour["muted"],
-                 parent=script.ref(card))
+        # An instance of the published Rule Card, not a copy of it: the
+        # card's layout lives in the main, so a change to the main changes
+        # every card on this page.
+        card = script.add("instance.create", component=script.ref(mains.rule_card),
+                          x=x, y=y, parent=ctx.parent)
+        script.add("instance.setProperties", ids=[script.ref(card)], properties={
+            "id": rule["id"],
+            "rule": rule.get("statement", ""),
+            "scene": f"scene: {scene}" if scene else "",
+        })
         # The rule travels with the card: Dev Mode shows it as a callout.
         script.add("annotation.add", id=script.ref(card), label=rule.get("statement", ""),
                    category="Development")
@@ -506,21 +685,51 @@ def build_script(source: Path) -> Script:
     references = [json.loads(path.read_text(encoding="utf-8"))
                   for path in sorted((source / "references").glob("*.json"))]
 
+    # The colours the boards are drawn with, named explicitly. Folding every
+    # shade into one flat dict would leave "base" and "royalBlue" meaning
+    # whichever family happened to be last, and the boards would be drawn in
+    # a shade nobody ratified.
     colour = dict(FALLBACK)
-    for family, ramp in tokens["color"].items():
-        for shade, value in ramp.items():
-            colour[shade] = value
+    for name, value in tokens["color"]["neutral"].items():
+        colour[name] = value
+    colour["signalOrange"] = tokens["color"]["signalOrange"]["base"]
+    colour["beretGreen"] = tokens["color"]["beretGreen"]["base"]
+    colour["royalBlue"] = tokens["color"]["royalBlue"]["base"]
+    colour["alert"] = tokens["color"]["semantic"]["alert"]
 
     script = Script()
     ctx = Ctx(script)
+    mains = Mains()
+
+    # The document's name is what a published library is called, and the
+    # default is "Untitled".
+    script.add("file.rename", name=DOCUMENT_NAME)
+
     token_variables(script, tokens)
+    # The library first: the boards place instances of its mains.
+    build_library_page(ctx, script, tokens, colour, mains)
     build_colour_page(ctx, script, tokens, colour)
-    build_contrast_page(ctx, script, tokens, colour)
-    build_type_page(ctx, script, tokens, colour)
+    build_contrast_page(ctx, script, tokens, colour, mains)
+    build_type_page(ctx, script, tokens, colour, mains)
     build_spacing_page(ctx, script, tokens, colour)
     build_components_page(ctx, script, manifest, colour)
     build_scenes_page(ctx, script, references, colour)
-    build_rules_page(ctx, script, rules_doc.get("rules", []), references, colour)
+    build_rules_page(ctx, script, rules_doc.get("rules", []), references, colour, mains)
+
+    # The library is the last page: a reader opening the project wants the
+    # boards, not the machinery. It was created first, because the boards
+    # need its mains, so it is moved afterwards. The index counts from the
+    # start, and the document's default page is still in front of it, so
+    # the last position is the number of pages created.
+    script.add("page.move", id=script.ref(mains.library_page), index=ctx.pages)
+
+    # The document's default page, empty since every board got its own.
+    script.add("page.delete", id=1)
+
+    # Publishing makes the file a library other files can consume. It is
+    # part of the build because the library is a published asset, not
+    # something a consumer has to do by hand.
+    script.add("library.publish", description=LIBRARY_DESCRIPTION)
     return script
 
 
@@ -539,8 +748,34 @@ def run_script(cli: str, script_path: Path, out: Path, cwd: Path) -> tuple[bool,
     return result.returncode == 0, result.stdout + result.stderr
 
 
+# The receipt the engine writes when a library is published. Its id and its
+# timestamp are minted at the moment of publication, so they differ on every
+# build even when nothing about the design changed.
+LIBRARY_RECEIPT = "library/manifest.json"
+
+
 def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    """The digest of the design content, not of the container.
+
+    The archive is a zip, and publishing a library writes a receipt into it
+    with a fresh id and a fresh timestamp. The design itself - the document
+    and the images - is byte for byte the same from one build to the next,
+    and that is what the gate is about. So the receipt is compared with its
+    two volatile fields removed, and everything else with its bytes.
+    """
+    import zipfile
+
+    parts = []
+    with zipfile.ZipFile(path) as archive:
+        for name in sorted(archive.namelist()):
+            data = archive.read(name)
+            if name == LIBRARY_RECEIPT:
+                receipt = json.loads(data)
+                receipt.pop("id", None)
+                receipt.pop("time", None)
+                data = json.dumps(receipt, sort_keys=True).encode("utf-8")
+            parts.append(f"{name}\0{hashlib.sha256(data).hexdigest()}\n")
+    return hashlib.sha256("".join(parts).encode("utf-8")).hexdigest()
 
 
 def describe(cli: str, path: Path) -> str:
@@ -684,6 +919,7 @@ def main(argv=None) -> int:
         return 1
     print(f"wrote {out}")
     print(f"  sha256 {digest(out)}")
+
 
     info = subprocess.run([cli, "info", str(out)], capture_output=True, text=True, check=False)
     print(info.stdout.strip())

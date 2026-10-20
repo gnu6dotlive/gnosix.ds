@@ -56,6 +56,53 @@ It has two levels, because a CI runner does not have a design editor:
 
 The second level is skipped, not failed, when no FigCraft CLI is present.
 
+## The library
+
+The projection is published as a **FigCraft library**, so another file can
+consume the system rather than redraw it. `library.publish` runs as part of
+the build, because the library is a published asset and not something a
+consumer has to remember to do.
+
+What it offers:
+
+| | |
+|---|---|
+| `Rule Card` | a card carrying a rule: text properties `id`, `rule`, `scene` |
+| `State Pip` | a state mark, three variants — `body`, `large`, `fail` — under one variant property `state` |
+| `Specimen` | a type specimen, one variant per ratified weight, under `weight` |
+| `Colour`, `Space` | the variable collections, with their variables |
+| 25 paint styles | one per approved colour, named `family/shade` |
+
+Consuming it, from any FigCraft file:
+
+```sh
+figcraft-cli run consume.jsonl
+```
+
+```json
+{"command": "library.add", "params": {"path": "…/figcraft/gnosix-ds.figcraft"}}
+{"command": "library.place", "params": {"library": "gnosix.ds", "component": "Rule Card", "x": 64, "y": 64}}
+{"command": "instance.setProperties", "params": {"ids": [{"$step": 1}], "properties": {"id": "COL-001", "rule": "Read exact approved colors…", "scene": "scene: actions"}}}
+{"command": "library.applyStyle", "params": {"library": "gnosix.ds", "style": "signalOrange/base", "ids": [12], "target": "fill"}}
+```
+
+`library.applyStyle` links the layer to the library's style rather than
+copying the colour, so a change to the style reaches the consumer.
+
+### The state pip, and why it is a mark
+
+The reference scene forbids the rounded status capsule and prescribes
+"text + pip instead"; CMP-001 is the rule that forbids it. The pip is
+therefore a mark, not a badge, and its **shape** carries the state — a filled
+disc, a ring, a triangle — with the words beside it saying which threshold
+was met. Three states, not two: a pairing that meets the body threshold and
+one that meets only the large threshold are not the same state.
+
+The words are the neutral ink rather than a colour, because the palette has
+no colour that reads as a failure and still passes AA on white: Signal
+Orange is 2.87 against white, and the approved pairings do not include a
+failing ink.
+
 ## Rebuilding elsewhere
 
 The generator needs `figcraft-cli` on the path, or `FIGCRAFT_CLI` pointing at
@@ -85,3 +132,9 @@ the source and not about the machine. The project is compared byte for byte
 too, for the same reason: the shape of the project is identical whether the
 token is `#FF6A00` or `#FF6B00`, so a shape comparison would pass a
 one-hex change.
+
+The comparison is over the **design content**, not over the container. The
+archive is a zip, and publishing a library writes a receipt into it with a
+fresh id and a fresh timestamp, so the container differs on every build even
+when nothing about the design changed. The receipt is compared with those
+two fields removed, and everything else with its bytes.
