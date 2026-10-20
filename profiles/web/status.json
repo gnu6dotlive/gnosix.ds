@@ -1,0 +1,10 @@
+{
+  "profile": "web",
+  "status": "mapped",
+  "evidence": [],
+  "gaps": [
+    "Browser rendering and interaction checks are not yet recorded in this workspace",
+    "React consumer example is not compiled in an application",
+    "200% zoom and screen-reader checks require a real browser evidence run"
+  ]
+}

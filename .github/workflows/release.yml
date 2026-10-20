@@ -1,0 +1,76 @@
+# The release, cut from a tag.
+#
+# A tag is a statement about a specific state, and this workflow publishes
+# exactly that state: it checks out the tagged commit, qualifies it, builds
+# the archive from it, and attaches the archive to the release named by the
+# tag. Nothing here recomputes a version or decides what to call the release
+# - the tag already said, and the version file already agrees with it, and
+# the qualification checks that they still do.
+#
+# The archive is byte-reproducible (sorted entries, fixed timestamps, a gzip
+# header with neither a name nor a time), so the SHA-256 printed in the log
+# is a statement about the source rather than about the runner that packed
+# it.
+
+name: release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to publish (must already exist)'
+        required: true
+
+# This workflow writes: it creates a release and uploads an asset. The
+# permission is exactly that, and nothing else.
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: publish the release
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out the tagged source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Install the runtime dependencies
+        run: |
+          set -euo pipefail
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+
+      # A release that ships a state the gates reject is a release of a
+      # broken contract. Qualification runs before the archive is built, not
+      # after it is uploaded.
+      - name: Qualify the tagged state
+        run: python3 -m tools.ci
+
+      - name: Build the distributable archive
+        run: python3 -m tools.release build
+
+      # The tag and the version file are two statements about the same state.
+      # The qualification already checks they agree; this prints them so the
+      # release log carries the pairing rather than only the verdict.
+      - name: Report the version pairing
+        run: |
+          set -euo pipefail
+          echo "tag:    $(git describe --tags --exact-match HEAD)"
+          echo "version: $(cat VERSION)"
+
+      # The publication is the repository's own release command, not a
+      # reimplementation of it in YAML. The command already refuses to
+      # publish a dirty tree, a commit that is not tagged, a tag that
+      # disagrees with the version file, or a missing archive; reproducing
+      # those rules here would be a second implementation of the same
+      # contract, and the second one is the one nobody runs locally.
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -m tools.release publish

@@ -1,0 +1,42 @@
+{
+  "id": "surfaces",
+  "version": "3.4.2",
+  "artwork": "references/surfaces.svg",
+  "roles": [
+    "content",
+    "focus"
+  ],
+  "rules": [
+    "SUR-001"
+  ],
+  "states": {
+    "default": {
+      "projected": "Current specimen; no runtime assertion",
+      "observed": "unknown"
+    }
+  },
+  "accessible_text": "Geometry, material, chrome and depth can change independently. The labels and reading order are written in the artwork and annotation.",
+  "viewport": {
+    "width": 1200,
+    "height": 720,
+    "units": "authored SVG canvas, not a breakpoint"
+  },
+  "input_scale": {
+    "mode": "pointer and keyboard reference",
+    "zoom": "inspect at normal and enlarged scale"
+  },
+  "local_dimensions": {
+    "canvas": "1200\u00d7720 authored fixture only; sizes and timings are not global tokens"
+  },
+  "source_hashes": {
+    "core/TOKENS.json": "0ce3dcfe595d402c94c1323b0ddc46350c6334404aff95c7646ade86c41b1e25",
+    "references/visual-evidence/material-families.png": "217e8b6f6434f69c503a04a9df009bd10af2482b007079e9da2a0a1f123a1129",
+    "references/visual-evidence/depth-cues.png": "ba09e2f6788809d451c26bbc8d20f2f3776336e63f9926930a75867f6986f919"
+  },
+  "annotations": [
+    "Use only core/TOKENS.json for exact color values.",
+    "All visible sizes are fixture-local.",
+    "Current visual-evidence boards show approved material/depth examples; sample highlights are not token values.",
+    "Reference SVG embeds the packaged Space Grotesk WOFF2 so authored text does not depend on a viewer-installed font."
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "version": "3.4.2",
+  "rules": [
+    {
+      "id": "ID-001",
+      "level": "MUST",
+      "domain": "identity",
+      "statement": "Preserve each ratified cube master as authored, including dark-face assignment, symbol, material response and local color modulation.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Orange/right/>_; blue/left/>$; green/top/>#; accepted master appearance remains unchanged.",
+      "test": "Verify the packaged PNG masters against their ratified SHA-256 hashes and inspect the site/reference usage."
+    },
+    {
+      "id": "ID-002",
+      "level": "MUST NOT",
+      "domain": "identity",
+      "statement": "Use Syster as the universal organizational logo or infer behavior from mascot artwork.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Syster is labeled as mascot/reference only.",
+      "test": "Review identity usage in each fixture."
+    },
+    {
+      "id": "ID-003",
+      "level": "MUST NOT",
+      "domain": "identity",
+      "statement": "Regenerate, perspective-transform, re-typeset or geometrically normalize a ratified identity master as an implementation shortcut.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Consumers use packaged masters or exact-fidelity containers; transformations are limited to uniform presentation scaling/cropping that does not redraw the artwork.",
+      "test": "Compare source hashes and inspect identity implementation for generated text or replacement geometry."
+    },
+    {
+      "id": "ID-004",
+      "level": "MUST NOT",
+      "domain": "identity",
+      "statement": "Composite a ratified alpha identity master over a chromatic substrate. Alpha masters are sanctioned on neutral substrates only.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "An alpha master appears only on a token from the neutral ramp. Over Signal Orange, Royal Blue or Beret Green the opaque ratified master is used instead.",
+      "test": "Inspect each identity placement and record its substrate; the cube's dark faces must remain distinguishable from the surface behind them."
+    },
+    {
+      "id": "TYP-001",
+      "level": "MUST",
+      "domain": "typography",
+      "statement": "Use Space Grotesk as the primary family for interface and authored reference text; do not apply this rule to glyphs already baked into ratified identity artwork.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Live interface/reference text resolves to Space Grotesk; cube symbols remain image content.",
+      "test": "Inspect computed interface family and verify identity assets are referenced as images rather than reconstructed live text."
+    },
+    {
+      "id": "TYP-002",
+      "level": "MUST",
+      "domain": "typography",
+      "statement": "Express technical or evidence text with Space Grotesk using weight, tracking and tabular numerals instead of switching to a second typeface.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Paths, IDs, measurements and evidence labels remain in Space Grotesk; numeric metadata may use tabular figures.",
+      "test": "Search profile/reference styles for undeclared font-family overrides and inspect technical specimens."
+    },
+    {
+      "id": "COL-001",
+      "level": "MUST",
+      "domain": "color",
+      "statement": "Read exact approved colors from core/TOKENS.json and generate platform projections from it.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "CSS and Kotlin declarations match the token source.",
+      "test": "Run tools/project_tokens.py --check."
+    },
+    {
+      "id": "COL-002",
+      "level": "MUST NOT",
+      "domain": "color",
+      "statement": "Put white essential normal text on Signal Orange.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Essential text uses an approved legible pairing such as Anthracite on Signal Orange.",
+      "test": "Inspect contrast of actual text/substrate pairs."
+    },
+    {
+      "id": "COL-003",
+      "level": "MUST",
+      "domain": "color",
+      "statement": "Declare quantity, range, neutral point if applicable, endpoints, missing state and legend for a scalar field.",
+      "applies_to": [
+        "field"
+      ],
+      "observable": "The field can be interpreted without treating a gradient as ornament.",
+      "test": "Inspect field annotation and accessible description."
+    },
+    {
+      "id": "STA-001",
+      "level": "MUST NOT",
+      "domain": "state",
+      "statement": "Project an intended mutation as observed success before observation or reconciliation.",
+      "applies_to": [
+        "stateful"
+      ],
+      "observable": "Pending text persists until an observation reports the result.",
+      "test": "Trigger the state fixture and inspect each transition."
+    },
+    {
+      "id": "CMP-001",
+      "level": "MUST NOT",
+      "domain": "components",
+      "statement": "Introduce a rounded status, metadata, category, filter, choice or count capsule under any name.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "State uses text with optional pip; selection uses a structural treatment; proper controls retain their function.",
+      "test": "Inspect active control/reference surfaces."
+    },
+    {
+      "id": "SUR-001",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "Keep geometry, material, chrome, depth, content, input geometry and allocation independently representable where applicable.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "Material and shape may vary without changing semantic role.",
+      "test": "Compare surface fixture variants and target mappings."
+    },
+    {
+      "id": "A11Y-001",
+      "level": "MUST",
+      "domain": "accessibility",
+      "statement": "Provide a non-color state cue, an accessible name and visible focus for applicable interactive content.",
+      "applies_to": [
+        "interactive"
+      ],
+      "observable": "Keyboard or accessibility service can identify role, state and focus.",
+      "test": "Keyboard and screen-reader inspection for each profile."
+    },
+    {
+      "id": "MOT-001",
+      "level": "MUST",
+      "domain": "motion",
+      "statement": "Honor reduced motion and keep asynchronous transitions interruptible.",
+      "applies_to": [
+        "animated"
+      ],
+      "observable": "Reduced-motion mode preserves meaning without continuous decorative animation.",
+      "test": "Inspect motion preference in available renderers."
+    },
+    {
+      "id": "ICON-001",
+      "level": "MUST",
+      "domain": "icons",
+      "statement": "Draw interface glyphs from the ratified Tabler subset in assets/icons/. Do not hand-author an SVG glyph, borrow a glyph from another set, or substitute a text character for an icon.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Every interface glyph in a consumer surface resolves to a file listed in assets/icons/icon-manifest.json, at the upstream digest recorded there. Country and organisation flags resolve to the ratified Tabler Flags subset.",
+      "test": "Run tools/vendor_icons.py --check and confirm no consumer surface contains a hand-authored <svg> glyph or a Unicode character standing in for an icon."
+    }
+  ]
+}

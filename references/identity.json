@@ -1,0 +1,80 @@
+{
+  "id": "identity",
+  "version": "3.4.2",
+  "artwork": "references/identity.svg",
+  "roles": [
+    "content",
+    "evidence"
+  ],
+  "rules": [
+    "ID-001",
+    "ID-002",
+    "ID-004",
+    "TYP-001"
+  ],
+  "states": {
+    "default": {
+      "projected": "Current specimen; no runtime assertion",
+      "observed": "unknown"
+    }
+  },
+  "accessible_text": "Three separately ratified identity masters. gnosix is orange with a dark right face and >_. gnu6.live is blue with a dark left face and >$. gnu.in.labs is Beret Green with a dark top face and >#.",
+  "viewport": {
+    "width": 1200,
+    "height": 720,
+    "units": "authored SVG canvas, not a breakpoint"
+  },
+  "input_scale": {
+    "mode": "pointer and keyboard reference",
+    "zoom": "inspect at normal and enlarged scale"
+  },
+  "local_dimensions": {
+    "canvas": "1200\u00d7720 authored fixture only; sizes and timings are not global tokens"
+  },
+  "source_hashes": {
+    "core/TOKENS.json": "0ce3dcfe595d402c94c1323b0ddc46350c6334404aff95c7646ade86c41b1e25",
+    "assets/identity/gnosix-cube.png": "c5b5d61ac2bb71211bd1caf18fb5b0a1dca2e18c5e96cf4ea74d27561ed42958",
+    "assets/identity/gnu6-live-cube.png": "20f6a4970d4375851738b9a0ef6ec0ddce36803f0fb001657bd0337b3d87b858",
+    "assets/identity/gnuinlabs-cube.png": "45e6c00f4a845c2291fd95c8b1e75ebb0d24dfee2b7a44294cd14e96301e8896",
+    "assets/identity/gnosix-ds-mark.png": "72d6c8264deff81f3b7f535d063086204cc03921eee3fee804c5f3f7e1b4aaa9",
+    "assets/identity/gnosix-cube-alpha.png": "af177020fb05dd726638de592c1241105ea7e4c3a0eb3532f4c646bda4b0cff4",
+    "assets/identity/gnu6-live-cube-alpha.png": "ff1e1467ba5e1d5a3891c90bc210272de55b60e5109ec474c764a692c2f2f910",
+    "assets/identity/gnuinlabs-cube-alpha.png": "097438a515864050e095ff57b6fbc85a938f3dd0c5aa482940e810e64b6018ed"
+  },
+  "alpha_masters": {
+    "note": "V3.4.1 compositing variants. Opaque pixels are byte-identical to the ratified masters above; only the authored dark field is carried as alpha. The edge pixels carry straight (unmatted) alpha: the subject colour at partial coverage, not a blend of the subject with the removed field. Compositing over the authored field reproduces the ratified master exactly; compositing over any other neutral substrate must never darken the edge.",
+    "sanctioned_substrates": [
+      "color.neutral.anthracite",
+      "color.neutral.shellWhite",
+      "color.neutral.pureWhite",
+      "color.neutral.hairline",
+      "color.neutral.quietDivider",
+      "color.neutral.muted",
+      "color.neutral.slate"
+    ],
+    "refused_substrates": [
+      "color.signalOrange.100",
+      "color.signalOrange.300",
+      "color.signalOrange.base",
+      "color.signalOrange.700",
+      "color.royalBlue.100",
+      "color.royalBlue.300",
+      "color.royalBlue.base",
+      "color.royalBlue.700",
+      "color.beretGreen.100",
+      "color.beretGreen.300",
+      "color.beretGreen.base",
+      "color.beretGreen.700"
+    ],
+    "reason": "The dark faces of all three cubes sit close to Anthracite. Over a chromatic substrate they collapse into the brand hue and the dark-face assignment protected by ID-001 is lost."
+  },
+  "annotations": [
+    "The three packaged PNG files are ratified visual masters; do not regenerate them from tokens.",
+    "Semantic color-family tokens remain available for interface projections, but material artwork contains authored local modulation.",
+    "Cube symbols are image content, not live interface typography.",
+    "The composite reference sheet may show all three masters together; each distributable identity master remains one cube per asset.",
+    "Reference SVG embeds the packaged Space Grotesk WOFF2 for metadata labels only.",
+    "V3.4.1 ships one alpha compositing variant per identity. These are the same artwork, not a new master; ID-004 sanctions them on neutral substrates only.",
+    "An alpha master is a substrate decision, not a licence to transform the mark. ID-003 still forbids perspective, re-lighting and geometric normalisation of any master."
+  ]
+}

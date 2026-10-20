@@ -1,0 +1,863 @@
+{
+  "version": "3.4.2",
+  "name": "gnosix_DS V3.4.2 motion contract and alpha compositing variants",
+  "contract_digest": "57a951bb71461f6771e0b895a9fd20153d37a2e165cb6a1aabe9400b6f3d0caa",
+  "digest_scope": "all class=core files plus class=reference JSON annotations",
+  "files": [
+    {
+      "class": "evidence",
+      "path": ".gitattributes",
+      "sha256": "5f6608c95aede1b5dba63557bf9c2181500b64e6e3c7b48cf8a0e0edf5903284"
+    },
+    {
+      "class": "evidence",
+      "path": ".gitignore",
+      "sha256": "c16c43dbb33a8f925d7273e4e7b72f87d6b60b168de2c69434ab4ae7da1e8cf7"
+    },
+    {
+      "class": "evidence",
+      "path": "CHANGELOG.md",
+      "sha256": "4b229d7a48f9955deb426118002bc458907cc537e1eb8e20719720310089682d"
+    },
+    {
+      "class": "evidence",
+      "path": "CONTRIBUTING.md",
+      "sha256": "68eeb5c42dbe8cb125b9fb6d263d7137af686020528bf0776925ca4ac674aeb4"
+    },
+    {
+      "class": "evidence",
+      "path": "LICENSE",
+      "sha256": "90f5735f28fc0b10c111020b8ffa551a8f83f212c4998fb38e4da4eef161fa4e"
+    },
+    {
+      "class": "evidence",
+      "path": "README.md",
+      "sha256": "27afe98fcdac17aac4cf1b00ab4d3cd8fd82d7e652a03312254bbe750a3e7528"
+    },
+    {
+      "class": "evidence",
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "9c5509c40ed3dc9a9e6255981375c068a3864965758e1930e8830e4aa2154a4f"
+    },
+    {
+      "class": "evidence",
+      "path": "VERSION",
+      "sha256": "68ec10d7aa58f8cc2cc4636c9ea52e6fc13299fc121387bc5ce30665c576b3e6"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/LICENSES.md",
+      "sha256": "6cb93ac08b92f781cd5ad0fc1b740113d1f51f469ec0be135dc64f4046794ae6"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/SpaceGrotesk-OFL.txt",
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/SpaceGrotesk-native.ttf",
+      "sha256": "1da7b6f522eacee65e0ee4197aac77ecc21274875edb9b62771438934577218a"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/SpaceGrotesk-wght.woff2",
+      "sha256": "8e085aa438094f11487a836652edd5c054fa6a96f63fc7c282105ee3a4b08c07"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/brazil.svg",
+      "sha256": "724998f4e54547f4386cb67be3246f9f5a356dd79e45a79fc98ec1303a3bf9e0"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/canada.svg",
+      "sha256": "1b9e429610fc9f5bdbf5bab8cfdfae7855f1e22a4623cd11692dd3e66668b53b"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/france.svg",
+      "sha256": "e6aa1c13acea0fc8e959be276e1924a3b0e3b6c2ff48e2ad136de47273ff5f31"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/germany.svg",
+      "sha256": "e6d1d3dc88e1523a763bfca5b1e881260c72609936f81da151c472bc9f05da1a"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/india.svg",
+      "sha256": "381262ff5b3078bf70ed99ec351ed855323a20b067364fdcfb0c0df0ecbd1f70"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/japan.svg",
+      "sha256": "566315fd4ce13cbb741fa6081621db71d99f1d01f27298685b286341abd6eedd"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/united-kingdom.svg",
+      "sha256": "1c1acc372c3d9c6c1c0e91442a43c8766c5e06ad68c1a6adcec0f93acfbae9c2"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/flags/united-states.svg",
+      "sha256": "555fa159b5c44bcbb00a625bdfe3e914e87385b43789f466e669985d17438de7"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/icon-manifest.json",
+      "sha256": "962b53f3fe0158016afb3b40e96782e5230e5bfa19e4267d67df7159ab00310b"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/licenses/Tabler-Flags-LICENSE.txt",
+      "sha256": "f83dd86cb07e0bae5b57f81d4a355e5a27b468b0812c6b8934aa899b1ab7a6cc"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/licenses/Tabler-Icons-LICENSE.txt",
+      "sha256": "b740a1d46122672da62833e97f7e7c8a13fa85cbc7445b584b297cc00dde93db"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/alert-triangle.svg",
+      "sha256": "25b1f0c39f34647017df84a0cdc9e691c697737094a5956c360ab448a7fd5bef"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/arrow-down-right.svg",
+      "sha256": "b4aa0dd1f2d8566c6fcb0d91859ab4d8ed77162b54429434107b5a80969e9749"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/arrow-left.svg",
+      "sha256": "12af90f1bb49b7ae62792ecf38d2fa8b39daa4753e39ebc3520d07482a90704f"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/arrow-right.svg",
+      "sha256": "7e602a26d53e78ceb788f38cb89ec1d1091130c56d7829ca294b7ed0642277c6"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/arrow-up-right.svg",
+      "sha256": "b7d952b0b6fbd089b110d85639ffffc001bb41fe53040e5e7f3e3f65ddc22595"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/ban.svg",
+      "sha256": "bed491da2d22dbd1becb01c644819c78d5ff07c8fef25b599e20183127914373"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/brand-android.svg",
+      "sha256": "cb31e0a80f7b2504b114172d69da4bd7bd2be53dba2f88b932545b7de01577c1"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/brand-tabler.svg",
+      "sha256": "41ca75ec0a908d00a47dff257a9c6992aee0113277d0ba9df1b14ad156cfd4d0"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/check.svg",
+      "sha256": "e206067a7d570997b5b3a7d30ab287c0b15a492787649a8b96dff8fad2862fbe"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/chevron-down.svg",
+      "sha256": "5a2e5c2a155ce06264a3f7299073ed636142dfd0b324b747387d9cfbf9fb5e3e"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/chevron-right.svg",
+      "sha256": "83733bb6e03e1d20fd2674d06a493642c8ea6eef76c44ebb2239b9ef17dedff7"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/circle-check.svg",
+      "sha256": "c4cb2e026be5f4c217c3ff9b0ccefb9a26b7a135bc82eef28a8bead0cc02a958"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/circle-dot.svg",
+      "sha256": "816a38cb2e9c577133653cb4a7e133d77ee03cfabe2a9543aac012176c838069"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/circle-x.svg",
+      "sha256": "aaa9501a0ad80eb2620a1c6a01203425f3f0021b68e4788199b906ccfe82471d"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/clock.svg",
+      "sha256": "971b0b2d3b5b17ae240cd3aac1a09710ab680d8c41900f1a37a0e430994d7fda"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/code.svg",
+      "sha256": "ff3d40c83c1a908bc3aa173671232e5015dba2f7f3538edc23fa2218a3d329e2"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/contrast.svg",
+      "sha256": "9a8ccd2b4942bef00ad9e927a4b6548427880e9fd4d4be9c0818ddf2f434a834"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/copy.svg",
+      "sha256": "3a455a299db4ec939fd0473d15c81c1d3f30f65dec81a7de816317c989b06073"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/cpu.svg",
+      "sha256": "d9ecd8e0f4a140f8a0c272d3cb6d7e380c6a57f2d5e823980dc40024fa7387ac"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/device-desktop.svg",
+      "sha256": "2fdd2150904a844185250f26453a02f31ee9d77a1f936a1df9c2ecd77cfc788d"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/device-mobile.svg",
+      "sha256": "2f9d4b1a140f3b9c9057efa5964bc8a7a135ce5d32dfe4752ebdad9d086d5413"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/download.svg",
+      "sha256": "c13f6f9cf87deee99e331622169efd59cd764b376994540347e50d6bb5e2e0ef"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/external-link.svg",
+      "sha256": "95de8d4e3e77d34b39a94e157ff26b5a860015c6ce3056794f63dd3a55805bbc"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/file-text.svg",
+      "sha256": "afc807ae397fc2419ac5cbca6a1e085a5f761277397682cbad3d907ca78693f5"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/flag.svg",
+      "sha256": "91c224b828fd0716ef8617633a714ef6764a16618fe222becbcf0a4b83b35b9e"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/folder.svg",
+      "sha256": "acdf398775addb8104673e5a8ef29d01d40184c6a5b3c62a93f10309cf9ef253"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/info-circle.svg",
+      "sha256": "48b7dddf34a6b87e93843a42b14781ce01794cf69274c458249ed8bfc01b6e4d"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/layers-subtract.svg",
+      "sha256": "f877d213ddc76b9343dd61bdd05bd8529e508253a5c2279a061a2099ac062f0f"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/layout-grid.svg",
+      "sha256": "91f923bcca6e9201ccedd2a10bb5d5a7eb3dbb5fa5a26af394d362f35c935237"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/loader-2.svg",
+      "sha256": "82639ca5a04efc951caef3d274c9e302f1c09dcdaa9a1b8e094c16890bfd1d41"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/menu-2.svg",
+      "sha256": "bcef199c5e53082a56c7bf33d4c48181b71373eb5d923cce8884aca09d106842"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/palette.svg",
+      "sha256": "d9c39bf1ce00d10694015d9d736ae6006a7e7b2f0df776dd206e1058a9a700a7"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/photo.svg",
+      "sha256": "67d9b3ec02867e98ad17739380919a2d82287d15d3463161f450e17047ed319b"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/plus.svg",
+      "sha256": "9cc497d4cc1eb38cf9daae18f41ffdc1a5e2a8431d70247b0854978f303f28d6"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/ruler-measure.svg",
+      "sha256": "a4f509cfca3c4f2e08f5be9149c563a1c84b39476a47c6fc2f997e20dd6ccb4a"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/search.svg",
+      "sha256": "3dd53b9606283dfa0adcb0b10a7d9a4432369d4bebcfacf67f80fbe358381c34"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/settings.svg",
+      "sha256": "ef9cf42d822c00b4fad5bc5eeceddd4e1ec3774bb7ddd09891d0fba274bc3e95"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/terminal.svg",
+      "sha256": "f654db64a14e86aee1b3e39e707907e83431ad1671fa2844d0496955b512a225"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/typography.svg",
+      "sha256": "dbd02a0c7c4794f692ee17139b9c1b9672a9bf873bcf28d14caa5f2a3dbab896"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/world.svg",
+      "sha256": "d0dfc538f966d03b72a9fe872fbb567d5e84db9d24b95af032305404ef71f587"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/outline/x.svg",
+      "sha256": "9350785360414c39450c3505f17d1745e55a7534edace8548e30cf49e3727d43"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/icons/sprite.svg",
+      "sha256": "23da27c735fcb04a9fa1248951d3e67b6b325fd51ab6612b805181662e92fda8"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnosix-cube-alpha.png",
+      "sha256": "af177020fb05dd726638de592c1241105ea7e4c3a0eb3532f4c646bda4b0cff4"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnosix-cube-alpha.svg",
+      "sha256": "cb8deeeaf5b5f442d86dd585b60cb0e8fd8e6b932c232ed66eb1de87ad0934cc"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnosix-cube.png",
+      "sha256": "c5b5d61ac2bb71211bd1caf18fb5b0a1dca2e18c5e96cf4ea74d27561ed42958"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnosix-cube.svg",
+      "sha256": "ee01ce71145ce261bdd81fc9fa842a93d46ef1be7b7c94dedeb5d449ad8f8bee"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnosix-ds-mark-master.svg",
+      "sha256": "d2d266201f169d04d5c9d7a2163631bd9b70ccd0e89018e59c4a133e34bacb7b"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnosix-ds-mark.png",
+      "sha256": "72d6c8264deff81f3b7f535d063086204cc03921eee3fee804c5f3f7e1b4aaa9"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnosix-ds-mark.svg",
+      "sha256": "3b40d9f09436d5856158a0a1e229bf28136b6141aa0d178beb52f2438437bca8"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnu6-live-cube-alpha.png",
+      "sha256": "ff1e1467ba5e1d5a3891c90bc210272de55b60e5109ec474c764a692c2f2f910"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnu6-live-cube-alpha.svg",
+      "sha256": "e7fbc7ffff49ad875b591f8e9cba8641bc0c074ab23b1b31669b2447a5798eeb"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnu6-live-cube.png",
+      "sha256": "20f6a4970d4375851738b9a0ef6ec0ddce36803f0fb001657bd0337b3d87b858"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnu6-live-cube.svg",
+      "sha256": "4e397f0335b507ce367a6f3fe0208a3914bb60a13ec871390e7f9e25358d7055"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnuinlabs-cube-alpha.png",
+      "sha256": "097438a515864050e095ff57b6fbc85a938f3dd0c5aa482940e810e64b6018ed"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnuinlabs-cube-alpha.svg",
+      "sha256": "e8e91ecbf06aa5fae2e3e98bf3c01e10ba69787fdb792b7a7904abe402cb86ae"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnuinlabs-cube.png",
+      "sha256": "45e6c00f4a845c2291fd95c8b1e75ebb0d24dfee2b7a44294cd14e96301e8896"
+    },
+    {
+      "class": "core",
+      "path": "assets/identity/gnuinlabs-cube.svg",
+      "sha256": "5fdd7862eaea179638470748239d45d50191067dfc8400c40211d595c3b82555"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/mascot/syster-color.png",
+      "sha256": "a11aac810afced96c250cc153fa3ab9e7ecf101ab8ab82cc69b2a9cc3859da7e"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/mascot/syster-mono.png",
+      "sha256": "4858290930162a4e8a7e7a451538a9c5ac8a9312faa3f552f7c27eca8f29214e"
+    },
+    {
+      "class": "evidence",
+      "path": "assets/mascot/syster-outline.png",
+      "sha256": "60b61bbf3b37aad86aa53b54339bbfcbe22620ff0ae1941d4221e2d5502bf84b"
+    },
+    {
+      "class": "core",
+      "path": "core/ACCESSIBILITY.md",
+      "sha256": "c553bf3052dc5391f29711299c1a47c436a8268d59e33609d3bd5bd755c16b1b"
+    },
+    {
+      "class": "core",
+      "path": "core/IDENTITY.md",
+      "sha256": "ca783706273faa0911e8776041068985fdbd1c1617b4a700ce3c680b9e79560b"
+    },
+    {
+      "class": "core",
+      "path": "core/MAPPING.md",
+      "sha256": "95540204d964b76f5846c1ac64442151363b0942d37c9a15a8a3cad04d62089b"
+    },
+    {
+      "class": "core",
+      "path": "core/SEMANTICS.md",
+      "sha256": "0422f48eebd8631b097537478c6b6360e45060dd4f1484e69d35cea6681def6f"
+    },
+    {
+      "class": "core",
+      "path": "core/TOKENS.json",
+      "sha256": "0ce3dcfe595d402c94c1323b0ddc46350c6334404aff95c7646ade86c41b1e25"
+    },
+    {
+      "class": "core",
+      "path": "core/VISUAL.md",
+      "sha256": "6e69b1962ba9766fc8230c22e85aa0ec28fa2d28ed32615e301e395c0dec1086"
+    },
+    {
+      "class": "core",
+      "path": "core/rules.json",
+      "sha256": "357981be54eddc7d88491307f44ff848d08bc084abacdd9ae0f8bf2a3aa5ff79"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/README.md",
+      "sha256": "b7afd7abc1eed253d5005027879cbf99ba2e1b4c3d125232e9ff44e87a2adfd2"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/build.gradle.kts",
+      "sha256": "936387c0fff210899b202393185cbfa48c30720576095b3ff1c61e419b44ea47"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/AndroidManifest.xml",
+      "sha256": "6733bbf7625ca2a7d0a1f7b703fdbacbaf9015b0d81a773b48aa59911301bdba"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixColors.kt",
+      "sha256": "c4e59e5c77a8dcf8fc1cc212e03c44cf537609f0bf7fb3a01fa4da73c7f27109"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixTheme.kt",
+      "sha256": "9a19d5359ebcf6871456429840e93b38c979445c7bd7e21a40801a49bec7c957"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/MainActivity.kt",
+      "sha256": "0afc89266d74a5643606e32d3d49c5a2740501a51d07dddf70e08238e510241b"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/ReferenceScreen.kt",
+      "sha256": "2c159a9f8fd40a502f0c1e014bdad1bc957fe46426f3183856920e0393af3fcb"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/StateProjection.kt",
+      "sha256": "dda5ad0c91391c0e63d95d4f61be3729a12ef69c5f14be3686b40358c86d4735"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/res/font/space_grotesk.ttf",
+      "sha256": "1da7b6f522eacee65e0ee4197aac77ecc21274875edb9b62771438934577218a"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/build.gradle.kts",
+      "sha256": "da71d0eac72987c2d01a1f157d32a259661e11c327cde75b71e6248d8ea602ba"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/settings.gradle.kts",
+      "sha256": "6f289bba642d801cded243afc34634e9ace683b807d1399e026a818988717ee6"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/status.json",
+      "sha256": "0b1f8fcd4cd614df2eb299bffbe8c3c168f3599de77debdf43f2da7fb7735969"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/motion/README.md",
+      "sha256": "be40b150a5e61660ae084ad569993e51ccd157c9f5a24cf8704822d6e24748fb"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/motion/motion.json",
+      "sha256": "f1799eac504b0b263e574c8c06690b627cce92ec50ed36c717a6fb21893e2d8e"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/motion/status.json",
+      "sha256": "df067b6bf1d6d63673a3dd35c1ff590022977ea208f4df4fbe12d26aba6c997d"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/native/README.md",
+      "sha256": "f40d0d5ba3aab78bfb7fe4e1b7bd5147f7a452b04f19f2a5f67e6a4dab9dcc63"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/native/status.json",
+      "sha256": "4070be731f2b984edbe9ec50ad013df2cba6677c953acfc9b0d283dbff533ffd"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/projection-map.json",
+      "sha256": "e479d9f20116a4b5b3d94fd07a7350fcf836401b220664bed66eead0827ae2f1"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/README.md",
+      "sha256": "6b5141059bedfcc45846042066df0cb202296450a7626203ef627f2e955ca534"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/ReactExample.tsx",
+      "sha256": "9fe3c93aebfb1b3bd564825cf238f9681d0ce411a1bd589ca0e02077af60dfb8"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/components.css",
+      "sha256": "7ef79d83ebb738cd99f5fcb4b674a4207610c61c75f4755ec648a334b0978f5c"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/demo.html",
+      "sha256": "12f91e429f585af6aa638c8256463572e2ac3d50d62e48e58adc4a60d4139e10"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/icons.css",
+      "sha256": "c8389c26e965c769e28d86ecd46a37e18685fb1fc8ff3b21fe34127003d18942"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/state.js",
+      "sha256": "41a9fc7d561d2f1ee0dd30addad8ca8e99eb78ac7962973d6d862fa3cb9dae6b"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/state.ts",
+      "sha256": "5e89645e3b53557ab2f130bb22bdaaa1f70777841cae0c4ab700966b23936c44"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/status.json",
+      "sha256": "e0680e3eeeba3a2a8a41c56cfb65d45bb7f92d9dafefc77b57f7d92319c9e1e1"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/web/tokens.css",
+      "sha256": "ef76ac1a57f08ae4a3d6e8b80ed0d71a05d1b2034eb43ec6b657793c04f4ce1f"
+    },
+    {
+      "class": "evidence",
+      "path": "qa/QA.md",
+      "sha256": "bc217bf4976452ed736ac1d40b82a15f18de1984ebf52445f36d59789b42baa0"
+    },
+    {
+      "class": "reference",
+      "path": "references/actions.json",
+      "sha256": "2e4c0170ce3d4ab270a806598dbc319cb4d0cc880f7c13524094ade7d7fb0eff"
+    },
+    {
+      "class": "reference",
+      "path": "references/actions.svg",
+      "sha256": "56b58c9772a15e069eb50d95891c9b99ae8b3194eae2f79b3b9c34dde2e6417a"
+    },
+    {
+      "class": "reference",
+      "path": "references/adaptive.json",
+      "sha256": "b6db42bab88083faecf1e8223fe634e308831566ca7200705426c26759dfdd1b"
+    },
+    {
+      "class": "reference",
+      "path": "references/adaptive.svg",
+      "sha256": "15a2b243b35ffd6801159eb0e3f6975f9ec963edf6980e60a24f186aef62ca9f"
+    },
+    {
+      "class": "reference",
+      "path": "references/fields.json",
+      "sha256": "2c5d0141e618ac50061d11e682d4c694ce52b4be9e45cb7a861f67faf439ea91"
+    },
+    {
+      "class": "reference",
+      "path": "references/fields.svg",
+      "sha256": "7ff74231aa3f9753e87c19ca69ea5c9cefc23e8dc49e1487fdee8b4fd6282678"
+    },
+    {
+      "class": "reference",
+      "path": "references/identity.json",
+      "sha256": "61610c71ed3fadb3d9cce252524e657921c5a91d127ae707afb53a2f52123c36"
+    },
+    {
+      "class": "reference",
+      "path": "references/identity.svg",
+      "sha256": "89ec2cf2e18fca4d8b2b49730b64d5faf856da26fe3d62b15398c94453022d2a"
+    },
+    {
+      "class": "reference",
+      "path": "references/state.json",
+      "sha256": "1a049844d07dcf662ea1463cf3911bc2c62e47217958049d2caadf1d8eeac9af"
+    },
+    {
+      "class": "reference",
+      "path": "references/state.svg",
+      "sha256": "3efe93b378c54383267c4270b724698528c9c60ce3f883a547fc16c38bef765d"
+    },
+    {
+      "class": "reference",
+      "path": "references/surfaces.json",
+      "sha256": "355511d6ebd4c973045ecac7d1dc10e6d65af3e842dc50396d788dca06c1d24b"
+    },
+    {
+      "class": "reference",
+      "path": "references/surfaces.svg",
+      "sha256": "36b69dbfb93f01a93e70c97abc06b41b702f4f2bbf0fe505b595a41fee1c7fd2"
+    },
+    {
+      "class": "evidence",
+      "path": "references/visual-evidence/depth-cues.png",
+      "sha256": "ba09e2f6788809d451c26bbc8d20f2f3776336e63f9926930a75867f6986f919"
+    },
+    {
+      "class": "evidence",
+      "path": "references/visual-evidence/localized-fields.png",
+      "sha256": "6df719896202b4a2da58f3fba05abdb8e6ce9e4b72d8c698088eb28d09c96e50"
+    },
+    {
+      "class": "evidence",
+      "path": "references/visual-evidence/material-families.png",
+      "sha256": "217e8b6f6434f69c503a04a9df009bd10af2482b007079e9da2a0a1f123a1129"
+    },
+    {
+      "class": "evidence",
+      "path": "references/visual-evidence/semantic-fields.png",
+      "sha256": "f65f842232a9eaffecf86166d9e8dc97851687435a74e182b66758016354f31d"
+    },
+    {
+      "class": "evidence",
+      "path": "requirements.txt",
+      "sha256": "82151697567d78e43aea76e0e9f9da243d2e488321d28f45ea0424ae455576aa"
+    },
+    {
+      "class": "evidence",
+      "path": "site/favicon-16.png",
+      "sha256": "8609b63015e34ec8da83347ccf84ccafa730d1c19b68dd89b7cd54810638c977"
+    },
+    {
+      "class": "evidence",
+      "path": "site/favicon-180.png",
+      "sha256": "f7efcdaf36895fbbc848348cfe85755da0f9d16b29e5d34025b3cae7cf24167e"
+    },
+    {
+      "class": "evidence",
+      "path": "site/favicon-192.png",
+      "sha256": "b8abd0f20647b0e38ad8179c009d09fa7351d30f33be783bbf92256ae8706cb9"
+    },
+    {
+      "class": "evidence",
+      "path": "site/favicon-32.png",
+      "sha256": "927e481f8d69b8922b71a6df3e7e47da75288be15402819524407c1af2756de9"
+    },
+    {
+      "class": "evidence",
+      "path": "site/favicon-48.png",
+      "sha256": "49071737735fdbf420137c28c64257fba29908c3906dee961c3e0bd8be64f43b"
+    },
+    {
+      "class": "evidence",
+      "path": "site/favicon-512.png",
+      "sha256": "5b8b0424161ef32236fccc420293d05f3d89ebe3304b2e6cbfd608e3ac44eb26"
+    },
+    {
+      "class": "evidence",
+      "path": "site/favicon.png",
+      "sha256": "927e481f8d69b8922b71a6df3e7e47da75288be15402819524407c1af2756de9"
+    },
+    {
+      "class": "evidence",
+      "path": "site/index.html",
+      "sha256": "ed57c04b061b7299ec942dfcc59b06d9dd4ca1cadf37189ac7c197698b0bffb1"
+    },
+    {
+      "class": "evidence",
+      "path": "site/site.js",
+      "sha256": "04f490f862f56801171b3d177a32f0f4e690700d7aaba859a7598429721b202c"
+    },
+    {
+      "class": "evidence",
+      "path": "site/site.webmanifest",
+      "sha256": "5ee18e101ab0c6503a642f3cf80c9fba8aae08adcf5e6421106a10eb6eb1052e"
+    },
+    {
+      "class": "evidence",
+      "path": "site/style.css",
+      "sha256": "25a11da1f31d80899ecfae78503c71854d444f35fc6d072de2bf45386785e625"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/conftest.py",
+      "sha256": "6d34c88cfc06ba1a91f2333fa65f64d270aaa45f686f86b551dbb9dfbef88085"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_android.py",
+      "sha256": "6d473d886647687511aa399ab5c8d52fa4e1a9cf77288fbd78f456551637113c"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_assets.py",
+      "sha256": "2e68c61b07404b22170a67a717eb5a5a1f679fc26fa5caa34bb7c871a58f36e0"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_contract.py",
+      "sha256": "47ed8f89f8ee670afef2dc98a024be0b71710603e08baf192cfa18529dc98982"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_core.py",
+      "sha256": "ada6b0eaee292d3c58dd44f5349bb825e4d4dfb69d9e9d2d470aaceeefa464e6"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_fixtures.py",
+      "sha256": "7f6c43f00a4c8d05c276f9b58a1a2cb1b22f030fb61354f7e21b1e4ce7e45117"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_motion.py",
+      "sha256": "7de11bc61560576c95a588d4baf14f4e02ca59db1f11bc48e8f37ccdae26b527"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_release.py",
+      "sha256": "a18293a0cce024f55c0a2076e238997226a918c5aae9a461b80d34604b34fdac"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_version.py",
+      "sha256": "40fd5d4746892f67619e8067eba186562219e3b0401c6a956bab19821fd70c2e"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_web.py",
+      "sha256": "990e7e60c12e179b6816f6898ebda862b7cd1790f07b0501928659c8596da3d5"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/__init__.py",
+      "sha256": "202734e241038f2f8a351ab5b66845e2cc35037a8c209fda07918581917767e8"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/apply_icons.py",
+      "sha256": "04dbf5982ed371b67d212523539da0e4afdcbeb3eb9290883be5d203624bd8a3"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/build_favicons.py",
+      "sha256": "4c03a90fdff246665611e0abc7ffe21f9701609d025234ff36f36059a5a47b19"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/check_fonts.py",
+      "sha256": "960b15f4c144b4979f0ff422df45f6b22d1f82d1fcd9a9e0ac6e0b97c81dade0"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/ci.py",
+      "sha256": "7dde43ba0148f0bfa7faaa486d6520582203937d147d90d19f8226fd32f4f26d"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/contract.py",
+      "sha256": "5ac6a0d659e3eaa4f97a22123fbdaf4e2440ae7871e44305a4259d735976f00b"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/fixtures.py",
+      "sha256": "50636e8ac795677d1ab651021c6d9f6241fa2b04f2df2153b46cde162ed2ad8e"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/project_tokens.py",
+      "sha256": "fe05b037fb808134a12611ee0f12a45455979806cd06ac9332c481407941fe46"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/rebuild_manifest.py",
+      "sha256": "43abacae9220c369517b40ba7fc76361dc2ec9a866d027f533cbd2169bd5730a"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/rebuild_svg_wrappers.py",
+      "sha256": "df1121a2d58a9a920daca22e7036c18e05db9fb1df35763c1793bbe97013483b"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/rekey_alpha.py",
+      "sha256": "f9fb230ec5283831f97fdd570e51ee41da6c43ab06d8b301a13a4491616258d2"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/release.py",
+      "sha256": "776faddd939e759c7c6311e4db24a684698d48708a7610339e0931a869627e3c"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/repair_mascot_alpha.py",
+      "sha256": "d4cd5c1527d4347034df5064bde0ca355905243415b7636b63595d0f731baffb"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/vendor_icons.py",
+      "sha256": "88e2d54950f71e4712da87fc3a682bdcff644eec944b0cccd5f372783c4af975"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/version.py",
+      "sha256": "9a2675845f6a32385bd95ac41c4cfac2d16aed73dcd965775fbe2806ca7f5b63"
+    }
+  ]
+}

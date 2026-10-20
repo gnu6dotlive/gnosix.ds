@@ -1,0 +1,10 @@
+{
+  "profile": "android",
+  "status": "mapped",
+  "evidence": [],
+  "gaps": [
+    "Android SDK and Compose renderer are unavailable in this workspace",
+    "Packaged Space Grotesk TTF has glyph coverage but has not been visually verified in Compose",
+    "TalkBack, keyboard/focus and enlarged-text behavior require target-device evidence"
+  ]
+}

@@ -1,0 +1,14 @@
+# The qualification suite's runtime dependencies.
+#
+# These are the packages the test suite needs to inspect pixels and to read
+# the packaged font. The gates under tools/ need none of them: they are
+# standard-library only, and deliberately so, because a gate that cannot run
+# without a wheel is a gate that does not always run.
+#
+# fontTools is optional. tests/test_assets.py::test_native_font_gate skips
+# when it is absent rather than failing, because the native font is an
+# optional deliverable and the gate reports the package's status either way.
+
+numpy>=2.0
+pillow>=11.0
+fonttools>=4.60

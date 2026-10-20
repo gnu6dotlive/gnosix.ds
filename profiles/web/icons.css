@@ -1,0 +1,39 @@
+/* ICON-001: interface glyphs are ratified Tabler icons.
+ *
+ * The sprite is vendored at assets/icons/sprite.svg and pinned by digest in
+ * assets/icons/icon-manifest.json. Every consumer surface imports this file rather
+ * than re-declaring glyph geometry, so the icon set is a single authority.
+ *
+ * Icons inherit currentColor and scale with the type they sit beside. That is the
+ * reason the pack is stroked SVG rather than a font: a glyph that inherits the
+ * surrounding font's metrics and colour is no longer a glyph, it is a character
+ * wearing a costume.
+ */
+
+.gnosix-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gnosix-icon--sm { width: 0.875em; height: 0.875em; }
+.gnosix-icon--lg { width: 1.25em; height: 1.25em; }
+.gnosix-icon--xl { width: 1.5em; height: 1.5em; }
+
+/* A flag is artwork with its own fill, not a stroked glyph, so it keeps its own
+ * proportions: 30x24, wider than it is tall. */
+.gnosix-flag {
+  display: inline-block;
+  width: 1.25em;
+  height: 1em;
+  vertical-align: -0.15em;
+  border-radius: 1px;
+  flex: none;
+}

@@ -1,0 +1,10 @@
+{
+  "profile": "native-gpui",
+  "status": "mapped",
+  "evidence": [],
+  "gaps": [
+    "No compiled gnos.ux/GPUI reference fixture is included in this package",
+    "Keyboard focus and accessibility projection have not been verified in a target runtime",
+    "Surface and shader mappings are specified but not visually captured here"
+  ]
+}

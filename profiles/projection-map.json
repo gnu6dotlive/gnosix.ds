@@ -1,0 +1,110 @@
+{
+  "version": "3.4.2",
+  "status": "CURRENT",
+  "principle": "Portable meaning is authoritative; each target maps roles, state and evidence without importing another toolkit's component model.",
+  "rows": [
+    {
+      "id": "type.primary",
+      "rules": [
+        "TYP-001",
+        "TYP-002"
+      ],
+      "portable": "Space Grotesk is the visual/interface family, including metadata and technical strings.",
+      "web": "Packaged variable WOFF2 via @font-face; inherited by body, controls, code and metadata.",
+      "android": "Packaged variable TTF in res/font and explicit Compose FontFamily.",
+      "native": "Packaged variable TTF registered with the GPUI text system; family selected as Space Grotesk.",
+      "gate": "Rendered family resolves to Space Grotesk and required French/symbol glyphs are present."
+    },
+    {
+      "id": "color.tokens",
+      "rules": [
+        "COL-001",
+        "COL-002"
+      ],
+      "portable": "Exact values originate in core/TOKENS.json; contrast rules are semantic constraints, not theme suggestions.",
+      "web": "Generated CSS custom properties.",
+      "android": "Generated Kotlin Color values.",
+      "native": "Rust constants or theme values generated from the same token source; no handwritten second palette.",
+      "gate": "Projection equality check against core/TOKENS.json."
+    },
+    {
+      "id": "action.primary",
+      "rules": [
+        "COL-002",
+        "A11Y-001"
+      ],
+      "portable": "Principal contextual operation with verb label, focus treatment and explicit pending/result distinction.",
+      "web": "Native button with .gnosix-action and :focus-visible.",
+      "android": "Compose Button with semantic label/state and minimum target area.",
+      "native": "Focusable GPUI action element with keyboard activation, visible focus and explicit accessible state.",
+      "gate": "Keyboard/touch activation and focus are observable without hue alone."
+    },
+    {
+      "id": "state.projection",
+      "rules": [
+        "STA-001"
+      ],
+      "portable": "Intended, observed and projected values remain separate; mutation intent never becomes success evidence by itself.",
+      "web": "projectState(requested, observed) returns pending until authoritative observation matches.",
+      "android": "StateProjection.kt retains requested and observed separately.",
+      "native": "View model stores intent and observation separately; rendered status derives from both.",
+      "gate": "A request produces pending text before any success text."
+    },
+    {
+      "id": "status.form",
+      "rules": [
+        "CMP-001",
+        "A11Y-001"
+      ],
+      "portable": "State is text first, optionally reinforced by a small pip; status capsules are prohibited.",
+      "web": "Text status row plus optional ::before pip.",
+      "android": "Text with semantics stateDescription; optional adjacent dot, never a decorative chip.",
+      "native": "Text status and optional painted state pip; selection remains structural.",
+      "gate": "Meaning remains when color is removed."
+    },
+    {
+      "id": "surface.layers",
+      "rules": [
+        "SUR-001"
+      ],
+      "portable": "Geometry, material, chrome, depth, content, hit region and allocation are independently representable.",
+      "web": "DOM/layout geometry; background/paint; border/focus chrome; shadow/recess depth; semantic content and hit target.",
+      "android": "Layout/Shape; Brush/Painter; border/focus semantics; shadow/draw layer; composable content and pointer target.",
+      "native": "GPUI layout/element hull; background or custom paint; border/focus styling; shadow/custom draw; content and hit testing.",
+      "gate": "Changing material does not silently change semantic role or hit geometry."
+    },
+    {
+      "id": "field.scalar",
+      "rules": [
+        "COL-003"
+      ],
+      "portable": "A field declares quantity, range, endpoints, neutral point when applicable, missing state and legend.",
+      "web": "CSS/SVG/canvas rendering paired with textual legend and missing-state handling.",
+      "android": "Brush/canvas rendering paired with semantics and textual legend.",
+      "native": "Shader/custom paint may render the field, but semantic metadata remains outside the shader and inspectable.",
+      "gate": "Unknown is not encoded as zero and the field is interpretable without decorative color assumptions."
+    },
+    {
+      "id": "motion.causality",
+      "rules": [
+        "MOT-001"
+      ],
+      "portable": "Motion explains causality, is interruptible and preserves meaning in reduced-motion mode. Declared in full by profiles/motion/motion.json.",
+      "web": "prefers-reduced-motion removes nonessential duration while state changes remain textual.",
+      "android": "Platform reduced-motion/animation policy is respected by the consuming app; state text remains authoritative.",
+      "native": "Application motion policy gates transitions; state changes cancel superseded motion and never depend on animation alone.",
+      "gate": "Reduced motion preserves order, state and action meaning."
+    },
+    {
+      "id": "identity.compositing",
+      "rules": [
+        "ID-004"
+      ],
+      "portable": "An alpha identity master is a compositing variant whose opaque pixels are byte-identical to the ratified master. It is sanctioned on neutral substrates only; over a chromatic substrate the opaque master is used.",
+      "web": "Neutral-surface placement only; the substrate behind an alpha mark is declared, not incidental.",
+      "android": "Neutral-surface placement only; alpha compositing is a declared surface decision rather than a draw-order side effect.",
+      "native": "Neutral-surface placement only; the mark is composited onto a surface that has been chosen and can be named.",
+      "gate": "Over Signal Orange, Royal Blue or Beret Green the opaque master appears, and the cube's dark faces stay distinguishable from the surface."
+    }
+  ]
+}

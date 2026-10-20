@@ -1,0 +1,16 @@
+# Preserve the supplied upstream licence bytes.
+#
+# The Space Grotesk OFL text ships with CRLF line terminators, exactly as
+# upstream published it. Without this rule git may normalise it to LF on
+# checkout depending on the platform's autocrlf setting, and the file that
+# ships would no longer be byte-identical to the licence it claims to
+# reproduce. A licence that has been silently rewritten is not the licence.
+assets/fonts/SpaceGrotesk-OFL.txt -text whitespace=-blank-at-eol,cr-at-eol
+assets/icons/licenses/Tabler-Icons-LICENSE.txt -text whitespace=-blank-at-eol,cr-at-eol
+assets/icons/licenses/Tabler-Flags-LICENSE.txt -text whitespace=-blank-at-eol,cr-at-eol
+
+# Binaries are binaries. Never let a line-ending or filter rule touch them.
+*.ttf binary
+*.woff2 binary
+*.png binary
+*.ico binary

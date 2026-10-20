@@ -1,0 +1,77 @@
+# The qualification contract, in one workflow.
+#
+# The meaningful body of this file is a single command: `python -m tools.ci`.
+# The qualification contract itself lives in the repository, in Python, where
+# a developer and an agent run exactly the same thing locally. The YAML here
+# exists to provision an environment and then get out of the way.
+#
+# The alternative - reproducing the check list in YAML - is how local truth
+# and CI truth drift apart. It is a second implementation of the same
+# contract, and the second one is the one nobody runs locally.
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Least privilege. This workflow reads the repository and nothing else: no
+# write token, no deployments, no release publishing. The release workflow is
+# a separate file with its own, narrower permission.
+permissions:
+  contents: read
+
+jobs:
+  qualify:
+    name: tools ci
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      # Pinned to an immutable commit SHA, not a tag. A tag is a name that can
+      # be moved; the SHA is the code that actually ran, which is the only
+      # version of this worth recording in provenance.
+      - name: Check out the source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      # The suite inspects pixels and reads the packaged font, so it needs the
+      # two libraries that read them. The gates under tools/ do not, which is
+      # why they are standard-library only: a gate that cannot run without a
+      # wheel is a gate that does not always run.
+      - name: Install the runtime dependencies
+        run: |
+          set -euo pipefail
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+
+      # Report the environment before the qualification rather than after a
+      # failure. A verdict without the versions that produced it is not
+      # reproducible, and the versions are part of what the verdict is about.
+      - name: Report the environment
+        run: |
+          set -euo pipefail
+          python3 -VV
+          python3 -c "import numpy, PIL; print('numpy', numpy.__version__); print('pillow', PIL.__version__)"
+          git rev-parse HEAD
+          git status --porcelain && echo "(clean tree above)"
+
+      # The single meaningful step. Everything above it is environment.
+      - name: Qualification
+        run: python3 -m tools.ci
+
+      # Artifacts are CI artifacts, not commits. CI never writes evidence back
+      # to the repository: that would make the run a mutation of the thing it
+      # is verifying.
+      - name: Retain the qualification record
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: qualification
+          path: |
+            dist/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.superpowers/
+*.zip
+
+# Build output. The distributable archive is produced by
+# `python -m tools.release build` and is attached to the GitHub release; it
+# is not committed.
+dist/

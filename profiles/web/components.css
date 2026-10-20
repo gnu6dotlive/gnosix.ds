@@ -1,0 +1,104 @@
+@import url("./tokens.css");
+@import url("./icons.css");
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../../assets/fonts/SpaceGrotesk-wght.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  font-family: var(--gnosix-font-primary);
+  color: var(--gnosix-neutral-anthracite);
+  font-synthesis: none;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--gnosix-font-primary);
+}
+
+code,
+kbd,
+samp,
+pre,
+.gnosix-system {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: .02em;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.gnosix-action {
+  min-height: 44px;
+  padding: .85em 1.2em;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--gnosix-signal-orange-base);
+  color: var(--gnosix-neutral-anthracite);
+  cursor: pointer;
+  font-weight: var(--gnosix-weight-bold);
+}
+
+.gnosix-action:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.gnosix-action:focus-visible,
+.gnosix-input:focus-visible {
+  outline: 3px solid var(--gnosix-royal-blue-base);
+  outline-offset: 3px;
+}
+
+.gnosix-input {
+  padding: .8em;
+  border: 1px solid var(--gnosix-neutral-hairline);
+  border-radius: 8px;
+  background: var(--gnosix-neutral-pure-white);
+  color: inherit;
+}
+
+.gnosix-state {
+  display: flex;
+  gap: .65em;
+  align-items: baseline;
+  line-height: 1.45;
+}
+
+.gnosix-state::before {
+  width: .45em;
+  height: .45em;
+  border-radius: 50%;
+  background: var(--gnosix-beret-green-base);
+  content: "";
+  flex: 0 0 auto;
+}
+
+.gnosix-state[data-status="pending"]::before {
+  background: var(--gnosix-signal-orange-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

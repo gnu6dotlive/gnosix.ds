@@ -1,0 +1,33 @@
+:root {
+  --gnosix-neutral-anthracite: #111418;
+  --gnosix-neutral-shell-white: #F7F3ED;
+  --gnosix-neutral-pure-white: #FFFFFF;
+  --gnosix-neutral-hairline: #D7DADF;
+  --gnosix-neutral-quiet-divider: #E6E8EB;
+  --gnosix-neutral-muted: #A1A6AD;
+  --gnosix-neutral-slate: #667085;
+  --gnosix-signal-orange-100: #FFE5D2;
+  --gnosix-signal-orange-300: #FF8E40;
+  --gnosix-signal-orange-base: #FF6A00;
+  --gnosix-signal-orange-700: #C95400;
+  --gnosix-beret-green-100: #E8EFE5;
+  --gnosix-beret-green-300: #8DA982;
+  --gnosix-beret-green-base: #5F7F52;
+  --gnosix-beret-green-700: #455F3D;
+  --gnosix-royal-blue-100: #E8EDFF;
+  --gnosix-royal-blue-300: #87A0F4;
+  --gnosix-royal-blue-base: #4169E1;
+  --gnosix-royal-blue-700: #2446A8;
+  --gnosix-semantic-alert: #E5484D;
+  --gnosix-semantic-warn: #F5A524;
+  --gnosix-font-primary: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-navigation: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-controls: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-technical: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-weight-regular: 400;
+  --gnosix-weight-medium: 500;
+  --gnosix-weight-semibold: 600;
+  --gnosix-weight-bold: 700;
+}

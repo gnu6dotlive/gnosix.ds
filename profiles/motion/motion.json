@@ -1,0 +1,213 @@
+{
+  "schema": "gnosix_DS.motion.v1",
+  "version": "3.4.2",
+  "status": "specified",
+  "principle": "Motion explains causality, is interruptible, and preserves meaning under reduced motion. The meaning layer under `portable` is authoritative and travels to every target. Every number under `targets` is target-local expression: it is deliberately NOT promoted to core/TOKENS.json, for the same reason fixture viewports are not breakpoints.",
+  "portable": {
+    "laws": [
+      {
+        "id": "MOT-LAW-CAUSALITY",
+        "statement": "Motion must express a cause the viewer can name. If you cannot say what moved and why, the motion is decoration and must be removed.",
+        "test": "State the cause in one sentence for each animated element. 'It looks alive' is not a cause."
+      },
+      {
+        "id": "MOT-LAW-PERFORMANCE",
+        "statement": "Motion performs a function: it carries, reveals, directs, confirms, or retires. It does not idle.",
+        "test": "No animated element may loop, breathe, pulse, float or oscillate on a cycle that is not tied to a state change."
+      },
+      {
+        "id": "MOT-LAW-CONTINUITY",
+        "statement": "The exit vector of one moment determines the entry vector of the next. Two independently animated segments read as two videos, not one film.",
+        "test": "For each seam, name the outgoing vector and the incoming vector. They must be the same vector."
+      },
+      {
+        "id": "MOT-LAW-INTERRUPTIBLE",
+        "statement": "A state change cancels superseded motion. Motion never queues behind a state it no longer describes.",
+        "test": "Reverse or supersede a transition mid-flight; the projected state must match the newest intent, not the oldest animation."
+      },
+      {
+        "id": "MOT-LAW-REDUCED-EQUIVALENCE",
+        "statement": "Removing non-essential duration must preserve reading order, state meaning, action meaning and accessible names. Reduced motion is a different projection of the same meaning, not a degraded one.",
+        "test": "Render the reduced variant and confirm the same information is present in the same order."
+      },
+      {
+        "id": "MOT-LAW-STILLNESS",
+        "statement": "Stillness immediately before the most important frame increases that frame. Sustained motion everywhere means nothing arrives.",
+        "test": "Each sequence has at least one held beat before its climax."
+      }
+    ],
+    "prohibitions": [
+      {
+        "id": "MOT-BAN-IDLE",
+        "statement": "No idle wobble, breathing, levitation, pulse or idle rotation on an element with no state change behind it.",
+        "rules": [
+          "MOT-001"
+        ]
+      },
+      {
+        "id": "MOT-BAN-IDENTITY-MOTION",
+        "statement": "No motion may be applied to a ratified identity master. Perspective transforms, re-lighting and per-pixel recolouring of the artwork are prohibited outright; a mark is a still thing and the frame moves around it.",
+        "rules": [
+          "ID-001",
+          "ID-003"
+        ]
+      },
+      {
+        "id": "MOT-BAN-STATE-ON-ANIMATION",
+        "statement": "State meaning may never be carried by animation alone. If the motion is removed, the state must still be legible as text.",
+        "rules": [
+          "STA-001",
+          "A11Y-001"
+        ]
+      },
+      {
+        "id": "MOT-BAN-TOKEN-LADDER",
+        "statement": "A target's duration ladder must not be promoted into core/TOKENS.json or described as a global duration scale.",
+        "rules": []
+      }
+    ],
+    "roles": [
+      {
+        "id": "reveal",
+        "meaning": "Content becomes visible for the first time.",
+        "interruptible": true,
+        "reduced_motion_equivalent": "Content is present from the first frame; no transform, no fade."
+      },
+      {
+        "id": "settle",
+        "meaning": "An entry completes and holds.",
+        "interruptible": false,
+        "reduced_motion_equivalent": "Content is present at its final position from the first frame."
+      },
+      {
+        "id": "state-pending",
+        "meaning": "A request is in flight and has not been observed. This is explicitly not success.",
+        "interruptible": true,
+        "reduced_motion_equivalent": "Pending text is shown statically. No spinner, sweep or loop of any kind."
+      },
+      {
+        "id": "state-confirm",
+        "meaning": "An authoritative observation has reported a result.",
+        "interruptible": true,
+        "reduced_motion_equivalent": "The observed text replaces the pending text with no transition."
+      },
+      {
+        "id": "attention-direct",
+        "meaning": "A condition requires inspection and the viewer should look at it.",
+        "interruptible": true,
+        "reduced_motion_equivalent": "The non-colour cue and the text carry it; no motion is added."
+      },
+      {
+        "id": "traverse",
+        "meaning": "The viewpoint moves to a new subject.",
+        "interruptible": true,
+        "reduced_motion_equivalent": "A hard cut. The new subject is present at full scale on the first frame of the new segment."
+      },
+      {
+        "id": "retire",
+        "meaning": "Content leaves because it is no longer the subject.",
+        "interruptible": true,
+        "reduced_motion_equivalent": "Content is absent from the first frame of the next segment."
+      }
+    ],
+    "seams": [
+      {
+        "id": "cut-the-curve",
+        "intent": "Advance to a new subject while preserving the outgoing motion's screen direction.",
+        "velocity_matched": true,
+        "reduced_motion_equivalent": "Hard cut at the same frame boundary."
+      },
+      {
+        "id": "zoom-through",
+        "intent": "Push through the current subject into the next, with scale increasing across the seam.",
+        "velocity_matched": true,
+        "reduced_motion_equivalent": "Hard cut."
+      },
+      {
+        "id": "inverse-zoom-through",
+        "intent": "Pull back out of the current subject into the next, with scale decreasing across the seam.",
+        "velocity_matched": true,
+        "reduced_motion_equivalent": "Hard cut."
+      },
+      {
+        "id": "waterfall-cut",
+        "intent": "A held frame interrupts the flow, then motion resumes on the same vector.",
+        "velocity_matched": true,
+        "reduced_motion_equivalent": "The held beat is retained; only the transitions are removed."
+      },
+      {
+        "id": "rack-focus",
+        "intent": "Hold position and move attention by changing sharpness, with no displacement.",
+        "velocity_matched": false,
+        "reduced_motion_equivalent": "Both elements render sharp; the focus cue is carried by the non-colour indicator and text."
+      },
+      {
+        "id": "waterfall-entry",
+        "intent": "Staggered arrival of a group, ordered by element weight, so the group assembles rather than appearing.",
+        "velocity_matched": false,
+        "reduced_motion_equivalent": "The whole group is present on the first frame, in its final arrangement."
+      },
+      {
+        "id": "nudge-curve",
+        "intent": "Slow-fast-slow repositioning of a group; a reposition, not an attention grab.",
+        "velocity_matched": true,
+        "reduced_motion_equivalent": "The group is present at its final position from the first frame."
+      }
+    ],
+    "state_timing": {
+      "statement": "A pending projection must remain pending until an observation reports a result, regardless of any motion schedule. Motion may express the wait; it may not resolve it.",
+      "rules": [
+        "STA-001",
+        "MOT-001"
+      ]
+    }
+  },
+  "targets": {
+    "remotion": {
+      "status": "specified",
+      "note": "Target-local expression. These are frame counts at this target's frame rate, not global tokens, and must not be copied into core/TOKENS.json.",
+      "fps": 60,
+      "ladder_frames": {
+        "instant": 4,
+        "quick": 10,
+        "standard": 18,
+        "traverse": 32,
+        "sustained": 48
+      },
+      "ladder_note": "Step names are motion vocabulary and must not reuse a colour-ramp or spacing step name. An earlier draft called the middle step 'base', which collided with the ratified signalOrange/royalBlue/beretGreen 'base' step and made a token leak ambiguous to detect.",
+      "easing_vocabulary": {
+        "enter": "power3.out",
+        "exit": "power3.in",
+        "seam_in": "power4.out",
+        "seam_out": "power4.in",
+        "settle": "power2.out",
+        "linear_tick": "linear"
+      },
+      "velocity_match": {
+        "partial_travel_fraction_of_frame": 0.12,
+        "statement": "A velocity-matched seam travels roughly 12% of the frame dimension on each side of the cut, so the two segments share screen velocity at the boundary."
+      },
+      "blur_scale_px_at_1080p": {
+        "text": 10,
+        "full_frame": 18,
+        "statement": "Blur is scaled by element size, not applied globally."
+      },
+      "reduced_motion": {
+        "duration_frames": 1,
+        "retain": [
+          "opacity",
+          "state_text",
+          "reading_order"
+        ],
+        "drop": [
+          "transform",
+          "blur",
+          "loop",
+          "sweep",
+          "idle_animation"
+        ],
+        "detection": "The renderer is headless and reports the render machine's motion preference, which is not the viewer's. A target MUST therefore expose reduced motion as an explicit input as well as honouring the platform preference where one is available."
+      }
+    }
+  }
+}

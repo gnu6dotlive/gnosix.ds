@@ -1,0 +1,467 @@
+{
+  "icon_pack": "Tabler Icons",
+  "icon_pack_version": "3.49.0",
+  "icon_pack_repo": "https://github.com/tabler/tabler-icons",
+  "icon_pack_license": "MIT",
+  "flag_pack": "Tabler Flags",
+  "flag_pack_version": "0.1.1",
+  "flag_pack_repo": "https://github.com/tabler/tabler-flags",
+  "flag_pack_license": "MIT",
+  "attribution": "Copyright (c) 2018-2026 Pawel Kuna",
+  "grid": {
+    "icon": "24x24",
+    "flag": "30x24"
+  },
+  "stroke": {
+    "icon": "2",
+    "note": "currentColor, 24x24 grid"
+  },
+  "sprite": {
+    "path": "assets/icons/sprite.svg",
+    "sha256": "23da27c735fcb04a9fa1248951d3e67b6b325fd51ab6612b805181662e92fda8",
+    "bytes": 8162
+  },
+  "entries": [
+    {
+      "name": "alert-triangle",
+      "kind": "icon",
+      "path": "assets/icons/outline/alert-triangle.svg",
+      "role": "warning and operational consequence",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/alert-triangle.svg",
+      "sha256": "25b1f0c39f34647017df84a0cdc9e691c697737094a5956c360ab448a7fd5bef",
+      "bytes": 569
+    },
+    {
+      "name": "arrow-down-right",
+      "kind": "icon",
+      "path": "assets/icons/outline/arrow-down-right.svg",
+      "role": "directional affordance pointing into a section",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/arrow-down-right.svg",
+      "sha256": "b4aa0dd1f2d8566c6fcb0d91859ab4d8ed77162b54429434107b5a80969e9749",
+      "bytes": 425
+    },
+    {
+      "name": "arrow-left",
+      "kind": "icon",
+      "path": "assets/icons/outline/arrow-left.svg",
+      "role": "backward navigation",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/arrow-left.svg",
+      "sha256": "12af90f1bb49b7ae62792ecf38d2fa8b39daa4753e39ebc3520d07482a90704f",
+      "bytes": 433
+    },
+    {
+      "name": "arrow-right",
+      "kind": "icon",
+      "path": "assets/icons/outline/arrow-right.svg",
+      "role": "inline progression and row affordance",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/arrow-right.svg",
+      "sha256": "7e602a26d53e78ceb788f38cb89ec1d1091130c56d7829ca294b7ed0642277c6",
+      "bytes": 428
+    },
+    {
+      "name": "arrow-up-right",
+      "kind": "icon",
+      "path": "assets/icons/outline/arrow-up-right.svg",
+      "role": "external link and reference affordance",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/arrow-up-right.svg",
+      "sha256": "b7d952b0b6fbd089b110d85639ffffc001bb41fe53040e5e7f3e3f65ddc22595",
+      "bytes": 430
+    },
+    {
+      "name": "ban",
+      "kind": "icon",
+      "path": "assets/icons/outline/ban.svg",
+      "role": "prohibited form",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/ban.svg",
+      "sha256": "bed491da2d22dbd1becb01c644819c78d5ff07c8fef25b599e20183127914373",
+      "bytes": 452
+    },
+    {
+      "name": "brand-android",
+      "kind": "icon",
+      "path": "assets/icons/outline/brand-android.svg",
+      "role": "Android target",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/brand-android.svg",
+      "sha256": "cb31e0a80f7b2504b114172d69da4bd7bd2be53dba2f88b932545b7de01577c1",
+      "bytes": 584
+    },
+    {
+      "name": "brand-tabler",
+      "kind": "icon",
+      "path": "assets/icons/outline/brand-tabler.svg",
+      "role": "upstream icon set provenance",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/brand-tabler.svg",
+      "sha256": "41ca75ec0a908d00a47dff257a9c6992aee0113277d0ba9df1b14ad156cfd4d0",
+      "bytes": 491
+    },
+    {
+      "name": "check",
+      "kind": "icon",
+      "path": "assets/icons/outline/check.svg",
+      "role": "observed success",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/check.svg",
+      "sha256": "e206067a7d570997b5b3a7d30ab287c0b15a492787649a8b96dff8fad2862fbe",
+      "bytes": 389
+    },
+    {
+      "name": "chevron-down",
+      "kind": "icon",
+      "path": "assets/icons/outline/chevron-down.svg",
+      "role": "disclosure control",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/chevron-down.svg",
+      "sha256": "5a2e5c2a155ce06264a3f7299073ed636142dfd0b324b747387d9cfbf9fb5e3e",
+      "bytes": 424
+    },
+    {
+      "name": "chevron-right",
+      "kind": "icon",
+      "path": "assets/icons/outline/chevron-right.svg",
+      "role": "disclosure control, tree and row affordance",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/chevron-right.svg",
+      "sha256": "83733bb6e03e1d20fd2674d06a493642c8ea6eef76c44ebb2239b9ef17dedff7",
+      "bytes": 401
+    },
+    {
+      "name": "circle-check",
+      "kind": "icon",
+      "path": "assets/icons/outline/circle-check.svg",
+      "role": "observed success, primary emphasis",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/circle-check.svg",
+      "sha256": "c4cb2e026be5f4c217c3ff9b0ccefb9a26b7a135bc82eef28a8bead0cc02a958",
+      "bytes": 455
+    },
+    {
+      "name": "circle-dot",
+      "kind": "icon",
+      "path": "assets/icons/outline/circle-dot.svg",
+      "role": "state pip, unlabelled",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/circle-dot.svg",
+      "sha256": "816a38cb2e9c577133653cb4a7e133d77ee03cfabe2a9543aac012176c838069",
+      "bytes": 460
+    },
+    {
+      "name": "circle-x",
+      "kind": "icon",
+      "path": "assets/icons/outline/circle-x.svg",
+      "role": "refused and prohibited state",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/circle-x.svg",
+      "sha256": "aaa9501a0ad80eb2620a1c6a01203425f3f0021b68e4788199b906ccfe82471d",
+      "bytes": 440
+    },
+    {
+      "name": "clock",
+      "kind": "icon",
+      "path": "assets/icons/outline/clock.svg",
+      "role": "pending state and elapsed time",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/clock.svg",
+      "sha256": "971b0b2d3b5b17ae240cd3aac1a09710ab680d8c41900f1a37a0e430994d7fda",
+      "bytes": 445
+    },
+    {
+      "name": "code",
+      "kind": "icon",
+      "path": "assets/icons/outline/code.svg",
+      "role": "technical value and source",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/code.svg",
+      "sha256": "ff3d40c83c1a908bc3aa173671232e5015dba2f7f3538edc23fa2218a3d329e2",
+      "bytes": 454
+    },
+    {
+      "name": "contrast",
+      "kind": "icon",
+      "path": "assets/icons/outline/contrast.svg",
+      "role": "accessibility and contrast reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/contrast.svg",
+      "sha256": "9a8ccd2b4942bef00ad9e927a4b6548427880e9fd4d4be9c0818ddf2f434a834",
+      "bytes": 473
+    },
+    {
+      "name": "copy",
+      "kind": "icon",
+      "path": "assets/icons/outline/copy.svg",
+      "role": "copy to clipboard",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/copy.svg",
+      "sha256": "3a455a299db4ec939fd0473d15c81c1d3f30f65dec81a7de816317c989b06073",
+      "bytes": 627
+    },
+    {
+      "name": "cpu",
+      "kind": "icon",
+      "path": "assets/icons/outline/cpu.svg",
+      "role": "native target",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/cpu.svg",
+      "sha256": "d9ecd8e0f4a140f8a0c272d3cb6d7e380c6a57f2d5e823980dc40024fa7387ac",
+      "bytes": 688
+    },
+    {
+      "name": "device-desktop",
+      "kind": "icon",
+      "path": "assets/icons/outline/device-desktop.svg",
+      "role": "web target",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/device-desktop.svg",
+      "sha256": "2fdd2150904a844185250f26453a02f31ee9d77a1f936a1df9c2ecd77cfc788d",
+      "bytes": 514
+    },
+    {
+      "name": "device-mobile",
+      "kind": "icon",
+      "path": "assets/icons/outline/device-mobile.svg",
+      "role": "mobile target",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/device-mobile.svg",
+      "sha256": "2f9d4b1a140f3b9c9057efa5964bc8a7a135ce5d32dfe4752ebdad9d086d5413",
+      "bytes": 517
+    },
+    {
+      "name": "download",
+      "kind": "icon",
+      "path": "assets/icons/outline/download.svg",
+      "role": "download affordance",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/download.svg",
+      "sha256": "c13f6f9cf87deee99e331622169efd59cd764b376994540347e50d6bb5e2e0ef",
+      "bytes": 459
+    },
+    {
+      "name": "external-link",
+      "kind": "icon",
+      "path": "assets/icons/outline/external-link.svg",
+      "role": "link leaving the product",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/external-link.svg",
+      "sha256": "95de8d4e3e77d34b39a94e157ff26b5a860015c6ce3056794f63dd3a55805bbc",
+      "bytes": 506
+    },
+    {
+      "name": "file-text",
+      "kind": "icon",
+      "path": "assets/icons/outline/file-text.svg",
+      "role": "document and reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/file-text.svg",
+      "sha256": "afc807ae397fc2419ac5cbca6a1e085a5f761277397682cbad3d907ca78693f5",
+      "bytes": 542
+    },
+    {
+      "name": "flag",
+      "kind": "icon",
+      "path": "assets/icons/outline/flag.svg",
+      "role": "flag affordance",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/flag.svg",
+      "sha256": "91c224b828fd0716ef8617633a714ef6764a16618fe222becbcf0a4b83b35b9e",
+      "bytes": 446
+    },
+    {
+      "name": "folder",
+      "kind": "icon",
+      "path": "assets/icons/outline/folder.svg",
+      "role": "grouping and collection",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/folder.svg",
+      "sha256": "acdf398775addb8104673e5a8ef29d01d40184c6a5b3c62a93f10309cf9ef253",
+      "bytes": 450
+    },
+    {
+      "name": "info-circle",
+      "kind": "icon",
+      "path": "assets/icons/outline/info-circle.svg",
+      "role": "informational note",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/info-circle.svg",
+      "sha256": "48b7dddf34a6b87e93843a42b14781ce01794cf69274c458249ed8bfc01b6e4d",
+      "bytes": 442
+    },
+    {
+      "name": "layers-subtract",
+      "kind": "icon",
+      "path": "assets/icons/outline/layers-subtract.svg",
+      "role": "layered surfaces and material families",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/layers-subtract.svg",
+      "sha256": "f877d213ddc76b9343dd61bdd05bd8529e508253a5c2279a061a2099ac062f0f",
+      "bytes": 525
+    },
+    {
+      "name": "layout-grid",
+      "kind": "icon",
+      "path": "assets/icons/outline/layout-grid.svg",
+      "role": "component and grid reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/layout-grid.svg",
+      "sha256": "91f923bcca6e9201ccedd2a10bb5d5a7eb3dbb5fa5a26af394d362f35c935237",
+      "bytes": 707
+    },
+    {
+      "name": "loader-2",
+      "kind": "icon",
+      "path": "assets/icons/outline/loader-2.svg",
+      "role": "pending and in-flight state",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/loader-2.svg",
+      "sha256": "82639ca5a04efc951caef3d274c9e302f1c09dcdaa9a1b8e094c16890bfd1d41",
+      "bytes": 418
+    },
+    {
+      "name": "menu-2",
+      "kind": "icon",
+      "path": "assets/icons/outline/menu-2.svg",
+      "role": "navigation menu",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/menu-2.svg",
+      "sha256": "bcef199c5e53082a56c7bf33d4c48181b71373eb5d923cce8884aca09d106842",
+      "bytes": 438
+    },
+    {
+      "name": "palette",
+      "kind": "icon",
+      "path": "assets/icons/outline/palette.svg",
+      "role": "colour token reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/palette.svg",
+      "sha256": "d9c39bf1ce00d10694015d9d736ae6006a7e7b2f0df776dd206e1058a9a700a7",
+      "bytes": 681
+    },
+    {
+      "name": "photo",
+      "kind": "icon",
+      "path": "assets/icons/outline/photo.svg",
+      "role": "visual evidence",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/photo.svg",
+      "sha256": "67d9b3ec02867e98ad17739380919a2d82287d15d3463161f450e17047ed319b",
+      "bytes": 605
+    },
+    {
+      "name": "plus",
+      "kind": "icon",
+      "path": "assets/icons/outline/plus.svg",
+      "role": "add affordance",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/plus.svg",
+      "sha256": "9cc497d4cc1eb38cf9daae18f41ffdc1a5e2a8431d70247b0854978f303f28d6",
+      "bytes": 404
+    },
+    {
+      "name": "ruler-measure",
+      "kind": "icon",
+      "path": "assets/icons/outline/ruler-measure.svg",
+      "role": "measured dimensions",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/ruler-measure.svg",
+      "sha256": "a4f509cfca3c4f2e08f5be9149c563a1c84b39476a47c6fc2f997e20dd6ccb4a",
+      "bytes": 695
+    },
+    {
+      "name": "search",
+      "kind": "icon",
+      "path": "assets/icons/outline/search.svg",
+      "role": "search and filter entry point",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/search.svg",
+      "sha256": "3dd53b9606283dfa0adcb0b10a7d9a4432369d4bebcfacf67f80fbe358381c34",
+      "bytes": 433
+    },
+    {
+      "name": "settings",
+      "kind": "icon",
+      "path": "assets/icons/outline/settings.svg",
+      "role": "configuration",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/settings.svg",
+      "sha256": "ef9cf42d822c00b4fad5bc5eeceddd4e1ec3774bb7ddd09891d0fba274bc3e95",
+      "bytes": 942
+    },
+    {
+      "name": "terminal",
+      "kind": "icon",
+      "path": "assets/icons/outline/terminal.svg",
+      "role": "terminal and command surface",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/terminal.svg",
+      "sha256": "f654db64a14e86aee1b3e39e707907e83431ad1671fa2844d0496955b512a225",
+      "bytes": 406
+    },
+    {
+      "name": "typography",
+      "kind": "icon",
+      "path": "assets/icons/outline/typography.svg",
+      "role": "typography reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/typography.svg",
+      "sha256": "dbd02a0c7c4794f692ee17139b9c1b9672a9bf873bcf28d14caa5f2a3dbab896",
+      "bytes": 493
+    },
+    {
+      "name": "world",
+      "kind": "icon",
+      "path": "assets/icons/outline/world.svg",
+      "role": "locale and region",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/world.svg",
+      "sha256": "d0dfc538f966d03b72a9fe872fbb567d5e84db9d24b95af032305404ef71f587",
+      "bytes": 533
+    },
+    {
+      "name": "x",
+      "kind": "icon",
+      "path": "assets/icons/outline/x.svg",
+      "role": "close and dismiss",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-icons/v3.49.0/icons/outline/x.svg",
+      "sha256": "9350785360414c39450c3505f17d1745e55a7534edace8548e30cf49e3727d43",
+      "bytes": 406
+    },
+    {
+      "name": "brazil",
+      "kind": "flag",
+      "path": "assets/icons/flags/brazil.svg",
+      "role": "Portuguese (Brazil) locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/brazil.svg",
+      "sha256": "724998f4e54547f4386cb67be3246f9f5a356dd79e45a79fc98ec1303a3bf9e0",
+      "bytes": 682
+    },
+    {
+      "name": "canada",
+      "kind": "flag",
+      "path": "assets/icons/flags/canada.svg",
+      "role": "English and French locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/canada.svg",
+      "sha256": "1b9e429610fc9f5bdbf5bab8cfdfae7855f1e22a4623cd11692dd3e66668b53b",
+      "bytes": 630
+    },
+    {
+      "name": "france",
+      "kind": "flag",
+      "path": "assets/icons/flags/france.svg",
+      "role": "French language and locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/france.svg",
+      "sha256": "e6aa1c13acea0fc8e959be276e1924a3b0e3b6c2ff48e2ad136de47273ff5f31",
+      "bytes": 222
+    },
+    {
+      "name": "germany",
+      "kind": "flag",
+      "path": "assets/icons/flags/germany.svg",
+      "role": "German language and locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/germany.svg",
+      "sha256": "e6d1d3dc88e1523a763bfca5b1e881260c72609936f81da151c472bc9f05da1a",
+      "bytes": 218
+    },
+    {
+      "name": "india",
+      "kind": "flag",
+      "path": "assets/icons/flags/india.svg",
+      "role": "English and Hindi locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/india.svg",
+      "sha256": "381262ff5b3078bf70ed99ec351ed855323a20b067364fdcfb0c0df0ecbd1f70",
+      "bytes": 2284
+    },
+    {
+      "name": "japan",
+      "kind": "flag",
+      "path": "assets/icons/flags/japan.svg",
+      "role": "Japanese language and locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/japan.svg",
+      "sha256": "566315fd4ce13cbb741fa6081621db71d99f1d01f27298685b286341abd6eedd",
+      "bytes": 196
+    },
+    {
+      "name": "united-kingdom",
+      "kind": "flag",
+      "path": "assets/icons/flags/united-kingdom.svg",
+      "role": "English (United Kingdom) locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/united-kingdom.svg",
+      "sha256": "1c1acc372c3d9c6c1c0e91442a43c8766c5e06ad68c1a6adcec0f93acfbae9c2",
+      "bytes": 547
+    },
+    {
+      "name": "united-states",
+      "kind": "flag",
+      "path": "assets/icons/flags/united-states.svg",
+      "role": "English (United States) locale reference",
+      "upstream": "https://raw.githubusercontent.com/tabler/tabler-flags/v0.1.1/src/united-states.svg",
+      "sha256": "555fa159b5c44bcbb00a625bdfe3e914e87385b43789f466e669985d17438de7",
+      "bytes": 1531
+    }
+  ]
+}

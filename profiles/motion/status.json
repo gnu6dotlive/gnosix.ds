@@ -1,0 +1,24 @@
+{
+  "profile": "motion",
+  "status": "mapped",
+  "evidence": [
+    {
+      "target": "remotion",
+      "status": "mapped",
+      "where": "gnosix-remotion/src/motion/",
+      "note": "Implements the portable layer in profiles/motion/motion.json. The six laws, four prohibitions, seven roles and seven seams are bound in src/motion/contract.ts; the Remotion target ladder is consumed from the generated projection rather than restated. Durations collapse to one frame under reduced motion, and reduced motion is an explicit input per targets.remotion.reduced_motion.detection."
+    },
+    {
+      "target": "remotion",
+      "status": "mapped",
+      "where": "gnosix-remotion/src/compositions/",
+      "note": "Walkthrough and QA reel render every seam and every rule beat. The QA reel is generated from the rule table, so a new rule produces a beat automatically."
+    }
+  ],
+  "gaps": [
+    "Rendered motion sequences exist in the target repository but have not been ingested here as DS-scoped evidence, so this profile is not claimed as rendered",
+    "Interruption mid-flight is specified per seam but not yet captured as a recorded artifact",
+    "Reduced-motion renders exist for both films but no side-by-side comparison artifact has been recorded",
+    "No second target has implemented this profile, so the portable layer has only been projected once"
+  ]
+}

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="gnosix-contract-version" content="3.4.2">
+  <meta name="gnosix-contract-digest" content="57a951bb71461f6771e0b895a9fd20153d37a2e165cb6a1aabe9400b6f3d0caa">
+  <title>gnosix_DS 03.4.2 — Portable visual reference</title>
+  <meta name="description" content="A portable visual contract for gnosix identity, components and platform mappings across Web, Android and native GPUI front-ends.">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+  <link rel="apple-touch-icon" href="favicon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="../profiles/web/tokens.css">
+  <link rel="stylesheet" href="../profiles/web/icons.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../profiles/web/state.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body>
+<!-- ICON-001: ratified Tabler symbols, inlined so the surface renders from disk. -->
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<symbol id="arrow-down-right" viewBox="0 0 24 24"><path d="M7 7l10 10" />
+  <path d="M17 8l0 9l-9 0" /></symbol>
+<symbol id="arrow-up-right" viewBox="0 0 24 24"><path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" /></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" /></symbol>
+</svg>
+<!-- end ratified icon sprite -->
+
+  <a class="skip-link" href="#main">Skip to reference</a>
+
+  <header class="site-head">
+    <a class="brand" href="#top" aria-label="gnosix design system home">
+      <span class="brand-mark" aria-hidden="true"><img src="../assets/identity/gnosix-ds-mark.svg" alt=""></span>
+      <span>gnosix<span class="brand-under">_DS</span></span>
+    </a>
+    <nav aria-label="Main sections">
+      <a href="#foundation">Foundation</a>
+      <a href="#components">Components</a>
+      <a href="#compositing">Compositing</a>
+      <a href="#reference">Reference</a>
+      <a href="#material">Material</a>
+      <a href="#interaction">State</a>
+      <a href="#platforms">Mapping</a>
+    </nav>
+    <span class="version">03.4.2 / PORTABLE CONTRACT</span>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">gnosix_DS / V3.4.2</span>
+        <h1>One identity.<br><em>Many front-ends.</em></h1>
+        <p>Portable rules, inspectable scenes and explicit platform mappings carry gnosix from browser to Compose to GPUI without turning any toolkit into the design system. V3.4.2 ratifies the icon pack and repairs the asset containers and the validation that missed them, without changing the ratified identity masters.</p>
+        <a class="text-link" href="#components">Browse the laid-out components <span aria-hidden="true"><svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-down-right"></use></svg></span></a>
+      </div>
+      <div class="hero-art" role="img" aria-label="The gnosix, gnu6.live and gnu.in.labs ratified cube identities arranged as a hero composition.">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-cube hero-cube-one"><img src="../assets/identity/gnosix-cube.png" alt=""></div>
+        <div class="hero-cube hero-cube-two"><img src="../assets/identity/gnu6-live-cube.png" alt=""></div>
+        <div class="hero-cube hero-cube-three"><img src="../assets/identity/gnuinlabs-cube.png" alt=""></div>
+        <p class="hero-key">Ratified master / face / symbol</p>
+      </div>
+    </section>
+
+    <section id="foundation" class="foundation-block" aria-labelledby="foundation-title">
+      <div class="section-intro">
+        <div><span class="section-number">00 / FOUNDATION</span><h2 id="foundation-title">A small core. Explicit projections.</h2></div>
+        <p>Interface color and typography authority live in <a href="../core/TOKENS.json">TOKENS.json</a>. Ratified identity appearance lives separately in <a href="../core/IDENTITY.md">IDENTITY.md</a>: Space Grotesk governs live interface text, while the accepted cube glyphs remain part of their image masters.</p>
+      </div>
+
+      <div class="foundation-grid">
+        <div class="palette-panel">
+          <div class="subhead"><span>COLOR</span><strong>Five anchors</strong></div>
+          <div class="swatches">
+            <div class="swatch anthracite"><span>Anthracite</span><code>#111418</code></div>
+            <div class="swatch shell"><span>Shell White</span><code>#F7F3ED</code></div>
+            <div class="swatch orange"><span>Signal Orange</span><code>#FF6A00</code></div>
+            <div class="swatch green"><span>Beret Green</span><code>#5F7F52</code></div>
+            <div class="swatch blue"><span>Royal Blue</span><code>#4169E1</code></div>
+          </div>
+        </div>
+
+        <div class="type-panel" aria-labelledby="type-title">
+          <div class="subhead"><span>TYPE</span><strong id="type-title">One family / many roles</strong></div>
+          <div class="type-display">Space<br>Grotesk</div>
+          <div class="type-roles">
+            <div><span>Display / 700</span><strong>Semantic surfaces.</strong></div>
+            <div><span>Body / 400</span><p>Readable language, direct hierarchy, no ornamental second family.</p></div>
+            <div><span>Technical / 600 + tnum</span><code>03.4.2 / 1440 / project://gnosix / &gt;_</code></div>
+          </div>
+        </div>
+      </div>
+      <p class="foundation-note">Fallbacks are target contingencies, not alternate brand typography. The packaged WOFF2 is used on Web; the package also includes a native TTF for Compose and GPUI mapping.</p>
+    </section>
+
+    <section id="components" class="components-block" aria-labelledby="components-title">
+      <div class="section-intro">
+        <div><span class="section-number">01 / COMPONENT LAYOUT</span><h2 id="components-title">Each component is now laid out as a component.</h2></div>
+        <p>V3.4.2 treats the reference as more than a sequence of scenes. Identity objects, controls, state form and structural UI pieces are now shown as discrete components with enough spacing and hierarchy to evaluate implementation quality.</p>
+      </div>
+
+      <div class="component-grid">
+        <article class="component-card identity-card">
+          <div class="component-head"><span>IDENTITY</span><strong>gnosix_DS mark</strong></div>
+          <div class="component-media mark-frame"><img src="../assets/identity/gnosix-ds-mark.svg" alt="Ratified gnosix_DS mark: overlapping orange, blue and green rounded plates."></div>
+          <div class="component-body"><p>Compact header/app mark used beside <strong>gnosix_DS</strong>. Keep the ratified artwork intact; do not redraw its plate geometry.</p><ul class="component-specs"><li>Use the whitespace-cropped SVG in UI.</li><li>Keep dark backgrounds around it breathing.</li></ul></div>
+        </article>
+
+        <article class="component-card identity-card">
+          <div class="component-head"><span>IDENTITY</span><strong>gnosix cube</strong></div>
+          <div class="component-media cube-frame"><img src="../assets/identity/gnosix-cube.png" alt="Ratified gnosix cube: orange body, dark right face, symbol greater-than underscore."></div>
+          <div class="component-body"><p>Signal Orange family. The dark face remains on the right with the accepted <code>&gt;_</code> artwork.</p><ul class="component-specs"><li>Master: PNG</li><li>UI interchange: exact-fidelity SVG wrapper</li></ul></div>
+        </article>
+
+        <article class="component-card identity-card">
+          <div class="component-head"><span>IDENTITY</span><strong>gnu6.live cube</strong></div>
+          <div class="component-media cube-frame"><img src="../assets/identity/gnu6-live-cube.png" alt="Ratified gnu6.live cube: royal blue body, dark left face, symbol greater-than dollar."></div>
+          <div class="component-body"><p>Royal Blue family. The accepted <code>&gt;$</code> artwork is preserved exactly as ratified.</p><ul class="component-specs"><li>Do not perspective-correct</li><li>Do not typeset a new glyph</li></ul></div>
+        </article>
+
+        <article class="component-card identity-card">
+          <div class="component-head"><span>IDENTITY</span><strong>gnu.in.labs cube</strong></div>
+          <div class="component-media cube-frame"><img src="../assets/identity/gnuinlabs-cube.png" alt="Ratified gnu.in.labs cube: beret green body, dark top face, symbol greater-than hash."></div>
+          <div class="component-body"><p>Beret Green family. The accepted <code>&gt;#</code> artwork remains a fixed image master.</p><ul class="component-specs"><li>Token family: Beret Green</li><li>Appearance authority: master artwork</li></ul></div>
+        </article>
+
+        <article class="component-card component-demo-card">
+          <div class="component-head"><span>CONTROLS</span><strong>Action and input</strong></div>
+          <div class="component-body component-body-demo">
+            <button class="component-action" type="button">Simulate request</button>
+            <label class="component-label" for="component-preview-input">Requested state</label>
+            <input class="component-input" id="component-preview-input" value="on" autocomplete="off">
+            <p class="component-meta">Focus must stay visible; orange indicates primary action, never success.</p>
+          </div>
+        </article>
+
+        <article class="component-card component-demo-card">
+          <div class="component-head"><span>STATE</span><strong>Text-first status</strong></div>
+          <div class="component-body component-body-demo">
+            <div class="status-list">
+              <div class="status-item" data-status="observed"><i aria-hidden="true"></i><span><strong>Observed: on</strong><small>Observation has caught up with intent.</small></span></div>
+              <div class="status-item" data-status="pending"><i aria-hidden="true"></i><span><strong>Request pending</strong><small>Pending is not success.</small></span></div>
+              <div class="status-item" data-status="muted"><i aria-hidden="true"></i><span><strong>No observed change</strong><small>Absence of observation remains explicit.</small></span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="component-card component-demo-card">
+          <div class="component-head"><span>NAVIGATION</span><strong>Tabs / segmented structure</strong></div>
+          <div class="component-body component-body-demo">
+            <div class="mini-tabs" role="presentation">
+              <span class="is-active">Web</span>
+              <span>Android</span>
+              <span>Native</span>
+            </div>
+            <div class="surface-sample">
+              <h3>Portable role</h3>
+              <p>Role, rule, target projection and evidence gate stay separable. This card is a layout component, not a new semantic source of truth.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="compositing" class="compositing-block" aria-labelledby="compositing-title">
+      <div class="section-intro">
+        <div><span class="section-number">02 / ALPHA COMPOSITING</span><h2 id="compositing-title">The same artwork, on a sanctioned substrate.</h2></div>
+        <p>Each cube ships an alpha master: the ratified artwork with the authored dark field carried as alpha, so a mark can sit on a neutral surface without rebuilding it. These are compositing variants, not new artwork — every fully opaque pixel is byte-identical to the opaque master. Rule <code>ID-004</code> sanctions them on the neutral ramp only. Over Signal Orange, Royal Blue or Beret Green the dark faces would collapse into the brand hue, so the opaque master is used there instead.</p>
+      </div>
+
+      <div class="compositing-grid">
+        <article class="compositing-card">
+          <div class="compositing-strip" data-substrate="shellWhite">
+            <img src="../assets/identity/gnosix-cube-alpha.png" alt="Ratified gnosix cube alpha master composited on Shell White.">
+          </div>
+          <div class="compositing-body">
+            <h3>gnosix</h3>
+            <p>Signal Orange. Dark face on the right, symbol <code>&gt;_</code>.</p>
+          </div>
+        </article>
+
+        <article class="compositing-card">
+          <div class="compositing-strip" data-substrate="anthracite">
+            <img src="../assets/identity/gnu6-live-cube-alpha.png" alt="Ratified gnu6.live cube alpha master composited on Anthracite.">
+          </div>
+          <div class="compositing-body">
+            <h3>gnu6.live</h3>
+            <p>Royal Blue. Dark face on the left, symbol <code>&gt;$</code>.</p>
+          </div>
+        </article>
+
+        <article class="compositing-card">
+          <div class="compositing-strip" data-substrate="slate">
+            <img src="../assets/identity/gnuinlabs-cube-alpha.png" alt="Ratified gnu.in.labs cube alpha master composited on a neutral grey.">
+          </div>
+          <div class="compositing-body">
+            <h3>gnu.in.labs</h3>
+            <p>Beret Green. Dark face on top, symbol <code>&gt;#</code>.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="reference-note">The edge of each master is straight alpha: the subject colour at true coverage, with a continuous antialias ramp. Compositing the authored field colour back over an alpha master reproduces the opaque master exactly, which is how the package proves the artwork was not altered. What it does <em>not</em> do is survive a premultiplied edge — that shows up here as a dark fringe tracing the silhouette, which is the defect V3.4.1 closed.</p>
+    </section>
+
+    <section id="reference" class="reference-block" aria-labelledby="reference-title">
+      <div class="section-intro">
+        <div><span class="section-number">03 / SIX INSPECTABLE SCENES</span><h2 id="reference-title">The reference is visible.</h2></div>
+        <p>Each scene has visual evidence plus a machine-readable annotation. Fixture measurements stay local; portable rules stay in core.</p>
+      </div>
+      <div class="scene-grid">
+        <figure class="scene"><button type="button" class="scene-open" data-scene="identity" aria-label="Enlarge identity reference"><img src="../references/identity.svg" alt="Ratified cube masters: gnosix orange/right, gnu6.live blue/left, gnu.in.labs green/top"></button><figcaption><strong>Identity</strong><span>Color / face / glyph</span><a href="../references/identity.json">Annotation <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a></figcaption></figure>
+        <figure class="scene"><button type="button" class="scene-open" data-scene="actions" aria-label="Enlarge actions reference"><img src="../references/actions.svg" alt="Orange action, visible input focus, pending text and a crossed-out status capsule"></button><figcaption><strong>Action</strong><span>Focus / pending / prohibited form</span><a href="../references/actions.json">Annotation <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a></figcaption></figure>
+        <figure class="scene"><button type="button" class="scene-open" data-scene="state" aria-label="Enlarge state reference"><img src="../references/state.svg" alt="Three stages showing user intent, pending request and later observed result"></button><figcaption><strong>State</strong><span>Request ≠ observation</span><a href="../references/state.json">Annotation <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a></figcaption></figure>
+        <figure class="scene"><button type="button" class="scene-open" data-scene="surfaces" aria-label="Enlarge surfaces reference"><img src="../references/surfaces.svg" alt="Painted and anodized surfaces with independently described geometry, material, chrome and depth"></button><figcaption><strong>Surface</strong><span>Geometry / material / chrome</span><a href="../references/surfaces.json">Annotation <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a></figcaption></figure>
+        <figure class="scene"><button type="button" class="scene-open" data-scene="fields" aria-label="Enlarge scalar fields reference"><img src="../references/fields.svg" alt="Signed blue through neutral to orange field, localized heat, unknown state and legend"></button><figcaption><strong>Field</strong><span>Domain / neutral / missing</span><a href="../references/fields.json">Annotation <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a></figcaption></figure>
+        <figure class="scene"><button type="button" class="scene-open" data-scene="adaptive" aria-label="Enlarge adaptive reference"><img src="../references/adaptive.svg" alt="Wide, narrow and enlarged-text views with the same title, state, source and action order"></button><figcaption><strong>Adaptive</strong><span>One reading order, varied space</span><a href="../references/adaptive.json">Annotation <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a></figcaption></figure>
+      </div>
+      <p class="reference-note">The V3.4.2 SVG sheets embed the packaged Space Grotesk font, so their authored typography no longer depends on a viewer-installed family.</p>
+    </section>
+
+    <section id="material" class="material-block" aria-labelledby="material-title">
+      <div class="section-intro">
+        <div><span class="section-number">04 / CURRENT VISUAL EVIDENCE</span><h2 id="material-title">Material has a response.</h2></div>
+        <p>These boards are visual evidence for surface, depth and field behavior. Their painted highlights are appearance evidence, never replacement token values.</p>
+      </div>
+      <div class="evidence-grid">
+        <figure><img src="../references/visual-evidence/material-families.png" alt="Current material board showing matte anthracite, painted metals, brushed aluminum, paper and smoked plastic"><figcaption><span>01 / MATERIAL</span><strong>Material families</strong></figcaption></figure>
+        <figure><img src="../references/visual-evidence/depth-cues.png" alt="Current depth board showing contact, lift, recess, rim and bevel cues"><figcaption><span>02 / DEPTH</span><strong>Contact and depth</strong></figcaption></figure>
+        <figure><img src="../references/visual-evidence/semantic-fields.png" alt="Current semantic field board showing scalar and signed color encodings"><figcaption><span>03 / FIELD</span><strong>Semantic fields</strong></figcaption></figure>
+        <figure><img src="../references/visual-evidence/localized-fields.png" alt="Current localized field board showing focus, directional, heat and energy illumination"><figcaption><span>04 / ENERGY</span><strong>Localized energy</strong></figcaption></figure>
+      </div>
+    </section>
+
+    <section id="interaction" class="interaction-block" aria-labelledby="interaction-title">
+      <div class="section-intro">
+        <div><span class="section-number">05 / LOCAL STUDY</span><h2 id="interaction-title">A request is not a result.</h2></div>
+        <p>This local study demonstrates intended vs observed state. It contacts no backend and establishes no runtime maturity.</p>
+      </div>
+      <div class="study">
+        <div class="study-display">
+          <span class="study-id">LOCAL STUDY / REQUEST VS OBSERVATION</span>
+          <p id="study-result" data-status="observed" aria-live="polite">No observed change</p>
+          <div class="state-rail"><span>Intent <strong id="study-intent">none</strong></span><span>Observed <strong id="study-observed">off</strong></span></div>
+        </div>
+        <div class="study-controls">
+          <label for="study-target">Requested state</label>
+          <input id="study-target" value="on" autocomplete="off">
+          <button id="study-request" type="button">Simulate request <span aria-hidden="true"><svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></span></button>
+          <p>During the request, the visible text says <em>pending</em>. Success appears only after the simulated observation changes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="platforms" class="platform-block" aria-labelledby="platform-title">
+      <div class="section-intro">
+        <div><span class="section-number">06 / PLATFORM PROJECTIONS</span><h2 id="platform-title">Map meaning, not components.</h2></div>
+        <p>V3.4.2 keeps the translation boundary explicit: portable role + core rule + target projection + evidence gate. Read the complete machine-readable matrix in <a href="../profiles/projection-map.json">projection-map.json</a>.</p>
+      </div>
+
+      <div class="mapping-overview" aria-label="Cross-platform mapping overview">
+        <div class="mapping-overview-head"><span>PORTABLE LAYER</span><span>WHAT SURVIVES</span><span>PROOF BOUNDARY</span></div>
+        <div><strong>Typography</strong><span>Space Grotesk / weights / glyph coverage</span><span>Rendered family, not CSS or code alone</span></div>
+        <div><strong>State</strong><span>intended ≠ observed ≠ projected</span><span>Pending precedes observed success</span></div>
+        <div><strong>Surface</strong><span>geometry / material / chrome / depth / hit region</span><span>Layers stay independently representable</span></div>
+        <div><strong>Accessibility</strong><span>role / name / state / focus / non-color cue</span><span>Target interaction evidence</span></div>
+      </div>
+
+      <div class="platform-tabs" role="tablist" aria-label="Platform profiles">
+        <button type="button" role="tab" aria-selected="true" aria-controls="web-panel" id="web-tab">Web / CSS</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="android-panel" id="android-tab">Android / Compose</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="native-panel" id="native-tab">Native / GPUI</button>
+      </div>
+
+      <div class="platform-panels">
+        <article id="web-panel" role="tabpanel" aria-labelledby="web-tab">
+          <div class="platform-lead"><div><span class="platform-index">01 / WEB</span><h3>Semantic HTML. Generated tokens. Local font.</h3></div><p class="profile-status"><i aria-hidden="true"></i><strong>Mapped</strong> — browser evidence still required.</p></div>
+          <div class="mapping-table" role="table" aria-label="Web mapping">
+            <div class="mapping-row mapping-head" role="row"><span role="columnheader">Role</span><span role="columnheader">Web projection</span><span role="columnheader">Gate</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Typography</strong><span role="cell">Variable WOFF2 via <code>@font-face</code>; controls, metadata and code inherit Space Grotesk.</span><span role="cell">Computed family + glyph coverage</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Primary action</strong><span role="cell">Native <code>button</code>, Signal Orange, Anthracite label, visible <code>:focus-visible</code>.</span><span role="cell">Keyboard + focus evidence</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">State</strong><span role="cell"><code>projectState(requested, observed)</code>; text first, optional pip.</span><span role="cell">Pending-before-observed test</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Surface</strong><span role="cell">Layout/clip, paint, border/focus, depth and hit target remain separate CSS/DOM concerns.</span><span role="cell">Layer mutation without semantic drift</span></div>
+          </div>
+          <a class="profile-link" href="../profiles/web/README.md">Read the Web mapping <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a>
+        </article>
+
+        <article id="android-panel" role="tabpanel" aria-labelledby="android-tab">
+          <div class="platform-lead"><div><span class="platform-index">02 / ANDROID</span><h3>Compose receives the same roles and state model.</h3></div><p class="profile-status"><i aria-hidden="true"></i><strong>Mapped</strong> — device render still required.</p></div>
+          <div class="mapping-table" role="table" aria-label="Android mapping">
+            <div class="mapping-row mapping-head" role="row"><span role="columnheader">Role</span><span role="columnheader">Compose projection</span><span role="columnheader">Gate</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Typography</strong><span role="cell">Packaged variable TTF in <code>res/font</code>; explicit <code>FontFamily</code>.</span><span role="cell">Rendered family + glyph coverage</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Primary action</strong><span role="cell"><code>Button</code> with semantic label/state and a 48 dp local fixture target.</span><span role="cell">Touch + focus/TalkBack evidence</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">State</strong><span role="cell">Requested and observed values remain separate; status uses text + <code>stateDescription</code>.</span><span role="cell">TalkBack + reconciliation test</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Surface</strong><span role="cell">Shape/layout, Brush/Painter, border/focus, draw depth and pointer target stay separable.</span><span role="cell">Rendered surface comparison</span></div>
+          </div>
+          <a class="profile-link" href="../profiles/android/README.md">Read the Android mapping <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a>
+        </article>
+
+        <article id="native-panel" role="tabpanel" aria-labelledby="native-tab">
+          <div class="platform-lead"><div><span class="platform-index">03 / NATIVE</span><h3>gnos.ux / GPUI maps the contract, not the DOM.</h3></div><p class="profile-status"><i aria-hidden="true"></i><strong>Mapped</strong> — compiled gnos.ux evidence still required.</p></div>
+          <div class="mapping-table" role="table" aria-label="Native GPUI mapping">
+            <div class="mapping-row mapping-head" role="row"><span role="columnheader">Role</span><span role="columnheader">GPUI projection</span><span role="columnheader">Gate</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Typography</strong><span role="cell">Packaged TTF registered with the text system; Space Grotesk selected before reference surfaces render.</span><span role="cell">Runtime font + glyph evidence</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Primary action</strong><span role="cell">Focusable action element with keyboard activation, visible focus and explicit state.</span><span role="cell">Focus traversal + activation evidence</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">State</strong><span role="cell">View model stores intent and observation separately; renderer projects from both.</span><span role="cell">Pending-before-observed test</span></div>
+            <div class="mapping-row" role="row"><strong role="cell">Surface / shader</strong><span role="cell">Hull, material, chrome, depth, content and hit testing remain separate. Shader paint never owns semantic state.</span><span role="cell">Native capture + state inspection</span></div>
+          </div>
+          <a class="profile-link" href="../profiles/native/README.md">Read the gnos.ux / GPUI mapping <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="mascot-block" aria-labelledby="mascot-title">
+      <div><span class="section-number">06 / MASCOT REFERENCE</span><h2 id="mascot-title">Syster carries character.</h2><p>The terminal body, beret, fleur-de-lis and antenna are stable appearance cues. The mascot does not replace the three identity marks or certify runtime behavior.</p><a class="text-link" href="../core/IDENTITY.md">Read identity rules <svg class="gnosix-icon" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#arrow-up-right"></use></svg></a></div>
+      <img src="../assets/mascot/syster-color.png" alt="Syster mascot: orange terminal body, dark display with greater-than underscore, green beret and right-side antenna">
+    </section>
+  </main>
+
+  <footer>
+    <span>gnosix_DS / 03.4.2 / portable contract</span>
+    <span>Core authority: <a href="../core/TOKENS.json">tokens</a> · <a href="../core/rules.json">rules</a> · <a href="../core/MAPPING.md">mapping</a> · <a href="../core/ACCESSIBILITY.md">accessibility</a></span>
+    <span>Fixtures are design references, never runtime proof.</span>
+  </footer>
+
+  <dialog id="scene-dialog" aria-label="Enlarged visual reference">
+    <button class="dialog-close" type="button" aria-label="Close enlarged reference"><svg class="gnosix-icon" aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#x"></use></svg><span class="dialog-close-label">Close</span></button>
+    <img alt="">
+  </dialog>
+</body>
+</html>

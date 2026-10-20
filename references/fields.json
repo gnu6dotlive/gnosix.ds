@@ -1,0 +1,56 @@
+{
+  "id": "fields",
+  "version": "3.4.2",
+  "artwork": "references/fields.svg",
+  "roles": [
+    "scalar-field",
+    "status-attention"
+  ],
+  "rules": [
+    "COL-003",
+    "A11Y-001"
+  ],
+  "states": {
+    "default": {
+      "projected": "Current specimen; no runtime assertion",
+      "observed": "unknown"
+    }
+  },
+  "accessible_text": "A signed scalar names its domain, neutral, endpoints and missing state. The labels and reading order are written in the artwork and annotation.",
+  "viewport": {
+    "width": 1200,
+    "height": 720,
+    "units": "authored SVG canvas, not a breakpoint"
+  },
+  "input_scale": {
+    "mode": "pointer and keyboard reference",
+    "zoom": "inspect at normal and enlarged scale"
+  },
+  "local_dimensions": {
+    "canvas": "1200\u00d7720 authored fixture only; sizes and timings are not global tokens"
+  },
+  "source_hashes": {
+    "core/TOKENS.json": "0ce3dcfe595d402c94c1323b0ddc46350c6334404aff95c7646ade86c41b1e25",
+    "references/visual-evidence/semantic-fields.png": "f65f842232a9eaffecf86166d9e8dc97851687435a74e182b66758016354f31d",
+    "references/visual-evidence/localized-fields.png": "6df719896202b4a2da58f3fba05abdb8e6ce9e4b72d8c698088eb28d09c96e50"
+  },
+  "annotations": [
+    "Use only core/TOKENS.json for exact color values.",
+    "All visible sizes are fixture-local.",
+    "Reference SVG embeds the packaged Space Grotesk WOFF2 so authored text does not depend on a viewer-installed font."
+  ],
+  "field": {
+    "quantity": "temperature deviation",
+    "range": [
+      -10,
+      10
+    ],
+    "neutral": 0,
+    "endpoints": {
+      "negative": "Royal Blue #4169E1",
+      "positive": "Signal Orange #FF6A00"
+    },
+    "missing": "explicit unknown; not zero",
+    "legend": "\u00b0C deviation; blue=cool, neutral=0, orange=hot"
+  }
+}
