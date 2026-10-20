@@ -232,9 +232,18 @@ def alpha_of(value: str | None) -> float | None:
     return float(value)
 
 
+# A mask is not a surface. The black in a mask-image is an alpha channel:
+# it says "opaque here", not "this is the colour of the thing". The
+# system's own sheet draws its fades that way, and a gate that asked a
+# mask to be a token would forbid the technique.
+MASK = re.compile(r"(mask-image|mask|filter|backdrop-filter)\s*:[^;}]*",
+                  re.IGNORECASE)
+
+
 def colours_in(text: str) -> list[str]:
     """Every colour a source states, in every notation."""
     found = []
+    text = MASK.sub(" ", text)
     for value in HEX.findall(text):
         expanded = expand_hex(value)
         if expanded:
