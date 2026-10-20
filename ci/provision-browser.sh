@@ -47,4 +47,23 @@ if [[ ! -d "$PLAYWRIGHT_BROWSERS_PATH" ]]; then
      npx playwright install chromium >/dev/null)
 fi
 
-echo "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH"
+EXPORTS="export PLAYWRIGHT_BROWSERS_PATH=\"$PLAYWRIGHT_BROWSERS_PATH\""
+
+# The same three ways the engine hands its environment over: to the
+# runner's next step, to the local simulation's fresh shell, and to a
+# caller that evaluates the output. A provisioning that hands its
+# environment over in one of the three places is a provisioning that
+# works in one of the three places.
+if [[ -n "${GITHUB_ENV:-}" ]]; then
+  while read -r line; do
+    echo "$line" >> "$GITHUB_ENV"
+  done <<< "$EXPORTS"
+fi
+if [[ -n "${FIGCRAFT_ENV_FILE:-}" ]]; then
+  while read -r line; do
+    echo "$line" >> "$FIGCRAFT_ENV_FILE"
+  done <<< "$EXPORTS"
+fi
+cat <<ENV
+$EXPORTS
+ENV
