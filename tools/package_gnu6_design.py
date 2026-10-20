@@ -122,6 +122,29 @@ def system_block() -> str:
     return "\n".join(rows) + "\n"
 
 
+def system_colours() -> set[str]:
+    """Every colour the contract has."""
+    tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
+    surfaces = json.loads((ROOT / "core/SURFACES.json").read_text(encoding="utf-8"))
+    out = set()
+    for ramp in tokens["color"].values():
+        for value in ramp.values():
+            out.add(value.upper())
+    for spec in surfaces["families"].values():
+        for step in spec["steps"]:
+            out.add(step["value"].upper())
+    for accent in surfaces["accents"]:
+        out.add(accent["value"].upper())
+    return out
+
+
+def foreign(sheet: str) -> list[str]:
+    """The colours the sheet carries that the system does not have."""
+    sanctioned = system_colours()
+    return sorted({value.upper() for value in re.findall(r"#[0-9A-Fa-f]{6}", sheet)
+                   if value.upper() not in sanctioned})
+
+
 def build() -> tuple[str, list[str], str]:
     legacy = LEGACY.read_text(encoding="utf-8")
     rebound, changed = rebind(legacy)
@@ -168,6 +191,16 @@ def main(argv=None) -> int:
         return 0
 
     problems = []
+    # The ratchet: the legacy vocabulary's own colours may shrink, never
+    # grow. The count is recorded when the vocabulary is adopted.
+    adoption = PACKAGE / "legacy/adoption.json"
+    if adoption.is_file():
+        recorded = json.loads(adoption.read_text(encoding="utf-8"))
+        found = foreign(sheet)
+        if len(found) > recorded["foreign_colours"]:
+            problems.append(f"the sheet carries {len(found)} colours the system does "
+                            f"not have, and the adopted vocabulary recorded "
+                            f"{recorded['foreign_colours']}: the ratchet does not grow")
     if not SHEET.is_file():
         problems.append(f"{SHEET.relative_to(ROOT)} does not exist")
     elif SHEET.read_text(encoding="utf-8") != sheet:

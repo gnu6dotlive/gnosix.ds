@@ -491,6 +491,11 @@
     },
     {
       "class": "evidence",
+      "path": "packaging/gnu6-design/legacy/adoption.json",
+      "sha256": "3983fec5718858daba1063c65ce20c013c824a14a793d877e8754682e3d3bec5"
+    },
+    {
+      "class": "evidence",
       "path": "packaging/gnu6-design/legacy/gnu6-1.1.1.css",
       "sha256": "203051c2db426f809b63c7f131cd585b31f789d3bde7e187ab3ea29528286534"
     },
@@ -972,7 +977,7 @@
     {
       "class": "evidence",
       "path": "tools/contract_colors.py",
-      "sha256": "e2b80259ad989dd1fdc9d9fb5ce7055d0177dc4b08c553f15a2fd59f8ccf3400"
+      "sha256": "5b11fe9b3950c3b747e7c89dafa123ad33459442e85bba986c11148434680304"
     },
     {
       "class": "evidence",
@@ -1002,7 +1007,7 @@
     {
       "class": "evidence",
       "path": "tools/package_gnu6_design.py",
-      "sha256": "fbaec8b64056fd23eeb1e54ac616fc124b4a00e40bee5cff9f5ca8d80614ef71"
+      "sha256": "065c2ff9537b2b6e9ff99f2c912f9553154b0ecc1e07520298a2d8110b8335df"
     },
     {
       "class": "evidence",

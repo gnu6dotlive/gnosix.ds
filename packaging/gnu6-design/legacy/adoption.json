@@ -1,0 +1,6 @@
+{
+  "adopted": "gnu6-design 1.1.1",
+  "from": "Gnosix-DS-V3.4.1",
+  "foreign_colours": 27,
+  "note": "The component blocks of the legacy vocabulary carry the colours that vocabulary was drawn with. The ratchet in tools/package_gnu6_design.py refuses to let that number grow. It can only shrink, as the legacy components are mapped onto the system's own."
+}
