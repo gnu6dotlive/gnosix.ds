@@ -109,6 +109,25 @@ The screens are connected with a click that navigates and a dissolve
 transition, the last screen returns to the first, and the flow starts at the
 first one.
 
+## What is not a component, and why
+
+The contrast **pairing row** is not a component. A component is parameterised,
+and a pairing row has nothing to parameterise: the pairing determines the
+substrate, the ink, the ratio and the verdict, so all four are fixed by the
+variant. Seven variants of a complete row would be seven frames with extra
+steps.
+
+The obstacle is real and worth naming: a property carries a string, a
+boolean, a variant, a slot or a component — never a colour. So the row's
+sample, whose colour is the substrate of the pairing, cannot be a
+per-instance property, and an instance's fill override is per layer rather
+than per instance, which would leave a consumer setting two fills by hand
+and make the component worse than the frame it replaced.
+
+The row stays a frame, and the **pairings are the system's vocabulary**
+rather than a component. The colour rules that make it work are in the
+Contrast board and in the check between the two token projections.
+
 ## The two token projections
 
 The palette is stated twice: in `core/TOKENS.json`, which the package
