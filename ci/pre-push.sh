@@ -7,9 +7,12 @@
 # can only be pushed if the local release proof matches the commit, the
 # version and the archive that would be published.
 #
-# Branches are not checked. Pushing a branch triggers the CI job, and the
-# CI job is what the local simulation covers; a tag triggers the release
-# job, which publishes, and that is the one that costs.
+# A branch is checked too, and by the same argument. Pushing a branch
+# triggers the CI job, and the local simulation covers that job exactly.
+# The point of the hook is that the covering is not a matter of
+# remembering: the qualification ran here, on the commit that is about to
+# go, before it went. A run that fails on the runner is a run that
+# should have been spent here.
 
 set -euo pipefail
 
@@ -20,6 +23,23 @@ ZERO="0000000000000000000000000000000000000000"
 while read -r local_ref local_sha remote_ref remote_sha; do
   case "$remote_ref" in
     refs/tags/*) ;;
+    refs/heads/*)
+      cd "$REPO"
+      if [[ -n "$(git status --porcelain)" ]]; then
+        echo "pre-push: refusing to push $remote_ref: the tree is dirty." >&2
+        echo "pre-push: a push qualifies a commit, not a work in progress." >&2
+        exit 1
+      fi
+      if [[ -x "$REPO/ci/local-ci.sh" ]]; then
+        echo "pre-push: qualifying $(git rev-parse --short HEAD) locally."
+        if ! "$REPO/ci/local-ci.sh" >/dev/null 2>&1; then
+          echo "pre-push: refusing to push $remote_ref: the local qualification failed." >&2
+          echo "pre-push: run './ci/local-ci.sh' and read what it says." >&2
+          exit 1
+        fi
+      fi
+      continue
+      ;;
     *) continue ;;
   esac
 
