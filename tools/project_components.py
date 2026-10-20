@@ -168,7 +168,7 @@ def render(spec: dict) -> str:
   width: {length(mark["diameter"])};
   height: {length(mark["diameter"])};
   border-radius: 50%;
-  background: {css_var(mark["by-state"]["stable"])};
+  background: {css_var(mark["by-state"]["observed"])};
   content: "";
   flex: 0 0 auto;
 }}
@@ -177,8 +177,8 @@ def render(spec: dict) -> str:
   background: {css_var(mark["by-state"]["pending"])};
 }}
 
-.gnosix-state[data-status="attention"]::before {{
-  background: {css_var(mark["by-state"]["attention"])};
+.gnosix-state[data-status="observed"]::before {{
+  background: {css_var(mark["by-state"]["observed"])};
 }}
 """)
 

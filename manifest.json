@@ -1,7 +1,7 @@
 {
   "version": "3.7.0",
   "name": "gnosix_DS V3.7.0 motion contract and alpha compositing variants",
-  "contract_digest": "d56da93196c01f1d4fc6aa738a7fe51784b5da841a6e90c0b934bed488187789",
+  "contract_digest": "cb16438de565f844872af023dffa44fd993d224351bfc677611667b70618868a",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -427,7 +427,7 @@
     {
       "class": "core",
       "path": "core/COMPONENTS.json",
-      "sha256": "9589f2c6f0c13c4a691e3a8e7a7bf51786118820420d2ad0ee14c6df0148a5e0"
+      "sha256": "c0d07fd23868910c6bf2c1c08ff3268af2299bc973ffa16189f83556cccf3571"
     },
     {
       "class": "core",
@@ -607,7 +607,7 @@
     {
       "class": "profile",
       "path": "profiles/web/components.css",
-      "sha256": "8ba727bcd66e1d27e97569383fc6ff5fc42c0afd77f9f957903e8a5243f80a96"
+      "sha256": "c9e58b0978a39c459460961fe17b25a1d4270803adf81f489265e146ce3bd694"
     },
     {
       "class": "profile",
@@ -902,7 +902,7 @@
     {
       "class": "evidence",
       "path": "tools/project_components.py",
-      "sha256": "dbc862c6eef7c1674f418cca3eae12ccc9b0f43b70c292b5c3888063b5fa4283"
+      "sha256": "d9b2094d6fb67db69ff9743c0b68d5aa54991f58fbff5b3ae302f9edef0ec87a"
     },
     {
       "class": "evidence",

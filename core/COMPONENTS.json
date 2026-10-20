@@ -15,23 +15,52 @@
   "components": {
     "action": {
       "description": "The principal contextual operation, with a verb label. A disabled action is still readable, and a focus ring is visible without hover.",
-      "roles": ["primary-action", "secondary-action"],
-      "rules": ["COL-002", "A11Y-001"],
-      "states": ["default", "focus-visible", "disabled"],
+      "roles": [
+        "primary-action",
+        "secondary-action"
+      ],
+      "rules": [
+        "COL-002",
+        "A11Y-001"
+      ],
+      "states": [
+        "default",
+        "focus-visible",
+        "disabled"
+      ],
       "tokens": {
         "background": "signalOrange/base",
         "text": "neutral/anthracite",
         "border": null
       },
       "geometry": {
-        "radius": {"px": 10},
-        "min-height": {"px": 44},
-        "padding": {"block": "0.85em", "inline": "1.2em"}
+        "radius": {
+          "px": 10
+        },
+        "min-height": {
+          "px": 44
+        },
+        "padding": {
+          "block": "0.85em",
+          "inline": "1.2em"
+        }
       },
-      "typography": {"weight": "bold"},
+      "typography": {
+        "weight": "bold"
+      },
       "a11y": {
-        "focus-ring": {"token": "royalBlue/base", "width": {"px": 3}, "offset": {"px": 3}},
-        "min-target": {"px": 44}
+        "focus-ring": {
+          "token": "royalBlue/base",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
       },
       "note": [
         "The text is anthracite, not white. Both pairings are approved and the",
@@ -43,61 +72,120 @@
     },
     "input": {
       "description": "A field the user types into, with a visible label and a focus treatment that does not depend on hover.",
-      "roles": ["prompt", "content"],
-      "rules": ["A11Y-001"],
-      "states": ["default", "focus-visible"],
+      "roles": [
+        "prompt",
+        "content"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
+      "states": [
+        "default",
+        "focus-visible"
+      ],
       "tokens": {
         "background": "neutral/pureWhite",
         "text": "inherit",
         "border": "neutral/hairline"
       },
       "geometry": {
-        "radius": {"px": 8},
-        "padding": {"all": "0.8em"},
-        "border-width": {"px": 1}
+        "radius": {
+          "px": 8
+        },
+        "padding": {
+          "all": "0.8em"
+        },
+        "border-width": {
+          "px": 1
+        }
       },
       "a11y": {
-        "focus-ring": {"token": "royalBlue/base", "width": {"px": 3}, "offset": {"px": 3}},
-        "min-target": {"px": 44}
+        "focus-ring": {
+          "token": "royalBlue/base",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
       }
     },
     "state": {
       "description": "A state, written in words, with a mark beside it. The mark is a disc and not a capsule: the reference scene shows a status capsule struck out, and CMP-001 forbids it.",
-      "roles": ["status-stable", "status-attention", "evidence"],
-      "rules": ["CMP-001", "A11Y-001", "STA-001"],
-      "states": ["stable", "pending", "attention"],
+      "roles": [
+        "status-stable",
+        "status-attention",
+        "evidence"
+      ],
+      "rules": [
+        "CMP-001",
+        "A11Y-001",
+        "STA-001"
+      ],
+      "states": [
+        "pending",
+        "observed"
+      ],
       "tokens": {
         "text": "inherit"
       },
       "mark": {
         "shape": "disc",
-        "diameter": {"em": 0.45},
+        "diameter": {
+          "em": 0.45
+        },
         "by-state": {
-          "stable": "beretGreen/base",
           "pending": "signalOrange/base",
-          "attention": "semantic/alert"
+          "observed": "beretGreen/base"
         }
       },
       "geometry": {
-        "gap": {"em": 0.65},
-        "line-height": {"number": 1.45}
+        "gap": {
+          "em": 0.65
+        },
+        "line-height": {
+          "number": 1.45
+        }
       },
       "a11y": {
         "text-carrying": "The state is in the words, so the mark is never the only cue."
-      }
+      },
+      "note": [
+        "The state is written in words, and the words are the cue; the mark",
+        "beside them is a disc, not a capsule, because the reference scene shows a",
+        "status capsule struck out and CMP-001 forbids it.",
+        "",
+        "Two states, not three: pending and observed, which is what the state",
+        "projection in profiles/web/state.ts declares. A request does not become",
+        "an observed success because it was sent - STA-001 - so the pending state",
+        "says so in words."
+      ]
     },
     "system": {
       "description": "Technical and metadata text: identifiers, measurements and evidence, set in tabular figures so columns of numbers align.",
-      "roles": ["evidence"],
-      "rules": ["TYP-001", "TYP-002"],
-      "states": ["default"],
+      "roles": [
+        "evidence"
+      ],
+      "rules": [
+        "TYP-001",
+        "TYP-002"
+      ],
+      "states": [
+        "default"
+      ],
       "tokens": {
         "text": "inherit"
       },
       "typography": {
         "font": "primary",
         "numeric": "tabular",
-        "tracking": {"em": 0.02}
+        "tracking": {
+          "em": 0.02
+        }
       }
     }
   }

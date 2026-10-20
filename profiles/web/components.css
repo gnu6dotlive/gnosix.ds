@@ -94,8 +94,8 @@ select {
   background: var(--gnosix-signal-orange-base);
 }
 
-.gnosix-state[data-status="attention"]::before {
-  background: var(--gnosix-semantic-alert);
+.gnosix-state[data-status="observed"]::before {
+  background: var(--gnosix-beret-green-base);
 }
 
 @media (prefers-reduced-motion: reduce) {
