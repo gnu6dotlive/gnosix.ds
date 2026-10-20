@@ -56,6 +56,72 @@ It has two levels, because a CI runner does not have a design editor:
 
 The second level is skipped, not failed, when no FigCraft CLI is present.
 
+## The pages
+
+| Page | What it holds |
+|---|---|
+| Colour | the 22 approved colours, every swatch **bound to its variable** |
+| Contrast | the seven approved pairings, drawn as used, with their measured ratio |
+| Type | the four ratified weights, with text styles carrying them |
+| Spacing | the ten spacing steps as number variables, each shown as its bar |
+| Components | the 41 vendored icons, the 8 flags, the 6 identity masters |
+| Scenes | the six reference scenes, imported as editable frames |
+| Rules | the fifteen rules, each card carrying its rule as an annotation |
+| Web | a web surface drawn in the system: nav, hero, features, a dark band, footer |
+| Prototype | the three-state machine, wired as a prototype |
+| Library | the component mains, which the boards place instances of |
+
+## The web surface and its code
+
+`figcraft/handoff.py` turns a board into the code a web project would ship:
+markup, a React component and the stylesheet.
+
+```sh
+python3 figcraft/handoff.py --board "Web / Landing"          # write handoff/
+python3 figcraft/handoff.py --board "Web / Landing" --check  # the gate
+```
+
+The gate is in the qualification contract, so the web code cannot drift from
+the design it was generated from.
+
+**What the generated code is not.** It is a faithful *structure* — the
+colours, the type, the layout and the dark band all come through — and it is
+a starting point rather than a finished page. Measured, in a browser:
+
+- the fonts are not loaded, so the browser falls back to a serif;
+- the browser's default paragraph margins shift the text, and the wrapped
+  lines land differently than they do in the design;
+- images are not inlined, so the identity master is missing.
+
+Those are the handoff's known gaps, and they belong to the receiving
+project's CSS, not to the design.
+
+## The prototype
+
+The contract's own state scene is a three-step machine — intent, pending,
+observed — and STA-001 says the projection must not claim success before the
+observation. So the states are written in words, and the glyph beside them
+comes from the ratified subset: `clock` for intent, `loader-2` for pending,
+`check` for observed. Nothing is a hand-authored mark, which is what ICON-001
+asks for, and no state is a capsule, which is what CMP-001 forbids.
+
+The screens are connected with a click that navigates and a dissolve
+transition, the last screen returns to the first, and the flow starts at the
+first one.
+
+## The two token projections
+
+The palette is stated twice: in `core/TOKENS.json`, which the package
+projects into `profiles/web/tokens.css`, and in the variables of this
+projection. `figcraft/check_tokens.py` checks them against each other, so a
+colour changed in the token source and not carried into the variables is a
+failure and not a surprise found in a rendered page.
+
+The comparison is on **values**, with the names normalised, because the two
+representations name the same token differently: the package writes
+`--gnosix-neutral-anthracite` and the engine writes `--neutral-anthracite`.
+A diff of the text would fail on two systems that agree.
+
 ## The library
 
 The projection is published as a **FigCraft library**, so another file can
@@ -70,6 +136,8 @@ What it offers:
 | `Rule Card` | a card carrying a rule: text properties `id`, `rule`, `scene` |
 | `State Pip` | a state mark, three variants — `body`, `large`, `fail` — under one variant property `state` |
 | `Specimen` | a type specimen, one variant per ratified weight, under `weight` |
+| `Icon Cell` | a cell a glyph is shown in, with an instance-swap property `icon` and a text property `name` |
+| the 49 glyphs | one component per vendored icon and flag, so they can be swapped |
 | `Colour`, `Space` | the variable collections, with their variables |
 | 25 paint styles | one per approved colour, named `family/shade` |
 

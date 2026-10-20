@@ -57,7 +57,7 @@ def iter_package_files(root: Path) -> list[str]:
     # the package is the thing that is built. The manifest describes the
     # package, so a file the package does not carry is not a file the
     # manifest hashes.
-    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "ci", "figcraft"}
+    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "ci", "figcraft", "handoff"}
     out = []
     for path in sorted(root.rglob("*")):
         if not path.is_file():

@@ -45,6 +45,8 @@ GATES: list[tuple[str, list[str]]] = [
     ("icon subset is vendored", ["tools/vendor_icons.py", "--check"]),
     ("no ad-hoc glyphs", ["tools/apply_icons.py", "--check"]),
     ("the FigCraft projection matches the source", ["figcraft/generate.py", "--check"]),
+    ("the two token projections agree", ["figcraft/check_tokens.py"]),
+    ("the web code matches the design", ["figcraft/handoff.py", "--board", "Web / Landing", "--check"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or

@@ -1,0 +1,333 @@
+.web-landing {
+  position: relative;
+  width: 1440px;
+  height: 1492px;
+  background: #F7F3ED;
+}
+.gnosix {
+  position: absolute;
+  left: 96px;
+  top: 26px;
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 24px;
+  font-weight: 700;
+}
+.contract {
+  position: absolute;
+  left: 690px;
+  top: 32px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 400;
+}
+.targets {
+  position: absolute;
+  left: 800px;
+  top: 32px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 400;
+}
+.rules {
+  position: absolute;
+  left: 910px;
+  top: 32px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 400;
+}
+.library {
+  position: absolute;
+  left: 1020px;
+  top: 32px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 400;
+}
+.action-read-the-contract {
+  position: absolute;
+  left: 1154px;
+  top: 18px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  padding: 0px 24px 0px 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: #FF6A00;
+}
+.read-the-contract {
+  color: #FFFFFF;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+}
+.portable-design-contract {
+  position: absolute;
+  left: 96px;
+  top: 150px;
+  color: #FF6A00;
+  font-family: "Space Grotesk";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.a-design-system-that-travels {
+  position: absolute;
+  left: 96px;
+  top: 186px;
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 56px;
+  font-weight: 700;
+}
+.and-that-your-agents-can-drive {
+  position: absolute;
+  left: 96px;
+  top: 250px;
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 56px;
+  font-weight: 700;
+}
+.rules-tokens-reference-scenes-and-explic {
+  position: absolute;
+  left: 96px;
+  top: 340px;
+  width: 520px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 400;
+}
+.action-get-started {
+  position: absolute;
+  left: 96px;
+  top: 440px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  padding: 0px 24px 0px 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: #FF6A00;
+}
+.get-started {
+  color: #FFFFFF;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+}
+.action-see-the-library {
+  position: absolute;
+  left: 286px;
+  top: 440px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  padding: 0px 24px 0px 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: #FFFFFF;
+  border: 1px solid #D7DADF;
+}
+.see-the-library {
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+}
+.identity-gnosix {
+  position: absolute;
+  left: 1024px;
+  top: 150px;
+  width: 320px;
+  height: 320px;
+  background: url(image.png) center / cover;
+}
+.band-632 {
+  position: absolute;
+  left: 0px;
+  top: 632px;
+  width: 1440px;
+  height: 420px;
+  background: #F7F3ED;
+}
+.feature-one-vocabulary {
+  position: absolute;
+  left: 96px;
+  top: 704px;
+  width: 394px;
+  height: 276px;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid #D7DADF;
+}
+.layers-subtract {
+  position: absolute;
+  left: 28px;
+  top: 28px;
+}
+.one-vocabulary {
+  position: absolute;
+  left: 28px;
+  top: 176px;
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 22px;
+  font-weight: 700;
+}
+.portable-roles-stable-rule-ids-and-one-a {
+  position: absolute;
+  left: 28px;
+  top: 212px;
+  width: 338px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 400;
+}
+.feature-approved-colours {
+  position: absolute;
+  left: 522px;
+  top: 704px;
+  width: 394px;
+  height: 276px;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid #D7DADF;
+}
+.palette {
+  position: absolute;
+  left: 28px;
+  top: 28px;
+}
+.approved-colours {
+  position: absolute;
+  left: 28px;
+  top: 176px;
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 22px;
+  font-weight: 700;
+}
+.twenty-one-colours-and-four-weights-each {
+  position: absolute;
+  left: 28px;
+  top: 212px;
+  width: 338px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 400;
+}
+.feature-real-handoff {
+  position: absolute;
+  left: 948px;
+  top: 704px;
+  width: 394px;
+  height: 276px;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid #D7DADF;
+}
+.code {
+  position: absolute;
+  left: 28px;
+  top: 28px;
+}
+.real-handoff {
+  position: absolute;
+  left: 28px;
+  top: 176px;
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 22px;
+  font-weight: 700;
+}
+.css-html-and-react-generated-from-the-de {
+  position: absolute;
+  left: 28px;
+  top: 212px;
+  width: 338px;
+  color: #667085;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 400;
+}
+.band-1052 {
+  position: absolute;
+  left: 0px;
+  top: 1052px;
+  width: 1440px;
+  height: 300px;
+  background: #111418;
+}
+.ship-the-contract-not-a-copy-of-it {
+  position: absolute;
+  left: 96px;
+  top: 1108px;
+  color: #FFFFFF;
+  font-family: "Space Grotesk";
+  font-size: 40px;
+  font-weight: 700;
+}
+.the-package-is-the-source-the-projection {
+  position: absolute;
+  left: 96px;
+  top: 1164px;
+  width: 560px;
+  color: #D7DADF;
+  font-family: "Space Grotesk";
+  font-size: 18px;
+  font-weight: 400;
+}
+.action-get-started-2 {
+  position: absolute;
+  left: 1164px;
+  top: 1150px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  padding: 0px 24px 0px 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: #FFFFFF;
+}
+.get-started-2 {
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+}
+.gnosix-2 {
+  position: absolute;
+  left: 96px;
+  top: 1372px;
+  color: #111418;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+}
+.portable-design-contract-apache-2-0-sour {
+  position: absolute;
+  left: 186px;
+  top: 1376px;
+  color: #A1A6AD;
+  font-family: "Space Grotesk";
+  font-size: 14px;
+  font-weight: 400;
+}

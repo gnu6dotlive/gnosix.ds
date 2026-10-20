@@ -138,15 +138,16 @@ def _parent(ctx: Ctx, parent) -> dict | None:
 # ------------------------------------------------------------- primitives
 
 def frame(ctx: Ctx, name: str, x: int, y: int, w: int, h: int,
-          fill: str | None = None, radius: int = 0, parent=INHERIT) -> int:
-    props = {}
+          fill: str | None = None, radius: int = 0, parent=INHERIT,
+          props: dict | None = None) -> int:
+    merged = dict(props or {})
     if fill:
-        props["fills"] = [{"type": "solid", "color": fill}]
+        merged["fills"] = [{"type": "solid", "color": fill}]
     if radius:
-        props["cornerRadius"] = radius
+        merged["cornerRadius"] = radius
     params = {"type": "frame", "name": name, "x": x, "y": y, "width": w, "height": h}
-    if props:
-        params["props"] = props
+    if merged:
+        params["props"] = merged
     params["parent"] = _parent(ctx, parent)
     return ctx.script.add("node.create", **params)
 
@@ -189,7 +190,8 @@ def section_label(ctx: Ctx, label: str, x: int, y: int, colour: dict) -> None:
     text(ctx, label.upper(), x, y, 12, colour["slate"], "Bold", tracking="12%")
 
 
-def open_board(ctx: Ctx, script: Script, page: str, name: str, height: int, colour: dict) -> dict:
+def open_board(ctx: Ctx, script: Script, page: str, name: str, height: int, colour: dict,
+               width: int = PAGE_W) -> dict:
     """Start a page and put one board frame on it."""
     # Every board gets its own page. The document's default page is left
     # empty and deleted at the end, because renaming the current page is
@@ -200,7 +202,7 @@ def open_board(ctx: Ctx, script: Script, page: str, name: str, height: int, colo
     script.add("page.select", id=script.ref(added))
     ctx.pages += 1
     # The board sits on the page, not inside the previous page's board.
-    board = frame(ctx, name, 0, 0, PAGE_W, height, fill=colour["shellWhite"], parent=None)
+    board = frame(ctx, name, 0, 0, width, height, fill=colour["shellWhite"], parent=None)
     ctx.parent = script.ref(board)
     return script.ref(board)
 
@@ -222,6 +224,8 @@ class Mains:
         self.rule_card: int | None = None
         self.state_pip: int | None = None
         self.specimen: int | None = None
+        self.icon_cell: int | None = None
+        self.glyphs: dict[str, int] = {}
 
 
 def build_rule_card_main(ctx: Ctx, script: Script, colour: dict, x: int = 0, y: int = 0) -> int:
@@ -338,7 +342,7 @@ def build_specimen_main(ctx: Ctx, script: Script, colour: dict, weights: dict, x
     return first
 
 
-def build_library_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, mains: Mains) -> None:
+def build_library_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, manifest: dict, source: Path, mains: Mains) -> None:
     """The component mains.
 
     The library's published assets live here, and the boards place instances
@@ -357,6 +361,275 @@ def build_library_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, mai
     mains.state_pip = build_state_pip_main(ctx, script, colour, x=0, y=200)
     weights = tokens.get("typography", {}).get("weights", {})
     mains.specimen = build_specimen_main(ctx, script, colour, weights, x=0, y=260)
+    # The glyphs, and the cell they are shown in.
+    mains.glyphs = build_icon_mains(ctx, script, source, manifest, colour, x=0, y=420)
+    mains.icon_cell = build_icon_cell_main(ctx, script, colour, mains.glyphs, x=0, y=700)
+
+
+
+def build_icon_mains(ctx: Ctx, script: Script, source: Path, manifest: dict, colour: dict,
+                     x: int = 0, y: int = 0) -> dict[str, int]:
+    """The vendored glyphs, as components.
+
+    A glyph is a component so that it can be swapped: the cell's icon slot
+    holds an instance of one, and a consumer replaces it with another. The
+    glyphs are the ratified subset from the manifest, so the library offers
+    exactly what the package ships and no more.
+
+    The names come from the manifest rather than from the file names, so the
+    layer tree reads as the design system and not as a file listing.
+    """
+    entries = manifest.get("entries", [])
+    mains: dict[str, int] = {}
+    per_row = 16
+    for index, entry in enumerate(entries):
+        column = index % per_row
+        row = index // per_row
+        cell_x = x + column * 40
+        cell_y = y + row * 40
+        glyph = script.add("file.import", path=entry["path"])
+        script.add("object.rename", ids=[script.ref(glyph)], name=entry["name"])
+        script.add("node.reparent", ids=[script.ref(glyph)], parent=ctx.parent)
+        script.add("node.set", ids=[script.ref(glyph)],
+                   props={"x": cell_x, "y": cell_y, "width": 24, "height": 24})
+        script.add("component.create", ids=[script.ref(glyph)])
+        mains[entry["name"]] = glyph
+    return mains
+
+
+def build_icon_cell_main(ctx: Ctx, script: Script, colour: dict, glyphs: dict[str, int],
+                         x: int = 0, y: int = 0) -> int:
+    """The cell a glyph is shown in, with the glyph swappable.
+
+    The cell carries an instance of one of the glyphs and an instance-swap
+    property, so a consumer places the cell and says which glyph it holds.
+    The label is a text property for the same reason.
+    """
+    cell = frame(ctx, "Icon Cell", x, y, 88, 120, fill=colour["pureWhite"], radius=8)
+    script.add("node.set", ids=[script.ref(cell)], props={"strokes": [
+        {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
+
+    # The first glyph in the manifest is the default the swap property
+    # offers; the others are the preferred values.
+    names = list(glyphs)
+    default = names[0] if names else None
+    # Both the glyph and the label are inside the cell: a property binds to
+    # a layer of the component, so a label beside the cell would not be
+    # carried by it.
+    slot = script.add("instance.create", component=script.ref(glyphs[default]),
+                      x=32, y=20, parent=script.ref(cell))
+    label = text(ctx, default, 0, 84, 11, colour["slate"], width=88, align="center",
+                 parent=script.ref(cell))
+
+    script.add("component.create", ids=[script.ref(cell)])
+    script.add("component.addProperty", id=script.ref(cell), name="icon", type="instanceSwap",
+               layer=script.ref(slot), default=default,
+               preferred=[script.ref(glyphs[name]) for name in names])
+    script.add("component.addProperty", id=script.ref(cell), name="name", type="text",
+               layer=script.ref(label), default=default)
+    return cell
+
+
+def build_web_page(ctx: Ctx, script: Script, source: Path, colour: dict, mains: Mains) -> None:
+    """A web surface, drawn in the system.
+
+    This is the system's own vocabulary applied to a page: the substrates are
+    the two the contract names, the type is the ratified family, the accents
+    are the approved colours, and the icons come from the ratified subset
+    through the library's own cell.
+
+    The dark band is not a theme. gnosix is a substrate system: a page is
+    light or it is the other substrate, and the meaning is in the pairing
+    rather than in a mode.
+    """
+    width, margin = 1440, 96
+    content = width - 2 * margin
+
+    height = 72 + 560 + 420 + 300 + 140
+    open_board(ctx, script, "Web", "Web / Landing", height, colour, width=width)
+    board = ctx.parent
+
+    def band(y: int, h: int, fill: str) -> dict:
+        """A full-bleed band across the page."""
+        return script.ref(rect(ctx, f"Band {y}", 0, y, width, h, fill))
+
+    def action(label: str, x: int, y: int, primary: bool) -> dict:
+        """A button. Not a capsule: CMP-001 forbids the rounded status
+        capsule, and the reference scene's buttons have a modest radius."""
+        fill = colour["signalOrange"] if primary else colour["pureWhite"]
+        ink = colour["pureWhite"] if primary else colour["anthracite"]
+        button = frame(ctx, f"Action / {label}", x, y, 0, 48, fill=fill, radius=10,
+                       props={"layout": "horizontal", "padding": [0, 24, 0, 24]})
+        script.add("node.set", ids=[script.ref(button)], props={"sizingH": "hug"})
+        if not primary:
+            script.add("node.set", ids=[script.ref(button)], props={"strokes": [
+                {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
+        text(ctx, label, 24, 15, 16, ink, "Bold", parent=script.ref(button))
+        return script.ref(button)
+
+    # ---- nav ----------------------------------------------------------
+    text(ctx, "gnosix", margin, 26, 24, colour["anthracite"], "Bold")
+    links = ("Contract", "Targets", "Rules", "Library")
+    for index, label in enumerate(links):
+        text(ctx, label, width - margin - 190 - 24 - len(links) * 110 + index * 110,
+             32, 16, colour["slate"])
+    action("Read the contract", width - margin - 190, 18, True)
+
+    # ---- hero ---------------------------------------------------------
+    text(ctx, "PORTABLE DESIGN CONTRACT", margin, 150, 12, colour["signalOrange"],
+         "Bold", tracking="14%")
+    text(ctx, "A design system that travels,", margin, 186, 56, colour["anthracite"], "Bold")
+    text(ctx, "and that your agents can drive.", margin, 250, 56, colour["anthracite"], "Bold")
+    text(ctx, "Rules, tokens, reference scenes and explicit target mappings, in one "
+              "package and in one file. Nothing here is a picture of a thing.",
+         margin, 340, 20, colour["slate"], width=520)
+    action("Get started", margin, 440, True)
+    action("See the library", margin + 190, 440, False)
+
+    # The identity master, the alpha variant, on the other substrate. This
+    # is ID-004 in practice: the alpha master is sanctioned on a neutral
+    # substrate, and pure white is one.
+    image = script.add("file.import", path="assets/identity/gnosix-cube-alpha.png")
+    script.add("object.rename", ids=[script.ref(image)], name="Identity / gnosix")
+    script.add("node.reparent", ids=[script.ref(image)], parent=board)
+    script.add("node.set", ids=[script.ref(image)],
+               props={"x": width - margin - 320, "y": 150, "width": 320, "height": 320})
+
+    # ---- features, on the other substrate ------------------------------
+    band(632, 420, colour["shellWhite"])
+    features = [
+        ("layers-subtract", "One vocabulary",
+         "Portable roles, stable rule ids and one approved token source."),
+        ("palette", "Approved colours",
+         "Twenty-one colours and four weights, each with its approved pairing."),
+        ("code", "Real handoff",
+         "CSS, HTML and React generated from the design that shipped."),
+    ]
+    card_w = (content - 2 * 32) // 3
+    for index, (glyph, title, body) in enumerate(features):
+        x = margin + index * (card_w + 32)
+        card = frame(ctx, f"Feature / {title}", x, 704, card_w, 276,
+                     fill=colour["pureWhite"], radius=16)
+        script.add("node.set", ids=[script.ref(card)], props={"strokes": [
+            {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
+        # The glyph itself, not the cell: the cell carries the glyph's
+        # name, which a feature card has no use for.
+        mark = script.add("instance.create", component=script.ref(mains.glyphs[glyph]),
+                          x=28, y=28, parent=script.ref(card))
+        text(ctx, title, 28, 176, 22, colour["anthracite"], "Bold", parent=script.ref(card))
+        text(ctx, body, 28, 212, 16, colour["slate"], width=card_w - 56,
+             parent=script.ref(card))
+
+    # ---- the other substrate -------------------------------------------
+    band(1052, 300, colour["anthracite"])
+    text(ctx, "Ship the contract, not a copy of it.", margin, 1108, 40,
+         colour["pureWhite"], "Bold")
+    text(ctx, "The package is the source. The projections follow it, and the "
+              "gates say when they have not.",
+         margin, 1164, 18, colour["hairline"], width=560)
+    button = frame(ctx, "Action / Get started", width - margin - 180, 1150, 0, 48,
+                   fill=colour["pureWhite"], radius=10,
+                   props={"layout": "horizontal", "padding": [0, 24, 0, 24]})
+    script.add("node.set", ids=[script.ref(button)], props={"sizingH": "hug"})
+    text(ctx, "Get started", 24, 15, 16, colour["anthracite"], "Bold",
+         parent=script.ref(button))
+
+    # ---- footer --------------------------------------------------------
+    text(ctx, "gnosix", margin, 1372, 20, colour["anthracite"], "Bold")
+    text(ctx, "Portable design contract · Apache-2.0 sources, MIT assets",
+         margin + 90, 1376, 14, colour["muted"])
+
+
+
+def build_prototype_page(ctx: Ctx, script: Script, colour: dict, mains: Mains) -> None:
+    """The three-state machine, wired as a prototype.
+
+    The contract's own state scene is a three-step machine - intent,
+    pending, observed - and STA-001 says the projection must not claim
+    success before the observation. So the states are written in words, as
+    the contract's own scene does, and the glyph beside them comes from the
+    ratified subset: clock for intent, loader for pending, check for
+    observed. Nothing here is a hand-authored mark, which is what ICON-001
+    asks for, and no state is a capsule, which is what CMP-001 forbids.
+
+    The screens are connected with a click that navigates, and the flow
+    starts at the first one.
+    """
+    width, height = 1000, 620
+    states = [
+        ("01 / INTENT", "Request pending",
+         "Requested on intent. Not an observed result.",
+         "clock", colour["slate"], "Requesting", "Now"),
+        ("02 / PENDING", "Waiting for observation",
+         "The request was made. The result has not been observed yet.",
+         "loader-2", colour["royalBlue"], "Observed", "Now"),
+        ("03 / OBSERVED", "Observed and reconciled",
+         "The observation arrived and was reconciled with what was intended.",
+         "check", colour["beretGreen"], "Start again", "Now"),
+    ]
+
+    # The screens sit at the top level of the page, not inside a board: a
+    # flow starts at a top-level frame, and a prototype's screens are
+    # top-level frames in any case.
+    added = script.add("page.add", name="Prototype")
+    script.add("page.select", id=script.ref(added))
+    ctx.pages += 1
+    ctx.parent = None
+
+    frames = []
+    for index, (label, title, body, glyph, accent, action, target) in enumerate(states):
+        x = 64 + index * (width + 64)
+        screen = frame(ctx, f"Screen / {label}", x, 200, width, height,
+                       fill=colour["pureWhite"], radius=16, parent=None)
+        script.add("node.set", ids=[script.ref(screen)], props={"strokes": [
+            {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
+
+        text(ctx, label, 48, 48, 12, accent, "Bold", tracking="14%",
+             parent=script.ref(screen))
+        text(ctx, title, 48, 88, 40, colour["anthracite"], "Bold",
+             parent=script.ref(screen))
+        text(ctx, body, 48, 148, 18, colour["slate"], width=520,
+             parent=script.ref(screen))
+
+        # The state mark: a glyph from the ratified subset, in the state
+        # colour. It is a mark beside the words, not a capsule.
+        mark = script.add("instance.create", component=script.ref(mains.glyphs[glyph]),
+                          x=48, y=228, parent=script.ref(screen))
+        script.add("node.set", ids=[script.ref(mark)], props={"width": 32, "height": 32})
+        text(ctx, label.split("/")[-1].strip(), 96, 236, 14, accent, "Bold",
+             parent=script.ref(screen))
+
+        button = frame(ctx, f"Action / {action}", 48, height - 108, 0, 48,
+                       fill=colour["signalOrange"], radius=10,
+                       props={"layout": "horizontal", "padding": [0, 24, 0, 24],
+                              "sizingH": "hug", "sizingV": "hug"},
+                       parent=script.ref(screen))
+        text(ctx, action, 24, 15, 16, colour["pureWhite"], "Bold",
+             parent=script.ref(button))
+        frames.append((script.ref(screen), script.ref(button), action, target))
+
+    # The connections. A click on a button navigates to the next screen, and
+    # the transition is a dissolve, so the change of state is legible.
+    for index in range(len(frames) - 1):
+        source, button, action, _ = frames[index]
+        target = frames[index + 1][0]
+        script.add("proto.interaction.add",
+                   id=button,
+                   trigger={"type": "onClick"},
+                   action={"type": "navigate", "dest": target},
+                   transition={"type": "dissolve"}, durationMs=200)
+
+    # The last screen starts again at the first.
+    last = frames[-1]
+    script.add("proto.interaction.add",
+               id=last[1],
+               trigger={"type": "onClick"},
+               action={"type": "navigate", "dest": frames[0][0]},
+               transition={"type": "dissolve"}, durationMs=200)
+
+    # The flow, starting at the first screen.
+    script.add("proto.flow.add", start=frames[0][0], name="Request lifecycle")
+    script.add("proto.settings", device="Desktop", background=colour["shellWhite"])
 
 
 # --------------------------------------------------------------- the pages
@@ -480,6 +753,8 @@ def build_type_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, mains:
     typography = tokens.get("typography", {})
     weights = typography.get("weights", {})
     primary = (typography.get("primary") or ["Space Grotesk"])[0]
+    styles = {"regular": "Regular", "medium": "Medium",
+              "semibold": "SemiBold", "bold": "Bold"}
 
     open_board(ctx, script, "Type", "Type / board", 210 + len(weights) * 130 + 180, colour)
     title_block(ctx, "Type",
@@ -508,9 +783,12 @@ def build_type_page(ctx: Ctx, script: Script, tokens: dict, colour: dict, mains:
     # Text styles carry the ratified weights, so a consumer applies the role
     # rather than re-deciding the size.
     for weight_name, weight in weights.items():
-        script.add("style.create", type="text", name=f"Type / {weight_name}",
+        # The style is named by its number, not by its name, so the two
+        # projections can be compared: the package states the weights as
+        # numbers in its custom properties, and a name would not match.
+        script.add("style.create", type="text", name=f"Type / {weight}",
                    value={"fontSize": 16, "fontFamily": primary,
-                          "fontStyle": "Bold" if weight >= 600 else "Regular"})
+                          "fontStyle": styles.get(weight_name, "Regular")})
 
 
 def build_spacing_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) -> None:
@@ -531,7 +809,7 @@ def build_spacing_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) -> 
         y += 56
 
 
-def build_components_page(ctx: Ctx, script: Script, manifest: dict, colour: dict) -> None:
+def build_components_page(ctx: Ctx, script: Script, manifest: dict, colour: dict, mains: Mains) -> None:
     """The vendored icon subset, the flag subset and the identity masters."""
     entries_by_kind: dict[str, list] = {}
     for entry in manifest.get("entries", []):
@@ -547,7 +825,8 @@ def build_components_page(ctx: Ctx, script: Script, manifest: dict, colour: dict
                 "layers. Nothing here is a picture of a thing.", colour)
 
     y = 210
-    for kind, label, cell, per_row in (("icon", "Icons", 88, 10), ("flag", "Flags", 120, 6)):
+    y = 210
+    for kind, label, cell, per_row in (("icon", "Icons", 88, 10), ("flag", "Flags", 88, 10)):
         entries = entries_by_kind.get(kind, [])
         section_label(ctx, f"{label} / {len(entries)}", MARGIN, y, colour)
         y += 30
@@ -556,21 +835,14 @@ def build_components_page(ctx: Ctx, script: Script, manifest: dict, colour: dict
             row = index // per_row
             x = MARGIN + column * (cell + 16)
             cy = y + row * 128
-            cell_frame = frame(ctx, f"{kind.title()} / {entry['name']}", x, cy, cell, 96,
-                               fill=colour["pureWhite"], radius=8)
-            script.add("node.set", ids=[script.ref(cell_frame)], props={"strokes": [
-                {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
-            # The path is relative to the repository root: the command script is
-            # committed, and an absolute path would make it a statement about
-            # the machine that generated it rather than about the source.
-            icon = script.add("file.import", path=entry["path"])
-            # The import lands a frame named after the file; give it the
-            # name the manifest uses so the layer tree reads as the design
-            # system and not as a file listing.
-            script.add("object.rename", ids=[script.ref(icon)], name=entry["name"])
-            script.add("node.reparent", ids=[script.ref(icon)], parent=script.ref(cell_frame))
-            script.add("node.set", ids=[script.ref(icon)], props={"x": 24, "y": 30})
-            text(ctx, entry["name"], x, cy + 102, 11, colour["slate"], width=cell)
+            # An instance of the cell, with the glyph swapped in. The glyph
+            # is a component, so the swap is what a consumer does too.
+            cell_frame = script.add("instance.create", component=script.ref(mains.icon_cell),
+                                    x=x, y=cy, parent=ctx.parent)
+            script.add("instance.setProperties", ids=[script.ref(cell_frame)], properties={
+                "icon": script.ref(mains.glyphs[entry["name"]]),
+                "name": entry["name"],
+            })
         rows = (len(entries) + per_row - 1) // per_row
         y += rows * 128 + 40
 
@@ -707,14 +979,16 @@ def build_script(source: Path) -> Script:
 
     token_variables(script, tokens)
     # The library first: the boards place instances of its mains.
-    build_library_page(ctx, script, tokens, colour, mains)
+    build_library_page(ctx, script, tokens, colour, manifest, source, mains)
     build_colour_page(ctx, script, tokens, colour)
     build_contrast_page(ctx, script, tokens, colour, mains)
     build_type_page(ctx, script, tokens, colour, mains)
     build_spacing_page(ctx, script, tokens, colour)
-    build_components_page(ctx, script, manifest, colour)
+    build_components_page(ctx, script, manifest, colour, mains)
     build_scenes_page(ctx, script, references, colour)
     build_rules_page(ctx, script, rules_doc.get("rules", []), references, colour, mains)
+    build_web_page(ctx, script, source, colour, mains)
+    build_prototype_page(ctx, script, colour, mains)
 
     # The library is the last page: a reader opening the project wants the
     # boards, not the machinery. It was created first, because the boards

@@ -807,7 +807,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "870cd6f30483a1415966e2f5287f2b0c29144e5a9cdb99dfaa4c3cda5f109c70"
+      "sha256": "cc9778dd9531f21f99512b292b40d6f01e91f30359c7c891a89088c0d3a38319"
     },
     {
       "class": "evidence",
@@ -827,7 +827,7 @@
     {
       "class": "evidence",
       "path": "tools/rebuild_manifest.py",
-      "sha256": "85f94b4af8cf0964fa736746adab6dd763f2802c16c5d6f35183e619bc65928e"
+      "sha256": "10b19c8edcc388f371ef2f4001fc902299a0df20f30861dd9fd356419c809a2b"
     },
     {
       "class": "evidence",
@@ -842,7 +842,7 @@
     {
       "class": "evidence",
       "path": "tools/release.py",
-      "sha256": "8a6597b9ccaaf8bc001ce868297c520c2253a5c141f7d2f0665720019baf450b"
+      "sha256": "125a81bba1101192c2f13e69ab7a07c04cc3839d4985ed2fd6a3f0aec2a9f861"
     },
     {
       "class": "evidence",

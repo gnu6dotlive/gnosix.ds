@@ -65,6 +65,9 @@ DIST = ROOT / "dist"
 # "ci" is excluded for the same reason and one more: it exists to keep
 # GitHub Actions from being used as a test bench, and a script that runs a
 # local simulation of the CI has no business in a distributed package.
+#
+# "handoff" is the web code generated from the projection: the repository's
+# own surface, not part of the contract it ships.
 PACKAGED_DIRS = [
     "assets",
     "core",
