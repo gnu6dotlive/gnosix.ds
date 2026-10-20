@@ -31,7 +31,17 @@ HEX = re.compile(r"#[0-9A-Fa-f]{6}\b")
 
 # Where a colour may legitimately appear. The manifest is excluded because it
 # holds the hashes, not colours.
-SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "dist", "handoff", "figcraft"}
+#
+# The frontend audit is excluded for the same kind of reason as the FigCraft
+# projection: it is a report *about* the colours the system does not have. The
+# inventory quotes them in order to name them, and a gate that asked a
+# quotation to be a token would forbid the report that says where the system
+# is not yet used.
+SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "dist", "handoff", "figcraft",
+             "frontend-audit"}
+# The audit's configuration quotes the same colours its reports do, and is
+# exempt for the same reason.
+SKIP_FILES = {"frontend-audit.json"}
 SKIP_SUFFIX = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".ttf", ".woff2", ".ico", ".zip"}
 
 # The assets tree is artwork, not surface. A flag carries its country's
@@ -77,6 +87,8 @@ def iter_files(root: Path):
         if path.suffix.lower() in SKIP_SUFFIX:
             continue
         if rel.name == "manifest.json":
+            continue
+        if rel.name in SKIP_FILES:
             continue
         yield rel, path
 
