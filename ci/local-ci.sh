@@ -68,7 +68,7 @@ fi
 # The engine and the font, from the same script the workflows call.
 export RUNNER_TEMP="$REPO/.ci-cache/runner"
 mkdir -p "$RUNNER_TEMP"
-export FIGCRAFT_ENV_FILE="$WORK/engine.env"
+export FIGCRAFT_ENV_FILE="$REPO/.ci-cache/env"
 : > "$FIGCRAFT_ENV_FILE"
 "$SOURCE/ci/provision-engine.sh" > /dev/null
 "$SOURCE/ci/provision-browser.sh" > /dev/null

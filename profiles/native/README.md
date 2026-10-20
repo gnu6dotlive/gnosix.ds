@@ -8,6 +8,25 @@ Use the packaged `assets/fonts/SpaceGrotesk-native.ttf` as the application font 
 
 Typography gate: load the TTF before the first reference surface, verify `éàçîœ>_$#`, verify weights 300–700, and capture the computed/selected family in runtime evidence. No second interface family is part of the V3.4.1 visual contract; baked identity artwork is not interface typography.
 
+## States
+
+The roles cross the boundary, and so do the states. The profile carries
+the ten states the contract's own elements declare — `default`, `hover`,
+`focus-visible`, `active`, `disabled`, `busy`, `open`, `interactive`,
+`invalid` and `on` — and for each one it says what the state means, the
+role it wears when it wears one, the treatment a native surface gives
+it, and the evidence the target must produce.
+
+They are in `states.json`, and they are projected into `src/states.rs`
+the way the roles are projected into `src/roles.rs`. A state nobody can
+prove is a state nobody has, so each one names its evidence: a keyboard
+traversal for the focus, a capture for the open, a check that the
+pending state is not the observed one for the busy.
+
+The list is checked against the contract, both ways. A state the
+contract declares and this profile does not name is a gap; a state this
+profile names and the contract does not declare is an invention.
+
 ## Semantic projection
 
 | Portable role | GPUI projection boundary | Runtime evidence needed |

@@ -138,6 +138,25 @@ def probe_the_spacing_scale_has_ten_steps() -> list[str]:
     return problems
 
 
+def probe_the_native_profile_carries_the_states() -> list[str]:
+    """The native profile names every state the contract declares."""
+    contract = json.loads((ROOT / "core" / "COMPONENTS.json").read_text(encoding="utf-8"))
+    declared = set()
+    for component in contract["components"].values():
+        for state in component.get("states") or []:
+            declared.add(state["name"])
+    states = json.loads((ROOT / "profiles" / "native" / "states.json").read_text(encoding="utf-8"))
+    named = {state["id"] for state in states["states"]}
+    problems = []
+    for state in sorted(declared - named):
+        problems.append(f"{state}: the contract declares it and the native "
+                        f"profile does not name it")
+    for state in sorted(named - declared):
+        problems.append(f"{state}: the native profile names it and the "
+                        f"contract does not declare it")
+    return problems
+
+
 PROBES = {
     "no_self_reference": probe_no_self_reference,
     "no_foreign_literal": probe_no_foreign_literal,
@@ -146,6 +165,7 @@ PROBES = {
     "the_cited_path_exists": probe_the_cited_path_exists,
     "the_components_name_a_radius_step": probe_the_components_name_a_radius_step,
     "the_spacing_scale_has_ten_steps": probe_the_spacing_scale_has_ten_steps,
+    "the_native_profile_carries_the_states": probe_the_native_profile_carries_the_states,
 }
 
 

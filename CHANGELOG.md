@@ -8,6 +8,28 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [4.4.0] — 2026-10-20
+
+The native profile carries the states.
+
+Its doctrine has always said that roles and state cross the boundary and
+the HTML/CSS structure does not. The roles crossed; the states did not,
+and the contract's own elements declare ten of them. So a native surface
+had a role to read and no state to read it in, and it guessed.
+
+The profile now names every state the contract declares — `default`,
+`hover`, `focus-visible`, `active`, `disabled`, `busy`, `open`,
+`interactive`, `invalid`, `on` — and for each one it says what the state
+means, the role it wears when it wears one, the treatment a native
+surface gives it, and the evidence the target must produce. They are
+projected into the native crate the way the roles are.
+
+The list is checked against the contract, both ways: a state the
+contract declares and the profile does not name is a gap, and a state
+the profile names and the contract does not declare is an invention. The
+deviation that said the native profile carried no vocabulary is closed,
+and a probe keeps it closed.
+
 ## [4.3.1] — 2026-10-20
 
 The eye, and the defect it found on the first look.

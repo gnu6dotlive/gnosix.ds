@@ -5,6 +5,8 @@
   "gaps": [
     "No compiled gnos.ux/GPUI reference fixture is included in this package",
     "Keyboard focus and accessibility projection have not been verified in a target runtime",
-    "Surface and shader mappings are specified but not visually captured here"
-  ]
+    "Surface and shader mappings are specified but not visually captured here",
+    "The states are specified and projected, but no target has yet produced the evidence each of them names: the eye looks at the web surfaces, and the native ones are not rendered"
+  ],
+  "states": "profiles/native/states.json — the ten states the contract's elements declare, with their native treatment and the evidence a target must produce"
 }

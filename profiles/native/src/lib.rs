@@ -11,6 +11,7 @@
 //! mapping in `../README.md` says what the adapter has to do.
 
 pub mod roles;
+pub mod states;
 pub mod theme;
 
 #[cfg(test)]
@@ -44,6 +45,17 @@ mod tests {
         assert_eq!(super::roles::DARK.focus, super::theme::colour::ROYAL_BLUE_BASE);
         assert_eq!(super::roles::LIGHT.ink, super::theme::colour::NEUTRAL_ANTHRACITE);
         assert_eq!(super::roles::DARK.ink, super::theme::colour::NEUTRAL_SHELL_WHITE);
+    }
+
+    /// The state layer is present, and it covers the states the contract's
+    /// own elements declare. A native target that has no state to read is a
+    /// native target that guesses.
+    #[test]
+    fn the_state_layer_covers_the_contract() {
+        assert_eq!(super::states::FOCUS_VISIBLE.id, "focus-visible");
+        assert_eq!(super::states::FOCUS_VISIBLE.role, Some("focus"));
+        assert_eq!(super::states::DEFAULT.role, None);
+        assert!(!super::states::BUSY.treatment.is_empty());
     }
 
     /// The surface layer is present, and it is the system's own.

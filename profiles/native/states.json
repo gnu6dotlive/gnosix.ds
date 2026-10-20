@@ -1,0 +1,92 @@
+{
+  "schema": "gnosix_DS.native.states.v1",
+  "version": "4.3.1",
+  "note": [
+    "The states the system's elements declare, in the vocabulary a native",
+    "target uses. The native profile carries the roles and the states, and",
+    "not the HTML/CSS structure: roles and state cross the boundary.",
+    "",
+    "Each state says what it means, the role it wears when it wears one,",
+    "the treatment a native surface gives it, and the evidence the target",
+    "must produce. A state nobody can prove is a state nobody has, and a",
+    "native surface that is not looked at is a surface that is not a",
+    "contract.",
+    "",
+    "The list is checked against the contract's own elements, both ways: a",
+    "state the contract declares and this profile does not name is a gap,",
+    "and a state this profile names and the contract does not declare is",
+    "an invention."
+  ],
+  "states": [
+    {
+      "id": "default",
+      "role": null,
+      "meaning": "The state a thing is in when nothing has happened to it.",
+      "treatment": "The element's own surface and its own type, and nothing else.",
+      "evidence": "A capture of the resting surface, on both substrates."
+    },
+    {
+      "id": "hover",
+      "role": null,
+      "meaning": "The pointer is over the thing.",
+      "treatment": "A surface treatment that the pointer leaving takes back, and that never pretends to be focus.",
+      "evidence": "A pointer capture, and a keyboard traversal that shows the two are different."
+    },
+    {
+      "id": "focus-visible",
+      "role": "focus",
+      "meaning": "The keyboard is on the thing.",
+      "treatment": "An explicit visible focus treatment, independent of hover, and readable against the surface it sits on.",
+      "evidence": "A keyboard traversal capture, and the contrast of the focus treatment against that surface."
+    },
+    {
+      "id": "active",
+      "role": null,
+      "meaning": "The thing is being pressed.",
+      "treatment": "A pressed surface, distinct from focus, and a pointer that says it.",
+      "evidence": "A press capture, and the keyboard equivalent where the thing has one."
+    },
+    {
+      "id": "disabled",
+      "role": null,
+      "meaning": "The thing cannot be acted on.",
+      "treatment": "A surface that reads as unavailable without relying on colour alone, and a pointer that says so.",
+      "evidence": "A capture of the disabled surface, and a pointer check."
+    },
+    {
+      "id": "busy",
+      "role": null,
+      "meaning": "The thing is working, and the work is not finished.",
+      "treatment": "A progress indication that expresses the wait and never resolves it: the state stays pending until an observation reports a result.",
+      "evidence": "A pending capture, and a check that the pending state is not the observed one."
+    },
+    {
+      "id": "open",
+      "role": null,
+      "meaning": "The thing is showing what it holds.",
+      "treatment": "An overlay above the surface that opened it, which takes the keyboard while it is open.",
+      "evidence": "A capture of the open state, and the keyboard traversal that shows where the keyboard went."
+    },
+    {
+      "id": "interactive",
+      "role": null,
+      "meaning": "The thing can be acted on.",
+      "treatment": "A hit region and a place in the focus order, so the thing is reachable without a pointer.",
+      "evidence": "A keyboard traversal, and a pointer capture of the same region."
+    },
+    {
+      "id": "invalid",
+      "role": "critical",
+      "meaning": "The thing holds something that is not acceptable.",
+      "treatment": "The critical treatment on the field, and the message that says why, in text.",
+      "evidence": "A capture of the invalid state, and a check that the message is there."
+    },
+    {
+      "id": "on",
+      "role": "selection",
+      "meaning": "The thing is switched on.",
+      "treatment": "The selection treatment on the surface and the edge, and a state a screen reader reads.",
+      "evidence": "The selected-state semantics, and a capture of both states."
+    }
+  ]
+}

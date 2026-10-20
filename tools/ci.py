@@ -66,6 +66,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("the gates stay inside the repository", ["tools/check_containment.py"]),
     ("the surfaces render as the system carries them", ["tools/eye.py"]),
     ("the work's own places are inside the repository", ["tools/check_workplace.py"]),
+    ("the native profile carries the contract's states", ["tools/project_native_states.py", "--check"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or

@@ -249,4 +249,12 @@ python3 tools/check_workplace.py
 
 Expected: `PASS: the work's own places are inside the repository`.
 
+## 30. The native profile carries the contract's states
+
+```bash
+python3 tools/project_native_states.py --check
+```
+
+Expected: `PASS: the native profile carries the contract's states`.
+
 ---

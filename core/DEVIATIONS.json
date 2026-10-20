@@ -128,11 +128,13 @@
     },
     {
       "id": "DEV-013",
-      "what": "The native profile carries tokens and roles and no vocabulary: the In-Shell names thirty-one arrangements of the native shell — windows, trays, widgets, nested panels — and none of them is stated anywhere the system can be asked about.",
+      "what": "The native profile carried tokens and roles and no states, while the contract's own elements declare ten of them. The profile's doctrine says that roles and state cross the boundary and the structure does not, and the states were the half that was missing. The profile now names every state the contract declares, says what each one means, the role it wears and the evidence a native target must produce.",
       "severity": "major",
-      "state": "open",
+      "state": "closed",
       "owner": "the system",
-      "proof": "profiles/native/status.json"
+      "proof": "profiles/native/status.json",
+      "closed_by": "4.4.0",
+      "probe": "the_native_profile_carries_the_states"
     }
   ]
 }
