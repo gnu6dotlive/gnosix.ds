@@ -176,6 +176,17 @@
       ],
       "observable": "The set of --gnosix-* names in the published web projection equals the set derived from the layer ids in core/TOKENS.json and core/SURFACES.json by the one published function.",
       "test": "The naming gate derives the expected name set from the contract and compares it with the published projection. The rule was moved out of the projection and into the contract because a vendored copy of the namespace drifted in spelling while every projection still agreed with itself."
+    },
+    {
+      "id": "COL-004",
+      "level": "MUST",
+      "domain": "color",
+      "statement": "A product may carry its own content palette for what it is showing — a diagram, a chart, a data visualisation, a category of thing — provided it is declared and provided it does not carry the interface. The interface is the system's; the content is the product's.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "The colours a product declares as content are named in one place with a reason, and every colour in the interface is one of the system's.",
+      "test": "The consumer check reports the colours a consumer carries that the system does not have, and a consumer that has declared a content palette is absorbed when what is left is nothing."
     }
   ]
 }

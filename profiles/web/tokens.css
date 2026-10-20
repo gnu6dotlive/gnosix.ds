@@ -30,6 +30,16 @@
   --gnosix-weight-medium: 500;
   --gnosix-weight-semibold: 600;
   --gnosix-weight-bold: 700;
+  --gnosix-space-2xs: 4px;
+  --gnosix-space-xs: 8px;
+  --gnosix-space-sm: 12px;
+  --gnosix-space-md: 16px;
+  --gnosix-space-lg: 24px;
+  --gnosix-space-xl: 32px;
+  --gnosix-space-2xl: 48px;
+  --gnosix-space-3xl: 64px;
+  --gnosix-space-4xl: 96px;
+  --gnosix-space-5xl: 128px;
   --gnosix-surface-dark-l166c12: #0B0F14;
   --gnosix-surface-dark-l207c10: #14181C;
   --gnosix-surface-dark-l211c10: #15191D;

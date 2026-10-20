@@ -39,9 +39,15 @@ SKIP_DIRS = {".git", "node_modules", "dist", "build", "target", "vendor", ".next
 
 # Every notation CSS accepts for a colour.
 HEX = re.compile(r"(?<![#\w-])#([0-9A-Fa-f]{3,8})\b")
-RGB = re.compile(r"rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})")
-HSL = re.compile(r"hsla?\(\s*([\d.]+)\s*,\s*([\d.]+)%\s*,\s*([\d.]+)%")
-OKLCH = re.compile(r"oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)")
+RGB = re.compile(
+    r"rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})"
+    r"\s*(?:,\s*(?P<alpha>[\d.]+%?)\s*)?\)")
+HSL = re.compile(
+    r"hsla?\(\s*([\d.]+)\s*,\s*([\d.]+)%\s*,\s*([\d.]+)%"
+    r"\s*(?:,\s*(?P<alpha>[\d.]+%?)\s*)?\)")
+OKLCH = re.compile(
+    r"oklch\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)"
+    r"\s*(?:/\s*(?P<alpha>[\d.]+%?)\s*)?\)")
 OKLAB = re.compile(r"oklab\(\s*([\d.]+)%?\s+([\d.]+)\s+([\d.]+)")
 FONT_FAMILY = re.compile(r"font-family\s*:\s*([^;}\n]+)", re.I)
 GNOSIX_VAR = re.compile(r"--gnosix-[A-Za-z0-9-]+")
@@ -107,6 +113,28 @@ NAMED = {
     "orangeRed": (16.2, 100.0, 50.0),
 }
 
+# A named colour is a colour only where a colour is declared. The word
+# "orange" in a class name --federated-card--orange is a name, and the
+# word "green" in a string is a label. A named colour is therefore
+# looked for as the value of a property that takes one, and only in a
+# stylesheet.
+COLOUR_PROPERTY = re.compile(
+    r"(?:^|[;{])\s*(?:-[a-z-]+\s+)*"
+    r"(?:--[\w-]+|color|background(?:-color)?|border(?:-[a-z-]+)?|fill|stroke|"
+    r"outline|box-shadow|text-shadow|caret-color|text-decoration-color|column-rule-color)"
+    r"\s*:\s*(?P<value>[^;}\n]+)", re.IGNORECASE)
+
+
+def named_use(text: str) -> list[tuple[str, str]]:
+    """The named colours a stylesheet declares, and how they are written."""
+    out = []
+    for match in COLOUR_PROPERTY.finditer(text):
+        value = match.group("value").strip()
+        for name in NAMED:
+            if re.fullmatch(name, value, re.IGNORECASE):
+                out.append((value, name))
+    return out
+
 # The generic families are not a colour and not a typeface choice.
 GENERIC = {"inherit", "initial", "unset", "revert", "none", "var", "auto",
            "system-ui", "ui-sans-serif", "ui-serif", "ui-monospace", "sans-serif",
@@ -149,6 +177,61 @@ def hsl_to_hex(h: float, s: float, light: float) -> str:
     return rgb_to_hex(tuple(int(round((v + m) * 255)) for v in rgb))
 
 
+def colour_forms(text: str) -> dict[str, tuple[str, float | None]]:
+    """Every colour a source states, as it is written and as it measures.
+
+    The written form matters: a colour written as oklch(16% 0.028 260)
+    has to be replaced as that, not as a hex it never was. The alpha
+    matters too: a custom property carries no alpha of its own, so a
+    colour that had one is replaced by a mix rather than by the plain
+    step.
+    """
+    forms: dict[str, tuple[str, float | None]] = {}
+    for match in HEX.finditer(text):
+        raw = match.group(1)
+        expanded = expand_hex(raw)
+        if not expanded:
+            continue
+        alpha = None
+        if len(raw) == 8:
+            alpha = int(raw[6:8], 16) / 255
+        elif len(raw) == 4:
+            alpha = int(raw[3] * 2, 16) / 255
+        forms[match.group(0)] = (expanded, alpha)
+    for match in RGB.finditer(text):
+        value = "#" + f"{int(match.group(1)):02X}{int(match.group(2)):02X}{int(match.group(3)):02X}"
+        forms[match.group(0)] = (value, alpha_of(match.group("alpha")))
+    for match in HSL.finditer(text):
+        try:
+            value = hsl_to_hex(float(match.group(1)), float(match.group(2)),
+                               float(match.group(3)))
+        except ValueError:
+            continue
+        forms[match.group(0)] = (value, alpha_of(match.group("alpha")))
+    for match in OKLCH.finditer(text):
+        try:
+            value = rgb_to_hex(
+                oklch_to_rgb(float(match.group(1)) / 100.0,
+                             float(match.group(2)), float(match.group(3))))
+        except (ValueError, OverflowError):
+            continue
+        forms[match.group(0)] = (value, alpha_of(match.group("alpha")))
+    for written, name in named_use(text):
+        h, sat, light = NAMED[name]
+        forms[written] = (hsl_to_hex(h, sat, light), None)
+    return forms
+
+
+def alpha_of(value: str | None) -> float | None:
+    """An alpha, as a fraction."""
+    if not value:
+        return None
+    value = value.strip()
+    if value.endswith("%"):
+        return float(value[:-1]) / 100
+    return float(value)
+
+
 def colours_in(text: str) -> list[str]:
     """Every colour a source states, in every notation."""
     found = []
@@ -156,26 +239,31 @@ def colours_in(text: str) -> list[str]:
         expanded = expand_hex(value)
         if expanded:
             found.append(expanded)
-    for r, g, b in RGB.findall(text):
-        found.append("#" + f"{int(r):02X}{int(g):02X}{int(b):02X}")
-    for h, s, light in HSL.findall(text):
+    for match in RGB.finditer(text):
+        found.append("#" + f"{int(match.group(1)):02X}{int(match.group(2)):02X}"
+                          f"{int(match.group(3)):02X}")
+    for match in HSL.finditer(text):
         try:
-            found.append(hsl_to_hex(float(h), float(s), float(light)))
+            found.append(hsl_to_hex(float(match.group(1)), float(match.group(2)),
+                                    float(match.group(3))))
         except ValueError:
             continue
-    for lightness, chroma, hue in OKLCH.findall(text):
+    for match in OKLCH.finditer(text):
         try:
-            found.append(rgb_to_hex(oklch_to_rgb(float(lightness) / 100.0,
-                                                 float(chroma), float(hue))))
+            found.append(rgb_to_hex(oklch_to_rgb(float(match.group(1)) / 100.0,
+                                                 float(match.group(2)),
+                                                 float(match.group(3)))))
         except (ValueError, OverflowError):
             continue
-    for lightness, a, b in OKLAB.findall(text):
+    for match in OKLAB.finditer(text):
+        lightness, a, b = match.group(1), match.group(2), match.group(3)
         # oklab is not in the system's vocabulary; it is reported as the
         # literal it is, so a consumer knows what to replace.
         found.append(f"oklab({lightness} {a} {b})")
     for name, (h, sat, light) in NAMED.items():
-        if re.search(r"(?<![\w-])" + re.escape(name) + r"(?![\w-])", text, re.I):
-            found.append(hsl_to_hex(h, sat, light))
+        for written, used in named_use(text):
+            if used == name:
+                found.append(hsl_to_hex(h, sat, light))
     return found
 
 
@@ -216,6 +304,19 @@ def system_components() -> set[str]:
     return out
 
 
+def exempt_paths(consumer: Path) -> list[str]:
+    """The paths a consumer declares as not being its interface."""
+    manifest = consumer / "gnosix.json"
+    if not manifest.is_file():
+        return []
+    try:
+        document = json.loads(manifest.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    return [item["path"] for item in (document.get("exempt") or [])
+            if isinstance(item, dict) and "path" in item]
+
+
 def scan(consumer: Path) -> dict:
     """What a consumer uses, and what it says about the system."""
     colours: dict[str, int] = {}
@@ -224,10 +325,14 @@ def scan(consumer: Path) -> dict:
     own_classes: set[str] = set()
     gnosix_vars: set[str] = set()
 
+    exempt = exempt_paths(consumer)
     for path in sorted(consumer.rglob("*")):
         if not path.is_file() or path.suffix.lower() not in SOURCE_SUFFIXES:
             continue
         if set(path.parts) & SKIP_DIRS:
+            continue
+        relative = str(path.relative_to(consumer))
+        if any(relative.startswith(prefix) for prefix in exempt):
             continue
         try:
             text = path.read_text(encoding="utf-8", errors="replace")
@@ -270,8 +375,15 @@ def report(consumer: Path, scan_result: dict) -> tuple[str, list[str]]:
     system_family_set = system_families()
     system_component_set = system_components()
 
+    content = set()
+    declared = scan_result["declared"]
+    if isinstance(declared, dict):
+        for item in declared.get("content") or []:
+            value = item.get("colour") if isinstance(item, dict) else item
+            if isinstance(value, str) and value.startswith("#"):
+                content.add(value.upper())
     outside = {c: n for c, n in scan_result["colours"].items()
-               if c not in system_colour_set}
+               if c not in system_colour_set and c not in content}
     families = {f: n for f, n in scan_result["families"].items()
                 if f not in system_family_set}
     own = sorted(c for c in scan_result["own_classes"] if c not in system_component_set)

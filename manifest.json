@@ -1,7 +1,7 @@
 {
   "version": "4.0.0",
   "name": "gnosix_DS V4.0.0 motion contract and alpha compositing variants",
-  "contract_digest": "096d17f0a7d6d441e20cc816bc40d1993e6284561c4ff1103e0aed21c5ae80d5",
+  "contract_digest": "23e140ab236f1c9f17581461097c437fe88848343911c09fd05ed6bf95858b44",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -467,7 +467,7 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "f4d8125d61b17ed5f7fd7fd44d063444bcfc972ef7b5467f1d6750ebd13e29f0"
+      "sha256": "b3b512481a93153b38e7014ab6f19315a7a64b4b13e3b43dc58772afafbdad20"
     },
     {
       "class": "profile",
@@ -687,7 +687,7 @@
     {
       "class": "profile",
       "path": "profiles/web/tokens.css",
-      "sha256": "89423cfeb35840ddcc22967f3d528b4ee0a8ecdef2cf36fd051a7833b6ec69b3"
+      "sha256": "4676f2e89aba7497f5acdcd171ba42f45ab2acfc8b635f96eb70216b2b1a126d"
     },
     {
       "class": "evidence",
@@ -891,6 +891,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/absorb.py",
+      "sha256": "9c9427ca603edc1ff486347316ffa935fe75c5868f49224087643b3ee535d67e"
+    },
+    {
+      "class": "evidence",
       "path": "tools/apply_icons.py",
       "sha256": "04dbf5982ed371b67d212523539da0e4afdcbeb3eb9290883be5d203624bd8a3"
     },
@@ -932,7 +937,7 @@
     {
       "class": "evidence",
       "path": "tools/consumer_check.py",
-      "sha256": "b4244f85740f4ed007da1a5ec2245adf8e0e17d3ea2660a094daa2d53c3da030"
+      "sha256": "1795fa39cbe5fd02af040d77a05b9227a6254aca56d44609e0aafad3c3a6b1e5"
     },
     {
       "class": "evidence",
@@ -982,7 +987,7 @@
     {
       "class": "evidence",
       "path": "tools/project_tokens.py",
-      "sha256": "03f926f8d722783b75896ecdf141f13a105879dfebb9b08441c41c146f50e5cc"
+      "sha256": "278c5cf53549cc9493b91ce597b662b7da550dfc443428baee8e4093859792e1"
     },
     {
       "class": "evidence",

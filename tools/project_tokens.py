@@ -82,6 +82,8 @@ def render_css(tokens: dict) -> str:
             rows.append(f"  --gnosix-font-{role}: {css_font_stack(stack)};\n")
     for role, weight in typography.get("weights", {}).items():
         rows.append(f"  --gnosix-weight-{role}: {int(weight)};\n")
+    for step, value in (tokens.get("spacing") or {}).items():
+        rows.append(f"  --gnosix-space-{step}: {value}px;\n")
     rows.append(surface_properties())
     return "".join(rows) + "}\n"
 
