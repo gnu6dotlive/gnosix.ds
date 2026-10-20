@@ -323,6 +323,9 @@ def system_components() -> set[str]:
     return out
 
 
+CONTRACT_COMPONENTS: set[str] = set()
+
+
 def contract_vocabulary() -> set[str]:
     """Every component name the contract publishes.
 
@@ -340,7 +343,7 @@ def contract_vocabulary() -> set[str]:
     return names
 
 
-def declared_components(manifest: dict | None) -> tuple[set[str], set[str]]:
+def declared_components(manifest: dict | None) -> tuple[set[str], set[str], list[str]]:
     """The component names a consumer declares, and the ones it owns.
 
     A product has components of its own — the things only it has. The
@@ -355,9 +358,10 @@ def declared_components(manifest: dict | None) -> tuple[set[str], set[str]]:
     count them against the consumer.
     """
     if not isinstance(manifest, dict):
-        return set(), set()
+        return set(), set(), []
     own: set[str] = set()
     translated: set[str] = set()
+    mistargeted: list[str] = []
     for item in manifest.get("components") or []:
         if not isinstance(item, dict):
             continue
@@ -368,9 +372,12 @@ def declared_components(manifest: dict | None) -> tuple[set[str], set[str]]:
                 continue
             if target:
                 translated.add(name)
+                if target not in CONTRACT_COMPONENTS:
+                    mistargeted.append(f"{name} names {target!r}, which the "
+                                       f"contract does not declare")
             else:
                 own.add(name)
-    return own, translated
+    return own, translated, mistargeted
 
 
 def exempt_paths(consumer: Path) -> list[str]:
@@ -490,8 +497,11 @@ def report(consumer: Path, scan_result: dict) -> tuple[str, list[str]]:
         version = declared.get("version") if isinstance(declared, dict) else None
         lines.append(f"- **The version of the system it honours:** {version or 'not declared'}")
 
+    global CONTRACT_COMPONENTS
     vocabulary = contract_vocabulary()
-    declared_own, translated = declared_components(declared)
+    CONTRACT_COMPONENTS = set(json.loads(
+        (ROOT / "core" / "COMPONENTS.json").read_text(encoding="utf-8"))["components"])
+    declared_own, translated, mistargeted = declared_components(declared)
     own_components = scan_result.get("components", set()) - vocabulary
     # A name the consumer declares as the contract's own component, under
     # another spelling, is the contract's and not a component of its own.
@@ -515,6 +525,7 @@ def report(consumer: Path, scan_result: dict) -> tuple[str, list[str]]:
     if undeclared:
         problems.append(f"{len(undeclared)} component(s) the contract does not have "
                         f"and the consumer does not declare as its own")
+    problems.extend(mistargeted)
     return "\n".join(lines) + "\n", problems
 
 
