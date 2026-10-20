@@ -29,12 +29,15 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-# The simulation's work directory holds a browser and an engine, which is
-# a few hundred megabytes, so it goes on the disk rather than on a memory
-# filesystem that another session may already have filled.
-WORK_ROOT="${GNOSIX_CI_WORK:-${TMPDIR:-${XDG_CACHE_HOME:-$HOME/.cache}}}"
-mkdir -p "$WORK_ROOT"
-WORK="$(mktemp -d "$WORK_ROOT/gnosix-ci-XXXXXX")"
+# The simulation's work lives in the repository, in a directory the
+# repository ignores. The clone is a fresh copy of the repository at
+# another path, on purpose: that is the runner's condition, and a thing
+# that depends on where the repository sits is caught here rather than
+# there. The engine and the browser live in the same place, so a machine
+# that has them does not fetch them again on every run.
+WORK="$REPO/.ci-cache/ci-XXXXXX"
+mkdir -p "$REPO/.ci-cache"
+WORK="$(mktemp -d "$WORK")"
 CLONE=1
 KEEP=0
 RELEASE=0
@@ -63,7 +66,7 @@ else
 fi
 
 # The engine and the font, from the same script the workflows call.
-export RUNNER_TEMP="$WORK/runner"
+export RUNNER_TEMP="$REPO/.ci-cache/runner"
 mkdir -p "$RUNNER_TEMP"
 export FIGCRAFT_ENV_FILE="$WORK/engine.env"
 : > "$FIGCRAFT_ENV_FILE"

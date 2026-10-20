@@ -92,6 +92,14 @@ jobs:
           path: ${{ runner.temp }}/browsers
           key: browser-${{ hashFiles('qa/eye/package-lock.json') }}
 
+      # The engine is the same size as the browser and the same kind of
+      # thing: pinned, large, and unchanged between runs.
+      - name: Cache the engine
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.temp }}/figcraft-engine
+          key: engine-${{ env.FIGCRAFT_VERSION }}
+
       - name: Provision the browser the eye looks with
         run: |
           set -euo pipefail

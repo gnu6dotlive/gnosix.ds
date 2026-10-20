@@ -216,7 +216,11 @@ def packaged_files() -> list[Path]:
         if not path.is_dir():
             continue
         for child in path.rglob("*"):
-            if child.is_file() and not (set(child.parts) & EXCLUDED):
+            # The excluded names are judged on the path inside the package.
+            # A copy of the package that sits in a directory called
+            # node_modules would otherwise exclude itself, and the archive
+            # would carry nothing at all.
+            if child.is_file() and not (set(child.relative_to(ROOT).parts) & EXCLUDED):
                 files.append(child)
     for entry in PACKAGED_FILES:
         path = ROOT / entry

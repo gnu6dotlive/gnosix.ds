@@ -71,7 +71,12 @@ def iter_package_files(root: Path) -> list[str]:
     for path in sorted(root.rglob("*")):
         if not path.is_file():
             continue
-        if any(part in skip_dirs for part in path.parts):
+        # The ignored names are judged on the path *inside* the package. A
+        # copy of the package that sits in a directory called node_modules
+        # would otherwise ignore itself, and every file in it would look
+        # like a file that was dropped.
+        relative_parts = path.relative_to(root).parts
+        if any(part in skip_dirs for part in relative_parts):
             continue
         if path.name in skip_files:
             continue
