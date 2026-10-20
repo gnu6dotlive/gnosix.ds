@@ -132,6 +132,19 @@ pub mod spacing {
     pub const S_5XL: f64 = 128.0;
 }
 
+/// The ratified radius steps.
+pub mod radius {
+    pub const XS: f64 = 4.0;
+    pub const SM: f64 = 6.0;
+    pub const MD: f64 = 8.0;
+    pub const LG: f64 = 10.0;
+    pub const XL: f64 = 12.0;
+    pub const S_2XL: f64 = 14.0;
+    pub const S_3XL: f64 = 20.0;
+    pub const S_4XL: f64 = 28.0;
+    pub const PILL: f64 = 999.0;
+}
+
 /// The ratified weights.
 pub mod weight {
     pub const REGULAR: u16 = 400;

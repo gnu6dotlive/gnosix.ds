@@ -101,12 +101,35 @@ def probe_the_cited_path_exists() -> list[str]:
     return problems
 
 
+def probe_the_components_name_a_radius_step() -> list[str]:
+    """A component's radius is a step of the scale, not a number."""
+    document = json.loads(SPEC.read_text(encoding="utf-8"))
+    tokens = json.loads((ROOT / "core" / "TOKENS.json").read_text(encoding="utf-8"))
+    steps = set(tokens.get("radius") or {})
+    problems = []
+    for name, component in document["components"].items():
+        for where, geometry in [(name, component.get("geometry") or {})] + [
+                (f"{name}.parts.{part.get('name')}", part.get("geometry") or {})
+                for part in component.get("parts") or []]:
+            radius = (geometry or {}).get("radius")
+            if not isinstance(radius, dict):
+                continue
+            if "step" in radius:
+                if radius["step"] not in steps:
+                    problems.append(f"{where}: the radius step "
+                                   f"{radius['step']!r} is not one of the scale's")
+            else:
+                problems.append(f"{where}: the radius is a number, not a step")
+    return problems
+
+
 PROBES = {
     "no_self_reference": probe_no_self_reference,
     "no_foreign_literal": probe_no_foreign_literal,
     "the_field_spellings_are_accounted": probe_the_field_spellings_are_accounted,
     "the_package_carries_the_elements": probe_the_package_carries_the_elements,
     "the_cited_path_exists": probe_the_cited_path_exists,
+    "the_components_name_a_radius_step": probe_the_components_name_a_radius_step,
 }
 
 

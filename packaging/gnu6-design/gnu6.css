@@ -1,5 +1,5 @@
 /* gnu6-design — re-cut by tools/package_gnu6_design.py from
-   gnosix.ds 4.2.1. Do not edit. */
+   gnosix.ds 4.3.0. Do not edit. */
 :root {
   --gnosix-neutral-anthracite: #111418;
   --gnosix-neutral-shell-white: #F7F3ED;
@@ -2458,7 +2458,7 @@ a.g6-menu__item:focus-visible {
 .g6-button {
   background: var(--gnosix-accent);
   color: var(--gnosix-accent-ink);
-  border-radius: 10px;
+  border-radius: var(--gnosix-radius-lg);
   min-height: 44px;
   padding: 0.85em 1.2em;
   font-weight: var(--gnosix-weight-bold);
@@ -2503,7 +2503,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-raised);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 8px;
+  border-radius: var(--gnosix-radius-md);
   min-height: 44px;
   padding: 0.7em 0.9em;
   border: 1px solid var(--gnosix-hairline);
@@ -2527,7 +2527,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-raised);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 6px;
+  border-radius: var(--gnosix-radius-sm);
   min-height: 24px;
   padding: 0.2em 0.6em;
   font-weight: var(--gnosix-weight-medium);
@@ -2558,7 +2558,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-raised);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 12px;
+  border-radius: var(--gnosix-radius-xl);
   padding: 1rem;
   border: 1px solid var(--gnosix-hairline);
 }
@@ -2568,7 +2568,7 @@ a.g6-menu__item:focus-visible {
 .g6-card__body {
   background: transparent;
   color: var(--gnosix-ink);
-  border-radius: 12px;
+  border-radius: var(--gnosix-radius-xl);
   padding: 1rem;
   border: 1px solid transparent;
 }
@@ -2580,7 +2580,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 14px;
+  border-radius: var(--gnosix-radius-2xl);
   padding: 1.5rem;
   border: 1px solid var(--gnosix-hairline);
 }
@@ -2602,7 +2602,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 14px;
+  border-radius: var(--gnosix-radius-2xl);
   padding: 1.5rem;
   width: 480px;
   border: 1px solid var(--gnosix-hairline);
@@ -2650,7 +2650,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 8px;
+  border-radius: var(--gnosix-radius-md);
   padding: 0.4em 0.7em;
   width: 240px;
   font-size: 13px;
@@ -2667,7 +2667,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 8px;
+  border-radius: var(--gnosix-radius-md);
   padding: 0.4em 0.7em;
   width: 240px;
   font-size: 13px;
@@ -2678,7 +2678,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-raised);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 8px;
+  border-radius: var(--gnosix-radius-md);
   min-height: 44px;
   padding: 0.7em 0.9em;
   border: 1px solid var(--gnosix-hairline);
@@ -2694,7 +2694,7 @@ a.g6-menu__item:focus-visible {
 .g6-select__option {
   background: transparent;
   color: var(--gnosix-ink);
-  border-radius: 6px;
+  border-radius: var(--gnosix-radius-sm);
   padding: 0.4em 0.7em;
   border: 1px solid transparent;
 }
@@ -2709,7 +2709,7 @@ a.g6-menu__item:focus-visible {
 .g6-select__option[aria-selected='true'] {
   background: var(--gnosix-surface-sunken);
   color: var(--gnosix-ink);
-  border-radius: 8px;
+  border-radius: var(--gnosix-radius-md);
   min-height: 44px;
   padding: 0.7em 0.9em;
   border: 1px solid transparent;
@@ -2737,7 +2737,7 @@ a.g6-menu__item:focus-visible {
 .g6-tabs__item {
   background: transparent;
   color: var(--gnosix-ink);
-  border-radius: 8px;
+  border-radius: var(--gnosix-radius-md);
   padding: 0.5em 0.9em;
   font-weight: var(--gnosix-weight-medium);
   border: 1px solid transparent;
@@ -2750,7 +2750,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-raised);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 8px;
+  border-radius: var(--gnosix-radius-md);
   padding: 0.5em 0.9em;
   font-weight: var(--gnosix-weight-medium);
   border: 1px solid var(--gnosix-hairline);
@@ -2764,7 +2764,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 10px;
+  border-radius: var(--gnosix-radius-lg);
   padding: 0.9rem 1.1rem;
   width: 360px;
   border: 1px solid var(--gnosix-hairline);
@@ -2777,7 +2777,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 10px;
+  border-radius: var(--gnosix-radius-lg);
   padding: 0.9rem 1.1rem;
   width: 360px;
   border: 1px solid var(--gnosix-hairline);
@@ -2791,7 +2791,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-sunken);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 999px;
+  border-radius: var(--gnosix-radius-pill);
   width: 44px;
   height: 24px;
   border: 1px solid var(--gnosix-hairline);
@@ -2803,7 +2803,7 @@ a.g6-menu__item:focus-visible {
 .g6-toggle__thumb {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
-  border-radius: 999px;
+  border-radius: var(--gnosix-radius-pill);
   width: 18px;
   height: 18px;
   border: 1px solid transparent;
@@ -2817,7 +2817,7 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-overlay);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
-  border-radius: 12px;
+  border-radius: var(--gnosix-radius-xl);
   width: 560px;
   border: 1px solid var(--gnosix-hairline);
 }
@@ -2850,7 +2850,7 @@ a.g6-menu__item:focus-visible {
 .g6-command-palette__option {
   background: transparent;
   color: var(--gnosix-ink);
-  border-radius: 6px;
+  border-radius: var(--gnosix-radius-sm);
   padding: 0.45em 0.7em;
   border: 1px solid transparent;
 }
@@ -2861,7 +2861,7 @@ a.g6-menu__item:focus-visible {
 .g6-command-palette__option[aria-selected='true'] {
   background: var(--gnosix-surface-sunken);
   color: var(--gnosix-ink);
-  border-radius: 12px;
+  border-radius: var(--gnosix-radius-xl);
   width: 560px;
   border: 1px solid transparent;
 }

@@ -38,6 +38,11 @@ def spacing_names(tokens: dict) -> set[str]:
     return {published_name("space", step) for step in (tokens.get("spacing") or {})}
 
 
+def radius_names(tokens: dict) -> set[str]:
+    """The names the contract's radius scale publishes."""
+    return {published_name("radius", step) for step in (tokens.get("radius") or {})}
+
+
 def layer_names(tokens: dict) -> set[str]:
     """The names the contract's colour layers publish."""
     return {published_name(family, shade) for family, shade, _ in colors(tokens)}
@@ -89,6 +94,8 @@ def render_css(tokens: dict) -> str:
         rows.append(f"  --gnosix-weight-{role}: {int(weight)};\n")
     for step, value in (tokens.get("spacing") or {}).items():
         rows.append(f"  --gnosix-space-{step}: {value}px;\n")
+    for step, value in (tokens.get("radius") or {}).items():
+        rows.append(f"  --gnosix-radius-{step}: {value}px;\n")
     rows.append(surface_properties())
     return "".join(rows) + "}\n"
 
@@ -206,6 +213,12 @@ def render_rust(tokens: dict) -> str:
     rows.append("/// The ratified spacing steps.\n")
     rows.append("pub mod spacing {\n")
     for step, value in tokens.get("spacing", {}).items():
+        rows.append(f"    pub const {rust_name(step)}: f64 = {value}.0;\n")
+    rows.append("}\n\n")
+
+    rows.append("/// The ratified radius steps.\n")
+    rows.append("pub mod radius {\n")
+    for step, value in tokens.get("radius", {}).items():
         rows.append(f"    pub const {rust_name(step)}: f64 = {value}.0;\n")
     rows.append("}\n\n")
 

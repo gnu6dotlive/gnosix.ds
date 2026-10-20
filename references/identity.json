@@ -1,6 +1,6 @@
 {
   "id": "identity",
-  "version": "4.2.1",
+  "version": "4.3.0",
   "artwork": "references/identity.svg",
   "roles": [
     "content",
@@ -29,10 +29,10 @@
     "zoom": "inspect at normal and enlarged scale"
   },
   "local_dimensions": {
-    "canvas": "1200\u00d7720 authored fixture only; sizes and timings are not global tokens"
+    "canvas": "1200×720 authored fixture only; sizes and timings are not global tokens"
   },
   "source_hashes": {
-    "core/TOKENS.json": "0ce3dcfe595d402c94c1323b0ddc46350c6334404aff95c7646ade86c41b1e25",
+    "core/TOKENS.json": "69ac3e0d4d3e4bccff749050fbfa41bdf9b93aae41bfe5f80646054f9aef931b",
     "assets/identity/gnosix-cube.png": "c5b5d61ac2bb71211bd1caf18fb5b0a1dca2e18c5e96cf4ea74d27561ed42958",
     "assets/identity/gnu6-live-cube.png": "20f6a4970d4375851738b9a0ef6ec0ddce36803f0fb001657bd0337b3d87b858",
     "assets/identity/gnuinlabs-cube.png": "45e6c00f4a845c2291fd95c8b1e75ebb0d24dfee2b7a44294cd14e96301e8896",

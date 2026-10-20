@@ -122,6 +122,8 @@ def length(value) -> str | None:
         return None
     if isinstance(value, str):
         return value
+    if "step" in value:
+        return f"var(--gnosix-radius-{value['step']})"
     if "px" in value:
         return f"{value['px']}px"
     if "em" in value:
@@ -308,6 +310,8 @@ def missing_tokens(spec: dict) -> list[str]:
     surface layer had.
     """
     known = known_tokens()
+    tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
+    radius_steps = set(tokens.get("radius") or {})
     missing = []
 
     def check_tokens(where: str, tokens: dict):
@@ -329,6 +333,24 @@ def missing_tokens(spec: dict) -> list[str]:
         ring = (component.get("a11y") or {}).get("focus-ring") or {}
         if ring.get("role") and ring["role"] not in known:
             missing.append(f"{name}.a11y.focus-ring: {ring['role']}")
+        # A radius is a step of the scale, not a number written in the
+        # component. A number there is a radius the system does not have,
+        # and it is the same drift the field's radii show: every surface
+        # rounding itself on its own.
+        for where, geometry in [(name, component.get("geometry") or {})] + [
+                (f"{name}.parts.{part.get('name')}", part.get("geometry") or {})
+                for part in component.get("parts") or []]:
+            radius = geometry.get("radius")
+            if not isinstance(radius, dict):
+                continue
+            if "step" in radius:
+                if radius["step"] not in radius_steps:
+                    missing.append(f"{where}.radius: the step "
+                                   f"{radius['step']!r} is not one of the "
+                                   f"scale's")
+            elif "px" in radius:
+                missing.append(f"{where}.radius: {radius['px']}px is a "
+                               f"number, not a step of the scale")
     return missing
 
 

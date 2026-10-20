@@ -5,12 +5,13 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.project_tokens import (check_projection, layer_names, render_css,
-                                  render_kotlin, spacing_names, surface_names)
+from tools.project_tokens import (check_projection, layer_names, radius_names,
+                                  render_css, render_kotlin, spacing_names,
+                                  surface_names)
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_SHA = "0ce3dcfe595d402c94c1323b0ddc46350c6334404aff95c7646ade86c41b1e25"
+SOURCE_SHA = "69ac3e0d4d3e4bccff749050fbfa41bdf9b93aae41bfe5f80646054f9aef931b"
 
 
 class CoreTests(unittest.TestCase):
@@ -57,7 +58,8 @@ class CoreTests(unittest.TestCase):
         roles = {name for name in published
                  if name.startswith(("--gnosix-font-", "--gnosix-weight-"))}
         self.assertEqual(published - roles,
-                         layer_names(tokens) | surface_names() | spacing_names(tokens))
+                         layer_names(tokens) | surface_names() | spacing_names(tokens)
+                         | radius_names(tokens))
 
     def test_changed_web_projection_is_rejected(self):
         tokens = json.loads((ROOT / "core/TOKENS.json").read_text())

@@ -106,6 +106,31 @@
       "severity": "none",
       "state": "open",
       "owner": "spjoaillerie-live"
+    },
+    {
+      "id": "DEV-011",
+      "what": "The system had no radius scale: its own components carried six different radii written as numbers, and the field rounds every surface on its own.",
+      "severity": "major",
+      "state": "closed",
+      "owner": "the system",
+      "closed_by": "4.3.0",
+      "probe": "the_components_name_a_radius_step"
+    },
+    {
+      "id": "DEV-012",
+      "what": "The In-Shell's scale of spacing has three steps the system's does not — twenty, forty and eighty. The system's scale is published and ordered, so inserting a step renames the steps after it; the three are a decision the owner has not taken, and they are not in the scale until it is.",
+      "severity": "minor",
+      "state": "open",
+      "owner": "the owner",
+      "proof": "profiles/frontend-audit/INVENTORY.md"
+    },
+    {
+      "id": "DEV-013",
+      "what": "The native profile carries tokens and roles and no vocabulary: the In-Shell names thirty-one arrangements of the native shell — windows, trays, widgets, nested panels — and none of them is stated anywhere the system can be asked about.",
+      "severity": "major",
+      "state": "open",
+      "owner": "the system",
+      "proof": "profiles/native/status.json"
     }
   ]
 }

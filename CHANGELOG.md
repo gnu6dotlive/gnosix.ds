@@ -8,6 +8,37 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [4.3.0] — 2026-10-20
+
+What the field has worked on, and the system did not carry.
+
+**The system had no radius scale.** Its own components carried six
+different radii, written as numbers, and the field rounds every surface
+on its own — two to fourteen pixels, and the pill. The scale is now
+ratified: the two lineages' steps and the system's own, so that every
+component names a step instead of a number, and the gate refuses a
+number. Nothing moved on the screen: each component's radius is the
+step that holds the value it already had.
+
+**The system had no vocabulary of motion.** It had the laws, the roles,
+the seams and one target, and the field had fifteen mechanisms it had
+never heard of — a fade, a scale, a lift, a mask reveal, a blur, a
+dither, a fold, a refraction, a burst, a pulse, a type-on, a snap, a
+morph, a spring, a stagger. They are carried now, by name and by
+meaning, and the system judges them: fourteen are lawful, and one is
+refused. The field's pulse breathes on a cycle that is tied to nothing,
+and the law says motion does not idle. The numbers — the milliseconds,
+the curves, the delays — are the target's expression, and they stay
+there.
+
+**And two findings are left open, deliberately.** The In-Shell's scale
+of spacing has three steps the system's does not, and the system's scale
+is published and ordered, so inserting one renames the steps after it:
+that is a decision for the owner and it is not taken here. The native
+profile carries tokens and roles and no vocabulary at all, while the
+In-Shell names thirty-one arrangements of the native shell; that one is
+the next unit.
+
 ## [4.2.1] — 2026-10-20
 
 A mask is not a surface. The consumer gate found a colour the system

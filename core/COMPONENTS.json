@@ -147,7 +147,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 10
+          "step": "lg"
         },
         "min-height": {
           "px": 44
@@ -228,7 +228,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 8
+          "step": "md"
         },
         "min-height": {
           "px": 44
@@ -327,7 +327,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 6
+          "step": "sm"
         },
         "min-height": {
           "px": 24
@@ -379,7 +379,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 12
+          "step": "xl"
         },
         "padding": {
           "all": "1rem"
@@ -430,7 +430,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 14
+          "step": "2xl"
         },
         "padding": {
           "all": "1.5rem"
@@ -480,7 +480,7 @@
           },
           "geometry": {
             "radius": {
-              "px": 14
+              "step": "2xl"
             },
             "padding": {
               "all": "1.5rem"
@@ -578,7 +578,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 8
+          "step": "md"
         },
         "padding": {
           "block": "0.4em",
@@ -627,7 +627,7 @@
           },
           "geometry": {
             "radius": {
-              "px": 8
+              "step": "md"
             },
             "padding": {
               "block": "0.4em",
@@ -678,7 +678,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 8
+          "step": "md"
         },
         "min-height": {
           "px": 44
@@ -718,7 +718,7 @@
           },
           "geometry": {
             "radius": {
-              "px": 6
+              "step": "sm"
             },
             "padding": {
               "block": "0.4em",
@@ -764,7 +764,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 8
+          "step": "md"
         },
         "padding": {
           "block": "0.5em",
@@ -843,7 +843,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 10
+          "step": "lg"
         },
         "padding": {
           "all": "0.9rem 1.1rem"
@@ -882,7 +882,7 @@
           },
           "geometry": {
             "radius": {
-              "px": 10
+              "step": "lg"
             },
             "padding": {
               "all": "0.9rem 1.1rem"
@@ -927,7 +927,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 999
+          "step": "pill"
         },
         "width": {
           "px": 44
@@ -957,7 +957,7 @@
           "class": "gnosix-toggle",
           "geometry": {
             "radius": {
-              "px": 999
+              "step": "pill"
             },
             "width": {
               "px": 44
@@ -977,7 +977,7 @@
           },
           "geometry": {
             "radius": {
-              "px": 999
+              "step": "pill"
             },
             "width": {
               "px": 18
@@ -1019,7 +1019,7 @@
       },
       "geometry": {
         "radius": {
-          "px": 12
+          "step": "xl"
         },
         "width": {
           "px": 560
@@ -1046,7 +1046,7 @@
           "class": "gnosix-command-palette",
           "geometry": {
             "radius": {
-              "px": 12
+              "step": "xl"
             },
             "width": {
               "px": 560
@@ -1098,7 +1098,7 @@
           },
           "geometry": {
             "radius": {
-              "px": 6
+              "step": "sm"
             },
             "padding": {
               "block": "0.45em",

@@ -40,6 +40,15 @@
   --gnosix-space-3xl: 64px;
   --gnosix-space-4xl: 96px;
   --gnosix-space-5xl: 128px;
+  --gnosix-radius-xs: 4px;
+  --gnosix-radius-sm: 6px;
+  --gnosix-radius-md: 8px;
+  --gnosix-radius-lg: 10px;
+  --gnosix-radius-xl: 12px;
+  --gnosix-radius-2xl: 14px;
+  --gnosix-radius-3xl: 20px;
+  --gnosix-radius-4xl: 28px;
+  --gnosix-radius-pill: 999px;
   --gnosix-surface-dark-l166c12: #0B0F14;
   --gnosix-surface-dark-l207c10: #14181C;
   --gnosix-surface-dark-l211c10: #15191D;

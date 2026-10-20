@@ -1,6 +1,6 @@
 {
   "id": "fields",
-  "version": "4.2.1",
+  "version": "4.3.0",
   "artwork": "references/fields.svg",
   "roles": [
     "scalar-field",
@@ -27,10 +27,10 @@
     "zoom": "inspect at normal and enlarged scale"
   },
   "local_dimensions": {
-    "canvas": "1200\u00d7720 authored fixture only; sizes and timings are not global tokens"
+    "canvas": "1200×720 authored fixture only; sizes and timings are not global tokens"
   },
   "source_hashes": {
-    "core/TOKENS.json": "0ce3dcfe595d402c94c1323b0ddc46350c6334404aff95c7646ade86c41b1e25",
+    "core/TOKENS.json": "69ac3e0d4d3e4bccff749050fbfa41bdf9b93aae41bfe5f80646054f9aef931b",
     "references/visual-evidence/semantic-fields.png": "f65f842232a9eaffecf86166d9e8dc97851687435a74e182b66758016354f31d",
     "references/visual-evidence/localized-fields.png": "6df719896202b4a2da58f3fba05abdb8e6ce9e4b72d8c698088eb28d09c96e50"
   },
@@ -51,6 +51,6 @@
       "positive": "Signal Orange #FF6A00"
     },
     "missing": "explicit unknown; not zero",
-    "legend": "\u00b0C deviation; blue=cool, neutral=0, orange=hot"
+    "legend": "°C deviation; blue=cool, neutral=0, orange=hot"
   }
 }

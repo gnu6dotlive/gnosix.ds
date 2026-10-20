@@ -122,8 +122,36 @@ class MotionProfileTests(unittest.TestCase):
         tokens = json.loads((ROOT / "core/TOKENS.json").read_text())
         self.assertEqual(
             set(tokens),
-            {"schema", "status", "color", "typography", "spacing", "contrast"},
+            {"schema", "status", "color", "typography", "spacing", "radius",
+             "contrast"},
         )
+
+    def test_the_atoms_are_judged_by_the_laws(self):
+        """The field's mechanisms are carried by name, and judged.
+
+        An atom that idles is refused: a law is a law whichever field
+        wrote the atom. And an atom that names a duration or a curve the
+        profile does not carry is a mechanism that cannot be expressed.
+        """
+        motion = load_motion()
+        atoms = motion["portable"]["atoms"]
+        self.assertTrue(atoms, "the profile carries no atom")
+        durations = set(motion["portable"]["durations"])
+        curves = set(motion["targets"]["remotion"]["easing_curves"])
+        laws = {law["id"] for law in motion["portable"]["laws"]}
+        for atom in atoms:
+            self.assertIn(atom["duration"], durations,
+                          f"{atom['id']}: no such duration")
+            self.assertNotIn("+", atom["duration"],
+                             f"{atom['id']}: a composed duration is carried "
+                             f"as its base and its delay")
+            self.assertIn(atom["easing"], curves, f"{atom['id']}: no such curve")
+            if atom["verdict"] == "forbidden":
+                self.assertIn("reason", atom, f"{atom['id']}: refused with no reason")
+                named = [law for law in laws if law in atom["reason"]]
+                self.assertTrue(named, f"{atom['id']}: refused without naming a law")
+            else:
+                self.assertEqual(atom["verdict"], "lawful")
 
     def test_reduced_motion_must_be_an_explicit_input(self):
         """A headless renderer reports the render machine's preference, not the viewer's."""
