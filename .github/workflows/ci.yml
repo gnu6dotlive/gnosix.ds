@@ -82,6 +82,16 @@ jobs:
       # The same script, the same reasoning, the same place in the job as
       # the engine's: the CI job, the release job and the local simulation
       # run one script each and cannot drift apart.
+      # The browser is a hundred and fifty megabytes, and downloading it
+      # on every run would spend the account's minutes on something that
+      # never changes. It is cached by the path the provisioning uses, and
+      # the cache is keyed by the lockfile that pins the version.
+      - name: Cache the browser
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.temp }}/browsers
+          key: browser-${{ hashFiles('qa/eye/package-lock.json') }}
+
       - name: Provision the browser the eye looks with
         run: |
           set -euo pipefail
