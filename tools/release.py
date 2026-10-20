@@ -96,6 +96,10 @@ PACKAGED_FILES = [
     "VERSION",
     "manifest.json",
     "requirements.txt",
+    # The document that says what each gate must say. The package's own
+    # qualification runs the gates, so the expectations travel with it:
+    # a gate in the package that says something else fails there too.
+    "ci/GATES.md",
 ]
 
 # Never packaged.

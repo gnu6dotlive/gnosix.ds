@@ -30,6 +30,9 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+
+import gate_expectations  # noqa: E402
 
 # (label, argv) — the argv is run from the package root with this
 # interpreter, so a gate behaves the same here and in CI.
@@ -58,6 +61,8 @@ GATES: list[tuple[str, list[str]]] = [
     ("the gnu6-design package is what the contract cuts", ["tools/package_gnu6_design.py", "--check"]),
     ("every name the field declares is classified", ["tools/check_vocabularies.py"]),
     ("every arrangement is specified as the sheet has it", ["tools/specify_components.py", "--check"]),
+    ("every gate says what it must say", ["tools/gate_expectations.py", "--check"]),
+    ("the severity register is honest", ["tools/check_deviations.py"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or
@@ -111,7 +116,16 @@ def main(argv: list[str] | None = None) -> int:
         if code == SKIP:
             verdict = "SKIP"
         elif code == 0:
-            verdict = "PASS"
+            # A gate that passes is a gate that exits zero. It is also a
+            # gate that says something, and what it says is written down
+            # in ci/GATES.md: a gate that changes its mind fails the
+            # qualification rather than passing it quietly.
+            said = gate_expectations.check_output(label, output)
+            if said:
+                verdict = "FAIL"
+                output = (output + "\n" + "\n".join(said)).strip()
+            else:
+                verdict = "PASS"
         else:
             verdict = "FAIL"
         results.append((label, verdict, elapsed, output))

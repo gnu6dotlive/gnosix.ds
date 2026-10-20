@@ -274,8 +274,34 @@ favicons are the right crop                   icon subset is vendored
 no ad-hoc glyphs                              the FigCraft projection matches the source
 the two token projections agree               the web code matches the design
 the native profile compiles and its tests pass
+every name the field declares is classified    every arrangement is specified as the sheet has it
+every gate says what it must say               the severity register is honest
 test suite
 ```
+
+### What each gate must say
+
+A gate that exits zero is a gate that passes, whatever it prints on the
+way. For a long time the qualification said what passes and never what to
+expect, so a gate could begin to say something else and stay green.
+
+`ci/GATES.md` says it now: one numbered section per gate, the command it
+runs, and the words it must contain. The qualification compares each
+gate's own output with what the document says, so a gate that changes its
+mind fails the run instead of passing it quietly. A gate added without a
+section fails the run too, and a section that names a gate that does not
+exist fails it as well.
+
+### The severity register
+
+`core/DEVIATIONS.json` is the register of what the system and the field do
+not agree about, what each difference is worth, and who owns it. The
+scale runs from *critical* — the contract is wrong — to *none*, which is a
+difference that is not a deviation at all.
+
+A closed deviation carries a probe: the finding that the difference has
+not come back. The gate runs the probe, so a closed deviation cannot
+reopen without the gate saying so.
 
 ### The version authority
 

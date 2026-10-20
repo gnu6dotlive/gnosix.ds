@@ -59,11 +59,14 @@ def iter_package_files(root: Path) -> list[str]:
     # manifest hashes.
     # "target" is the Rust build output of the native projection, and a
     # build output is never package content.
-    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "ci", "figcraft", "handoff", "target"}
+    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "figcraft", "handoff", "target"}
 
     # The local release proof is a record of what was proved on this machine,
-    # not part of the package.
-    skip_files = {".release-proof.json"}
+    # not part of the package. The local simulation of the runner is the
+    # same: it is how the machine proves the run, not what the run is. The
+    # document that says what each gate must say is neither, and it travels.
+    skip_files = {".release-proof.json", "local-ci.sh", "pre-push.sh",
+                  "provision-engine.sh"}
     out = []
     for path in sorted(root.rglob("*")):
         if not path.is_file():

@@ -1,7 +1,7 @@
 {
   "version": "4.2.0",
   "name": "gnosix_DS V4.2.0 motion contract and alpha compositing variants",
-  "contract_digest": "67eb6ae73aaf718ccda3ef5691c16e3839da0a0bf8764aee2b4a6712f71b3874",
+  "contract_digest": "43a04e1f0ecff05816a91b600c1bb010b3e4314f20249a2bb1716dc61f5cded8",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -32,7 +32,7 @@
     {
       "class": "evidence",
       "path": "README.md",
-      "sha256": "e6680bfe5c35e3a84c19058e123baa9d68a4d83c25875adea3756c8457fea65f"
+      "sha256": "ea0eb45de460a38c92f710f68a52cb0ea41aa609ff852d64b97e2a618edf17cc"
     },
     {
       "class": "evidence",
@@ -420,6 +420,11 @@
       "sha256": "60b61bbf3b37aad86aa53b54339bbfcbe22620ff0ae1941d4221e2d5502bf84b"
     },
     {
+      "class": "evidence",
+      "path": "ci/GATES.md",
+      "sha256": "43fa611915397084c96b2a643c8c892f3e6c10d0ab47082e8f28bf3b9410dadc"
+    },
+    {
       "class": "core",
       "path": "core/ACCESSIBILITY.md",
       "sha256": "c553bf3052dc5391f29711299c1a47c436a8268d59e33609d3bd5bd755c16b1b"
@@ -428,6 +433,11 @@
       "class": "core",
       "path": "core/COMPONENTS.json",
       "sha256": "605be202c4c5a3991c59c1fdaf81a566dde4d8de27bd3ddc75a2650a09cc2d4d"
+    },
+    {
+      "class": "core",
+      "path": "core/DEVIATIONS.json",
+      "sha256": "b806b7b53566ac1f06f5f19dc73fa556cd5e71b0e5fbe2dd6d561e87763dd30f"
     },
     {
       "class": "core",
@@ -956,6 +966,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/check_deviations.py",
+      "sha256": "a6b095f2b344cb9b8785ae382d48ab09974b68f3aaa9e76ed5650144d2542c98"
+    },
+    {
+      "class": "evidence",
       "path": "tools/check_fonts.py",
       "sha256": "960b15f4c144b4979f0ff422df45f6b22d1f82d1fcd9a9e0ac6e0b97c81dade0"
     },
@@ -967,7 +982,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "a1db917dae6eee69ae13182894fc7c54105d192beffba9848be522819b0e0c67"
+      "sha256": "75e720742f9fb8d8ba8929a84e8a053713849ca17d984e632b7871146e64ba6b"
     },
     {
       "class": "evidence",
@@ -1006,6 +1021,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/gate_expectations.py",
+      "sha256": "fcce9e25525848b1b7374f8e13719b34605dff7e9d75f48564bbd096056a9f10"
+    },
+    {
+      "class": "evidence",
       "path": "tools/native_check.py",
       "sha256": "962f4bac1683de0ae07bb79522731de5d13f2cd2f14ac5d81be80206f7fa1d21"
     },
@@ -1037,7 +1057,7 @@
     {
       "class": "evidence",
       "path": "tools/rebuild_manifest.py",
-      "sha256": "8a2a98e21ef5535976f723587c54a53b8f56bbf64dbc52395dc028d4507fc434"
+      "sha256": "8b13dc6967c381431172ce825f2ea52fcb0c3a5a68ebd200c40b819dff633106"
     },
     {
       "class": "evidence",
@@ -1052,7 +1072,7 @@
     {
       "class": "evidence",
       "path": "tools/release.py",
-      "sha256": "281042c18f4a25d82f80332ec6a3b4c6ecd056342667673a60eac106c2a5f877"
+      "sha256": "320cfabf303a01a4eb9b1d21a2fa504b0bcb1188906d4e5765b9e763ee6c28cf"
     },
     {
       "class": "evidence",
