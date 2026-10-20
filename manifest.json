@@ -12,7 +12,12 @@
     {
       "class": "evidence",
       "path": ".gitignore",
-      "sha256": "c16c43dbb33a8f925d7273e4e7b72f87d6b60b168de2c69434ab4ae7da1e8cf7"
+      "sha256": "2a1a8358f6274c804100cef019d8e5e17354be729e90b1199900f81d5be40fd5"
+    },
+    {
+      "class": "evidence",
+      "path": ".release-proof.json",
+      "sha256": "37fd1337c0bfcadbfd8ca6d1ec6bd3be6adcfbfadd327bdd0962cf3bfaf3f9f1"
     },
     {
       "class": "evidence",
@@ -867,7 +872,7 @@
     {
       "class": "evidence",
       "path": "tools/release.py",
-      "sha256": "125a81bba1101192c2f13e69ab7a07c04cc3839d4985ed2fd6a3f0aec2a9f861"
+      "sha256": "5a13c186613e367fcdf7e3d650b11736a60923e1913ab115b90ccb87927b16c7"
     },
     {
       "class": "evidence",
