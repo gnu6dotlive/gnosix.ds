@@ -1,7 +1,7 @@
 {
   "version": "4.0.0",
   "name": "gnosix_DS V4.0.0 motion contract and alpha compositing variants",
-  "contract_digest": "23e140ab236f1c9f17581461097c437fe88848343911c09fd05ed6bf95858b44",
+  "contract_digest": "7271513683d05db51cabc1d595aaaa1d43e79c3cc48eda30354320d955ba944d",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -427,7 +427,7 @@
     {
       "class": "core",
       "path": "core/COMPONENTS.json",
-      "sha256": "41f7d3dfc85201de712bd2349f8fd08021920919757ee5737673bf945f393133"
+      "sha256": "2e7ee83264f7d6ac65b0a86644cba7a9e2a212812e9b9f729e5d6937f0a1482a"
     },
     {
       "class": "core",
@@ -956,8 +956,13 @@
     },
     {
       "class": "evidence",
+      "path": "tools/check_vocabularies.py",
+      "sha256": "6f0be4b40172338ec51415e7d6c13a4a98e469bf0d51094ebf6017c570d3cfac"
+    },
+    {
+      "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "8631893dfaa6b6d545b7e0b6e6a001f52da9fac7eede7d22db39503da2ae866d"
+      "sha256": "687c8c06874a4e5201519f73dafb8c58a501d63989668abac26b4428d50d5642"
     },
     {
       "class": "evidence",

@@ -56,6 +56,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("the web code matches the design", ["figcraft/handoff.py", "--board", "Web / Landing", "--check"]),
     ("the native profile compiles and its tests pass", ["tools/native_check.py"]),
     ("the gnu6-design package is what the contract cuts", ["tools/package_gnu6_design.py", "--check"]),
+    ("every name the field declares is classified", ["tools/check_vocabularies.py"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or

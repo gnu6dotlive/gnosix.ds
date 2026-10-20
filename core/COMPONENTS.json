@@ -22,367 +22,1436 @@
   "components": {
     "system": {
       "description": "The typographic and numeric system a surface sits in: the family, the tabular numerals that make terse metadata line up, and the measure of a line of reading text.",
-      "roles": ["evidence"],
-      "rules": ["TYP-001", "TYP-002"],
+      "roles": [
+        "evidence"
+      ],
+      "rules": [
+        "TYP-001",
+        "TYP-002"
+      ],
       "tokens": {},
-      "geometry": {"measure": {"ch": 68}},
+      "geometry": {
+        "measure": {
+          "ch": 68
+        }
+      },
       "typography": {},
       "a11y": {},
-      "parts": [{"name": "root", "class": "gnosix-system"}],
+      "parts": [
+        {
+          "name": "root",
+          "class": "gnosix-system"
+        }
+      ],
       "note": [
         "The measure is 68 characters. A line of reading text that runs past it",
         "is a line the eye loses: the return sweep starts in the wrong place."
       ]
     },
-
     "button": {
       "description": "The control a person presses. A disabled button is still readable, and the focus ring is visible without hover.",
-      "roles": ["primary-action", "secondary-action", "destructive-action"],
-      "rules": ["COL-002", "A11Y-001"],
+      "roles": [
+        "primary-action",
+        "secondary-action",
+        "destructive-action"
+      ],
+      "rules": [
+        "COL-002",
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "hover", "pseudo": ":hover:not(:disabled)", "overrides": {"filter": "brightness(1.06)"}},
-        {"name": "focus-visible", "pseudo": ":focus-visible"},
-        {"name": "active", "pseudo": ":active:not(:disabled)", "overrides": {"filter": "brightness(.94)"}},
-        {"name": "disabled", "pseudo": ":disabled", "overrides": {"opacity": ".55", "cursor": "not-allowed"}},
-        {"name": "busy", "pseudo": "[aria-busy='true']", "overrides": {"cursor": "progress"}}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "hover",
+          "pseudo": ":hover:not(:disabled)",
+          "overrides": {
+            "filter": "brightness(1.06)"
+          }
+        },
+        {
+          "name": "focus-visible",
+          "pseudo": ":focus-visible"
+        },
+        {
+          "name": "active",
+          "pseudo": ":active:not(:disabled)",
+          "overrides": {
+            "filter": "brightness(.94)"
+          }
+        },
+        {
+          "name": "disabled",
+          "pseudo": ":disabled",
+          "overrides": {
+            "opacity": ".55",
+            "cursor": "not-allowed"
+          }
+        },
+        {
+          "name": "busy",
+          "pseudo": "[aria-busy='true']",
+          "overrides": {
+            "cursor": "progress"
+          }
+        }
       ],
       "variants": [
-        {"name": "primary", "role": "primary-action",
-         "description": "The principal operation of the context. The system spends its one accent here, and a view has one of these.",
-         "tokens": {"background": "accent", "text": "accent-ink", "border": null}},
-        {"name": "secondary", "role": "secondary-action",
-         "description": "A supporting operation: present, findable, and clearly not the principal one.",
-         "tokens": {"background": "surface-raised", "text": "ink", "border": "hairline"}},
-        {"name": "quiet", "role": "secondary-action",
-         "description": "An operation that sits in the text of a surface rather than on it.",
-         "tokens": {"background": "transparent", "text": "ink", "border": null}},
-        {"name": "destructive", "role": "destructive-action",
-         "description": "An operation with a material negative consequence. It never wears the accent, because the accent means the principal operation.",
-         "tokens": {"background": "critical", "text": "ink", "border": null}}
+        {
+          "name": "primary",
+          "role": "primary-action",
+          "description": "The principal operation of the context. The system spends its one accent here, and a view has one of these.",
+          "tokens": {
+            "background": "accent",
+            "text": "accent-ink",
+            "border": null
+          }
+        },
+        {
+          "name": "secondary",
+          "role": "secondary-action",
+          "description": "A supporting operation: present, findable, and clearly not the principal one.",
+          "tokens": {
+            "background": "surface-raised",
+            "text": "ink",
+            "border": "hairline"
+          }
+        },
+        {
+          "name": "quiet",
+          "role": "secondary-action",
+          "description": "An operation that sits in the text of a surface rather than on it.",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          }
+        },
+        {
+          "name": "destructive",
+          "role": "destructive-action",
+          "description": "An operation with a material negative consequence. It never wears the accent, because the accent means the principal operation.",
+          "tokens": {
+            "background": "critical",
+            "text": "ink",
+            "border": null
+          }
+        }
       ],
-      "tokens": {"background": "accent", "text": "accent-ink", "border": null},
-      "geometry": {"radius": {"px": 10}, "min-height": {"px": 44}, "padding": {"block": "0.85em", "inline": "1.2em"}},
-      "typography": {"weight": "bold"},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "tokens": {
+        "background": "accent",
+        "text": "accent-ink",
+        "border": null
+      },
+      "geometry": {
+        "radius": {
+          "px": 10
+        },
+        "min-height": {
+          "px": 44
+        },
+        "padding": {
+          "block": "0.85em",
+          "inline": "1.2em"
+        }
+      },
+      "typography": {
+        "weight": "bold"
+      },
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "note": [
         "The text on the accent is anthracite, not white. Both pairings are approved and the white one measures 2.87 against Signal Orange, which is below AA for body text; the anthracite one measures 6.43. COL-002 asks for white on Signal Orange and WCAG exempts the text of an active control from the contrast requirement, so the rule is a floor and this is above it.",
         "A destructive action wears the critical colour and never the accent, and its label says what will happen. A consequence is not carried by a colour alone."
       ]
     },
-
     "text-input": {
       "description": "A field a person types into, with a visible label and a focus treatment that does not depend on hover.",
-      "roles": ["prompt", "content"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "prompt",
+        "content"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "hover", "pseudo": ":hover:not(:disabled)", "overrides": {"border-color": "var(--gnosix-ink-muted)"}},
-        {"name": "focus-visible", "pseudo": ":focus-visible"},
-        {"name": "disabled", "pseudo": ":disabled", "overrides": {"opacity": ".55", "cursor": "not-allowed"}},
-        {"name": "invalid", "pseudo": "[aria-invalid='true']", "overrides": {"border-color": "var(--gnosix-critical)"}}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "hover",
+          "pseudo": ":hover:not(:disabled)",
+          "overrides": {
+            "border-color": "var(--gnosix-ink-muted)"
+          }
+        },
+        {
+          "name": "focus-visible",
+          "pseudo": ":focus-visible"
+        },
+        {
+          "name": "disabled",
+          "pseudo": ":disabled",
+          "overrides": {
+            "opacity": ".55",
+            "cursor": "not-allowed"
+          }
+        },
+        {
+          "name": "invalid",
+          "pseudo": "[aria-invalid='true']",
+          "overrides": {
+            "border-color": "var(--gnosix-critical)"
+          }
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-raised", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 8}, "min-height": {"px": 44}, "padding": {"all": "0.7em 0.9em"}},
+      "tokens": {
+        "background": "surface-raised",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 8
+        },
+        "min-height": {
+          "px": 44
+        },
+        "padding": {
+          "all": "0.7em 0.9em"
+        }
+      },
       "typography": {},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "note": [
         "The field does not carry its own placeholder as its only label. A placeholder disappears the moment a person types, and a field that has lost its label is a field nobody can check."
       ]
     },
-
     "badge": {
       "description": "A short mark that says what a thing is: its condition, its category, its count. It carries the condition as a shape and a word, never as a colour alone.",
-      "roles": ["status-stable", "status-attention", "status-breach", "evidence"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "status-stable",
+        "status-attention",
+        "status-breach",
+        "evidence"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null}
+        {
+          "name": "default",
+          "pseudo": null
+        }
       ],
       "variants": [
-        {"name": "stable", "role": "status-stable",
-         "description": "A condition that is observed and is well.",
-         "tokens": {"background": "surface-raised", "text": "ink", "border": "hairline", "mark": "positive"}},
-        {"name": "attention", "role": "status-attention",
-         "description": "A condition that is observed and asks for inspection.",
-         "tokens": {"background": "caution", "text": "ink", "border": null, "mark": "caution"}},
-        {"name": "breach", "role": "status-breach",
-         "description": "A condition that is observed and is a failure.",
-         "tokens": {"background": "critical", "text": "ink", "border": null, "mark": "critical"}},
-        {"name": "evidence", "role": "evidence",
-         "description": "The source of a claim, in terse metadata.",
-         "tokens": {"background": "surface-sunken", "text": "ink-muted", "border": null, "mark": null}}
+        {
+          "name": "stable",
+          "role": "status-stable",
+          "description": "A condition that is observed and is well.",
+          "tokens": {
+            "background": "surface-raised",
+            "text": "ink",
+            "border": "hairline",
+            "mark": "positive"
+          }
+        },
+        {
+          "name": "attention",
+          "role": "status-attention",
+          "description": "A condition that is observed and asks for inspection.",
+          "tokens": {
+            "background": "caution",
+            "text": "ink",
+            "border": null,
+            "mark": "caution"
+          }
+        },
+        {
+          "name": "breach",
+          "role": "status-breach",
+          "description": "A condition that is observed and is a failure.",
+          "tokens": {
+            "background": "critical",
+            "text": "ink",
+            "border": null,
+            "mark": "critical"
+          }
+        },
+        {
+          "name": "evidence",
+          "role": "evidence",
+          "description": "The source of a claim, in terse metadata.",
+          "tokens": {
+            "background": "surface-sunken",
+            "text": "ink-muted",
+            "border": null,
+            "mark": null
+          }
+        }
       ],
-      "tokens": {"background": "surface-raised", "text": "ink", "border": "hairline", "mark": null},
-      "geometry": {"radius": {"px": 6}, "min-height": {"px": 24}, "padding": {"block": "0.2em", "inline": "0.6em"}},
-      "typography": {"weight": "medium"},
-      "a11y": {"min-target": {"px": 24}},
+      "tokens": {
+        "background": "surface-raised",
+        "text": "ink",
+        "border": "hairline",
+        "mark": null
+      },
+      "geometry": {
+        "radius": {
+          "px": 6
+        },
+        "min-height": {
+          "px": 24
+        },
+        "padding": {
+          "block": "0.2em",
+          "inline": "0.6em"
+        }
+      },
+      "typography": {
+        "weight": "medium"
+      },
+      "a11y": {
+        "min-target": {
+          "px": 24
+        }
+      },
       "note": [
         "The approved green measures 4.09 against the light substrate, so it is not a background behind text. It is the mark: the pip beside the word. The tinted surface behind the word is a separate role.",
         "The word is the condition. The pip is the cue that does not depend on reading it. A badge with no word is a decoration."
       ]
     },
-
     "card": {
       "description": "A raised surface that holds one thing: a record, a result, a summary.",
-      "roles": ["evidence"],
-      "rules": ["SUR-001"],
+      "roles": [
+        "evidence"
+      ],
+      "rules": [
+        "SUR-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "interactive", "pseudo": "[data-interactive='true']", "overrides": {"cursor": "pointer"}}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "interactive",
+          "pseudo": "[data-interactive='true']",
+          "overrides": {
+            "cursor": "pointer"
+          }
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-raised", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 12}, "padding": {"all": "1rem"}},
+      "tokens": {
+        "background": "surface-raised",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 12
+        },
+        "padding": {
+          "all": "1rem"
+        }
+      },
       "typography": {},
       "a11y": {},
       "parts": [
-        {"name": "root", "class": "gnosix-card"},
-        {"name": "body", "class": "gnosix-card__body", "tokens": {"background": "transparent", "text": "ink", "border": null}}
+        {
+          "name": "root",
+          "class": "gnosix-card"
+        },
+        {
+          "name": "body",
+          "class": "gnosix-card__body",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          }
+        }
       ]
     },
-
     "dialog": {
       "description": "A surface that interrupts to ask for something, and that takes the keyboard until it is answered.",
-      "roles": ["prompt", "content"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "prompt",
+        "content"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "open", "pseudo": "[data-open='true']"}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "open",
+          "pseudo": "[data-open='true']"
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-overlay", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 14}, "padding": {"all": "1.5rem"}},
+      "tokens": {
+        "background": "surface-overlay",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 14
+        },
+        "padding": {
+          "all": "1.5rem"
+        }
+      },
       "typography": {},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "parts": [
-        {"name": "root", "class": "gnosix-dialog"},
-        {"name": "overlay", "class": "gnosix-dialog__overlay",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"padding": {"all": "0"}}},
-        {"name": "content", "class": "gnosix-dialog__content",
-         "tokens": {"background": "surface-overlay", "text": "ink", "border": "hairline"},
-         "geometry": {"radius": {"px": 14}, "padding": {"all": "1.5rem"}, "width": {"px": 480}}},
-        {"name": "header", "class": "gnosix-dialog__header",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"padding": {"block": "0", "inline": "0"}, "gap": {"px": 8}}},
-        {"name": "title", "class": "gnosix-dialog__title",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"padding": {"all": "0"}},
-         "typography": {"weight": "bold", "size": {"px": 20}}},
-        {"name": "description", "class": "gnosix-dialog__description",
-         "tokens": {"background": "transparent", "text": "ink-muted", "border": null},
-         "geometry": {"padding": {"all": "0"}},
-         "typography": {"size": {"px": 14}}}
+        {
+          "name": "root",
+          "class": "gnosix-dialog"
+        },
+        {
+          "name": "overlay",
+          "class": "gnosix-dialog__overlay",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0"
+            }
+          }
+        },
+        {
+          "name": "content",
+          "class": "gnosix-dialog__content",
+          "tokens": {
+            "background": "surface-overlay",
+            "text": "ink",
+            "border": "hairline"
+          },
+          "geometry": {
+            "radius": {
+              "px": 14
+            },
+            "padding": {
+              "all": "1.5rem"
+            },
+            "width": {
+              "px": 480
+            }
+          }
+        },
+        {
+          "name": "header",
+          "class": "gnosix-dialog__header",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "block": "0",
+              "inline": "0"
+            },
+            "gap": {
+              "px": 8
+            }
+          }
+        },
+        {
+          "name": "title",
+          "class": "gnosix-dialog__title",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0"
+            }
+          },
+          "typography": {
+            "weight": "bold",
+            "size": {
+              "px": 20
+            }
+          }
+        },
+        {
+          "name": "description",
+          "class": "gnosix-dialog__description",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink-muted",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0"
+            }
+          },
+          "typography": {
+            "size": {
+              "px": 14
+            }
+          }
+        }
       ],
       "note": [
         "The overlay is a dimming of the surface, not a colour of its own. A dialog that dims with a translucent black is carrying a second palette; the system's way to dim is the substrate's own darker step."
       ]
     },
-
     "tooltip": {
       "description": "A short explanation that appears beside the thing it explains and goes away when the pointer or the focus leaves.",
-      "roles": ["prompt"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "prompt"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "open", "pseudo": "[data-open='true']"}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "open",
+          "pseudo": "[data-open='true']"
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-overlay", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 8}, "padding": {"block": "0.4em", "inline": "0.7em"}, "width": {"px": 240}},
-      "typography": {"size": {"px": 13}},
-      "a11y": {"min-target": {"px": 24}},
+      "tokens": {
+        "background": "surface-overlay",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 8
+        },
+        "padding": {
+          "block": "0.4em",
+          "inline": "0.7em"
+        },
+        "width": {
+          "px": 240
+        }
+      },
+      "typography": {
+        "size": {
+          "px": 13
+        }
+      },
+      "a11y": {
+        "min-target": {
+          "px": 24
+        }
+      },
       "parts": [
-        {"name": "root", "class": "gnosix-tooltip"},
-        {"name": "trigger", "class": "gnosix-tooltip__trigger",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"padding": {"all": "0"}}},
-        {"name": "content", "class": "gnosix-tooltip__content",
-         "tokens": {"background": "surface-overlay", "text": "ink", "border": "hairline"},
-         "geometry": {"radius": {"px": 8}, "padding": {"block": "0.4em", "inline": "0.7em"}, "width": {"px": 240}}}
+        {
+          "name": "root",
+          "class": "gnosix-tooltip"
+        },
+        {
+          "name": "trigger",
+          "class": "gnosix-tooltip__trigger",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0"
+            }
+          }
+        },
+        {
+          "name": "content",
+          "class": "gnosix-tooltip__content",
+          "tokens": {
+            "background": "surface-overlay",
+            "text": "ink",
+            "border": "hairline"
+          },
+          "geometry": {
+            "radius": {
+              "px": 8
+            },
+            "padding": {
+              "block": "0.4em",
+              "inline": "0.7em"
+            },
+            "width": {
+              "px": 240
+            }
+          }
+        }
       ],
       "note": [
         "A tooltip is not a label and it is not a message. It never carries an action, because a pointer cannot reach it, and it never carries the only copy of a fact."
       ]
     },
-
     "select": {
       "description": "A control that opens a list of choices and shows the one that is chosen.",
-      "roles": ["prompt", "selection"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "prompt",
+        "selection"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "focus-visible", "pseudo": ":focus-visible"},
-        {"name": "disabled", "pseudo": ":disabled", "overrides": {"opacity": ".55", "cursor": "not-allowed"}}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "focus-visible",
+          "pseudo": ":focus-visible"
+        },
+        {
+          "name": "disabled",
+          "pseudo": ":disabled",
+          "overrides": {
+            "opacity": ".55",
+            "cursor": "not-allowed"
+          }
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-raised", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 8}, "min-height": {"px": 44}, "padding": {"block": "0.7em", "inline": "0.9em"}},
+      "tokens": {
+        "background": "surface-raised",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 8
+        },
+        "min-height": {
+          "px": 44
+        },
+        "padding": {
+          "block": "0.7em",
+          "inline": "0.9em"
+        }
+      },
       "typography": {},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "parts": [
-        {"name": "root", "class": "gnosix-select"},
-        {"name": "option", "class": "gnosix-select__option",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"radius": {"px": 6}, "padding": {"block": "0.4em", "inline": "0.7em"}}},
-        {"name": "selected", "class": "gnosix-select__option[aria-selected='true']",
-         "tokens": {"background": "surface-sunken", "text": "ink", "border": null}}
+        {
+          "name": "root",
+          "class": "gnosix-select"
+        },
+        {
+          "name": "option",
+          "class": "gnosix-select__option",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "radius": {
+              "px": 6
+            },
+            "padding": {
+              "block": "0.4em",
+              "inline": "0.7em"
+            }
+          }
+        },
+        {
+          "name": "selected",
+          "class": "gnosix-select__option[aria-selected='true']",
+          "tokens": {
+            "background": "surface-sunken",
+            "text": "ink",
+            "border": null
+          }
+        }
       ]
     },
-
     "tabs": {
       "description": "A set of panels that share one subject, of which one is shown.",
-      "roles": ["selection", "prompt"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "selection",
+        "prompt"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "focus-visible", "pseudo": ":focus-visible"}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "focus-visible",
+          "pseudo": ":focus-visible"
+        }
       ],
       "variants": [],
-      "tokens": {"background": "transparent", "text": "ink", "border": null},
-      "geometry": {"radius": {"px": 8}, "padding": {"block": "0.5em", "inline": "0.9em"}},
-      "typography": {"weight": "medium"},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "tokens": {
+        "background": "transparent",
+        "text": "ink",
+        "border": null
+      },
+      "geometry": {
+        "radius": {
+          "px": 8
+        },
+        "padding": {
+          "block": "0.5em",
+          "inline": "0.9em"
+        }
+      },
+      "typography": {
+        "weight": "medium"
+      },
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "parts": [
-        {"name": "root", "class": "gnosix-tabs",
-         "geometry": {"gap": {"px": 4}}},
-        {"name": "item", "class": "gnosix-tabs__item",
-         "tokens": {"background": "transparent", "text": "ink", "border": null}},
-        {"name": "selected", "class": "gnosix-tabs__item[aria-selected='true']",
-         "tokens": {"background": "surface-raised", "text": "ink", "border": "hairline"}}
+        {
+          "name": "root",
+          "class": "gnosix-tabs",
+          "geometry": {
+            "gap": {
+              "px": 4
+            }
+          }
+        },
+        {
+          "name": "item",
+          "class": "gnosix-tabs__item",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          }
+        },
+        {
+          "name": "selected",
+          "class": "gnosix-tabs__item[aria-selected='true']",
+          "tokens": {
+            "background": "surface-raised",
+            "text": "ink",
+            "border": "hairline"
+          }
+        }
       ],
       "note": [
         "The selected tab is carried by a surface and an edge, and by the aria-selected state, and never by colour alone. Two tabs that differ only in hue are two tabs a reader cannot tell apart."
       ]
     },
-
     "toaster": {
       "description": "The place a transient message arrives, and the place it is read while it is there.",
-      "roles": ["evidence"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "evidence"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null}
+        {
+          "name": "default",
+          "pseudo": null
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-overlay", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 10}, "padding": {"all": "0.9rem 1.1rem"}, "width": {"px": 360}},
+      "tokens": {
+        "background": "surface-overlay",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 10
+        },
+        "padding": {
+          "all": "0.9rem 1.1rem"
+        },
+        "width": {
+          "px": 360
+        }
+      },
       "typography": {},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "parts": [
-        {"name": "root", "class": "gnosix-toaster"},
-        {"name": "message", "class": "gnosix-toaster__message",
-         "tokens": {"background": "surface-overlay", "text": "ink", "border": "hairline"},
-         "geometry": {"radius": {"px": 10}, "padding": {"all": "0.9rem 1.1rem"}, "width": {"px": 360}}}
+        {
+          "name": "root",
+          "class": "gnosix-toaster"
+        },
+        {
+          "name": "message",
+          "class": "gnosix-toaster__message",
+          "tokens": {
+            "background": "surface-overlay",
+            "text": "ink",
+            "border": "hairline"
+          },
+          "geometry": {
+            "radius": {
+              "px": 10
+            },
+            "padding": {
+              "all": "0.9rem 1.1rem"
+            },
+            "width": {
+              "px": 360
+            }
+          }
+        }
       ],
       "note": [
         "A message that reports a request is a statement about what was asked for, not about what happened. The words intended, observed and derived are distinct, and a toast that says done when the request is still in flight is claiming success prematurely."
       ]
     },
-
     "toggle": {
       "description": "A control that turns something on or off, and says which state it is in.",
-      "roles": ["selection"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "selection"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "focus-visible", "pseudo": ":focus-visible"},
-        {"name": "on", "pseudo": "[aria-checked='true']"}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "focus-visible",
+          "pseudo": ":focus-visible"
+        },
+        {
+          "name": "on",
+          "pseudo": "[aria-checked='true']"
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-sunken", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 999}, "width": {"px": 44}, "height": {"px": 24}},
+      "tokens": {
+        "background": "surface-sunken",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 999
+        },
+        "width": {
+          "px": 44
+        },
+        "height": {
+          "px": 24
+        }
+      },
       "typography": {},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "parts": [
-        {"name": "root", "class": "gnosix-toggle",
-         "geometry": {"radius": {"px": 999}, "width": {"px": 44}, "height": {"px": 24}}},
-        {"name": "thumb", "class": "gnosix-toggle__thumb",
-         "tokens": {"background": "surface-overlay", "text": "ink", "border": null},
-         "geometry": {"radius": {"px": 999}, "width": {"px": 18}, "height": {"px": 18}}}
+        {
+          "name": "root",
+          "class": "gnosix-toggle",
+          "geometry": {
+            "radius": {
+              "px": 999
+            },
+            "width": {
+              "px": 44
+            },
+            "height": {
+              "px": 24
+            }
+          }
+        },
+        {
+          "name": "thumb",
+          "class": "gnosix-toggle__thumb",
+          "tokens": {
+            "background": "surface-overlay",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "radius": {
+              "px": 999
+            },
+            "width": {
+              "px": 18
+            },
+            "height": {
+              "px": 18
+            }
+          }
+        }
       ],
       "note": [
         "The state is the attribute, not the colour. A toggle that is on looks different from one that is off, and an assistive service is told which it is."
       ]
     },
-
     "command-palette": {
       "description": "A field that takes a command rather than a value, and a list of the commands it could be.",
-      "roles": ["prompt", "selection"],
-      "rules": ["A11Y-001"],
+      "roles": [
+        "prompt",
+        "selection"
+      ],
+      "rules": [
+        "A11Y-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "focus-visible", "pseudo": ":focus-visible"}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "focus-visible",
+          "pseudo": ":focus-visible"
+        }
       ],
       "variants": [],
-      "tokens": {"background": "surface-overlay", "text": "ink", "border": "hairline"},
-      "geometry": {"radius": {"px": 12}, "width": {"px": 560}},
+      "tokens": {
+        "background": "surface-overlay",
+        "text": "ink",
+        "border": "hairline"
+      },
+      "geometry": {
+        "radius": {
+          "px": 12
+        },
+        "width": {
+          "px": 560
+        }
+      },
       "typography": {},
-      "a11y": {"focus-ring": {"role": "focus", "width": {"px": 3}, "offset": {"px": 3}}, "min-target": {"px": 44}},
+      "a11y": {
+        "focus-ring": {
+          "role": "focus",
+          "width": {
+            "px": 3
+          },
+          "offset": {
+            "px": 3
+          }
+        },
+        "min-target": {
+          "px": 44
+        }
+      },
       "parts": [
-        {"name": "root", "class": "gnosix-command-palette",
-         "geometry": {"radius": {"px": 12}, "width": {"px": 560}}},
-        {"name": "field", "class": "gnosix-command-palette__field",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"min-height": {"px": 44}, "padding": {"block": "0.6em", "inline": "0.9em"}}},
-        {"name": "list", "class": "gnosix-command-palette__list",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"padding": {"all": "0.4rem"}, "gap": {"px": 2}}},
-        {"name": "option", "class": "gnosix-command-palette__option",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"radius": {"px": 6}, "padding": {"block": "0.45em", "inline": "0.7em"}}},
-        {"name": "selected", "class": "gnosix-command-palette__option[aria-selected='true']",
-         "tokens": {"background": "surface-sunken", "text": "ink", "border": null}}
+        {
+          "name": "root",
+          "class": "gnosix-command-palette",
+          "geometry": {
+            "radius": {
+              "px": 12
+            },
+            "width": {
+              "px": 560
+            }
+          }
+        },
+        {
+          "name": "field",
+          "class": "gnosix-command-palette__field",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "min-height": {
+              "px": 44
+            },
+            "padding": {
+              "block": "0.6em",
+              "inline": "0.9em"
+            }
+          }
+        },
+        {
+          "name": "list",
+          "class": "gnosix-command-palette__list",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0.4rem"
+            },
+            "gap": {
+              "px": 2
+            }
+          }
+        },
+        {
+          "name": "option",
+          "class": "gnosix-command-palette__option",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "radius": {
+              "px": 6
+            },
+            "padding": {
+              "block": "0.45em",
+              "inline": "0.7em"
+            }
+          }
+        },
+        {
+          "name": "selected",
+          "class": "gnosix-command-palette__option[aria-selected='true']",
+          "tokens": {
+            "background": "surface-sunken",
+            "text": "ink",
+            "border": null
+          }
+        }
       ]
     },
-
     "icon": {
       "description": "A glyph from the ratified subset, at the size the system says, in the colour the surface says.",
-      "roles": ["evidence"],
-      "rules": ["ICON-001"],
+      "roles": [
+        "evidence"
+      ],
+      "rules": [
+        "ICON-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null},
-        {"name": "disabled", "pseudo": ":disabled", "overrides": {"opacity": ".55"}}
+        {
+          "name": "default",
+          "pseudo": null
+        },
+        {
+          "name": "disabled",
+          "pseudo": ":disabled",
+          "overrides": {
+            "opacity": ".55"
+          }
+        }
       ],
       "variants": [],
-      "tokens": {"background": "transparent", "text": "ink", "border": null},
-      "geometry": {"size": {"px": 20}},
+      "tokens": {
+        "background": "transparent",
+        "text": "ink",
+        "border": null
+      },
+      "geometry": {
+        "size": {
+          "px": 20
+        }
+      },
       "typography": {},
-      "a11y": {"min-target": {"px": 24}},
+      "a11y": {
+        "min-target": {
+          "px": 24
+        }
+      },
       "note": [
         "A glyph is drawn from assets/icons and from nowhere else. A character that looks like an icon is not one, and a hand-drawn path is not the ratified set.",
         "An icon that carries meaning on its own needs a name. An icon that repeats a word beside it is decoration and takes aria-hidden."
       ]
     },
-
     "section-heading": {
       "description": "The heading of a section, with the number that says where the section sits and the action that applies to it.",
-      "roles": ["evidence", "prompt"],
-      "rules": ["TYP-001"],
+      "roles": [
+        "evidence",
+        "prompt"
+      ],
+      "rules": [
+        "TYP-001"
+      ],
       "states": [
-        {"name": "default", "pseudo": null}
+        {
+          "name": "default",
+          "pseudo": null
+        }
       ],
       "variants": [],
-      "tokens": {"background": "transparent", "text": "ink", "border": null},
-      "geometry": {"padding": {"all": "0"}, "gap": {"px": 12}},
-      "typography": {"weight": "bold", "size": {"px": 20}},
+      "tokens": {
+        "background": "transparent",
+        "text": "ink",
+        "border": null
+      },
+      "geometry": {
+        "padding": {
+          "all": "0"
+        },
+        "gap": {
+          "px": 12
+        }
+      },
+      "typography": {
+        "weight": "bold",
+        "size": {
+          "px": 20
+        }
+      },
       "a11y": {},
       "parts": [
-        {"name": "root", "class": "gnosix-section-heading",
-         "geometry": {"padding": {"all": "0"}, "gap": {"px": 12}}},
-        {"name": "number", "class": "gnosix-section-heading__number",
-         "tokens": {"background": "transparent", "text": "ink-muted", "border": null},
-         "geometry": {"padding": {"all": "0"}},
-         "typography": {"weight": "medium", "size": {"px": 12}}},
-        {"name": "title", "class": "gnosix-section-heading__title",
-         "tokens": {"background": "transparent", "text": "ink", "border": null},
-         "geometry": {"padding": {"all": "0"}},
-         "typography": {"weight": "bold", "size": {"px": 20}}},
-        {"name": "intro", "class": "gnosix-section-heading__intro",
-         "tokens": {"background": "transparent", "text": "ink-muted", "border": null},
-         "geometry": {"padding": {"all": "0"}},
-         "typography": {"size": {"px": 14}}}
+        {
+          "name": "root",
+          "class": "gnosix-section-heading",
+          "geometry": {
+            "padding": {
+              "all": "0"
+            },
+            "gap": {
+              "px": 12
+            }
+          }
+        },
+        {
+          "name": "number",
+          "class": "gnosix-section-heading__number",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink-muted",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0"
+            }
+          },
+          "typography": {
+            "weight": "medium",
+            "size": {
+              "px": 12
+            }
+          }
+        },
+        {
+          "name": "title",
+          "class": "gnosix-section-heading__title",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0"
+            }
+          },
+          "typography": {
+            "weight": "bold",
+            "size": {
+              "px": 20
+            }
+          }
+        },
+        {
+          "name": "intro",
+          "class": "gnosix-section-heading__intro",
+          "tokens": {
+            "background": "transparent",
+            "text": "ink-muted",
+            "border": null
+          },
+          "geometry": {
+            "padding": {
+              "all": "0"
+            }
+          },
+          "typography": {
+            "size": {
+              "px": 14
+            }
+          }
+        }
       ]
+    }
+  },
+  "vocabularies": {
+    "note": [
+      "The field's own vocabularies, and what each of their components is in the",
+      "system's terms. The gnu6-design package carries the g6-* vocabulary, which",
+      "the field uses and the system does not declare. This is the translation.",
+      "",
+      "Three kinds of entry, and the difference matters:",
+      "",
+      "  a component  the system's own element, under its canonical name",
+      "  a pattern    a composition the system states but does not declare as an",
+      "               element, because it is an arrangement rather than a thing",
+      "  a primitive  a thing the system's type, spacing or accessibility tier",
+      "               governs, with no component of its own",
+      "",
+      "The mapping is checked against the package: a name the package declares and",
+      "the contract does not classify is a failure, so the two cannot drift."
+    ],
+    "gnu6-design": {
+      "package": "gnu6-design",
+      "prefix": "g6-",
+      "components": {
+        "action": {
+          "is": "component",
+          "target": "button",
+          "note": "The control a person presses. The g6 action carries the same four variants the system declares: quiet, portal, disabled and busy."
+        },
+        "brand": {
+          "is": "pattern",
+          "note": "The mark and the name of a product. The identity is the system's ratified artwork; the lockup is a composition of it."
+        },
+        "dia": {
+          "is": "pattern",
+          "note": "A diagram. The system's own content, carried by the system's canvas and type."
+        },
+        "display": {
+          "is": "primitive",
+          "note": "The display type. Governed by the system's type tier."
+        },
+        "doc": {
+          "is": "pattern",
+          "note": "A document region: prose with its own rules. A composition of the system's type and spacing."
+        },
+        "empty": {
+          "is": "pattern",
+          "note": "The state of a surface that has nothing in it yet. A composition of the system's type and spacing."
+        },
+        "enter": {
+          "is": "primitive",
+          "note": "The staggered entrance of a group's children. Governed by the system's motion tier, which states the meaning of motion and the reduced-motion equivalence; it is not a component."
+        },
+        "ext": {
+          "is": "pattern",
+          "note": "A link out of the surface. The system's link semantics apply."
+        },
+        "facts": {
+          "is": "pattern",
+          "note": "The facts of a claim, set out. A composition of the system's evidence semantics."
+        },
+        "figure": {
+          "is": "pattern",
+          "note": "A figure with its caption. A composition of the system's spacing and type."
+        },
+        "files": {
+          "is": "pattern",
+          "note": "A list of files. A composition of the system's card and the tabular numerals."
+        },
+        "footer": {
+          "is": "pattern",
+          "note": "The end of a surface: the links and the credit. A composition of the system's navigation semantics and type."
+        },
+        "frame": {
+          "is": "pattern",
+          "note": "The bounded region a surface sets its content in. A composition of the system's card and spacing."
+        },
+        "goto": {
+          "is": "pattern",
+          "note": "A jump to a named place. A composition of the system's navigation semantics and focus."
+        },
+        "hero": {
+          "is": "pattern",
+          "note": "The opening block of a surface: the title, the words and the actions. A composition of the system's display type, section-heading and button."
+        },
+        "label": {
+          "is": "primitive",
+          "note": "A small label. Governed by the system's type tier."
+        },
+        "lang": {
+          "is": "pattern",
+          "note": "The language switch. A composition of the system's select."
+        },
+        "lede": {
+          "is": "primitive",
+          "note": "The standfirst under a title. Governed by the system's type tier."
+        },
+        "ledger": {
+          "is": "pattern",
+          "note": "A ledger of facts, with the values aligned. A composition of the system's card and the tabular numerals."
+        },
+        "masthead": {
+          "is": "pattern",
+          "note": "The identity block of a surface: the mark, the name, and the words beside them. A composition of the system's identity and section-heading."
+        },
+        "menu": {
+          "is": "pattern",
+          "note": "A menu: a list of choices that opens over the surface. The system declares the choice semantics; the menu is a composition of them."
+        },
+        "menu-anchor": {
+          "is": "pattern",
+          "note": "The element a menu opens from. The system's own focus and selection rules apply to it."
+        },
+        "notice": {
+          "is": "pattern",
+          "note": "A notice: a condition that asks for attention. The system's badge carries the condition; the notice is the surface it sits on."
+        },
+        "num": {
+          "is": "primitive",
+          "note": "A number, aligned with the others. Governed by the system's type tier and its tabular figures."
+        },
+        "page": {
+          "is": "pattern",
+          "note": "The frame of a page. A composition of the system's layout, not an element of its own."
+        },
+        "prose": {
+          "is": "pattern",
+          "note": "A run of reading text. Governed by the system's type tier and its measure, not by a component."
+        },
+        "rail": {
+          "is": "pattern",
+          "note": "The navigation rail of a surface: a column of the sections, with the active one marked. A composition of the system's card, badge and section-heading."
+        },
+        "record": {
+          "is": "pattern",
+          "note": "One record in a ledger. A composition of the system's card and badge."
+        },
+        "section": {
+          "is": "component",
+          "target": "section-heading",
+          "note": "The heading of a section, with the number that says where the section sits."
+        },
+        "skip": {
+          "is": "primitive",
+          "note": "The link that skips to the content. Governed by the system's accessibility rules."
+        },
+        "specimen": {
+          "is": "pattern",
+          "note": "A specimen: a thing shown with its own description. A composition of the system's card, figure and badge."
+        },
+        "state": {
+          "is": "component",
+          "target": "badge",
+          "note": "A short mark that says what a thing is. The g6 state carries the same five conditions the system declares: stable, attention, breach, empty and planned."
+        },
+        "study": {
+          "is": "pattern",
+          "note": "A study unit: the chapters and the exercises. A composition of the system's card and section-heading."
+        },
+        "sysbar": {
+          "is": "pattern",
+          "note": "The system bar at the top of a surface: the identity, the status and the language. A composition, not an element."
+        },
+        "sysmenu": {
+          "is": "pattern",
+          "note": "The menu the system bar opens. A composition of the system's card and menu semantics."
+        },
+        "sysnav": {
+          "is": "pattern",
+          "note": "The navigation inside the system bar. A composition of the system's section-heading and toggle."
+        },
+        "toc": {
+          "is": "pattern",
+          "note": "The table of contents. A composition of the system's navigation semantics."
+        },
+        "toc-inline": {
+          "is": "pattern",
+          "note": "The table of contents, inline with the text. A composition of the system's navigation semantics."
+        },
+        "visually-hidden": {
+          "is": "primitive",
+          "note": "Text a screen reader carries and a screen does not show. Governed by the system's accessibility rules."
+        }
+      }
     }
   }
 }
