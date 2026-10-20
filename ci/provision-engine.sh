@@ -11,7 +11,9 @@
 # repository packages, installed into a fontconfig directory of its own so
 # the result does not depend on what the machine happens to have.
 #
-# Prints the environment for the caller to export:
+# Prints the environment for the caller to export. Everything informational
+# goes to stderr, so the caller can eval the output without running the
+# messages as commands:
 #
 #   eval "$(ci/provision-engine.sh)"
 #
@@ -30,7 +32,7 @@ WORK="${FIGCRAFT_ENGINE_DIR:-${RUNNER_TEMP:-$ROOT/.ci-cache}}"
 mkdir -p "$WORK"
 
 if [[ ! -x "$WORK/figcraft-engine/bin/figcraft-cli" ]]; then
-  echo "  downloading the pinned engine"
+  echo "  downloading the pinned engine" >&2
   curl -fsSL -o "$WORK/figcraft-engine.tar.gz" "$URL"
   echo "$SHA256  $WORK/figcraft-engine.tar.gz" | sha256sum --check --strict
   mkdir -p "$WORK/figcraft-engine"
@@ -38,7 +40,7 @@ if [[ ! -x "$WORK/figcraft-engine/bin/figcraft-cli" ]]; then
   chmod +x "$WORK/figcraft-engine/bin/figcraft-cli"
 fi
 
-"$WORK/figcraft-engine/bin/figcraft-cli" --version
+"$WORK/figcraft-engine/bin/figcraft-cli" --version >&2
 
 mkdir -p "$WORK/xdg/fonts" "$WORK/xdg/fontcache"
 cp "$ROOT/assets/fonts/SpaceGrotesk-native.ttf" "$WORK/xdg/fonts/"
