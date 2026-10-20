@@ -89,6 +89,29 @@ consumer that already knows how to read them.
 The rules are not exported, on purpose. A format that carries values cannot
 carry a constraint, and a rule that is not checked is documentation.
 
+## [3.6.1] — 2026-10-20
+
+The surface layer is checked for legibility, not only for derivation.
+
+`tools/surfaces.py` verified that every step of the layer was the colour it
+claimed to be. It now also verifies that the layer is *usable*: every
+surface must take an ink that reaches AA against it, and every hairline
+must reach 3:1 - the threshold for a graphic - against the substrate it is
+seen on.
+
+It found three surfaces that had no legible ink, and the reason was worth
+having: the ink families of the layer are ramps, and the ramps stop short.
+The strongest ink on a substrate is often the palette's own - anthracite on
+the light substrate, shell white on the dark one - and the check was
+looking only at the ramps, so it called legible surfaces illegible. The
+palette is part of the system, and the check now counts it.
+
+The hairline check is the one that holds either way: a line is on the
+substrate it contrasts with, and which one that is, is a fact about where
+it is used rather than something its own lightness settles. So a hairline
+must reach 3:1 against the base of at least one of the two substrates, or
+it is a line nobody can see.
+
 ## [Unreleased]
 
 Nothing yet. The next release is cut with

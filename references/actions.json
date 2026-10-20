@@ -1,6 +1,6 @@
 {
   "id": "actions",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "artwork": "references/actions.svg",
   "roles": [
     "primary-action",

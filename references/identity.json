@@ -1,6 +1,6 @@
 {
   "id": "identity",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "artwork": "references/identity.svg",
   "roles": [
     "content",

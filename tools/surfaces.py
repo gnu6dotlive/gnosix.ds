@@ -15,7 +15,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from oklch import hex_to_rgb, rgb_to_oklch, oklch_to_rgb, rgb_to_hex  # noqa: E402
+from oklch import (contrast_ratio, hex_to_rgb, rgb_to_oklch, oklch_to_rgb,  # noqa: E402
+                    rgb_to_hex)
 
 ROOT = Path(__file__).resolve().parents[1]
 SURFACES = ROOT / "core/SURFACES.json"
@@ -46,6 +47,114 @@ def every_step(document: dict):
             yield family, spec, step
     for accent in document.get("accents", []):
         yield "accents", {"base": None}, accent
+
+
+# A surface takes the ink of the substrate it belongs to, and a substrate is
+# a question of lightness: a step darker than the middle belongs to the dark
+# substrate, a step lighter than it belongs to the light one. The substrate
+# therefore follows the value, the way the hue follows the family.
+MIDDLE = 0.3
+
+# A hairline is a graphic, not text: 3:1 against the substrate it sits on.
+HAIRLINE_MINIMUM = 3.0
+# Body text: 4.5:1.
+INK_MINIMUM = 4.5
+
+
+# A surface takes the ink of the substrate it belongs to, and the substrate
+# comes from the family: the dark family sits on the dark substrate and
+# takes the light ink, and the light family takes the dark ink. The ink is
+# lighter or darker than the surface it is named for - that is what makes
+# it an ink.
+#
+# A hairline is the one case where the substrate follows the value: a line
+# is on the substrate it contrasts with, so a light line is on the dark
+# substrate and a dark one is on the light.
+MIDDLE = 0.3
+
+# A hairline is a graphic, not text: 3:1 against the substrate it sits on.
+HAIRLINE_MINIMUM = 3.0
+# Body text: 4.5:1.
+INK_MINIMUM = 4.5
+
+
+def is_dark(value: str) -> bool:
+    from oklch import rgb_to_oklch
+    lightness, _, _ = rgb_to_oklch(hex_to_rgb(value))
+    return lightness < MIDDLE
+
+
+def _base_of(families: dict, family: str, darkest: bool):
+    """The base of a substrate: the darkest dark surface, the lightest light one."""
+    steps = families.get(family, {}).get("steps", [])
+    if not steps:
+        return None
+    return (min if darkest else max)(
+        steps, key=lambda s: rgb_to_oklch(hex_to_rgb(s["value"]))[0])
+
+
+def legibility(document: dict) -> list[str]:
+    """Every surface takes a legible ink, and every hairline its own substrate.
+
+    A surface without a legible ink is a hole in the system: the designer has
+    nothing to put on it that passes. A hairline that does not reach 3:1
+    against the substrate it is for is a line nobody can see.
+    """
+    problems: list[str] = []
+    families = document.get("families", {})
+
+    # The palette is part of the system, so its colours are candidate inks
+    # as well as the layer's own steps. The strongest ink on a substrate is
+    # often the palette's, and a check that only looked at the layer would
+    # call a legible surface illegible.
+    tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
+    palette = []
+    for ramp in tokens["color"].values():
+        for value in ramp.values():
+            palette.append({"id": "token", "value": value.upper()})
+
+    for surface_family, ink_family in (("surface-dark", "ink-on-dark"),
+                                       ("surface-light", "ink-on-light")):
+        inks = list(families.get(ink_family, {}).get("steps", []))
+        # The palette's own strong inks belong to the substrate they read on.
+        strong = [c for c in palette
+                  if (c["value"] == tokens["color"]["neutral"]["shellWhite"].upper()
+                      and ink_family == "ink-on-dark")
+                  or (c["value"] == tokens["color"]["neutral"]["anthracite"].upper()
+                      and ink_family == "ink-on-light")]
+        inks += strong
+        for step in families.get(surface_family, {}).get("steps", []):
+            if not inks:
+                problems.append(f"{step['id']}: the {ink_family} family is empty")
+                continue
+            best = max(inks, key=lambda i: contrast_ratio(
+                hex_to_rgb(i["value"]), hex_to_rgb(step["value"])))
+            got = contrast_ratio(hex_to_rgb(best["value"]), hex_to_rgb(step["value"]))
+            if got < INK_MINIMUM:
+                problems.append(
+                    f"{step['id']}: the best ink is {best['id']} at {round(got, 2)}, "
+                    f"under {INK_MINIMUM}")
+
+    # A hairline is a graphic, and it is seen against one substrate or the
+    # other: a light line on the dark substrate, a dark line on the light
+    # one. Which is which is a fact about where it is used, not something
+    # its own lightness settles - a hairline at the middle of the ramp is
+    # neither. So the check is the one that holds either way: a hairline
+    # must reach 3:1 against the base of at least one of the two
+    # substrates, or it is a line nobody can see.
+    dark_base = _base_of(families, "surface-dark", darkest=True)
+    light_base = _base_of(families, "surface-light", darkest=False)
+    for step in families.get("hairline", {}).get("steps", []):
+        if dark_base is None or light_base is None:
+            continue
+        on_dark = contrast_ratio(hex_to_rgb(step["value"]), hex_to_rgb(dark_base["value"]))
+        on_light = contrast_ratio(hex_to_rgb(step["value"]), hex_to_rgb(light_base["value"]))
+        if max(on_dark, on_light) < HAIRLINE_MINIMUM:
+            problems.append(
+                f"{step['id']}: {round(max(on_dark, on_light), 2)} against the nearest "
+                f"substrate, under {HAIRLINE_MINIMUM}")
+
+    return problems
 
 
 def check(document: dict) -> list[str]:
@@ -85,6 +194,7 @@ def check(document: dict) -> list[str]:
                 f"{name}: its hue {hue:.1f} is {distance:.1f} degrees from {base}'s "
                 f"{base_hue[base]:.1f}, so it has left the family")
 
+    problems.extend(legibility(document))
     return problems
 
 
