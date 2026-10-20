@@ -50,16 +50,21 @@ DIST = ROOT / "dist"
 # is expected to run them before redistributing. V3.4.2 shipped them that way
 # and the README tells the reader to run them "from the package root".
 #
-# The package is the repository minus the CI configuration, the FigCraft
-# projection and the build output. Everything else is in it, which is what
-# lets manifest.json describe the package exactly: every file the manifest
-# hashes is a file the archive carries.
+# The package is the repository minus the CI configuration, the local
+# simulation of it, the FigCraft projection and the build output.
+# Everything else is in it, which is what lets manifest.json describe the
+# package exactly: every file the manifest hashes is a file the archive
+# carries.
 #
 # "figcraft" is excluded because it is a 6 MB design-editor document for one
 # target among several, and the package ships the portable contract and the
 # small projections of it. A consumer who wants the FigCraft projection
 # clones the repository; it is not redistributed to everyone who takes the
 # tarball.
+#
+# "ci" is excluded for the same reason and one more: it exists to keep
+# GitHub Actions from being used as a test bench, and a script that runs a
+# local simulation of the CI has no business in a distributed package.
 PACKAGED_DIRS = [
     "assets",
     "core",

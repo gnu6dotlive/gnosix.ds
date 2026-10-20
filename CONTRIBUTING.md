@@ -34,6 +34,27 @@ python3 -m tools.ci --only version
 python3 -m tools.version --check
 ```
 
+## Before pushing: run the whole job locally
+
+**GitHub Actions is not a test bench.** A runner costs money and credit, and
+a failed run is a failure of method, not of the code: it means the work was
+not properly qualified locally first. So the job is run locally, in the
+runner's conditions, before anything is pushed:
+
+```sh
+./ci/local-ci.sh
+```
+
+It reproduces the runner rather than approximating it: a fresh clone at a
+different path, the FigCraft engine pinned by its digest, the packaged font
+in the layout the engine reads it from, and the same qualification command.
+The setup lines are duplicated in `.github/workflows/ci.yml`, so if one
+changes the other must change with it.
+
+A change is ready to push when that command is green. A workflow is not
+ready to push when the local simulation cannot faithfully reproduce the
+runner — fix the simulation first.
+
 ## The version
 
 Do not hand-edit a version string. `VERSION` is the source and every other

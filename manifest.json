@@ -22,7 +22,7 @@
     {
       "class": "evidence",
       "path": "CONTRIBUTING.md",
-      "sha256": "68eeb5c42dbe8cb125b9fb6d263d7137af686020528bf0776925ca4ac674aeb4"
+      "sha256": "0d4bd286bcfd6afecd7c9063854174b2c7b476ecfc883f495741070b2fd8093a"
     },
     {
       "class": "evidence",
@@ -827,7 +827,7 @@
     {
       "class": "evidence",
       "path": "tools/rebuild_manifest.py",
-      "sha256": "bce7afc1faa0d7701e0bea1c459d160247e1896fba79d0a42f77a7b76a31807d"
+      "sha256": "85f94b4af8cf0964fa736746adab6dd763f2802c16c5d6f35183e619bc65928e"
     },
     {
       "class": "evidence",
@@ -842,7 +842,7 @@
     {
       "class": "evidence",
       "path": "tools/release.py",
-      "sha256": "e187855f1987436b617873532a9b49944d8d942023f2a81897fff46f3a5009a9"
+      "sha256": "8a6597b9ccaaf8bc001ce868297c520c2253a5c141f7d2f0665720019baf450b"
     },
     {
       "class": "evidence",
