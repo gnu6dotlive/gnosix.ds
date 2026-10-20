@@ -34,7 +34,9 @@ mkdir -p "$WORK"
 if [[ ! -x "$WORK/figcraft-engine/bin/figcraft-cli" ]]; then
   echo "  downloading the pinned engine" >&2
   curl -fsSL -o "$WORK/figcraft-engine.tar.gz" "$URL"
-  echo "$SHA256  $WORK/figcraft-engine.tar.gz" | sha256sum --check --strict
+  # The check reports on stdout; the caller evals this script's output,
+  # so the report goes to stderr with everything else.
+  echo "$SHA256  $WORK/figcraft-engine.tar.gz" | sha256sum --check --strict >&2
   mkdir -p "$WORK/figcraft-engine"
   tar xzf "$WORK/figcraft-engine.tar.gz" -C "$WORK/figcraft-engine" --strip-components=1
   chmod +x "$WORK/figcraft-engine/bin/figcraft-cli"
