@@ -33,12 +33,18 @@ sys.path.insert(0, str(ROOT / "tools"))
 from oklch import hex_to_rgb, oklch_to_rgb, rgb_to_hex  # noqa: E402
 
 # The files that carry a consumer's styling.
-SOURCE_SUFFIXES = {".css", ".scss", ".html", ".tsx", ".jsx", ".ts", ".js", ".vue", ".svelte"}
+SOURCE_SUFFIXES = {".css", ".scss", ".html", ".tsx", ".jsx", ".ts", ".js",
+                   ".vue", ".svelte", ".rs", ".qml"}
 SKIP_DIRS = {".git", "node_modules", "dist", "build", "target", "vendor", ".next", "out",
              "coverage", "test-results", "playwright-report"}
 
 # Every notation CSS accepts for a colour.
 HEX = re.compile(r"(?<![#\w-])#([0-9A-Fa-f]{3,8})\b")
+# A native surface writes its colours as 0xRRGGBB, with the alpha last
+# when it has one — the same order as the eight-digit CSS form. A gate
+# that reads the web and not the native surface measures half a
+# repository and calls it whole.
+RUST_HEX = re.compile(r"(?<![0-9A-Za-z_])0x([0-9A-Fa-f]{6,8})\b")
 RGB = re.compile(
     r"rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})"
     r"\s*(?:,\s*(?P<alpha>[\d.]+%?)\s*)?\)")
@@ -246,6 +252,10 @@ def colours_in(text: str) -> list[str]:
     text = MASK.sub(" ", text)
     for value in HEX.findall(text):
         expanded = expand_hex(value)
+        if expanded:
+            found.append(expanded)
+    for value in RUST_HEX.findall(text):
+        expanded = expand_hex(value[:6])
         if expanded:
             found.append(expanded)
     for match in RGB.finditer(text):

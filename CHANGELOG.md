@@ -10,6 +10,45 @@ package states a version is a slot that `tools/version.py` keeps in step, and
 
 ## [4.4.0] — 2026-10-20
 
+The native profile carries the states, and the consumer gate reads the
+native surfaces.
+
+**The gate was measuring half a repository and calling it whole.** It
+read the web suffixes — css, html, ts, js — and not one line of Rust or
+QML. `gnosis.OS` is a Rust workspace: eight hundred and twenty-five
+source files, and no QML at all, as its own manifest records. The gate
+measured ninety-three colours outside the contract in thirty web files
+and saw none of the two hundred and forty-one the native surface
+carries.
+
+It reads them now. The native surface writes its colours as
+`0xRRGGBB`, with the alpha last, and the gate reads that form as it
+reads the CSS one. The same rule, and not a second one: the eight-digit
+CSS form and the eight-digit Rust form put the alpha in the same place.
+
+The numbers move, and they are the numbers that were true:
+
+| | before | after |
+|---|---|---|
+| `gnosis.OS` | 93 | **334** |
+| `gnu6-live` | 372 | 373 |
+| `diagram.studio` | 511 | 513 |
+| `gnu.in.work` | 1957 | 1966 |
+| `gnu6-docs-portal` | 1 | **0** |
+| `engineering-corpus` | 1 | **0** |
+
+The two repositories that had already re-vendored the package are at
+zero — the one colour each of them carried was the black of a mask, and
+a mask is not a surface. What they carry now is the version they do not
+declare.
+
+And the native surface of `gnosis.OS` carries a second interface
+library's palette — the blue, the green, the red and the amber of
+Element — which the contract does not have and which nothing was
+measuring.
+
+## [4.4.0] — 2026-10-20
+
 The native profile carries the states.
 
 Its doctrine has always said that roles and state cross the boundary and

@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "8016e8ec1b214032a720645136f5335925722030ce9681c637d4562be42fb7f0"
+      "sha256": "5970635d04eabd9c300f9ecce54de5ec4867b5d91ea1e611cb0576a26c9a2a5d"
     },
     {
       "class": "evidence",
@@ -1042,7 +1042,7 @@
     {
       "class": "evidence",
       "path": "tools/consumer_check.py",
-      "sha256": "49677be877b203af2e5e4596df03e32f9c1bcdad13965be932d173147290be19"
+      "sha256": "bcad85fb39131397f0f10599641adb3c95bc50313ac8a9f33d330bbc8ba2c6a5"
     },
     {
       "class": "evidence",
