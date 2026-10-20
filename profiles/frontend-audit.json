@@ -28,7 +28,11 @@
       "components": "app/design-system/ (6 files) + ~20 CSS classes",
       "evidence": "21 test files, 12 QA screenshots, a11y audit v0.2/v0.3, release dossier, full-site manifest with sha256",
       "verdict": "absorb first",
-      "blocks": "the eight declared spacing steps are referenced zero times; features.css carries ~250 hardcoded hexes"
+      "blocks": "the eight declared spacing steps are referenced zero times; features.css carries ~250 hardcoded hexes",
+      "lineage": "gnu6",
+      "exclude": [
+        "app/design-system"
+      ]
     },
     {
       "name": "engineering-corpus",
@@ -43,7 +47,8 @@
       "components": "~60 classes in one file, no library",
       "evidence": "48 files under evidence/runs, artifact manifest with sha256, screenshot manifest, axe audits, scripts/qualify.py refuses a dirty tree and demands two byte-identical rebuilds",
       "verdict": "absorb second",
-      "blocks": "a second :root in site/style.css overrides the declared tokens; 35 hardcoded hexes bypass them"
+      "blocks": "a second :root in site/style.css overrides the declared tokens; 35 hardcoded hexes bypass them",
+      "lineage": "engineering-corpus"
     },
     {
       "name": "diagram.studio",
@@ -58,7 +63,8 @@
       "components": "39 component files, no variant prop — differentiation is by state",
       "evidence": "121 test files, verify script, pre-push hook; no CI, no screenshots, no manifest",
       "verdict": "absorb third",
-      "blocks": "the shadcn HSL set and the --neo-* family are a second palette; the third-party copyright is a consent question, not a technical one"
+      "blocks": "the shadcn HSL set and the --neo-* family are a second palette; the third-party copyright is a consent question, not a technical one",
+      "lineage": "diagram.studio"
     },
     {
       "name": "gnu.in.work",
@@ -73,7 +79,8 @@
       "components": "6 in packages/ui, 44 shadcn in apps/app, 12 in src/react-app/design-system",
       "evidence": "122 test files, an 18-step verification script, four debt baselines enforced by a linter; no QA file",
       "verdict": "absorb fourth",
-      "blocks": "the largest job: 1262 colours outside the contract, most of them Radix scale values; PORTAGE.md already records the portage and its colour-literal rule"
+      "blocks": "the largest job: 1262 colours outside the contract, most of them Radix scale values; PORTAGE.md already records the portage and its colour-literal rule",
+      "lineage": "gnu.in.work"
     },
     {
       "name": "gnu.in.docs",
@@ -87,10 +94,17 @@
       "palette": "all five, renamed",
       "components": "8 Astro components; StatusCard carries three data-driven state axes",
       "evidence": "18 unit test files, Playwright, axe, 36 visual baselines, an audit-handoff severity register, six regression gates, manifests and a registry schema",
-      "exclude": ["legacy", "_ds", "uploads", "port-data", "docs.css"],
+      "exclude": [
+        "legacy",
+        "_ds",
+        "uploads",
+        "port-data",
+        "docs.css"
+      ],
       "note": "The repository keeps the earlier design corpus beside the live site. The audit measures what the site ships.",
       "verdict": "absorb fifth",
-      "blocks": "no licence file, so nothing may be taken from it; the vendored Montreal faces are unlicensed. Its evidence discipline is stronger than the design system's own and should flow the other way"
+      "blocks": "no licence file, so nothing may be taken from it; the vendored Montreal faces are unlicensed. Its evidence discipline is stronger than the design system's own and should flow the other way",
+      "lineage": "gnu.in.docs"
     },
     {
       "name": "gnu6-live",
@@ -105,7 +119,11 @@
       "components": "app/design-system/ (8 files), app/context-system/ (24 primitives, 16 molecules, 8 recipes, 6 boards), app/shell/, app/features/",
       "evidence": "52 vitest files, 16 Playwright specs, a proof directory with bundles, checksums and a verdict, 56 QA screenshots",
       "verdict": "absorb sixth",
-      "blocks": "no licence; a parallel --ctx-* palette; a 4853-line stylesheet that root.tsx does not link and that only the tests read; the design-system folder is duplicated from gnu6.live"
+      "blocks": "no licence; a parallel --ctx-* palette; a 4853-line stylesheet that root.tsx does not link and that only the tests read; the design-system folder is duplicated from gnu6.live",
+      "lineage": "gnu6",
+      "exclude": [
+        "public/gnu6"
+      ]
     },
     {
       "name": "gnu6-docs-portal",
@@ -120,7 +138,11 @@
       "components": "38 base components and 99 selectors in the vendored sheet; only the header shell is rendered",
       "evidence": "ten assertions in a build test, a four-page browser check, three lock files — and build.py never verifies the design lock",
       "verdict": "absorb seventh, if it is absorbed at all",
-      "blocks": "not production-qualified, and the gnu6-live specification marks it a migration donor with no new deployment; its content bundle is produced by engineering-corpus, so it is downstream of another audited repo. Space Grotesk is shipped and never applied, because the @font-face lives in a sheet the served chain does not link, and the motion sheets read sixteen variables that sheet alone defines"
+      "blocks": "not production-qualified, and the gnu6-live specification marks it a migration donor with no new deployment; its content bundle is produced by engineering-corpus, so it is downstream of another audited repo. Space Grotesk is shipped and never applied, because the @font-face lives in a sheet the served chain does not link, and the motion sheets read sixteen variables that sheet alone defines",
+      "lineage": "gnu6",
+      "exclude": [
+        "public/gnu6"
+      ]
     },
     {
       "name": "gnosis.OS",
@@ -135,7 +157,8 @@
       "components": "12 widgets in engine/gnosis-ui/src/, 8 atoms and 7 molecules in the bar",
       "evidence": "2291 Rust tests across 182 files, 85 shell contract tests, 58 screenshots, a surface screenshot manifest, components.toml and contracts/surfaces.toml",
       "verdict": "absorb eighth",
-      "blocks": "AGPL cannot flow into an MIT repository, so the flow is one way only; the token source engine/blob.in/tokens.json is already a codegen pipeline and should become a projection of core/TOKENS.json"
+      "blocks": "AGPL cannot flow into an MIT repository, so the flow is one way only; the token source engine/blob.in/tokens.json is already a codegen pipeline and should become a projection of core/TOKENS.json",
+      "lineage": "gnosis.OS"
     },
     {
       "name": "blob.in-showcase",
@@ -150,7 +173,8 @@
       "components": "a UI-tree core and a scene crate, a shell of egui panels",
       "evidence": "30 evidence run directories, qualification and run records, 68 screenshots, 86 logs, 227 Rust tests",
       "verdict": "correct the claim, then decide",
-      "blocks": "theme.rs:1 says the palette is read from a gnosix path that does not exist and does not match the current palette; the claim must be corrected before anything else"
+      "blocks": "theme.rs:1 says the palette is read from a gnosix path that does not exist and does not match the current palette; the claim must be corrected before anything else",
+      "lineage": "blob.in"
     },
     {
       "name": "spjoaillerie-live",
@@ -165,7 +189,8 @@
       "components": "a sixteen-component compiled bundle with source hashes",
       "evidence": "none: no tests, no CI, no evidence directory, no manifest, no licence",
       "verdict": "exclude",
-      "blocks": "it is a capture of a different brand. Absorbing it would import Didot, Garamond and gold into the system. One idea is worth taking — the bundle header that records where each component came from — and the brand is left alone"
+      "blocks": "it is a capture of a different brand. Absorbing it would import Didot, Garamond and gold into the system. One idea is worth taking — the bundle header that records where each component came from — and the brand is left alone",
+      "lineage": "spjoaillerie"
     }
   ]
 }

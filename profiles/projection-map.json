@@ -1,8 +1,34 @@
 {
-  "version": "3.8.1",
+  "version": "4.0.0",
   "status": "CURRENT",
   "principle": "Portable meaning is authoritative; each target maps roles, state and evidence without importing another toolkit's component model.",
   "rows": [
+    {
+      "id": "semantic.roles",
+      "rules": [
+        "COL-001",
+        "SUR-001",
+        "A11Y-001"
+      ],
+      "portable": "A role says what a thing is for, and is bound to a token on each substrate: surface, ink, hairline, accent, focus, and the three conditions. A component names the role and is written once.",
+      "web": "Generated CSS custom properties, rebound by the substrate attribute.",
+      "android": "Generated Kotlin colour maps, one per substrate.",
+      "native": "Generated Rust structs, one per substrate, bound to the contract's own constants.",
+      "gate": "Every role binds to a token the contract has, and every role pairing that carries text measures 4.5 on both substrates."
+    },
+    {
+      "id": "components.layer",
+      "rules": [
+        "A11Y-001",
+        "COL-002",
+        "SUR-001"
+      ],
+      "portable": "The components the field agrees on, stated as roles, states, geometry, typography and the accessibility they owe. The names come from a measurement of the field, not from a preference.",
+      "web": "Generated stylesheet, rendered by a renderer that is generic: a component is added by stating it, not by adding a case to the renderer.",
+      "android": "Not yet projected. The roles are; the components are not.",
+      "native": "Not yet projected. The roles are; the components are not.",
+      "gate": "The stylesheet is what the specification projects, every token a component names is one the contract has, and every variant reads on its own background."
+    },
     {
       "id": "type.primary",
       "rules": [
@@ -28,7 +54,7 @@
       "gate": "Projection equality check against core/TOKENS.json."
     },
     {
-      "id": "action.primary",
+      "id": "button.primary",
       "rules": [
         "COL-002",
         "A11Y-001"
@@ -51,7 +77,7 @@
       "gate": "A request produces pending text before any success text."
     },
     {
-      "id": "status.form",
+      "id": "badge.form",
       "rules": [
         "CMP-001",
         "A11Y-001"

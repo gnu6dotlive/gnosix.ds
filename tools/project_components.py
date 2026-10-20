@@ -3,17 +3,28 @@
 
 `profiles/web/components.css` used to be written by hand, which meant the
 styles a consumer shipped and the contract behind them were two things
-that could disagree. This renders the stylesheet from core/COMPONENTS.json
-instead, so the styles are a projection of the contract rather than a copy
-of it.
+that could disagree. It is now rendered from `core/COMPONENTS.json`.
+
+The renderer is generic. It used to carry one hand-written block of CSS
+per component, which meant that every component added to the contract
+needed a new special case here, and a design system whose projection
+grows a special case per component is a design system whose projection
+cannot be trusted. A component now states what it is made of, and this
+walks the statements.
+
+A component states:
+
+  tokens       the roles it wears: background, text, border, and
+               optionally mark for the pip that carries a state
+  geometry     its radius, its minimum height, its padding, its gap
+  typography   its weight, its size, its line height
+  variants     the roles it plays, and the tokens it wears in each
+  states       what happens to it, and the pseudo-class that says so
+  parts        the elements it is made of, when it is more than one
+  a11y         the focus ring it owes, and the target it must reach
 
     python3 tools/project_components.py --write
     python3 tools/project_components.py --check
-
-The base of the profile - the font, the resets, the reduced-motion
-respect - is the target's own and stays in the profile. What is generated
-is the part the contract states: the four components, their states, their
-geometry and the accessibility they owe.
 """
 
 import argparse
@@ -22,13 +33,26 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+from oklch import contrast_ratio, hex_to_rgb  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
+
+# Running this file as a script puts tools/ on sys.path, not the package
+# root, so `from tools.project_roles import ...` fails with a
+# ModuleNotFoundError. Putting the package root on the path first makes
+# both forms work, the same way tools/rebuild_manifest.py does it.
+if __package__ in (None, ""):
+    sys.path.insert(0, str(ROOT))
+
 SPEC = ROOT / "core/COMPONENTS.json"
+ROLES = ROOT / "core/ROLES.json"
 OUT = ROOT / "profiles/web/components.css"
 
 # The target's base. Not part of the contract: it is what a web profile
 # does about fonts, resets and motion preferences.
 BASE = '''@import url("./tokens.css");
+@import url("./roles.css");
 @import url("./icons.css");
 
 @font-face {
@@ -41,7 +65,8 @@ BASE = '''@import url("./tokens.css");
 
 :root {
   font-family: var(--gnosix-font-primary);
-  color: var(--gnosix-neutral-anthracite);
+  color: var(--gnosix-ink);
+  background: var(--gnosix-surface);
   font-synthesis: none;
 }
 
@@ -84,18 +109,19 @@ def kebab(name: str) -> str:
     return "-".join(part.lower() for part in words(name))
 
 
-def css_var(token: str | None) -> str | None:
-    """A token's custom property, from the way the token is named."""
-    if not token or token == "inherit":
-        return None
-    if token.startswith("weight/"):
-        return f"var(--gnosix-weight-{token.split('/', 1)[1]})"
-    family, _, shade = token.partition("/")
-    return f"var(--gnosix-{kebab(family)}-{kebab(shade)})"
+def role_var(name: str | None) -> str | None:
+    """A role, as the custom property that carries it."""
+    if not name or name in ("inherit", "transparent", "none"):
+        return name
+    return f"var(--gnosix-{kebab(name)})"
 
 
-def length(value: dict) -> str:
+def length(value) -> str | None:
     """A length, as the specification states it."""
+    if value is None:
+        return None
+    if isinstance(value, str):
+        return value
     if "px" in value:
         return f"{value['px']}px"
     if "em" in value:
@@ -105,84 +131,138 @@ def length(value: dict) -> str:
     raise ValueError(f"a length with no unit: {value}")
 
 
+def token_properties(tokens: dict) -> list[tuple[str, str]]:
+    """The declarations a set of tokens states."""
+    out = []
+    background = tokens.get("background")
+    if background:
+        out.append(("background", role_var(background)))
+    text = tokens.get("text")
+    if text:
+        out.append(("color", role_var(text)))
+    border = tokens.get("border")
+    if border:
+        out.append(("border-color", role_var(border)))
+    return out
+
+
+def geometry_properties(geometry: dict) -> list[tuple[str, str]]:
+    """The declarations a set of geometry states."""
+    out = []
+    radius = length(geometry.get("radius"))
+    if radius:
+        out.append(("border-radius", radius))
+    minimum = length(geometry.get("min-height"))
+    if minimum:
+        out.append(("min-height", minimum))
+    padding = geometry.get("padding")
+    if padding:
+        if "all" in padding:
+            out.append(("padding", length(padding["all"])))
+        else:
+            out.append(("padding",
+                        f"{length(padding.get('block'))} {length(padding.get('inline'))}"))
+    gap = length(geometry.get("gap"))
+    if gap:
+        out.append(("gap", gap))
+    size = length(geometry.get("size"))
+    if size:
+        out.append(("width", size))
+        out.append(("height", size))
+    width = length(geometry.get("width"))
+    if width:
+        out.append(("width", width))
+    height = length(geometry.get("height"))
+    if height:
+        out.append(("height", height))
+    return out
+
+
+def typography_properties(typography: dict) -> list[tuple[str, str]]:
+    """The declarations a set of typography states."""
+    out = []
+    weight = typography.get("weight")
+    if weight:
+        out.append(("font-weight", f"var(--gnosix-weight-{weight})"))
+    size = length(typography.get("size"))
+    if size:
+        out.append(("font-size", size))
+    leading = length(typography.get("line-height"))
+    if leading:
+        out.append(("line-height", leading))
+    return out
+
+
+def declaration_block(pairs: list[tuple[str, str]]) -> str:
+    body = "".join(f"  {name}: {value};\n" for name, value in pairs if value)
+    return "{\n" + body + "}"
+
+
+def render_component(name: str, component: dict) -> str:
+    parts = component.get("parts") or [{"name": "root", "class": f"gnosix-{kebab(name)}"}]
+    tokens = component.get("tokens") or {}
+    geometry = component.get("geometry") or {}
+    typography = component.get("typography") or {}
+    ring = (component.get("a11y") or {}).get("focus-ring") or {}
+    variants = component.get("variants") or []
+    states = component.get("states") or []
+
+    out = []
+    for part in parts:
+        cls = part["class"]
+        part_tokens = part.get("tokens", tokens)
+        part_geometry = part.get("geometry", geometry)
+        part_typography = part.get("typography", typography)
+
+        pairs = token_properties(part_tokens) + geometry_properties(part_geometry) \
+            + typography_properties(part_typography)
+        if part.get("border-width"):
+            pairs.insert(0, ("border", f"{length(part['border-width'])} solid "
+                                       f"{role_var(part_tokens.get('border') or 'hairline')}"))
+        elif part_tokens.get("border"):
+            pairs.append(("border", "1px solid " + role_var(part_tokens["border"])))
+        else:
+            pairs.append(("border", "1px solid transparent"))
+
+        out.append(f"\n.{cls} {declaration_block(pairs)}")
+
+        mark = part_tokens.get("mark")
+        if mark:
+            out.append(f"\n.{cls}::before {declaration_block([('background', role_var(mark))])}")
+
+        if ring:
+            out.append(
+                f"\n.{cls}:focus-visible {declaration_block([('outline', f'{length(ring['width'])} solid {role_var(ring['role'])}'), ('outline-offset', length(ring['offset']))])}")
+
+        for variant in variants:
+            variant_tokens = variant.get("tokens") or {}
+            properties = token_properties(variant_tokens)
+            if variant_tokens.get("mark"):
+                properties.append(("background", role_var(variant_tokens["mark"])))
+            if variant.get("geometry"):
+                properties += geometry_properties(variant["geometry"])
+            if not properties:
+                continue
+            out.append(f'\n.{cls}[data-variant="{variant["name"]}"] '
+                       f"{declaration_block(properties)}")
+
+        for state in states:
+            pseudo = state.get("pseudo")
+            if not pseudo:
+                continue
+            overrides = state.get("overrides") or {}
+            if not overrides:
+                continue
+            out.append(f"\n.{cls}{pseudo} {declaration_block(list(overrides.items()))}")
+
+    return "".join(out)
+
+
 def render(spec: dict) -> str:
     parts = [BASE]
-    components = spec["components"]
-
-    # --- the action -----------------------------------------------------
-    action = components["action"]
-    tokens = action["tokens"]
-    geometry = action["geometry"]
-    ring = action["a11y"]["focus-ring"]
-    parts.append(f"""
-.gnosix-action {{
-  min-height: {length(geometry['min-height'])};
-  padding: {geometry['padding']['block']} {geometry['padding']['inline']};
-  border: 1px solid {"transparent" if not tokens.get("border") else css_var(tokens["border"])};
-  border-radius: {length(geometry['radius'])};
-  background: {css_var(tokens["background"])};
-  color: {css_var(tokens["text"])};
-  cursor: pointer;
-  font-weight: {css_var("weight/" + action["typography"]["weight"])};
-}}
-
-.gnosix-action:disabled {{
-  cursor: not-allowed;
-  opacity: .55;
-}}
-
-.gnosix-action:focus-visible,
-.gnosix-input:focus-visible {{
-  outline: {length(ring["width"])} solid {css_var(ring["token"])};
-  outline-offset: {length(ring["offset"])};
-}}
-""")
-
-    # --- the input ------------------------------------------------------
-    field = components["input"]
-    tokens = field["tokens"]
-    geometry = field["geometry"]
-    parts.append(f"""
-.gnosix-input {{
-  padding: {geometry['padding']['all']};
-  border: {length(geometry['border-width'])} solid {css_var(tokens["border"])};
-  border-radius: {length(geometry["radius"])};
-  background: {css_var(tokens["background"])};
-  color: inherit;
-}}
-""")
-
-    # --- the state ------------------------------------------------------
-    state = components["state"]
-    mark = state["mark"]
-    geometry = state["geometry"]
-    parts.append(f"""
-.gnosix-state {{
-  display: flex;
-  gap: {length(geometry["gap"])};
-  align-items: baseline;
-  line-height: {length(geometry["line-height"])};
-}}
-
-.gnosix-state::before {{
-  width: {length(mark["diameter"])};
-  height: {length(mark["diameter"])};
-  border-radius: 50%;
-  background: {css_var(mark["by-state"]["observed"])};
-  content: "";
-  flex: 0 0 auto;
-}}
-
-.gnosix-state[data-status="pending"]::before {{
-  background: {css_var(mark["by-state"]["pending"])};
-}}
-
-.gnosix-state[data-status="observed"]::before {{
-  background: {css_var(mark["by-state"]["observed"])};
-}}
-""")
-
-    # --- motion ---------------------------------------------------------
+    for name, component in spec["components"].items():
+        parts.append(f"\n/* {name} — {component['description'].split('.')[0]}. */")
+        parts.append(render_component(name, component))
     parts.append("""
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -197,21 +277,30 @@ def render(spec: dict) -> str:
 
 
 def known_tokens() -> set[str]:
-    """Every token the contract has, named the way the specification names them."""
+    """Every token the contract has, and every role it binds."""
     tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
     out = set()
     for family, ramp in tokens["color"].items():
         for shade in ramp:
             out.add(f"{family}/{shade}")
+    surfaces = json.loads((ROOT / "core/SURFACES.json").read_text(encoding="utf-8"))
+    for spec in surfaces.get("families", {}).values():
+        for step in spec["steps"]:
+            out.add(step["id"])
+    for accent in surfaces.get("accents", []):
+        out.add(accent["id"])
     for step in tokens.get("spacing", {}):
         out.add(f"spacing/{step}")
     for role, weight in tokens.get("typography", {}).get("weights", {}).items():
         out.add(f"weight/{role}")
+    roles = json.loads(ROLES.read_text(encoding="utf-8"))
+    for role in roles["roles"]:
+        out.add(role)
     return out
 
 
 def missing_tokens(spec: dict) -> list[str]:
-    """The tokens a component names that the contract does not have.
+    """The tokens and roles a component names that the contract does not have.
 
     A component that names a token the contract does not have would project
     a custom property that resolves to nothing, and the surface would fall
@@ -221,20 +310,67 @@ def missing_tokens(spec: dict) -> list[str]:
     known = known_tokens()
     missing = []
 
-    def check(where: str, value):
-        if isinstance(value, str) and "/" in value and not value.startswith("http"):
-            if value not in known and not value.startswith("weight/"):
-                missing.append(f"{where}: {value}")
+    def check_tokens(where: str, tokens: dict):
+        for role, token in (tokens or {}).items():
+            # A null token means the thing has none of it, which is a
+            # decision and not a gap.
+            if token is None or token in ("inherit", "transparent", "none"):
+                continue
+            if token in known:
+                continue
+            missing.append(f"{where}.{role}: {token}")
 
     for name, component in spec["components"].items():
-        for role, token in (component.get("tokens") or {}).items():
-            check(f"{name}.tokens.{role}", token)
-        mark = component.get("mark") or {}
-        for state, token in (mark.get("by-state") or {}).items():
-            check(f"{name}.mark.{state}", token)
+        check_tokens(f"{name}.tokens", component.get("tokens") or {})
+        for variant in component.get("variants") or []:
+            check_tokens(f"{name}.variants.{variant['name']}.tokens", variant.get("tokens") or {})
+        for part in component.get("parts") or []:
+            check_tokens(f"{name}.parts.{part.get('name')}.tokens", part.get("tokens") or {})
         ring = (component.get("a11y") or {}).get("focus-ring") or {}
-        check(f"{name}.a11y.focus-ring", ring.get("token"))
+        if ring.get("role") and ring["role"] not in known:
+            missing.append(f"{name}.a11y.focus-ring: {ring['role']}")
     return missing
+
+
+def read_of(spec: dict) -> list[str]:
+    """The variants whose text does not read on their own background.
+
+    A variant is a promise that a thing will be legible in a certain
+    state. The role layer says what a role is worth on each substrate;
+    this says whether the two things the variant names can be read
+    together. A transparent background is read against the substrate.
+    """
+    from tools.project_roles import load as load_roles
+    from tools.project_roles import resolve
+
+    roles, tokens, surfaces = load_roles()
+    role_tokens = {name: spec.get("light") for name, spec in roles["roles"].items()}
+
+    def value_of(reference: str) -> str | None:
+        if reference in ("transparent", "none", "inherit"):
+            return None
+        if reference in role_tokens:
+            reference = role_tokens[reference]
+        return resolve(reference, tokens, surfaces)
+
+    problems = []
+    for name, component in spec["components"].items():
+        for variant in component.get("variants") or []:
+            tokens_of = variant.get("tokens") or {}
+            background = value_of(tokens_of.get("background") or "")
+            text = value_of(tokens_of.get("text") or "")
+            if not text:
+                continue
+            if not background:
+                # Transparent: the text sits on the surface of the page.
+                background = value_of("surface")
+            if not background:
+                continue
+            ratio = contrast_ratio(hex_to_rgb(text), hex_to_rgb(background))
+            if ratio + 1e-9 < 4.5:
+                problems.append(f"{name}.{variant['name']}: the text measures "
+                                f"{ratio:.2f} on its own background, below 4.5")
+    return problems
 
 
 def main(argv=None) -> int:
@@ -251,9 +387,9 @@ def main(argv=None) -> int:
         print(f"wrote {OUT.relative_to(ROOT)}")
         return 0
 
-    problems = missing_tokens(spec)
+    problems = missing_tokens(spec) + read_of(spec)
     if problems:
-        print(f"FAIL: {len(problems)} token(s) a component names that the contract does not have")
+        print(f"FAIL: {len(problems)} problem(s) with the component specification")
         for problem in problems:
             print(f"  - {problem}")
         return 1

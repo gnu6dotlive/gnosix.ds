@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projectState } from "./state";
+import { projectBadge, projectState } from "./state";
 import "./components.css";
 
 /** Example integration: supply observed from the real data source, not from this button. */
@@ -9,11 +9,12 @@ export function GnosixStateAction({ observed, onRequest }: {
 }) {
   const [requested, setRequested] = useState<string | null>(null);
   const state = projectState(requested, observed);
+  const badge = projectBadge(state.status);
   return <div>
-    <button type="button" className="gnosix-action" onClick={() => {
+    <button type="button" className="gnosix-button" data-variant="primary" onClick={() => {
       setRequested("on");
       onRequest("on");
     }}>Enable</button>
-    <p role="status" aria-live="polite" className="gnosix-state" data-status={state.status}>{state.text}</p>
+    <p role="status" aria-live="polite" className="gnosix-badge" data-variant={badge}>{state.text}</p>
   </div>;
 }

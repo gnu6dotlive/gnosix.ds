@@ -1,6 +1,6 @@
 {
   "id": "surfaces",
-  "version": "3.8.1",
+  "version": "4.0.0",
   "artwork": "references/surfaces.svg",
   "roles": [
     "content",

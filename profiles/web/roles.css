@@ -1,0 +1,42 @@
+/* Generated from core/ROLES.json. Do not edit.
+ *
+ * The semantic role layer: what a thing is for, bound to a token on each
+ * substrate. The components name the role and are written once.
+ */
+
+@import url("./tokens.css");
+
+:root,
+[data-gnosix-substrate="light"] {
+  --gnosix-surface: var(--gnosix-neutral-shell-white);
+  --gnosix-surface-raised: var(--gnosix-surface-light-l978c1);
+  --gnosix-surface-overlay: var(--gnosix-surface-light-l988c0);
+  --gnosix-surface-sunken: var(--gnosix-surface-light-l920c6);
+  --gnosix-ink: var(--gnosix-neutral-anthracite);
+  --gnosix-ink-muted: var(--gnosix-ink-on-light-l445c22);
+  --gnosix-hairline: var(--gnosix-hairline-l921c5);
+  --gnosix-accent: var(--gnosix-signal-orange-base);
+  --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
+  --gnosix-focus: var(--gnosix-royal-blue-base);
+  --gnosix-positive: var(--gnosix-beret-green-base);
+  --gnosix-positive-surface: var(--gnosix-beret-green-100);
+  --gnosix-caution: var(--gnosix-semantic-warn);
+  --gnosix-critical: var(--gnosix-semantic-alert);
+}
+
+[data-gnosix-substrate="dark"] {
+  --gnosix-surface: var(--gnosix-neutral-anthracite);
+  --gnosix-surface-raised: var(--gnosix-surface-dark-l250c14);
+  --gnosix-surface-overlay: var(--gnosix-surface-dark-l282c16);
+  --gnosix-surface-sunken: var(--gnosix-surface-dark-l207c10);
+  --gnosix-ink: var(--gnosix-neutral-shell-white);
+  --gnosix-ink-muted: var(--gnosix-ink-on-dark-l678c24);
+  --gnosix-hairline: var(--gnosix-hairline-l310c15);
+  --gnosix-accent: var(--gnosix-signal-orange-base);
+  --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
+  --gnosix-focus: var(--gnosix-royal-blue-base);
+  --gnosix-positive: var(--gnosix-beret-green-300);
+  --gnosix-positive-surface: var(--gnosix-beret-green-700);
+  --gnosix-caution: var(--gnosix-semantic-warn);
+  --gnosix-critical: var(--gnosix-semantic-alert);
+}

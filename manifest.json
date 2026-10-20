@@ -1,7 +1,7 @@
 {
-  "version": "3.8.1",
-  "name": "gnosix_DS V3.8.1 motion contract and alpha compositing variants",
-  "contract_digest": "f4b0d56b95acc98b824335bb081c43688b74546c195c2393c8559395df70c122",
+  "version": "4.0.0",
+  "name": "gnosix_DS V4.0.0 motion contract and alpha compositing variants",
+  "contract_digest": "096d17f0a7d6d441e20cc816bc40d1993e6284561c4ff1103e0aed21c5ae80d5",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "e7a55d8636c1612afddc85a42c3b9fdff641d0287b091a4e456cca12f0c8304c"
+      "sha256": "0284ddbb260462d6343eed75831ecfa974be6c0639faf836d3a1b693d6f2db04"
     },
     {
       "class": "evidence",
@@ -42,7 +42,7 @@
     {
       "class": "evidence",
       "path": "VERSION",
-      "sha256": "8366b0a6a2bd18fbaf821765e4908b8408fbafe3ba962e7d6b32b8b9e0486254"
+      "sha256": "e1d49c569ae09b2ede16e2d83820a3809b35eb6c44c13ba9b5330598d6b8f43c"
     },
     {
       "class": "evidence",
@@ -427,7 +427,7 @@
     {
       "class": "core",
       "path": "core/COMPONENTS.json",
-      "sha256": "c0d07fd23868910c6bf2c1c08ff3268af2299bc973ffa16189f83556cccf3571"
+      "sha256": "41f7d3dfc85201de712bd2349f8fd08021920919757ee5737673bf945f393133"
     },
     {
       "class": "core",
@@ -438,6 +438,11 @@
       "class": "core",
       "path": "core/MAPPING.md",
       "sha256": "95540204d964b76f5846c1ac64442151363b0942d37c9a15a8a3cad04d62089b"
+    },
+    {
+      "class": "core",
+      "path": "core/ROLES.json",
+      "sha256": "60841b593f7600a24ecbff1a4c5c043dc96bb282da74121e2c41661576581a17"
     },
     {
       "class": "core",
@@ -462,7 +467,7 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "dacf5c50c87eef1151a02921e616dcc691caba8a72236daf6ac356a4f7e336b7"
+      "sha256": "f4d8125d61b17ed5f7fd7fd44d063444bcfc972ef7b5467f1d6750ebd13e29f0"
     },
     {
       "class": "profile",
@@ -483,6 +488,11 @@
       "class": "profile",
       "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixColors.kt",
       "sha256": "99c0784d9b6f07adf785d4dcca3eb32569f3fb785e7f3e2f4ecc06ddd64adcb9"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixRoles.kt",
+      "sha256": "9b374fafdbc6635b6acde33bdae6a3e015cf16079ec87ecd2f01792dffcc0b30"
     },
     {
       "class": "profile",
@@ -531,6 +541,11 @@
     },
     {
       "class": "profile",
+      "path": "profiles/frontend-audit/CONVERGENCE.md",
+      "sha256": "6ad1c4ed084e50f19c3e1a59cedac2c64e3a83ab583b84a0e3803b8dbc26a636"
+    },
+    {
+      "class": "profile",
       "path": "profiles/frontend-audit/INVENTORY.md",
       "sha256": "e0fe399ca09569a96784d97d172943f3a1fadfaadae4b7360598fd853580fea8"
     },
@@ -542,7 +557,7 @@
     {
       "class": "profile",
       "path": "profiles/frontend-audit.json",
-      "sha256": "eb90512c05a6371ca1b1c5d64205870902339b5ab5d8046cf07bf59b59b42c9d"
+      "sha256": "a9f46a27a1e4b6c603e7956b7ffd24bc67ce789a42365a2282683455d58173a7"
     },
     {
       "class": "profile",
@@ -572,7 +587,7 @@
     {
       "class": "profile",
       "path": "profiles/motion/motion.json",
-      "sha256": "94ddcc239e3458414b0dc253b5767aa97bb17045a2b85a8341f25007c1b5761f"
+      "sha256": "d2a37674d70327fb75d8edb6e896e839e8adea72aa5c10406149395d4ba91b26"
     },
     {
       "class": "profile",
@@ -597,7 +612,12 @@
     {
       "class": "profile",
       "path": "profiles/native/src/lib.rs",
-      "sha256": "15ee4a07a95407a36af38bdc71868197817375b83331309681fb58d524b0700b"
+      "sha256": "3896705600843879e915bfe2e0135fb096ab97a953f99548c2fea89f607d37d2"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/native/src/roles.rs",
+      "sha256": "8bd35c29c8c8ae4f1ee52f79f13408355441c59754f29878afe5afef2c0c8ec3"
     },
     {
       "class": "profile",
@@ -612,7 +632,7 @@
     {
       "class": "profile",
       "path": "profiles/projection-map.json",
-      "sha256": "ad43e3c22da8eaa3e616aeba9357404d054ef3d92008cba031696ff6e5e1010a"
+      "sha256": "631e989bc2a54c1d612f0d78f489b02d37b8608bcb32b19dc02fd5b7e7c7bb36"
     },
     {
       "class": "profile",
@@ -622,17 +642,17 @@
     {
       "class": "profile",
       "path": "profiles/web/ReactExample.tsx",
-      "sha256": "9fe3c93aebfb1b3bd564825cf238f9681d0ce411a1bd589ca0e02077af60dfb8"
+      "sha256": "4805f799d2a24d2a697990b3ce9ba7c1c0cb929689fe7b0bc91c8b3a57aefd50"
     },
     {
       "class": "profile",
       "path": "profiles/web/components.css",
-      "sha256": "c9e58b0978a39c459460961fe17b25a1d4270803adf81f489265e146ce3bd694"
+      "sha256": "e03298e77da4e88668fb0b3a24f9cc1ecce5c6392a18eceba2380ac94d96d143"
     },
     {
       "class": "profile",
       "path": "profiles/web/demo.html",
-      "sha256": "b4a5460a983bad4c2f4b30fc25c95c2180ac1fa73e1fa4822ad1bb00eaaadd8a"
+      "sha256": "b7465351e49caf1a6b33d10180f05a75fdc9dc8e11b55dc2a5cc384acb8eb14a"
     },
     {
       "class": "profile",
@@ -641,13 +661,18 @@
     },
     {
       "class": "profile",
+      "path": "profiles/web/roles.css",
+      "sha256": "c9a6105f56f81f61e2fb232cdd6343fd3d28b80e716bce72e872cd52de858149"
+    },
+    {
+      "class": "profile",
       "path": "profiles/web/state.js",
-      "sha256": "41a9fc7d561d2f1ee0dd30addad8ca8e99eb78ac7962973d6d862fa3cb9dae6b"
+      "sha256": "8800d1d5380f38f1faed74ce4a57c0d7b14bf7549c097d086e81fe5bc3773a49"
     },
     {
       "class": "profile",
       "path": "profiles/web/state.ts",
-      "sha256": "5e89645e3b53557ab2f130bb22bdaaa1f70777841cae0c4ab700966b23936c44"
+      "sha256": "c6cd34ef67c4d2d6d1305d769838526062b24eb992948a1d67ca91032a928ff5"
     },
     {
       "class": "profile",
@@ -667,62 +692,62 @@
     {
       "class": "reference",
       "path": "references/actions.json",
-      "sha256": "ae605ff91474dcfd7abd63993d61a9b25b45eb50bce1881295cacdd369dece19"
+      "sha256": "431a5a50933412c29b8170122f5965ff5beb3a4b99a1e5f229a73cd467f567a1"
     },
     {
       "class": "reference",
       "path": "references/actions.svg",
-      "sha256": "8ad7e44a58b2128d1ab64d47bbd2338cbd0d9d9d0d660424b3a00ac61a2ee270"
+      "sha256": "136b15789c8fef7c900570afe68f3967baea0e7e03731876c4ca975400721e20"
     },
     {
       "class": "reference",
       "path": "references/adaptive.json",
-      "sha256": "c0fa0ad5610883c2b80cd9b17abd7904b58f75df439699d70feeae5811b9dd09"
+      "sha256": "a736eafd8871243977aa938bf522f0ddf1c0477728fceb827a7f0d3176a803db"
     },
     {
       "class": "reference",
       "path": "references/adaptive.svg",
-      "sha256": "ab81e71889aea99e106c13772a476d4ec772fe7f59f318954148f1ba25e68686"
+      "sha256": "167048fb36bb5ac8253ae62dd40f3d34e2849f76717114cf7f0a17ab4ffa07d7"
     },
     {
       "class": "reference",
       "path": "references/fields.json",
-      "sha256": "508fde57143a2f876f4bb45cf70f738b5a1c2bca3d444195d5bb1a1a6bd71610"
+      "sha256": "6e1c31856999658e4d1215eb3c90928c440bffb53f03537585b0859b1c83f120"
     },
     {
       "class": "reference",
       "path": "references/fields.svg",
-      "sha256": "d051f1932249e823971cd04bcd324102d2841755e68c57e7121c2da58e621421"
+      "sha256": "68ab48fbf58232a0be8a692606a1505ef2fed7656cce5d3b64f7e7b75a502a3a"
     },
     {
       "class": "reference",
       "path": "references/identity.json",
-      "sha256": "a97009fdc1512d7fb24ed686f4c9d8f892be84172b42ce6899ed104f51f74c06"
+      "sha256": "9512d7baf0f38c10475b2ea7f84c73d7a47a28debfd64fbb8c1802daa543e5ed"
     },
     {
       "class": "reference",
       "path": "references/identity.svg",
-      "sha256": "bff590938e51bec59cf43c7d6bcd4f7134bbecb0dbe3321e030e89d1ffc53cc4"
+      "sha256": "0ffc049d114439824de8e1df56cb9a2c47a2c6b06f4ceaf2c24492da0024e57e"
     },
     {
       "class": "reference",
       "path": "references/state.json",
-      "sha256": "0dba9ece4c9d37faad7657ba111d62d242d6e2f7354fdab11c2e266b8ad46b27"
+      "sha256": "8990166fb773d008e0a6503e832719b637962f75f6f2835f7e64e00cacd7f79d"
     },
     {
       "class": "reference",
       "path": "references/state.svg",
-      "sha256": "9ae7fce88fd9ca3082b94c80307758cfd64d6284d4808afd44cd2573b3cdf969"
+      "sha256": "c806c8f7883b961f6508a6dfe8fc7767c25e60bf53d2d804d4027e530c8b3672"
     },
     {
       "class": "reference",
       "path": "references/surfaces.json",
-      "sha256": "febfb2442c2a806513418f3322a9c2b8466e372ac156d317601bf4c81b40a6d6"
+      "sha256": "9c0c2c8c1dfe269b85291026fc6e9161178f972dd87c645edb051df0aaa9c323"
     },
     {
       "class": "reference",
       "path": "references/surfaces.svg",
-      "sha256": "8472367a29d2dfe3a233c6de5448ebdc0630e6b0349a9eb0d2d9f10186755afc"
+      "sha256": "bac26112e607092c670ee7d22f1f5ca8da3c460bb64cd949133f89bb75a9939b"
     },
     {
       "class": "evidence",
@@ -787,7 +812,7 @@
     {
       "class": "evidence",
       "path": "site/index.html",
-      "sha256": "438f4c5ea77749186283602f33e000f5a5cbac71d635968f0314e5b881227381"
+      "sha256": "a0d99d29c5d9fc5234173b1c720b5e3f747b340ab17943e1c16a543e21fb55d5"
     },
     {
       "class": "evidence",
@@ -797,7 +822,7 @@
     {
       "class": "evidence",
       "path": "site/site.webmanifest",
-      "sha256": "f9f95cacc1f8cbcb715852b35b3709f33243ec0cb7f14599ae18271c16e73138"
+      "sha256": "b14fb26a769d3d5cd5a9f102a90945c32b73a5885c4ebc6248aa7c86c548b6d0"
     },
     {
       "class": "evidence",
@@ -892,7 +917,12 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "5e91565267049a127d825a5f1b260432ba27227b13c4e210a36018457b553e9a"
+      "sha256": "293a5514db5b0215d58b57fb0b897897b4d0fc5da05fe5ec927e6e434be130e3"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/component_convergence.py",
+      "sha256": "44ba05b4d39f1bc17d10f64664ef5a2ac4fb76dd5c5b0fa5e76c93c624e833e1"
     },
     {
       "class": "evidence",
@@ -927,7 +957,12 @@
     {
       "class": "evidence",
       "path": "tools/project_components.py",
-      "sha256": "d9b2094d6fb67db69ff9743c0b68d5aa54991f58fbff5b3ae302f9edef0ec87a"
+      "sha256": "1c466885cd45397ea060a7353a126b70b2bf75e01d36622f759ee60363ade4ef"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/project_roles.py",
+      "sha256": "2ee07b209963a8d7037d5aa11d8a6487122defa7805b3e4eedc2847dde500e68"
     },
     {
       "class": "evidence",

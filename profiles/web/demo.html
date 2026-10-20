@@ -60,8 +60,8 @@
         <h2>Primary action</h2>
         <p>Orange signals a primary request. It does not imply success.</p>
         <div class="demo-stack">
-          <button class="gnosix-action" id="request" type="button">Simulate request</button>
-          <p class="gnosix-state" data-status="observed" id="feedback" role="status" aria-live="polite">No observed change</p>
+          <button class="gnosix-button" data-variant="primary" id="request" type="button">Simulate request</button>
+          <p class="gnosix-badge" data-variant="stable" id="feedback" role="status" aria-live="polite">No observed change</p>
         </div>
       </section>
 
@@ -70,7 +70,7 @@
         <p>Controls inherit the system type family and retain visible focus.</p>
         <div class="demo-field">
           <label for="target">Requested state</label>
-          <input class="gnosix-input" id="target" value="on">
+          <input class="gnosix-text-input" id="target" value="on">
         </div>
       </section>
 
@@ -89,18 +89,16 @@
     const button=document.getElementById('request');
     const status=document.getElementById('feedback');
     let timer;
+    const show=(state)=>{
+      status.textContent=state.text;
+      status.dataset.variant=projectBadge(state.status);
+    };
     button.addEventListener('click',()=>{
       clearTimeout(timer);
       const requested=document.getElementById('target').value.trim();
-      if(!requested){status.textContent='Enter a requested state';status.dataset.status='observed';return}
-      const pending=projectState(requested,'off');
-      status.textContent=pending.text;
-      status.dataset.status=pending.status;
-      timer=setTimeout(()=>{
-        const seen=projectState(requested,requested);
-        status.textContent=seen.text;
-        status.dataset.status=seen.status;
-      },900)
+      if(!requested){show({text:'Enter a requested state',status:'observed'});return}
+      show(projectState(requested,'off'));
+      timer=setTimeout(()=>show(projectState(requested,requested)),900)
     });
   </script>
 </body>

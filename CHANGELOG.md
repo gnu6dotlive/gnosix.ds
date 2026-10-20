@@ -8,6 +8,59 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [4.0.0] — 2026-10-20
+
+The system gains the tier it was missing, and the component layer is
+rebuilt on what the field actually agrees on.
+
+**The gap was not a palette. It was a tier.** The contract had a palette,
+a surface layer and a set of roles stated in prose, and no binding
+between them. Every consumer therefore chose a colour for every role for
+itself — which is why one frontend in the field carries about two hundred
+and fifty hardcoded hex values in a single stylesheet, and why changing
+substrate there was a manual job. `core/ROLES.json` is that binding: a
+role says what a thing is *for*, and is bound to a token on the light
+substrate and on the dark one. A component now names the role and is
+written once. The layer projects to CSS custom properties, to Rust
+structs, one per substrate, and to Kotlin colour maps, and the gate
+refuses a role that binds to a token the contract does not have, or a
+role pairing whose text does not read.
+
+**The component layer had four components, and the field used none of
+them.** The names now come from a measurement. The ten frontends were
+walked, their component names counted, and the count taken over *lineages*
+rather than repositories — because two of those repositories are one
+lineage, and the design sheet they share is one artefact written once, so
+counting them twice would have made one opinion look like an agreement.
+Twenty-six names appear in two or more independent lineages. The
+sub-components of a dialog are parts of a dialog, not dialogs, and the
+domain-shaped ones are patterns rather than components; what remains is
+fourteen elements that a web surface, a native surface and a portal
+already agree on.
+
+So the layer is rebuilt around them: **button, text-input, badge, card,
+dialog, tooltip, select, tabs, toaster, toggle, command-palette, icon,
+section-heading**, and the system's own base. The published class names
+change with it — `.gnosix-action` is `.gnosix-button`, `.gnosix-input` is
+`.gnosix-text-input`, `.gnosix-state` is `.gnosix-badge` — which is why
+this is a major version. Nothing in the field used the old names.
+
+**The projection is now generic.** It used to carry one hand-written block
+of CSS per component, which meant every component added to the contract
+needed a new special case in the renderer, and a design system whose
+projection grows a special case per component is one whose projection
+cannot be trusted. A component is now added by stating it: its roles, its
+states, its variants, its geometry, its typography, its parts and the
+accessibility it owes. The renderer walks the statements.
+
+**The palette is now stated as it measures.** The approved green measures
+4.09 against the light substrate and cannot carry body text. It is a
+mark — a pip, a dot, an edge — and the tinted surface behind the word is
+a separate role, `positive-surface`. A badge that says a condition in
+words and reinforces it with a shape is what the contract asked for, and
+the gate now checks that every variant reads on its own background
+instead of asserting that it does.
+
 ## [3.8.1] — 2026-10-20
 
 Publishing a release becomes idempotent, and the release workflow learns

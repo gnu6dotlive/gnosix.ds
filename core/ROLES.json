@@ -1,0 +1,146 @@
+{
+  "schema": "gnosix_DS.roles.v1",
+  "status": "CURRENT",
+  "note": [
+    "The semantic role layer. The contract has a palette, a surface layer and a",
+    "set of roles stated in prose; what it did not have was the binding between",
+    "them, so a consumer had to choose a colour for every role for itself.",
+    "",
+    "That is not a small gap. It is why gnu6.live carries about two hundred and",
+    "fifty hardcoded hex values in one stylesheet: with no role to name, every",
+    "surface in the product had to pick a colour by hand, and a change of",
+    "substrate had to be redone by hand too.",
+    "",
+    "A role is what a thing is for, not what it looks like. The light and the",
+    "dark substrate each bind the role to a token; the components then name the",
+    "role and are written once.",
+    "",
+    "The binding is the contract's. Which CSS custom property or Rust constant",
+    "carries the role is the target's."
+  ],
+  "roles": {
+    "surface": {
+      "meaning": "The page itself, behind everything.",
+      "light": "neutral/shellWhite",
+      "dark": "neutral/anthracite",
+      "rules": [
+        "COL-001",
+        "SUR-001"
+      ]
+    },
+    "surface-raised": {
+      "meaning": "A thing that sits on the page: a card, a panel, a tile.",
+      "light": "surface-light-l978c1",
+      "dark": "surface-dark-l250c14",
+      "rules": [
+        "SUR-001"
+      ]
+    },
+    "surface-overlay": {
+      "meaning": "A thing that sits on top of a raised surface: a dialog, a menu, a popover.",
+      "light": "surface-light-l988c0",
+      "dark": "surface-dark-l282c16",
+      "rules": [
+        "SUR-001"
+      ]
+    },
+    "surface-sunken": {
+      "meaning": "A well: a code block, a track, an inset that the page sits inside.",
+      "light": "surface-light-l920c6",
+      "dark": "surface-dark-l207c10",
+      "rules": [
+        "SUR-001"
+      ]
+    },
+    "ink": {
+      "meaning": "The text a reader is expected to read first.",
+      "light": "neutral/anthracite",
+      "dark": "neutral/shellWhite",
+      "rules": [
+        "COL-001"
+      ]
+    },
+    "ink-muted": {
+      "meaning": "Text that supports the reading text and is not read first: a caption, a secondary label.",
+      "light": "ink-on-light-l445c22",
+      "dark": "ink-on-dark-l678c24",
+      "rules": [
+        "COL-001"
+      ]
+    },
+    "hairline": {
+      "meaning": "The line between two surfaces. Never a divider drawn in a colour of its own.",
+      "light": "hairline-l921c5",
+      "dark": "hairline-l310c15",
+      "rules": [
+        "SUR-001"
+      ]
+    },
+    "accent": {
+      "meaning": "The one colour the system spends. It marks the principal operation, and it is spent on nothing else.",
+      "light": "signalOrange/base",
+      "dark": "signalOrange/base",
+      "rules": [
+        "COL-002"
+      ]
+    },
+    "accent-ink": {
+      "meaning": "The text that sits on the accent.",
+      "light": "neutral/anthracite",
+      "dark": "neutral/anthracite",
+      "rules": [
+        "COL-002"
+      ]
+    },
+    "focus": {
+      "meaning": "The indicator that says where the keyboard is. It never depends on hover.",
+      "light": "royalBlue/base",
+      "dark": "royalBlue/base",
+      "rules": [
+        "A11Y-001"
+      ]
+    },
+    "positive": {
+      "meaning": "A condition that is observed and is well, carried as a mark: a pip, a dot, an edge. It is never a background behind body text, because the approved green measures 4.09 against the light substrate and would not read.",
+      "light": "beretGreen/base",
+      "dark": "beretGreen/300",
+      "rules": [
+        "A11Y-001"
+      ]
+    },
+    "positive-surface": {
+      "meaning": "A tinted surface that carries the text of a condition that is well.",
+      "light": "beretGreen/100",
+      "dark": "beretGreen/700",
+      "rules": [
+        "A11Y-001"
+      ]
+    },
+    "caution": {
+      "meaning": "A condition that is observed and asks for attention.",
+      "light": "semantic/warn",
+      "dark": "semantic/warn",
+      "rules": [
+        "A11Y-001"
+      ]
+    },
+    "critical": {
+      "meaning": "A condition that is observed and is a failure.",
+      "light": "semantic/alert",
+      "dark": "semantic/alert",
+      "rules": [
+        "A11Y-001"
+      ]
+    }
+  },
+  "substrates": {
+    "light": {
+      "meaning": "The light substrate. The system is light-first: the shell is the light one.",
+      "attribute": "data-gnosix-substrate"
+    },
+    "dark": {
+      "meaning": "The dark substrate.",
+      "attribute": "data-gnosix-substrate"
+    }
+  }
+}
