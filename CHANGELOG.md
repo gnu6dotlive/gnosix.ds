@@ -8,6 +8,15 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [4.2.1] — 2026-10-20
+
+A mask is not a surface. The consumer gate found a colour the system
+does not have in two repositories that had already re-vendored the
+package: the black inside a `mask-image`. It is an alpha channel, not a
+surface — it says "opaque here" — and the system's own sheet draws its
+fades that way. The gate now reads the system's rule rather than a
+second one.
+
 ## [4.2.0] — 2026-10-20
 
 The field's vocabulary is specified, and the sheet the field writes with

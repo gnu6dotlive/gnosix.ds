@@ -1,7 +1,7 @@
 {
-  "version": "4.2.0",
-  "name": "gnosix_DS V4.2.0 motion contract and alpha compositing variants",
-  "contract_digest": "43a04e1f0ecff05816a91b600c1bb010b3e4314f20249a2bb1716dc61f5cded8",
+  "version": "4.2.1",
+  "name": "gnosix_DS V4.2.1 motion contract and alpha compositing variants",
+  "contract_digest": "d941f7bb00924360557a72da511b78ea172fdb413258b511d00b171484b26d4a",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "54d45761f3ef53808f73d10ad43c835c1e8cdbad28d6dc05bb8594cd23ee829d"
+      "sha256": "5630c39594ae501b185a5e49392ecfbcf400d55fc9fc5ac7c7b508457b231d58"
     },
     {
       "class": "evidence",
@@ -42,7 +42,7 @@
     {
       "class": "evidence",
       "path": "VERSION",
-      "sha256": "8fb33dadbe981cf5847df269c10c2a3fe107f2b269d5ccb6db37d1f61ffc3bba"
+      "sha256": "e5d77a995a7d89c4b24498cb8947c3b40e53f4d2c0ba2380796cdb059d237848"
     },
     {
       "class": "evidence",
@@ -477,7 +477,7 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "86cff72f60161c0fe4d204653d0fe9ec9bfa1d9ec863aec44b163acdd744d046"
+      "sha256": "869b56fa2e966b3c5de1a2ef81ad379fdd5164dd64567a49326fa9a6d7d2d706"
     },
     {
       "class": "evidence",
@@ -487,12 +487,12 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6-design.lock.json",
-      "sha256": "49974bd2647eb7fa848ccd70a1deadb79312d6c928cc2e46362fce3e55bd5877"
+      "sha256": "eab8c91a920614c0e3b81140d29d1de66cfa3349f6291106ec8ecb07432b265f"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6.css",
-      "sha256": "949d8b46b5627dd0b841759d2cb5265534f64d22ed1b548735429959b42e49d6"
+      "sha256": "d7f69afec1dabc1245177a4e8f887bc8e195c433baf722ec8322251da948c1f4"
     },
     {
       "class": "evidence",
@@ -632,7 +632,7 @@
     {
       "class": "profile",
       "path": "profiles/motion/motion.json",
-      "sha256": "5dd0be909db882289e4f60ebf5b2619c39f7c7d7243ff10fabc653f9f98b9fd9"
+      "sha256": "118b57ea58ae68c9ab802fdd473377b502e984da3fb99f8b50be00eebb38375b"
     },
     {
       "class": "profile",
@@ -682,7 +682,7 @@
     {
       "class": "profile",
       "path": "profiles/projection-map.json",
-      "sha256": "c754c3667d2ffa29ed806b43061ddda1dd3dc7c74e7f36f65a3c4042a80df855"
+      "sha256": "339c6e70a72584709aefba3fee7f67210d85e3c0baa643548045fac612f2aac3"
     },
     {
       "class": "profile",
@@ -742,62 +742,62 @@
     {
       "class": "reference",
       "path": "references/actions.json",
-      "sha256": "c18edc8f156006a8894a4909266c71dee41eace161beeda5f6fee9173a2c096e"
+      "sha256": "c84f5459b599183c83db5c6def6284a7a4b483e91870fabea0a2ef632e096674"
     },
     {
       "class": "reference",
       "path": "references/actions.svg",
-      "sha256": "05ddcdd88884586a6dfd8045ac2a766243fb1c0fd42a76e235dabb9211736500"
+      "sha256": "93a1054b5041b4f9e16315fceb2b4af4caa73dec3bc0fddf9e4fd2c66d6d68d6"
     },
     {
       "class": "reference",
       "path": "references/adaptive.json",
-      "sha256": "b9c291eb3d1616a7b721377aa08dc941829ebd397f3fa713a709e122160a881e"
+      "sha256": "29075174ec0d24d656624aaa6ccfc29fe4aa1362b532486f0296bd31363e82bd"
     },
     {
       "class": "reference",
       "path": "references/adaptive.svg",
-      "sha256": "ac13fc6df1c68f7b9a9340af369a4a2f901b9f83555fde27cd50a0cddd68369e"
+      "sha256": "b47a2ab422f75002d1ad2f0b91859c29e903586c86d9a4da9ff0ea9046183e30"
     },
     {
       "class": "reference",
       "path": "references/fields.json",
-      "sha256": "78d2bfeda2091165440251636142d282e3b6295133587c494bfc0316ffb69c44"
+      "sha256": "5de73162d8499a4ba84ce01840039fe20dccd5a9481df64a39f58a2df3fad485"
     },
     {
       "class": "reference",
       "path": "references/fields.svg",
-      "sha256": "bf9f38e99ed958989cf242249d9d3109cd2c08a57184acb66c8558d1eda21db9"
+      "sha256": "fa2e4cd0a9d9f5214abe9e376da3ca3de3b0171d2dbcf0200cafbe66cf42e95b"
     },
     {
       "class": "reference",
       "path": "references/identity.json",
-      "sha256": "62b16bedc6e8585ed58288f63cbbba610a74f5af0937399d3f23155dce7a4ddd"
+      "sha256": "1cd5b3275d53baab0e36cca051774c25981672f00a815d1abbbbe19d5c2eb148"
     },
     {
       "class": "reference",
       "path": "references/identity.svg",
-      "sha256": "acbd17cdd3a59cf7e43b6d9ffa763d6accd915e9727d850f707d492f867dbec2"
+      "sha256": "971a504b960b9583886813516a184281bd89b71dac1a69c0672552ade818f165"
     },
     {
       "class": "reference",
       "path": "references/state.json",
-      "sha256": "9f0aabe5d271b3f9ae02a403df0c837c7682e3b7e015ad6da90ebbe1eb7145d0"
+      "sha256": "a2217326c143a47aa33bed9cebec42629703e77385be0a68f9fa1f0b0f0bc59a"
     },
     {
       "class": "reference",
       "path": "references/state.svg",
-      "sha256": "48efd84e65c7fddb9cccdf610e524eeb7c82a975dcadaec9b7be04510c3398db"
+      "sha256": "c0e12d23895eb40cf9a60f65099b555eb92d92e31c201a68a5b5d0ef1bbfd54e"
     },
     {
       "class": "reference",
       "path": "references/surfaces.json",
-      "sha256": "512c52eaa0e91688b1866fb6aa2940753a0cc8619b321cdb4bf7fae3aa0724ec"
+      "sha256": "0bc0a3a17d4269308ed12a32f7574c35018b6c63d8e79002bd33f15209b41901"
     },
     {
       "class": "reference",
       "path": "references/surfaces.svg",
-      "sha256": "8ae1fc895ff40f577107de31ca652ca618ccf3ade8e8ee7e9821104662763b6e"
+      "sha256": "41a6ff2c23b86931e84665e0f8b68f13ee7f8c80aa9000ce7b6fde2eb50dfe57"
     },
     {
       "class": "evidence",
@@ -862,7 +862,7 @@
     {
       "class": "evidence",
       "path": "site/index.html",
-      "sha256": "41b2c957105a755067f4acfa9dfe6fbba6a46cb207f736ca269d4183ff717fbf"
+      "sha256": "1dd56332fc0b1dce28bcf0d61b5523455c107888c19b769c62cc94bf9e96d60c"
     },
     {
       "class": "evidence",
@@ -872,7 +872,7 @@
     {
       "class": "evidence",
       "path": "site/site.webmanifest",
-      "sha256": "2c4e5b6e041849d4633a14ef84e3401b73bd0f862dffb5b08c6c791ea40af6c8"
+      "sha256": "5b88f268b881ee1f4080ce8158fb4d5db0cc16e867d36f80fb555ad6f035b60f"
     },
     {
       "class": "evidence",
