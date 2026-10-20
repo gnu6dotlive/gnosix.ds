@@ -29,7 +29,12 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-WORK="$(mktemp -d "${TMPDIR:-/tmp}/gnosix-ci-XXXXXX")"
+# The simulation's work directory holds a browser and an engine, which is
+# a few hundred megabytes, so it goes on the disk rather than on a memory
+# filesystem that another session may already have filled.
+WORK_ROOT="${GNOSIX_CI_WORK:-${TMPDIR:-${XDG_CACHE_HOME:-$HOME/.cache}}}"
+mkdir -p "$WORK_ROOT"
+WORK="$(mktemp -d "$WORK_ROOT/gnosix-ci-XXXXXX")"
 CLONE=1
 KEEP=0
 RELEASE=0
