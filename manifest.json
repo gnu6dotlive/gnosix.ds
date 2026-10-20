@@ -602,12 +602,12 @@
     {
       "class": "profile",
       "path": "profiles/interchange/gnosix.style-dictionary.json",
-      "sha256": "06eb0c60a29a1b7f25a12ebf08a8eee6769efa8273331b600476bfba3c680a5e"
+      "sha256": "42cfd7715bf180fa3ce0979f1ea6737d7ecd22fbb15489f4339f3b98b5b1d45c"
     },
     {
       "class": "profile",
       "path": "profiles/interchange/gnosix.tokens.json",
-      "sha256": "f8355a2053010650d70d25ee9bf07b985b744e676c1e2cb0a3984732797a4fa8"
+      "sha256": "847f9be1ecaaa5b8131f3c41d60cda9c8bbb3fefbca875825312e07cea76124d"
     },
     {
       "class": "profile",

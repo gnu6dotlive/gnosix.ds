@@ -244,6 +244,10 @@
       "value": "#D5D9DE",
       "type": "color"
     },
+    "ink-on-light-l342c06": {
+      "value": "#37393C",
+      "type": "color"
+    },
     "ink-on-light-l445c22": {
       "value": "#4B5560",
       "type": "color"
@@ -370,6 +374,10 @@
     },
     "surface-warm-l971c18": {
       "value": "#FFF3EA",
+      "type": "color"
+    },
+    "surface-selection-l354c90": {
+      "value": "#25396B",
       "type": "color"
     }
   },

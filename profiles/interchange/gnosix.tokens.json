@@ -246,6 +246,10 @@
         "$type": "color",
         "$value": "#D5D9DE"
       },
+      "ink-on-light-l342c06": {
+        "$type": "color",
+        "$value": "#37393C"
+      },
       "ink-on-light-l445c22": {
         "$type": "color",
         "$value": "#4B5560"
@@ -373,6 +377,10 @@
       "surface-warm-l971c18": {
         "$type": "color",
         "$value": "#FFF3EA"
+      },
+      "surface-selection-l354c90": {
+        "$type": "color",
+        "$value": "#25396B"
       }
     },
     "fontFamily": {
