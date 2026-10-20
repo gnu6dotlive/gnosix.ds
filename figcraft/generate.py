@@ -350,7 +350,7 @@ def build_spacing_page(ctx: Ctx, script: Script, tokens: dict, colour: dict) -> 
         y += 56
 
 
-def build_components_page(ctx: Ctx, script: Script, source: Path, manifest: dict, colour: dict) -> None:
+def build_components_page(ctx: Ctx, script: Script, manifest: dict, colour: dict) -> None:
     """The vendored icon subset, the flag subset and the identity masters."""
     entries_by_kind: dict[str, list] = {}
     for entry in manifest.get("entries", []):
@@ -379,7 +379,10 @@ def build_components_page(ctx: Ctx, script: Script, source: Path, manifest: dict
                                fill=colour["pureWhite"], radius=8)
             script.add("node.set", ids=[script.ref(cell_frame)], props={"strokes": [
                 {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
-            icon = script.add("file.import", path=str(source / entry["path"]))
+            # The path is relative to the repository root: the command script is
+            # committed, and an absolute path would make it a statement about
+            # the machine that generated it rather than about the source.
+            icon = script.add("file.import", path=entry["path"])
             # The import lands a frame named after the file; give it the
             # name the manifest uses so the layer tree reads as the design
             # system and not as a file listing.
@@ -406,7 +409,7 @@ def build_components_page(ctx: Ctx, script: Script, source: Path, manifest: dict
                      fill=substrate or colour["pureWhite"], radius=12)
         script.add("node.set", ids=[script.ref(cell)], props={"strokes": [
             {"type": "solid", "color": colour["hairline"], "strokeWeight": 1}]})
-        image = script.add("file.import", path=str(source / "assets/identity" / filename))
+        image = script.add("file.import", path=f"assets/identity/{filename}")
         script.add("object.rename", ids=[script.ref(image)], name=label)
         script.add("node.reparent", ids=[script.ref(image)], parent=script.ref(cell))
         script.add("node.set", ids=[script.ref(image)], props={"x": 8, "y": 8,
@@ -414,7 +417,7 @@ def build_components_page(ctx: Ctx, script: Script, source: Path, manifest: dict
         text(ctx, label, x, y + 176, 12, colour["slate"], width=168)
 
 
-def build_scenes_page(ctx: Ctx, script: Script, source: Path, references: list[dict], colour: dict) -> None:
+def build_scenes_page(ctx: Ctx, script: Script, references: list[dict], colour: dict) -> None:
     """The six reference scenes, imported as editable frames."""
     height = 210 + len(references) * 802 + 80
     open_board(ctx, script, "Scenes", "Scenes / board", height, colour)
@@ -426,7 +429,7 @@ def build_scenes_page(ctx: Ctx, script: Script, source: Path, references: list[d
     for reference in references:
         section_label(ctx, reference.get("id", ""), MARGIN, y, colour)
         y += 26
-        scene = script.add("file.import", path=str(source / reference["artwork"]))
+        scene = script.add("file.import", path=reference["artwork"])
         script.add("object.rename", ids=[script.ref(scene)], name=reference.get("id", "scene"))
         script.add("node.reparent", ids=[script.ref(scene)], parent=ctx.parent)
         # The scenes are 1200 wide, the width of the board, so they sit
@@ -515,17 +518,24 @@ def build_script(source: Path) -> Script:
     build_contrast_page(ctx, script, tokens, colour)
     build_type_page(ctx, script, tokens, colour)
     build_spacing_page(ctx, script, tokens, colour)
-    build_components_page(ctx, script, source, manifest, colour)
-    build_scenes_page(ctx, script, source, references, colour)
+    build_components_page(ctx, script, manifest, colour)
+    build_scenes_page(ctx, script, references, colour)
     build_rules_page(ctx, script, rules_doc.get("rules", []), references, colour)
     return script
 
 
-def run_script(cli: str, script_path: Path, out: Path) -> tuple[bool, str]:
+def run_script(cli: str, script_path: Path, out: Path, cwd: Path) -> tuple[bool, str]:
+    """Run the command script.
+
+    The working directory is the repository root, because the script's file
+    paths are relative to it. A relative path in a script is resolved
+    against the working directory of the process that runs it, so running
+    the script from anywhere else would import the wrong files, or none.
+    """
     out.parent.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(
         [cli, "run", str(script_path), "--out", str(out)],
-        capture_output=True, text=True, check=False)
+        cwd=cwd, capture_output=True, text=True, check=False)
     return result.returncode == 0, result.stdout + result.stderr
 
 
@@ -593,7 +603,7 @@ def check(cli: str | None, source: Path, out: Path, script_path: Path) -> int:
 
         # Level two: the project itself.
         rebuilt = Path(tmp) / out.name
-        ok, output = run_script(cli, rebuilt_script, rebuilt)
+        ok, output = run_script(cli, rebuilt_script, rebuilt, source)
         if not ok:
             print("FAIL: the rebuild itself failed")
             sys.stderr.write(output)
@@ -668,7 +678,7 @@ def main(argv=None) -> int:
     script.write(script_path)
     print(f"wrote {script_path} ({len(script.steps)} commands)")
 
-    ok, output = run_script(cli, script_path, out)
+    ok, output = run_script(cli, script_path, out, source)
     if not ok:
         sys.stderr.write(output)
         return 1

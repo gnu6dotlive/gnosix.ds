@@ -310,287 +310,287 @@
 {"command": "node.create", "params": {"type": "text", "text": "ICONS / 41", "x": 64, "y": 210, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / alert-triangle", "x": 64, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 310}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/alert-triangle.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/alert-triangle.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 312}], "name": "alert-triangle"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 312}], "parent": {"$step": 310}}}
 {"command": "node.set", "params": {"ids": [{"$step": 312}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "alert-triangle", "x": 64, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / arrow-down-right", "x": 168, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 317}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/arrow-down-right.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/arrow-down-right.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 319}], "name": "arrow-down-right"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 319}], "parent": {"$step": 317}}}
 {"command": "node.set", "params": {"ids": [{"$step": 319}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "arrow-down-right", "x": 168, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / arrow-left", "x": 272, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 324}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/arrow-left.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/arrow-left.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 326}], "name": "arrow-left"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 326}], "parent": {"$step": 324}}}
 {"command": "node.set", "params": {"ids": [{"$step": 326}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "arrow-left", "x": 272, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / arrow-right", "x": 376, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 331}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/arrow-right.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/arrow-right.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 333}], "name": "arrow-right"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 333}], "parent": {"$step": 331}}}
 {"command": "node.set", "params": {"ids": [{"$step": 333}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "arrow-right", "x": 376, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / arrow-up-right", "x": 480, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 338}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/arrow-up-right.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/arrow-up-right.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 340}], "name": "arrow-up-right"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 340}], "parent": {"$step": 338}}}
 {"command": "node.set", "params": {"ids": [{"$step": 340}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "arrow-up-right", "x": 480, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / ban", "x": 584, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 345}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/ban.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/ban.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 347}], "name": "ban"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 347}], "parent": {"$step": 345}}}
 {"command": "node.set", "params": {"ids": [{"$step": 347}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "ban", "x": 584, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / brand-android", "x": 688, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 352}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/brand-android.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/brand-android.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 354}], "name": "brand-android"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 354}], "parent": {"$step": 352}}}
 {"command": "node.set", "params": {"ids": [{"$step": 354}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "brand-android", "x": 688, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / brand-tabler", "x": 792, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 359}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/brand-tabler.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/brand-tabler.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 361}], "name": "brand-tabler"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 361}], "parent": {"$step": 359}}}
 {"command": "node.set", "params": {"ids": [{"$step": 361}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "brand-tabler", "x": 792, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / check", "x": 896, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 366}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/check.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/check.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 368}], "name": "check"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 368}], "parent": {"$step": 366}}}
 {"command": "node.set", "params": {"ids": [{"$step": 368}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "check", "x": 896, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / chevron-down", "x": 1000, "y": 240, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 373}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/chevron-down.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/chevron-down.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 375}], "name": "chevron-down"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 375}], "parent": {"$step": 373}}}
 {"command": "node.set", "params": {"ids": [{"$step": 375}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "chevron-down", "x": 1000, "y": 342, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / chevron-right", "x": 64, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 380}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/chevron-right.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/chevron-right.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 382}], "name": "chevron-right"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 382}], "parent": {"$step": 380}}}
 {"command": "node.set", "params": {"ids": [{"$step": 382}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "chevron-right", "x": 64, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / circle-check", "x": 168, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 387}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/circle-check.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/circle-check.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 389}], "name": "circle-check"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 389}], "parent": {"$step": 387}}}
 {"command": "node.set", "params": {"ids": [{"$step": 389}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "circle-check", "x": 168, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / circle-dot", "x": 272, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 394}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/circle-dot.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/circle-dot.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 396}], "name": "circle-dot"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 396}], "parent": {"$step": 394}}}
 {"command": "node.set", "params": {"ids": [{"$step": 396}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "circle-dot", "x": 272, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / circle-x", "x": 376, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 401}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/circle-x.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/circle-x.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 403}], "name": "circle-x"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 403}], "parent": {"$step": 401}}}
 {"command": "node.set", "params": {"ids": [{"$step": 403}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "circle-x", "x": 376, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / clock", "x": 480, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 408}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/clock.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/clock.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 410}], "name": "clock"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 410}], "parent": {"$step": 408}}}
 {"command": "node.set", "params": {"ids": [{"$step": 410}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "clock", "x": 480, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / code", "x": 584, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 415}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/code.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/code.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 417}], "name": "code"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 417}], "parent": {"$step": 415}}}
 {"command": "node.set", "params": {"ids": [{"$step": 417}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "code", "x": 584, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / contrast", "x": 688, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 422}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/contrast.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/contrast.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 424}], "name": "contrast"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 424}], "parent": {"$step": 422}}}
 {"command": "node.set", "params": {"ids": [{"$step": 424}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "contrast", "x": 688, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / copy", "x": 792, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 429}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/copy.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/copy.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 431}], "name": "copy"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 431}], "parent": {"$step": 429}}}
 {"command": "node.set", "params": {"ids": [{"$step": 431}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "copy", "x": 792, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / cpu", "x": 896, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 436}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/cpu.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/cpu.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 438}], "name": "cpu"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 438}], "parent": {"$step": 436}}}
 {"command": "node.set", "params": {"ids": [{"$step": 438}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "cpu", "x": 896, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / device-desktop", "x": 1000, "y": 368, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 443}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/device-desktop.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/device-desktop.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 445}], "name": "device-desktop"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 445}], "parent": {"$step": 443}}}
 {"command": "node.set", "params": {"ids": [{"$step": 445}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "device-desktop", "x": 1000, "y": 470, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / device-mobile", "x": 64, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 450}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/device-mobile.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/device-mobile.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 452}], "name": "device-mobile"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 452}], "parent": {"$step": 450}}}
 {"command": "node.set", "params": {"ids": [{"$step": 452}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "device-mobile", "x": 64, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / download", "x": 168, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 457}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/download.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/download.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 459}], "name": "download"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 459}], "parent": {"$step": 457}}}
 {"command": "node.set", "params": {"ids": [{"$step": 459}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "download", "x": 168, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / external-link", "x": 272, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 464}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/external-link.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/external-link.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 466}], "name": "external-link"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 466}], "parent": {"$step": 464}}}
 {"command": "node.set", "params": {"ids": [{"$step": 466}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "external-link", "x": 272, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / file-text", "x": 376, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 471}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/file-text.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/file-text.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 473}], "name": "file-text"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 473}], "parent": {"$step": 471}}}
 {"command": "node.set", "params": {"ids": [{"$step": 473}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "file-text", "x": 376, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / flag", "x": 480, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 478}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/flag.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/flag.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 480}], "name": "flag"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 480}], "parent": {"$step": 478}}}
 {"command": "node.set", "params": {"ids": [{"$step": 480}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "flag", "x": 480, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / folder", "x": 584, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 485}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/folder.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/folder.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 487}], "name": "folder"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 487}], "parent": {"$step": 485}}}
 {"command": "node.set", "params": {"ids": [{"$step": 487}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "folder", "x": 584, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / info-circle", "x": 688, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 492}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/info-circle.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/info-circle.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 494}], "name": "info-circle"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 494}], "parent": {"$step": 492}}}
 {"command": "node.set", "params": {"ids": [{"$step": 494}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "info-circle", "x": 688, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / layers-subtract", "x": 792, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 499}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/layers-subtract.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/layers-subtract.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 501}], "name": "layers-subtract"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 501}], "parent": {"$step": 499}}}
 {"command": "node.set", "params": {"ids": [{"$step": 501}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "layers-subtract", "x": 792, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / layout-grid", "x": 896, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 506}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/layout-grid.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/layout-grid.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 508}], "name": "layout-grid"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 508}], "parent": {"$step": 506}}}
 {"command": "node.set", "params": {"ids": [{"$step": 508}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "layout-grid", "x": 896, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / loader-2", "x": 1000, "y": 496, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 513}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/loader-2.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/loader-2.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 515}], "name": "loader-2"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 515}], "parent": {"$step": 513}}}
 {"command": "node.set", "params": {"ids": [{"$step": 515}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "loader-2", "x": 1000, "y": 598, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / menu-2", "x": 64, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 520}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/menu-2.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/menu-2.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 522}], "name": "menu-2"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 522}], "parent": {"$step": 520}}}
 {"command": "node.set", "params": {"ids": [{"$step": 522}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "menu-2", "x": 64, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / palette", "x": 168, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 527}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/palette.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/palette.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 529}], "name": "palette"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 529}], "parent": {"$step": 527}}}
 {"command": "node.set", "params": {"ids": [{"$step": 529}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "palette", "x": 168, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / photo", "x": 272, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 534}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/photo.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/photo.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 536}], "name": "photo"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 536}], "parent": {"$step": 534}}}
 {"command": "node.set", "params": {"ids": [{"$step": 536}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "photo", "x": 272, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / plus", "x": 376, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 541}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/plus.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/plus.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 543}], "name": "plus"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 543}], "parent": {"$step": 541}}}
 {"command": "node.set", "params": {"ids": [{"$step": 543}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "plus", "x": 376, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / ruler-measure", "x": 480, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 548}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/ruler-measure.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/ruler-measure.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 550}], "name": "ruler-measure"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 550}], "parent": {"$step": 548}}}
 {"command": "node.set", "params": {"ids": [{"$step": 550}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "ruler-measure", "x": 480, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / search", "x": 584, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 555}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/search.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/search.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 557}], "name": "search"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 557}], "parent": {"$step": 555}}}
 {"command": "node.set", "params": {"ids": [{"$step": 557}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "search", "x": 584, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / settings", "x": 688, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 562}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/settings.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/settings.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 564}], "name": "settings"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 564}], "parent": {"$step": 562}}}
 {"command": "node.set", "params": {"ids": [{"$step": 564}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "settings", "x": 688, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / terminal", "x": 792, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 569}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/terminal.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/terminal.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 571}], "name": "terminal"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 571}], "parent": {"$step": 569}}}
 {"command": "node.set", "params": {"ids": [{"$step": 571}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "terminal", "x": 792, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / typography", "x": 896, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 576}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/typography.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/typography.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 578}], "name": "typography"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 578}], "parent": {"$step": 576}}}
 {"command": "node.set", "params": {"ids": [{"$step": 578}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "typography", "x": 896, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / world", "x": 1000, "y": 624, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 583}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/world.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/world.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 585}], "name": "world"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 585}], "parent": {"$step": 583}}}
 {"command": "node.set", "params": {"ids": [{"$step": 585}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "world", "x": 1000, "y": 726, "width": 88, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Icon / x", "x": 64, "y": 752, "width": 88, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 590}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/outline/x.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/outline/x.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 592}], "name": "x"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 592}], "parent": {"$step": 590}}}
 {"command": "node.set", "params": {"ids": [{"$step": 592}], "props": {"x": 24, "y": 30}}}
@@ -598,56 +598,56 @@
 {"command": "node.create", "params": {"type": "text", "text": "FLAGS / 8", "x": 64, "y": 920, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / brazil", "x": 64, "y": 950, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 598}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/brazil.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/brazil.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 600}], "name": "brazil"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 600}], "parent": {"$step": 598}}}
 {"command": "node.set", "params": {"ids": [{"$step": 600}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "brazil", "x": 64, "y": 1052, "width": 120, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / canada", "x": 200, "y": 950, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 605}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/canada.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/canada.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 607}], "name": "canada"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 607}], "parent": {"$step": 605}}}
 {"command": "node.set", "params": {"ids": [{"$step": 607}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "canada", "x": 200, "y": 1052, "width": 120, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / france", "x": 336, "y": 950, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 612}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/france.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/france.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 614}], "name": "france"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 614}], "parent": {"$step": 612}}}
 {"command": "node.set", "params": {"ids": [{"$step": 614}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "france", "x": 336, "y": 1052, "width": 120, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / germany", "x": 472, "y": 950, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 619}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/germany.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/germany.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 621}], "name": "germany"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 621}], "parent": {"$step": 619}}}
 {"command": "node.set", "params": {"ids": [{"$step": 621}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "germany", "x": 472, "y": 1052, "width": 120, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / india", "x": 608, "y": 950, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 626}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/india.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/india.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 628}], "name": "india"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 628}], "parent": {"$step": 626}}}
 {"command": "node.set", "params": {"ids": [{"$step": 628}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "india", "x": 608, "y": 1052, "width": 120, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / japan", "x": 744, "y": 950, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 633}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/japan.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/japan.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 635}], "name": "japan"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 635}], "parent": {"$step": 633}}}
 {"command": "node.set", "params": {"ids": [{"$step": 635}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "japan", "x": 744, "y": 1052, "width": 120, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / united-kingdom", "x": 64, "y": 1078, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 640}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/united-kingdom.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/united-kingdom.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 642}], "name": "united-kingdom"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 642}], "parent": {"$step": 640}}}
 {"command": "node.set", "params": {"ids": [{"$step": 642}], "props": {"x": 24, "y": 30}}}
 {"command": "node.create", "params": {"type": "text", "text": "united-kingdom", "x": 64, "y": 1180, "width": 120, "props": {"fontSize": 11, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Flag / united-states", "x": 200, "y": 1078, "width": 120, "height": 96, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 8}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 647}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/icons/flags/united-states.svg"}}
+{"command": "file.import", "params": {"path": "assets/icons/flags/united-states.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 649}], "name": "united-states"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 649}], "parent": {"$step": 647}}}
 {"command": "node.set", "params": {"ids": [{"$step": 649}], "props": {"x": 24, "y": 30}}}
@@ -655,42 +655,42 @@
 {"command": "node.create", "params": {"type": "text", "text": "IDENTITY MASTERS", "x": 64, "y": 1246, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Identity / gnosix", "x": 64, "y": 1276, "width": 168, "height": 168, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 12}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 655}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/identity/gnosix-cube.png"}}
+{"command": "file.import", "params": {"path": "assets/identity/gnosix-cube.png"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 657}], "name": "gnosix"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 657}], "parent": {"$step": 655}}}
 {"command": "node.set", "params": {"ids": [{"$step": 657}], "props": {"x": 8, "y": 8, "width": 152, "height": 152}}}
 {"command": "node.create", "params": {"type": "text", "text": "gnosix", "x": 64, "y": 1452, "width": 168, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Identity / gnu6.live", "x": 248, "y": 1276, "width": 168, "height": 168, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 12}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 662}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/identity/gnu6-live-cube.png"}}
+{"command": "file.import", "params": {"path": "assets/identity/gnu6-live-cube.png"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 664}], "name": "gnu6.live"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 664}], "parent": {"$step": 662}}}
 {"command": "node.set", "params": {"ids": [{"$step": 664}], "props": {"x": 8, "y": 8, "width": 152, "height": 152}}}
 {"command": "node.create", "params": {"type": "text", "text": "gnu6.live", "x": 248, "y": 1452, "width": 168, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Identity / gnu.in.labs", "x": 432, "y": 1276, "width": 168, "height": 168, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 12}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 669}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/identity/gnuinlabs-cube.png"}}
+{"command": "file.import", "params": {"path": "assets/identity/gnuinlabs-cube.png"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 671}], "name": "gnu.in.labs"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 671}], "parent": {"$step": 669}}}
 {"command": "node.set", "params": {"ids": [{"$step": 671}], "props": {"x": 8, "y": 8, "width": 152, "height": 152}}}
 {"command": "node.create", "params": {"type": "text", "text": "gnu.in.labs", "x": 432, "y": 1452, "width": 168, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Identity / gnosix / alpha", "x": 616, "y": 1276, "width": 168, "height": 168, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 12}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 676}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/identity/gnosix-cube-alpha.png"}}
+{"command": "file.import", "params": {"path": "assets/identity/gnosix-cube-alpha.png"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 678}], "name": "gnosix / alpha"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 678}], "parent": {"$step": 676}}}
 {"command": "node.set", "params": {"ids": [{"$step": 678}], "props": {"x": 8, "y": 8, "width": 152, "height": 152}}}
 {"command": "node.create", "params": {"type": "text", "text": "gnosix / alpha", "x": 616, "y": 1452, "width": 168, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Identity / gnu6.live / alpha", "x": 800, "y": 1276, "width": 168, "height": 168, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 12}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 683}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/identity/gnu6-live-cube-alpha.png"}}
+{"command": "file.import", "params": {"path": "assets/identity/gnu6-live-cube-alpha.png"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 685}], "name": "gnu6.live / alpha"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 685}], "parent": {"$step": 683}}}
 {"command": "node.set", "params": {"ids": [{"$step": 685}], "props": {"x": 8, "y": 8, "width": 152, "height": 152}}}
 {"command": "node.create", "params": {"type": "text", "text": "gnu6.live / alpha", "x": 800, "y": 1452, "width": 168, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 306}}}
 {"command": "node.create", "params": {"type": "frame", "name": "Identity / gnu.in.labs / alpha", "x": 984, "y": 1276, "width": 168, "height": 168, "props": {"fills": [{"type": "solid", "color": "#FFFFFF"}], "cornerRadius": 12}, "parent": {"$step": 306}}}
 {"command": "node.set", "params": {"ids": [{"$step": 690}], "props": {"strokes": [{"type": "solid", "color": "#D7DADF", "strokeWeight": 1}]}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/assets/identity/gnuinlabs-cube-alpha.png"}}
+{"command": "file.import", "params": {"path": "assets/identity/gnuinlabs-cube-alpha.png"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 692}], "name": "gnu.in.labs / alpha"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 692}], "parent": {"$step": 690}}}
 {"command": "node.set", "params": {"ids": [{"$step": 692}], "props": {"x": 8, "y": 8, "width": 152, "height": 152}}}
@@ -701,32 +701,32 @@
 {"command": "node.create", "params": {"type": "text", "text": "Scenes", "x": 64, "y": 64, "props": {"fontSize": 48, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#111418"}], "fontStyle": "Bold"}, "parent": {"$step": 699}}}
 {"command": "node.create", "params": {"type": "text", "text": "The six reference scenes, imported as editable frames. The layers inside them are vectors and text, not a picture.", "x": 64, "y": 126, "width": 1072, "props": {"fontSize": 16, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}]}, "parent": {"$step": 699}}}
 {"command": "node.create", "params": {"type": "text", "text": "ACTIONS", "x": 64, "y": 210, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 699}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/references/actions.svg"}}
+{"command": "file.import", "params": {"path": "references/actions.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 703}], "name": "actions"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 703}], "parent": {"$step": 699}}}
 {"command": "node.set", "params": {"ids": [{"$step": 703}], "props": {"x": 0, "y": 236}}}
 {"command": "node.create", "params": {"type": "text", "text": "ADAPTIVE", "x": 64, "y": 1012, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 699}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/references/adaptive.svg"}}
+{"command": "file.import", "params": {"path": "references/adaptive.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 708}], "name": "adaptive"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 708}], "parent": {"$step": 699}}}
 {"command": "node.set", "params": {"ids": [{"$step": 708}], "props": {"x": 0, "y": 1038}}}
 {"command": "node.create", "params": {"type": "text", "text": "FIELDS", "x": 64, "y": 1814, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 699}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/references/fields.svg"}}
+{"command": "file.import", "params": {"path": "references/fields.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 713}], "name": "fields"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 713}], "parent": {"$step": 699}}}
 {"command": "node.set", "params": {"ids": [{"$step": 713}], "props": {"x": 0, "y": 1840}}}
 {"command": "node.create", "params": {"type": "text", "text": "IDENTITY", "x": 64, "y": 2616, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 699}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/references/identity.svg"}}
+{"command": "file.import", "params": {"path": "references/identity.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 718}], "name": "identity"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 718}], "parent": {"$step": 699}}}
 {"command": "node.set", "params": {"ids": [{"$step": 718}], "props": {"x": 0, "y": 2642}}}
 {"command": "node.create", "params": {"type": "text", "text": "STATE", "x": 64, "y": 3418, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 699}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/references/state.svg"}}
+{"command": "file.import", "params": {"path": "references/state.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 723}], "name": "state"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 723}], "parent": {"$step": 699}}}
 {"command": "node.set", "params": {"ids": [{"$step": 723}], "props": {"x": 0, "y": 3444}}}
 {"command": "node.create", "params": {"type": "text", "text": "SURFACES", "x": 64, "y": 4220, "props": {"fontSize": 12, "fontFamily": "Space Grotesk", "fills": [{"type": "solid", "color": "#667085"}], "fontStyle": "Bold", "letterSpacing": "12%"}, "parent": {"$step": 699}}}
-{"command": "file.import", "params": {"path": "/home/tension_atoi/Projects/gnosix.ds/references/surfaces.svg"}}
+{"command": "file.import", "params": {"path": "references/surfaces.svg"}}
 {"command": "object.rename", "params": {"ids": [{"$step": 728}], "name": "surfaces"}}
 {"command": "node.reparent", "params": {"ids": [{"$step": 728}], "parent": {"$step": 699}}}
 {"command": "node.set", "params": {"ids": [{"$step": 728}], "props": {"x": 0, "y": 4246}}}
