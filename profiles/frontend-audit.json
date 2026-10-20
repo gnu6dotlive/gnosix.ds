@@ -27,12 +27,13 @@
       "palette": "all five, renamed",
       "components": "app/design-system/ (6 files) + ~20 CSS classes",
       "evidence": "21 test files, 12 QA screenshots, a11y audit v0.2/v0.3, release dossier, full-site manifest with sha256",
-      "verdict": "absorb first",
+      "verdict": "a reference, not a consumer: the repository is archived and read-only, so nothing can be absorbed into it",
       "blocks": "the eight declared spacing steps are referenced zero times; features.css carries ~250 hardcoded hexes",
       "lineage": "gnu6",
       "exclude": [
         "app/design-system"
-      ]
+      ],
+      "archived": true
     },
     {
       "name": "engineering-corpus",
@@ -48,7 +49,8 @@
       "evidence": "48 files under evidence/runs, artifact manifest with sha256, screenshot manifest, axe audits, scripts/qualify.py refuses a dirty tree and demands two byte-identical rebuilds",
       "verdict": "absorb second",
       "blocks": "a second :root in site/style.css overrides the declared tokens; 35 hardcoded hexes bypass them",
-      "lineage": "engineering-corpus"
+      "lineage": "engineering-corpus",
+      "archived": false
     },
     {
       "name": "diagram.studio",
@@ -64,7 +66,8 @@
       "evidence": "121 test files, verify script, pre-push hook; no CI, no screenshots, no manifest",
       "verdict": "absorb third",
       "blocks": "the shadcn HSL set and the --neo-* family are a second palette; the third-party copyright is a consent question, not a technical one",
-      "lineage": "diagram.studio"
+      "lineage": "diagram.studio",
+      "archived": false
     },
     {
       "name": "gnu.in.work",
@@ -80,7 +83,8 @@
       "evidence": "122 test files, an 18-step verification script, four debt baselines enforced by a linter; no QA file",
       "verdict": "absorb fourth",
       "blocks": "the largest job: 1262 colours outside the contract, most of them Radix scale values; PORTAGE.md already records the portage and its colour-literal rule",
-      "lineage": "gnu.in.work"
+      "lineage": "gnu.in.work",
+      "archived": false
     },
     {
       "name": "gnu.in.docs",
@@ -102,9 +106,10 @@
         "docs.css"
       ],
       "note": "The repository keeps the earlier design corpus beside the live site. The audit measures what the site ships.",
-      "verdict": "absorb fifth",
+      "verdict": "a reference, not a consumer: the repository is archived and read-only, so nothing can be absorbed into it",
       "blocks": "no licence file, so nothing may be taken from it; the vendored Montreal faces are unlicensed. Its evidence discipline is stronger than the design system's own and should flow the other way",
-      "lineage": "gnu.in.docs"
+      "lineage": "gnu.in.docs",
+      "archived": true
     },
     {
       "name": "gnu6-live",
@@ -123,7 +128,8 @@
       "lineage": "gnu6",
       "exclude": [
         "public/gnu6"
-      ]
+      ],
+      "archived": false
     },
     {
       "name": "gnu6-docs-portal",
@@ -142,7 +148,8 @@
       "lineage": "gnu6",
       "exclude": [
         "public/gnu6"
-      ]
+      ],
+      "archived": false
     },
     {
       "name": "gnosis.OS",
@@ -158,7 +165,8 @@
       "evidence": "2291 Rust tests across 182 files, 85 shell contract tests, 58 screenshots, a surface screenshot manifest, components.toml and contracts/surfaces.toml",
       "verdict": "absorb eighth",
       "blocks": "AGPL cannot flow into an MIT repository, so the flow is one way only; the token source engine/blob.in/tokens.json is already a codegen pipeline and should become a projection of core/TOKENS.json",
-      "lineage": "gnosis.OS"
+      "lineage": "gnosis.OS",
+      "archived": false
     },
     {
       "name": "blob.in-showcase",
@@ -174,7 +182,8 @@
       "evidence": "30 evidence run directories, qualification and run records, 68 screenshots, 86 logs, 227 Rust tests",
       "verdict": "correct the claim, then decide",
       "blocks": "theme.rs:1 says the palette is read from a gnosix path that does not exist and does not match the current palette; the claim must be corrected before anything else",
-      "lineage": "blob.in"
+      "lineage": "blob.in",
+      "archived": false
     },
     {
       "name": "spjoaillerie-live",
@@ -190,7 +199,8 @@
       "evidence": "none: no tests, no CI, no evidence directory, no manifest, no licence",
       "verdict": "exclude",
       "blocks": "it is a capture of a different brand. Absorbing it would import Didot, Garamond and gold into the system. One idea is worth taking — the bundle header that records where each component came from — and the brand is left alone",
-      "lineage": "spjoaillerie"
+      "lineage": "spjoaillerie",
+      "archived": false
     }
   ]
 }

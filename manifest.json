@@ -537,7 +537,7 @@
     {
       "class": "profile",
       "path": "profiles/frontend-audit/ABSORPTION.md",
-      "sha256": "b4f30937ac1e49d6438a9a912e2534132c12b35a8f7c09fa3ab37b797672f267"
+      "sha256": "7bb5e7a946d1b8a95d37baf112f4e5607b9e35865a30a24bc3aa8f4dceb805be"
     },
     {
       "class": "profile",
@@ -547,17 +547,17 @@
     {
       "class": "profile",
       "path": "profiles/frontend-audit/INVENTORY.md",
-      "sha256": "e0fe399ca09569a96784d97d172943f3a1fadfaadae4b7360598fd853580fea8"
+      "sha256": "990bbf08d3202c55355a055908bcb8cea2c1b36503d76467aeedf098130e7a78"
     },
     {
       "class": "profile",
       "path": "profiles/frontend-audit/MATRIX.md",
-      "sha256": "6e16d48085f8af41d562c894f7a3b1cb352bff285035b62259ecde0cfd30b92b"
+      "sha256": "3c81c0bbd3f8eb88c3fedb93add664ad751a004528b9a4e9f6921bbba3bb0347"
     },
     {
       "class": "profile",
       "path": "profiles/frontend-audit.json",
-      "sha256": "a9f46a27a1e4b6c603e7956b7ffd24bc67ce789a42365a2282683455d58173a7"
+      "sha256": "34ab6735ae571ec69ea63f5a989ed2bc65738304ca9db5a105d9a266ed9621ea"
     },
     {
       "class": "profile",
@@ -892,7 +892,7 @@
     {
       "class": "evidence",
       "path": "tools/absorb.py",
-      "sha256": "9c9427ca603edc1ff486347316ffa935fe75c5868f49224087643b3ee535d67e"
+      "sha256": "7f54428eff3debd1ff077fde2c7d93baa1ea352ea20c845917c806e2229b54aa"
     },
     {
       "class": "evidence",
@@ -907,7 +907,7 @@
     {
       "class": "evidence",
       "path": "tools/audit_frontends.py",
-      "sha256": "1d4fb6eab2c29cd8c5ce8c0cbe34fe1582388998a195c9c0eac6a62b06d51ce4"
+      "sha256": "4dc1f86f541ab270ffd02e426bec263dbf25a68bb006ae4c763288fbd8530050"
     },
     {
       "class": "evidence",

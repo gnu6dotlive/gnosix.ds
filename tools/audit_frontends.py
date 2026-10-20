@@ -132,6 +132,7 @@ def source_files(root: Path, exclude: list[str] | None = None):
 def audit(entry: dict, contract: dict) -> dict:
     root = Path(entry["path"]).expanduser()
     result = {"name": entry["name"], "path": str(root), "present": root.is_dir(),
+              "archived": bool(entry.get("archived")),
               "colours": {}, "families": {}, "lengths": {}, "token_vars": 0,
               "components": set(), "family_hits": {}, "files": 0, "gnosix_names": set()}
     if not result["present"]:
@@ -278,10 +279,17 @@ def main(argv=None) -> int:
     contract = approved()
     audits = [audit(entry, contract) for entry in config["frontends"]]
 
+    archived = [r["name"] for r in audits if r.get("archived")]
+    note = ""
+    if archived:
+        note = (f"**{len(archived)} of these repositories are archived** and read-only: "
+                f"{', '.join(archived)}. Nothing can be absorbed into them, so they are "
+                "references and not consumers.\n\n")
     matrix = ("# The matrix\n\n"
               "One row per frontend, one column per criterion. The inventory that\n"
               "follows says what each one would have to change. The counts are the\n"
               "work list: a colour out is a colour the system does not have.\n\n"
+              + note
               + render_matrix(audits, contract) + "\n")
     inventory = render_inventory(audits, contract)
     files = {OUT / "MATRIX.md": matrix, OUT / "INVENTORY.md": inventory}

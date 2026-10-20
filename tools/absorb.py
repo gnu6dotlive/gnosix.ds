@@ -239,8 +239,37 @@ def forms_by_colour(consumer: Path, wanted: set[str]) -> dict[str, set[str]]:
     return out
 
 
+def declared_mapping(consumer: Path) -> dict | None:
+    """A mapping the consumer states itself, if it states one.
+
+    Some colours are a decision and not a calculation. The nearest step
+    by colour distance is the wrong answer for a colour that belongs to a
+    family: the system's family decides the hue and the consumer's
+    lightness decides the step, and no distance in a colour space knows
+    that. So a consumer may state the mapping, and the tool applies what
+    it states.
+    """
+    path = consumer / "gnosix.absorption.json"
+    if not path.is_file():
+        return None
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    declared = document.get("declared")
+    if not declared:
+        return None
+    near = {}
+    for colour, entry in declared.items():
+        near[colour.upper()] = {"to": entry, "distance": 0.0, "files": []}
+    return {"near": near, "decisions": document.get("decisions") or []}
+
+
 def build_mapping(consumer: Path) -> dict:
     """The mapping: every foreign colour, and the step it lands on."""
+    stated = declared_mapping(consumer)
+    if stated is not None:
+        return stated
     steps = system_steps()
     foreign = collect(consumer)
     mapping = {}
@@ -413,6 +442,16 @@ def main(argv=None) -> int:
             "near": near,
             "decisions": decisions,
         }
+        # A mapping the consumer states is kept as it was stated.
+        stated = consumer / "gnosix.absorption.json"
+        if stated.is_file():
+            try:
+                previous = json.loads(stated.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                previous = {}
+            for key in ("declared", "why"):
+                if key in previous:
+                    document[key] = previous[key]
         (consumer / "gnosix.absorption.json").write_text(
             json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         changed = apply_mapping(consumer, near)

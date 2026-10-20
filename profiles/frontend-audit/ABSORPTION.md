@@ -165,6 +165,65 @@ The blocker. See below.
 
 ---
 
+## The drift has a source, and the source is upstream
+
+The audit found that two repositories carry a `--gnosix-*` namespace that
+the system does not publish: fifteen of their twenty-one names are
+spelled differently, and all twenty-one values are identical. That reads
+like a consumer's drift. It is not.
+
+The vendored sheet they carry is the `gnu6-design` package, and its own
+lock states where it came from: **it was cut from `Gnosix-DS-V3.4.1`** —
+a release of this system from before the naming rule existed, before the
+role layer existed, and before the spacing scale was published at all. It
+carries the layer ids in their pre-kebab spelling and a quarter of the
+palette, and three repositories vendor that one artefact:
+`engineering-corpus` at `site/gnu6/`, `gnu6-docs-portal` at
+`public/gnu6/`, and `gnu6-live` at `public/gnu6/`.
+
+So the mismatch is not ten consumers drifting. It is **one stale cut of
+the system's own release, vendored three times**, and the fix belongs at
+the source:
+
+1. **The system publishes the `gnu6-design` package** — or owns the cut
+   that produces it. A package that carries this system's namespace must
+   not be a fork of it; the two drift the moment the system moves, which
+   is exactly what happened, in the one direction that is hardest to see
+   because every value is still right.
+2. **The package is re-cut from the current release** (4.0.0): the
+   published names, the role layer, the spacing scale. One change, and
+   every consumer of the vendored copy carries the published namespace.
+3. **The three consumers re-vendor it**, and their locks point at the
+   system's release rather than at a copy of a copy.
+
+Until that is done, every per-consumer migration is paid twice, and the
+second payment is the vendoring.
+
+## The plan changes: two of the ten cannot be absorbed
+
+`gnu6.live` and `gnu.in.docs` — the two the earlier plan named as the
+reference consumers — are **archived and read-only**. Nothing can be
+absorbed into them, so they are references and not consumers, and the
+matrix says so.
+
+The absorption was therefore rehearsed on `gnu6.live` anyway, to prove
+the mechanism end to end: the design system vendored at a pinned version
+and locked, the token file reduced to an alias layer over the system's
+roles, several hundred literals in five stylesheets rewritten to name the
+system, and the consumer's own twelve-gate chain green afterwards. The
+repository is read-only, so the commit cannot be pushed and the patch is
+kept in the evidence directory. The mechanism is proved; what remains is
+to apply it to the repositories that accept a change.
+
+`engineering-corpus` is the first live one, and it is the model
+repository. Its own state on 2026-10-12 had been rewritten to consume
+the vendored `gnu6-design` sheet, which is the drift above: its
+stylesheet holds no hexadecimal colour of its own, and the twenty-one
+names it carries are six of the system's and fifteen that are not. The
+absorption of the corpus is therefore the *migration of the vendored
+copy*, not a rewrite of the corpus's palette — which is the third step
+of the fix above, and the one that pays for itself.
+
 ## The order
 
 The order is chosen by cost per unit of risk, and by what a repository can
