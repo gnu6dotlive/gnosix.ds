@@ -381,6 +381,10 @@
       "surface-selection-l354c90": {
         "$type": "color",
         "$value": "#25396B"
+      },
+      "info-l621c123": {
+        "$type": "color",
+        "$value": "#3D8DCC"
       }
     },
     "fontFamily": {

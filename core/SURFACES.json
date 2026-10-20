@@ -755,6 +755,17 @@
       "role": "the ground of a selected row, on the dark substrate",
       "neutral": false,
       "aliases": []
+    },
+    {
+      "id": "info-l621c123",
+      "role_id": "info",
+      "value": "#3D8DCC",
+      "lightness": 0.621,
+      "chroma": 0.123,
+      "hue": 245.6,
+      "role": "the blue of an information: what a reader is told, as distinct from what they can act on",
+      "neutral": false,
+      "aliases": []
     }
   ]
 }

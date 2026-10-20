@@ -50,6 +50,16 @@ READS = [
     ("ink", "positive-surface", 4.5),
 ]
 
+# A graphic is a line, a dot or an edge, and it is seen, not read. The
+# information colour is one: against the light substrate it measures
+# 3.23, so it carries a mark and never a sentence.
+GRAPHIC = [
+    ("info", "surface", 3.0),
+    ("info", "surface-raised", 3.0),
+    ("info", "surface-overlay", 3.0),
+    ("info", "surface-sunken", 3.0),
+]
+
 
 def words(name: str) -> list[str]:
     return re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", name).split()
@@ -127,7 +137,12 @@ def readings(roles: dict, tokens: dict, surfaces: dict) -> list[str]:
     """The pairings that must read, and whether they do."""
     out = []
     for substrate in ("light", "dark"):
-        for ink_role, surface_role, minimum in READS:
+        for ink_role, surface_role, minimum in READS + GRAPHIC:
+            # A role may say where it does not go. The exclusion is in the
+            # contract, and the gate honours it rather than guessing.
+            excluded = roles["roles"].get(ink_role, {}).get("excludes") or []
+            if surface_role in excluded:
+                continue
             ink = roles["roles"].get(ink_role, {}).get(substrate)
             surface = roles["roles"].get(surface_role, {}).get(substrate)
             if not ink or not surface:
@@ -267,7 +282,7 @@ def main(argv=None) -> int:
     if args.write:
         return 0
     print(f"PASS: the role layer projects cleanly ({len(roles['roles'])} roles, "
-          f"{len(READS)} pairings legible on both substrates)")
+          f"{len(READS) + len(GRAPHIC)} pairings legible on both substrates)")
     return 0
 
 

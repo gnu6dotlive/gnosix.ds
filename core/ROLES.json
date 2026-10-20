@@ -108,6 +108,17 @@
         "A11Y-001"
       ]
     },
+    "info": {
+      "meaning": "The colour of an information: what a reader is told, as distinct from what they can act on. It is a deliberate tint and not a step of the royal blue, because the field uses it for information and not for identity or focus. It is a graphic colour and not a text colour: against the light substrate it measures 3.23, so it marks a line, a dot or an edge, and it never carries a sentence. It is excluded from the sunken light surface, where it measures 2.82 and would not be seen.",
+      "light": "info-l621c123",
+      "dark": "info-l621c123",
+      "rules": [
+        "A11Y-001"
+      ],
+      "excludes": [
+        "surface-sunken"
+      ]
+    },
     "positive": {
       "meaning": "A condition that is observed and is well, carried as a mark: a pip, a dot, an edge. It is never a background behind body text, because the approved green measures 4.09 against the light substrate and would not read.",
       "light": "beretGreen/base",

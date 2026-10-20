@@ -1,7 +1,7 @@
 {
   "version": "4.1.0",
   "name": "gnosix_DS V4.1.0 motion contract and alpha compositing variants",
-  "contract_digest": "55d87eeb277ff40ca3e654f205aec072e431bc6e14d56ae1e7953361ee4c9bc1",
+  "contract_digest": "bb357779fe93dacca45433ad09644d2976af34867601e10ac9579d3385430f9a",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -442,7 +442,7 @@
     {
       "class": "core",
       "path": "core/ROLES.json",
-      "sha256": "a0333c4f9631ddc5f7f108eb0b0edfa92a2c6e5e3c7e3f0cbf7bc4f795476320"
+      "sha256": "506365b1e821e466168362068074b21639815787522c55a7ed86c5d85f19e6f5"
     },
     {
       "class": "core",
@@ -452,7 +452,7 @@
     {
       "class": "core",
       "path": "core/SURFACES.json",
-      "sha256": "54037c872e15fbfd805d70857836ddedd3cd28a007cc044d6018f662e5716225"
+      "sha256": "21015f3798d43e022e7a7c5a668fea593f9f5e310a01efd040a6c3aaa69bc63d"
     },
     {
       "class": "core",
@@ -527,7 +527,7 @@
     {
       "class": "profile",
       "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixRoles.kt",
-      "sha256": "8093a54c8ace9c2099a0dc7499027f17cc8224a36357374c74d57c425fa56f69"
+      "sha256": "34c122fdfb6bbbd4ea603ee504fb783b83509dbbe199fa3877e71d7963bdeefa"
     },
     {
       "class": "profile",
@@ -602,12 +602,12 @@
     {
       "class": "profile",
       "path": "profiles/interchange/gnosix.style-dictionary.json",
-      "sha256": "42cfd7715bf180fa3ce0979f1ea6737d7ecd22fbb15489f4339f3b98b5b1d45c"
+      "sha256": "a103e37eee05e793832294e74a3ff33a907de2e40be6b00b7aa76e213ce5128e"
     },
     {
       "class": "profile",
       "path": "profiles/interchange/gnosix.tokens.json",
-      "sha256": "847f9be1ecaaa5b8131f3c41d60cda9c8bbb3fefbca875825312e07cea76124d"
+      "sha256": "ef2db8bb22e3968c2490ba612f54d6ebc4e072591e08858bb376b551ecea965c"
     },
     {
       "class": "profile",
@@ -652,7 +652,7 @@
     {
       "class": "profile",
       "path": "profiles/native/src/roles.rs",
-      "sha256": "1700fbb9c0293f7508a85291199a9e3379e3afed7d8155580e5729f0ffa95250"
+      "sha256": "9ebb99f80de91c40f9c9966ab5fe94046d0e12c69b8aa74f698211d926a3ebe9"
     },
     {
       "class": "profile",
@@ -702,7 +702,7 @@
     {
       "class": "profile",
       "path": "profiles/web/roles.css",
-      "sha256": "df02f7c75e8394ed5caab55b4089a65c586f743cb40e4474280f8b7ccac02aab"
+      "sha256": "2a2135741e5dbf16a3f0e54991b60896a2bdc7cbc9d9fa8a541234343a596052"
     },
     {
       "class": "profile",
@@ -1027,7 +1027,7 @@
     {
       "class": "evidence",
       "path": "tools/project_roles.py",
-      "sha256": "2ee07b209963a8d7037d5aa11d8a6487122defa7805b3e4eedc2847dde500e68"
+      "sha256": "c76c7b793c6fc71bf01a2742a4ec0646d7471c2e974d6130da80bf987df70ead"
     },
     {
       "class": "evidence",
