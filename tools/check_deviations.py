@@ -27,7 +27,7 @@ SEVERITIES = {"critical", "major", "minor", "none"}
 STATES = {"open", "closed"}
 SELF_REFERENCE = re.compile(r"(--[\w-]+)\s*:\s*var\(\s*\1\s*\)")
 SEMANTIC_LITERAL = re.compile(r"(--g6-[\w-]+)\s*:\s*#[0-9A-Fa-f]{6}")
-CITED_PATH = Path("/home/tension_atoi/Projects/gnosix/crates/gnos-ux-gpui/src/product_design.rs")
+CITED = ROOT / "profiles" / "frontend-audit" / "ABSORPTION.md"
 ELEMENTS = ("button", "text-input", "badge", "card", "dialog", "tooltip",
             "select", "tabs", "toaster", "toggle", "command-palette", "icon",
             "section-heading", "system")
@@ -76,10 +76,29 @@ def probe_the_package_carries_the_elements() -> list[str]:
 
 
 def probe_the_cited_path_exists() -> list[str]:
-    """The path the showcase's audit cites must exist, as the audit says."""
-    if not CITED_PATH.exists():
-        return [f"the path the audit cites does not exist: {CITED_PATH}"]
-    return []
+    """The audit must not claim that a path does not exist.
+
+    The audit said the path blob.in-showcase's source cites does not
+    exist. It does. The claim was false, the audit was corrected, and the
+    correction is what this probe holds: the false claim must not come
+    back into the document.
+
+    The probe reads the document, not the path. A gate that reads a path
+    outside the repository is a gate the local qualification cannot
+    reproduce — the runner does not have this machine's home — and the
+    failure it produces is a failure of method, not of the code.
+    """
+    if not CITED.is_file():
+        return [f"the audit is not there: {CITED}"]
+    text = CITED.read_text(encoding="utf-8")
+    problems = []
+    for claim in ("claims to derive from a gnosix path that does not exist",
+                  "That path does not exist"):
+        if claim in text:
+            problems.append(f"the audit still claims: {claim!r}")
+    if "path exists" not in text.lower():
+        problems.append("the audit does not say that the path exists")
+    return problems
 
 
 PROBES = {

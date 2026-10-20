@@ -422,7 +422,7 @@
     {
       "class": "evidence",
       "path": "ci/GATES.md",
-      "sha256": "43fa611915397084c96b2a643c8c892f3e6c10d0ab47082e8f28bf3b9410dadc"
+      "sha256": "b316205d0fb60b6c30ebb7e0162a930106bd28854f64c1c0d738cb332292d23e"
     },
     {
       "class": "core",
@@ -582,7 +582,7 @@
     {
       "class": "profile",
       "path": "profiles/frontend-audit/ABSORPTION.md",
-      "sha256": "7bb5e7a946d1b8a95d37baf112f4e5607b9e35865a30a24bc3aa8f4dceb805be"
+      "sha256": "b0a3fccf9d202e61d51b9aea1bb7fa2d2d7811c376cd875ad8574644514f2e81"
     },
     {
       "class": "profile",
@@ -966,8 +966,13 @@
     },
     {
       "class": "evidence",
+      "path": "tools/check_containment.py",
+      "sha256": "032385b78d75161f32578c39121345371811c35005346b5157ea694c02c5ab07"
+    },
+    {
+      "class": "evidence",
       "path": "tools/check_deviations.py",
-      "sha256": "a6b095f2b344cb9b8785ae382d48ab09974b68f3aaa9e76ed5650144d2542c98"
+      "sha256": "ba79c9d7be2156328c3ec6e353fd3cca89f58444edcb62e10b8690972320618e"
     },
     {
       "class": "evidence",
@@ -982,7 +987,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "75e720742f9fb8d8ba8929a84e8a053713849ca17d984e632b7871146e64ba6b"
+      "sha256": "ba5b8924279ceb93f874dbec8ac437c6ca645b017851e4d59008bb5108702251"
     },
     {
       "class": "evidence",

@@ -66,6 +66,20 @@ export FIGCRAFT_ENV_FILE="$WORK/engine.env"
 
 cd "$SOURCE"
 
+# The runner has the repository, the pinned toolchains and nothing else.
+# This machine has a home directory with other projects in it, and a gate
+# that reaches into it finds things the runner will not have: the local
+# run passes, the runner fails, and the run on the runner is a failure of
+# method rather than of the code. So the qualification runs with the
+# machine's data hidden and its toolchains kept — the same conditions,
+# the same failure.
+ORIGINAL_HOME="$HOME"
+EMPTY_HOME="$WORK/home"
+mkdir -p "$EMPTY_HOME"
+export HOME="$EMPTY_HOME"
+export RUSTUP_HOME="${RUSTUP_HOME:-$ORIGINAL_HOME/.rustup}"
+export CARGO_HOME="${CARGO_HOME:-$ORIGINAL_HOME/.cargo}"
+
 # The dependencies, at the versions the workflow installs. They are checked
 # rather than installed: this machine's Python is externally managed, and
 # installing into it is not the simulation's business. A version that is not

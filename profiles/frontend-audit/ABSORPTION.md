@@ -43,10 +43,18 @@ no regression to chase.
 `spjoaillerie-live` is a capture of a storefront with its own brand —
 Didot, Garamond, gold, parchment. `blob.in-showcase` is a native surface
 with a cyan accent where the system has an orange one, and its theme file
-claims to derive from a gnosix path that does not exist and does not match
-the palette. Neither is a design-system consumer. One is a different brand
-that should be left alone; the other has a claim that has to be corrected
-before anything else happens.
+claims to derive from a gnosix path whose palette is not the system's.
+Neither is a design-system consumer. One is a different brand that should
+be left alone; the other has a claim that has to be corrected before
+anything else happens.
+
+> **Correction, 2026-10-20.** This audit said the path does not exist. It
+> does exist: `gnosix/crates/gnos-ux-gpui/src/product_design.rs` is there,
+> and what it carries is a palette of its own — a cyan, and not one colour
+> of the system's. The claim in the showcase's source is still false, and
+> it is false for the other reason: the file it names is not the system's
+> palette. The showcase stays out of the programme, and its sentence is
+> corrected.
 
 **Four: the component layer is the actual blocker.**
 
@@ -353,12 +361,18 @@ only. And the licence of the workspace is not yet decided.
 ### 9. blob.in-showcase — correct the claim, then decide
 
 `crates/showcase/src/theme.rs:1` says the palette is read from a gnosix
-path. That path does not exist, the palette does not match, and the
-repository is proprietary and never published. The claim in the source
-file is false and must be corrected. After that, the question is whether
-this surface becomes a consumer of `profiles/native/` — it is the only
-frontend the audit could not read at all until byte-triplet colours were
-recognised.
+path. The path exists — `gnosix/crates/gnos-ux-gpui/src/product_design.rs`
+— and the palette it carries is not the system's: none of its colours is
+one of ours, and the showcase's own accent is a cyan where the system has
+an orange one. The claim in the source file is therefore false, and it is
+false because the palette does not match, not because the path is missing.
+The repository is proprietary and never published. The claim must be
+corrected. After that, the question is whether this surface becomes a
+consumer of `profiles/native/` — it is the only frontend the audit could
+not read at all until byte-triplet colours were recognised. The decision
+is that it does not: a native surface that shows a product of its own may
+carry its own palette, which is what COL-004 allows, and the criterion of
+absorption is a web one.
 
 ### 10. spjoaillerie-live — exclude
 

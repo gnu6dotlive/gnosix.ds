@@ -225,4 +225,12 @@ python3 tools/check_deviations.py
 
 Expected: `PASS: the severity register holds`.
 
+## 27. The gates stay inside the repository
+
+```bash
+python3 tools/check_containment.py
+```
+
+Expected: `PASS: the gates stay inside the repository`.
+
 ---
