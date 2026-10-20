@@ -18,10 +18,14 @@ one. `publish` refuses unless the tree is clean, the tag exists, the tag
 agrees with the version, and the archive that would be published has already
 been built from the same commit.
 
-The archive is byte-reproducible: entries are sorted, timestamps are fixed,
-and the gzip header carries no name and no time. The same commit always
-produces the same archive, which is what makes the published SHA-256 a
-statement about the source rather than about the machine that packed it.
+The archive is built in two layers and the two are reported separately,
+because only one of them is a statement about the source alone. The tar
+stream inside is byte-reproducible: entries are sorted, timestamps are fixed,
+ownership is cleared, and the gzip header carries neither a name nor a time.
+The gzip wrapper around it is not, because gzip's output depends on the zlib
+build that produced it and two zlib versions do not emit the same compressed
+bytes for the same input. The content digest is the one a consumer can check
+on their own machine.
 """
 
 import argparse
@@ -196,7 +200,28 @@ def packaged_files() -> list[Path]:
     return sorted(files, key=lambda p: str(p.relative_to(ROOT)))
 
 
-def build_archive(version_value: str) -> tuple[Path, str]:
+def build_archive(version_value: str) -> tuple[Path, str, str]:
+    """Build the distributable archive.
+
+    Returns (path, archive digest, content digest).
+
+    Two digests, because the archive has two layers and only one of them is
+    a statement about the source alone:
+
+      content  the sha256 of the uncompressed tar stream. Entries are
+               sorted, timestamps are fixed, ownership is cleared and modes
+               are normalised, so this digest is the same on every machine
+               that checks out the same commit.
+      archive  the sha256 of the gzip wrapper. The tar inside is
+               bit-identical, but gzip's output depends on the zlib build
+               that produced it, and two zlib versions do not emit the same
+               compressed bytes for the same input.
+
+    Publishing the content digest is what lets a consumer verify that what
+    they built is what was published. Verifying the archive digest only
+    works on the machine that produced it, which is a weaker statement and
+    an easy one to make by accident.
+    """
     DIST.mkdir(exist_ok=True)
     target = DIST / archive_name(version_value)
     root = archive_root(version_value)
@@ -214,6 +239,8 @@ def build_archive(version_value: str) -> tuple[Path, str]:
             with path.open("rb") as handle:
                 tar.addfile(info, handle)
 
+    content_digest = hashlib.sha256(raw.getvalue()).hexdigest()
+
     # A gzip header with a name and a timestamp would make the archive
     # depend on when and where it was built. Both are set to nothing.
     packed = io.BytesIO()
@@ -222,17 +249,27 @@ def build_archive(version_value: str) -> tuple[Path, str]:
     target.write_bytes(packed.getvalue())
 
     digest = hashlib.sha256(target.read_bytes()).hexdigest()
-    return target, digest
+    return target, digest, content_digest
+
+
+def tar_stream_digest(archive: Path) -> str:
+    """The sha256 of the uncompressed tar inside an archive."""
+    with gzip.open(archive, "rb") as handle:
+        return hashlib.sha256(handle.read()).hexdigest()
 
 
 def cmd_build(_args) -> int:
     version_value = version()
-    target, digest = build_archive(version_value)
+    target, digest, content_digest = build_archive(version_value)
     size = target.stat().st_size
     print(f"built {target.relative_to(ROOT)}")
     print(f"  {size} bytes")
-    print(f"  sha256 {digest}")
     print(f"  {len(packaged_files())} files")
+    print(f"  sha256 (archive) {digest}")
+    print(f"  sha256 (content) {content_digest}")
+    print("  the content digest is the machine-independent one: the tar inside")
+    print("  the gzip wrapper is bit-identical, but gzip's output depends on")
+    print("  the zlib build that produced it")
     return 0
 
 
@@ -299,6 +336,14 @@ def cmd_publish(args) -> int:
     if notes is None and not args.allow_missing_notes:
         print(f"CHANGELOG.md has no section for {version_value}")
         return 1
+
+    # The content digest goes in the notes because it is the one a consumer
+    # can check: they rebuild the archive and compare the tar inside it, and
+    # it matches whatever machine built the published one.
+    notes = (notes or "") + (
+        f"\n\n---\n\nContent digest (sha256 of the uncompressed tar): "
+        f"`{tar_stream_digest(target)}`\n"
+    )
 
     argv = ["gh", "release", "create", name, str(target.relative_to(ROOT))]
     if notes:

@@ -32,7 +32,7 @@
     {
       "class": "evidence",
       "path": "README.md",
-      "sha256": "27afe98fcdac17aac4cf1b00ab4d3cd8fd82d7e652a03312254bbe750a3e7528"
+      "sha256": "b10e05bd47377c37765550a6c25f78fe2177d69216fb0fa0918048ff6c7ec48c"
     },
     {
       "class": "evidence",
@@ -772,7 +772,7 @@
     {
       "class": "evidence",
       "path": "tests/test_release.py",
-      "sha256": "a18293a0cce024f55c0a2076e238997226a918c5aae9a461b80d34604b34fdac"
+      "sha256": "24d33ccddc7023e5e6373492481a0d0d1d6974917fb4a8f35a61c9583df15f34"
     },
     {
       "class": "evidence",
@@ -842,7 +842,7 @@
     {
       "class": "evidence",
       "path": "tools/release.py",
-      "sha256": "776faddd939e759c7c6311e4db24a684698d48708a7610339e0931a869627e3c"
+      "sha256": "a23b8d13729bc4309d833f164e2d0f3fb96a73457bd4a404519b52f30e5c08dd"
     },
     {
       "class": "evidence",

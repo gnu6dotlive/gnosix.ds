@@ -95,10 +95,23 @@ agrees with the version, and the archive has already been built.
 
 Pushing the tag also triggers `.github/workflows/release.yml`, which
 qualifies the tagged commit, builds the archive from it and attaches it to
-the release. The archive is byte-reproducible — sorted entries, fixed
-timestamps, a gzip header carrying neither a name nor a time — so the
-SHA-256 printed in the log is a statement about the source rather than about
-the runner that packed it.
+the release.
+
+The archive is built in two layers, and the two are reported separately
+because only one of them is a statement about the source alone:
+
+- The **tar stream** inside is byte-reproducible — entries are sorted,
+  timestamps are fixed, ownership is cleared, and the gzip header carries
+  neither a name nor a time. Its digest is the same on every machine that
+  checks out the same commit, and it is the one published in the release
+  notes.
+- The **gzip wrapper** around it is not, because gzip's output depends on
+  the zlib build that produced it, and two zlib versions do not emit the
+  same compressed bytes for the same input. Its digest is a statement about
+  the source *and* the toolchain that packed it.
+
+So a consumer who rebuilds the archive gets a bit-identical tar and, on a
+different zlib, a different `.tar.gz` around it. Compare the content digest.
 
 ## Validation
 

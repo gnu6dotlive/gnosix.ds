@@ -73,16 +73,27 @@ class ReleaseLifecycleTests(unittest.TestCase):
                 self.assertFalse(path.endswith(".pyc"))
 
     def test_the_archive_is_byte_reproducible(self):
-        """The same commit produces the same archive.
+        """The same commit produces the same tar stream on any machine.
 
-        The published SHA-256 is a statement about the source, not about the
-        machine that packed it. Sorted entries, fixed timestamps and a gzip
-        header carrying neither a name nor a time are what make that true.
+        The tar stream is sorted, timestamp-free, ownership-free and
+        mode-normalised, so it is bit-identical wherever it is built. The
+        gzip wrapper around it is not: gzip's output depends on the zlib
+        build, and two zlib versions do not emit the same compressed bytes
+        for the same input. The content digest is therefore the portable
+        one, and it is the one the release notes publish.
         """
         with tempfile.TemporaryDirectory() as tmp:
-            first = release_tool.build_archive(release_tool.version())[0].read_bytes()
-            second = release_tool.build_archive(release_tool.version())[0].read_bytes()
-            self.assertEqual(hashlib.sha256(first).hexdigest(), hashlib.sha256(second).hexdigest())
+            first_path, _, first_content = release_tool.build_archive(release_tool.version())
+            second_path, _, second_content = release_tool.build_archive(release_tool.version())
+            self.assertEqual(first_content, second_content)
+            self.assertEqual(
+                release_tool.tar_stream_digest(first_path),
+                release_tool.tar_stream_digest(second_path))
+            # The same machine's zlib produces the same wrapper too, so the
+            # archive digest is stable here even though it is not portable.
+            self.assertEqual(
+                hashlib.sha256(first_path.read_bytes()).hexdigest(),
+                hashlib.sha256(second_path.read_bytes()).hexdigest())
 
     def test_the_archive_passes_its_own_gates(self):
         """A distributable archive that does not validate is not distributable.
