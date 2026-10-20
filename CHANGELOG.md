@@ -58,6 +58,21 @@ would be a name nobody could read.
 number of components, the number of arrangements, the number of parts and
 the number of rules are facts a gate can read.
 
+**The consumer gate learned to judge the components.** It measured them
+and said nothing: it reported how many classes a consumer builds itself
+and never failed on them. It now measures the consumer's *components* —
+by the system's own rule, the one the convergence used, so a name in a
+global stylesheet stays a utility — and compares them with the contract's
+vocabulary: the system's fourteen elements and the package's fifty-three
+names. What is left is the consumer's own, and it says so in its
+`gnosix.json`, with the reason. A component the contract does not have
+and the consumer does not declare is a failure.
+
+Measured today, the same rule over the same field: `gnu.in.work` declares
+a thousand and five components of its own, `gnosis.OS` thirty-two,
+`gnu6.live` forty-one, and the two repositories that had already
+re-vendored the package declare none at all.
+
 ## [4.1.0] — 2026-10-20
 
 The system publishes the package the field vendors, the field's

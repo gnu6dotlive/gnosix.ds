@@ -304,6 +304,43 @@ def system_components() -> set[str]:
     return out
 
 
+def contract_vocabulary() -> set[str]:
+    """Every component name the contract publishes.
+
+    The system publishes its own elements under its prefix, and the
+    package publishes the field's vocabulary under the g6- prefix — the
+    thirty-nine names the field declares and the fourteen elements the
+    system declares, in the spelling the field writes in. A consumer that
+    uses one of them is using the contract.
+    """
+    names = set(system_components())
+    spec = json.loads((ROOT / "core/COMPONENTS.json").read_text(encoding="utf-8"))
+    vocabulary = spec.get("vocabularies", {}).get("gnu6-design", {})
+    for name in vocabulary.get("components", {}):
+        names.add(f"{vocabulary.get('prefix', 'g6-')}{name}")
+    return names
+
+
+def declared_components(manifest: dict | None) -> set[str]:
+    """The component names a consumer declares as its own.
+
+    A product has components of its own — the things only it has. The
+    contract governs the interface, and the interface's components are the
+    contract's. What is left is the consumer's own vocabulary, and it
+    says so, in a list, with the reason.
+    """
+    if not isinstance(manifest, dict):
+        return set()
+    out = set()
+    for item in manifest.get("components") or []:
+        if not isinstance(item, dict):
+            continue
+        for name in item.get("names") or ([item["name"]] if "name" in item else []):
+            if isinstance(name, str):
+                out.add(name)
+    return out
+
+
 def exempt_paths(consumer: Path) -> list[str]:
     """The paths a consumer declares as not being its interface."""
     manifest = consumer / "gnosix.json"
@@ -315,6 +352,19 @@ def exempt_paths(consumer: Path) -> list[str]:
         return []
     return [item["path"] for item in (document.get("exempt") or [])
             if isinstance(item, dict) and "path" in item]
+
+
+def consumer_components(consumer: Path, exempt: list[str]) -> set[str]:
+    """The component names the consumer declares, by the system's rule.
+
+    A name in a global stylesheet is a utility or a page, not a
+    component: the field's utilities are as numerous as its components.
+    The rule is the one the convergence used, and it is the system's
+    judgement of what a component is — not a second one.
+    """
+    from component_convergence import collect
+
+    return collect(consumer, exempt)
 
 
 def scan(consumer: Path) -> dict:
@@ -366,6 +416,7 @@ def scan(consumer: Path) -> dict:
 
     return {"files": files, "colours": colours, "families": families,
             "own_classes": own_classes, "gnosix_vars": gnosix_vars,
+            "components": consumer_components(consumer, exempt),
             "declared": declared}
 
 
@@ -407,6 +458,18 @@ def report(consumer: Path, scan_result: dict) -> tuple[str, list[str]]:
         version = declared.get("version") if isinstance(declared, dict) else None
         lines.append(f"- **The version of the system it honours:** {version or 'not declared'}")
 
+    vocabulary = contract_vocabulary()
+    declared_own = declared_components(declared)
+    own_components = scan_result.get("components", set()) - vocabulary
+    undeclared = own_components - declared_own
+    lines.append(f"- **Components the consumer defines that the contract has:** "
+                 f"{len(scan_result.get('components', set()) & vocabulary)}")
+    lines.append(f"- **Components of the consumer's own:** {len(own_components)}")
+    lines.append(f"- **Of those, declared as its own:** {len(own_components & declared_own)}")
+    lines.append(f"- **Undeclared:** {len(undeclared)}")
+    for name in sorted(undeclared)[:10]:
+        lines.append(f"  - `{name}`")
+
     problems = []
     if declared is None:
         problems.append("the consumer does not declare which version of the system it honours")
@@ -414,6 +477,9 @@ def report(consumer: Path, scan_result: dict) -> tuple[str, list[str]]:
         problems.append(f"{len(outside)} colour(s) the system does not have")
     if families:
         problems.append(f"{len(families)} font family/families the system does not have")
+    if undeclared:
+        problems.append(f"{len(undeclared)} component(s) the contract does not have "
+                        f"and the consumer does not declare as its own")
     return "\n".join(lines) + "\n", problems
 
 
