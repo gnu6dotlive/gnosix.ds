@@ -60,15 +60,24 @@ jobs:
 
       # The FigCraft projection gate rebuilds the committed project and
       # compares it byte for byte, so it needs the FigCraft engine and the
-      # same fonts. The engine is pinned by its digest: a tool whose version
+      # same font. The engine is pinned by its digest: a tool whose version
       # is not stated is a tool whose verdict is not reproducible.
       #
       # The font is the one this repository packages, and it is the only one
       # that matters: the text layout is part of the file, so a machine
       # without it lays the text out differently and the bytes differ with
-      # the same script. Fontconfig is pointed at a directory holding just
-      # that font so the result does not depend on what the runner happens
-      # to have installed.
+      # the same script.
+      #
+      # It goes in through XDG_DATA_HOME, which is where the engine reads
+      # user fonts from on Linux - its own documented mechanism, rather than
+      # a fontconfig file the engine does not read the way one expects. An
+      # earlier attempt to hand it over through FONTCONFIG_FILE worked
+      # locally and found no font at all on the runner.
+      #
+      # The system's own fonts are not pinned, and do not need to be: the
+      # same bytes come out with five fonts installed and with sixteen
+      # hundred, because every glyph in the projection is in Space Grotesk
+      # and nothing falls back.
       - name: Provision the FigCraft engine
         run: |
           set -euo pipefail
@@ -85,18 +94,9 @@ jobs:
           chmod +x "$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli"
           "$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli" --version
 
-          mkdir -p "$RUNNER_TEMP/fonts" "$RUNNER_TEMP/fontcache"
-          cp assets/fonts/SpaceGrotesk-native.ttf "$RUNNER_TEMP/fonts/"
-          cat > "$RUNNER_TEMP/fonts.conf" <<FONTCONF
-          <?xml version="1.0"?>
-          <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-          <fontconfig>
-            <dir>$RUNNER_TEMP/fonts</dir>
-            <cachedir>$RUNNER_TEMP/fontcache</cachedir>
-            <include ignore_missing="yes">/etc/fonts/conf.d</include>
-          </fontconfig>
-          FONTCONF
-          echo "FONTCONFIG_FILE=$RUNNER_TEMP/fonts.conf" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/xdg/fonts"
+          cp assets/fonts/SpaceGrotesk-native.ttf "$RUNNER_TEMP/xdg/fonts/"
+          echo "XDG_DATA_HOME=$RUNNER_TEMP/xdg" >> "$GITHUB_ENV"
           echo "FIGCRAFT_CLI=$RUNNER_TEMP/figcraft-engine/bin/figcraft-cli" >> "$GITHUB_ENV"
 
       # Report the environment before the qualification rather than after a

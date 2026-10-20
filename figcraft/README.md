@@ -60,3 +60,28 @@ The second level is skipped, not failed, when no FigCraft CLI is present.
 
 The generator needs `figcraft-cli` on the path, or `FIGCRAFT_CLI` pointing at
 it. The upstream repository is <https://github.com/storytold/figcraft>.
+
+It also needs **Space Grotesk**, because the text layout is part of the file:
+a machine without it lays the text out differently and the bytes differ
+with the same script. The engine reads user fonts from `$XDG_DATA_HOME/fonts`
+on Linux, so the font goes in there:
+
+```sh
+mkdir -p "$XDG_DATA_HOME/fonts"
+cp assets/fonts/SpaceGrotesk-native.ttf "$XDG_DATA_HOME/fonts/"
+```
+
+The system's own fonts do not need to be pinned. The same bytes come out
+with five fonts installed and with sixteen hundred, because every glyph in
+the projection is in Space Grotesk and nothing falls back — but that stops
+being true the moment a character missing from Space Grotesk enters the
+design, and the gate is what would say so.
+
+## What the gate compares
+
+The command script, and the project. The script is the generator's account
+of the source, and it is compared byte for byte, so it is a statement about
+the source and not about the machine. The project is compared byte for byte
+too, for the same reason: the shape of the project is identical whether the
+token is `#FF6A00` or `#FF6B00`, so a shape comparison would pass a
+one-hex change.
