@@ -1,27 +1,27 @@
 /* gnu6-design — re-cut by tools/package_gnu6_design.py from
    gnosix.ds 4.1.0. Do not edit. */
 :root {
-  --gnosix-neutral-anthracite: var(--gnosix-neutral-anthracite);
-  --gnosix-neutral-shell-white: var(--gnosix-neutral-shell-white);
-  --gnosix-neutral-pure-white: var(--gnosix-neutral-pure-white);
+  --gnosix-neutral-anthracite: #111418;
+  --gnosix-neutral-shell-white: #F7F3ED;
+  --gnosix-neutral-pure-white: #FFFFFF;
   --gnosix-neutral-hairline: #D7DADF;
   --gnosix-neutral-quiet-divider: #E6E8EB;
   --gnosix-neutral-muted: var(--gnosix-ink-on-dark-l678c24);
   --gnosix-neutral-slate: #667085;
   --gnosix-signal-orange-100: #FFE5D2;
   --gnosix-signal-orange-300: #FF8E40;
-  --gnosix-signal-orange-base: var(--gnosix-signal-orange-base);
-  --gnosix-signal-orange-700: var(--gnosix-signal-orange-700);
+  --gnosix-signal-orange-base: #FF6A00;
+  --gnosix-signal-orange-700: #C95400;
   --gnosix-beret-green-100: #E8EFE5;
-  --gnosix-beret-green-300: var(--gnosix-beret-green-300);
-  --gnosix-beret-green-base: var(--gnosix-beret-green-base);
-  --gnosix-beret-green-700: var(--gnosix-beret-green-700);
-  --gnosix-royal-blue-100: var(--gnosix-royal-blue-100);
-  --gnosix-royal-blue-300: var(--gnosix-royal-blue-300);
-  --gnosix-royal-blue-base: var(--gnosix-royal-blue-base);
-  --gnosix-royal-blue-700: var(--gnosix-royal-blue-700);
+  --gnosix-beret-green-300: #8DA982;
+  --gnosix-beret-green-base: #5F7F52;
+  --gnosix-beret-green-700: #455F3D;
+  --gnosix-royal-blue-100: #E8EDFF;
+  --gnosix-royal-blue-300: #87A0F4;
+  --gnosix-royal-blue-base: #4169E1;
+  --gnosix-royal-blue-700: #2446A8;
   --gnosix-semantic-alert: #E5484D;
-  --gnosix-semantic-warn: var(--gnosix-semantic-warn);
+  --gnosix-semantic-warn: #F5A524;
   --g6-font: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --g6-weight-regular: 400;
   --g6-weight-medium: 500;
@@ -103,7 +103,7 @@
     --g6-note-attention-bg: var(--gnosix-surface-warm-l971c18);
     --g6-selection: var(--gnosix-royal-blue-100);
     --g6-action-bg-pressed: var(--gnosix-surface-dark-l282c16);
-    --g6-action-signal: #FF8E40;
+    --g6-action-signal: var(--gnosix-signal-orange-300);
     --g6-action-disabled-bg: var(--gnosix-surface-light-l920c6);
     --g6-action-disabled-text: var(--gnosix-ink-on-light-l445c22);
     --g6-signal: var(--gnosix-signal-orange-700);
@@ -139,7 +139,7 @@
   --g6-note-attention-bg: var(--gnosix-surface-warm-l971c18);
   --g6-selection: var(--gnosix-royal-blue-100);
   --g6-action-bg-pressed: var(--gnosix-surface-dark-l282c16);
-  --g6-action-signal: #FF8E40;
+  --g6-action-signal: var(--gnosix-signal-orange-300);
   --g6-action-disabled-bg: var(--gnosix-surface-light-l920c6);
   --g6-action-disabled-text: var(--gnosix-ink-on-light-l445c22);
   --g6-signal: var(--gnosix-signal-orange-700);
@@ -2372,6 +2372,12 @@ a.g6-menu__item:focus-visible {
   --gnosix-weight-medium: 500;
   --gnosix-weight-semibold: 600;
   --gnosix-weight-bold: 700;
+  --gnosix-font-primary: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-navigation: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-controls: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-technical: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --gnosix-space-2xs: 4px;
   --gnosix-space-xs: 8px;
   --gnosix-space-sm: 12px;
@@ -2382,4 +2388,536 @@ a.g6-menu__item:focus-visible {
   --gnosix-space-3xl: 64px;
   --gnosix-space-4xl: 96px;
   --gnosix-space-5xl: 128px;
+}
+
+/* The system's roles, bound to the sheet's substrate. The roles say
+   what a thing is for; the sheet says which surface it sits on. */
+:root,
+[data-g6-mode="dark"] {
+  --gnosix-surface: var(--gnosix-neutral-anthracite);
+  --gnosix-surface-raised: var(--gnosix-surface-dark-l250c14);
+  --gnosix-surface-overlay: var(--gnosix-surface-dark-l282c16);
+  --gnosix-surface-sunken: var(--gnosix-surface-dark-l207c10);
+  --gnosix-ink: var(--gnosix-neutral-shell-white);
+  --gnosix-ink-muted: var(--gnosix-ink-on-dark-l678c24);
+  --gnosix-hairline: var(--gnosix-hairline-l310c15);
+  --gnosix-accent: var(--gnosix-signal-orange-base);
+  --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
+  --gnosix-focus: var(--gnosix-royal-blue-base);
+  --gnosix-selection: var(--gnosix-surface-selection-l354c90);
+  --gnosix-info: var(--gnosix-info-l621c123);
+  --gnosix-positive: var(--gnosix-beret-green-300);
+  --gnosix-positive-surface: var(--gnosix-beret-green-700);
+  --gnosix-caution: var(--gnosix-semantic-warn);
+  --gnosix-critical: var(--gnosix-semantic-alert);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-g6-mode="dark"]) {
+    --gnosix-surface: var(--gnosix-neutral-shell-white);
+    --gnosix-surface-raised: var(--gnosix-surface-light-l978c1);
+    --gnosix-surface-overlay: var(--gnosix-surface-light-l988c0);
+    --gnosix-surface-sunken: var(--gnosix-surface-light-l920c6);
+    --gnosix-ink: var(--gnosix-neutral-anthracite);
+    --gnosix-ink-muted: var(--gnosix-ink-on-light-l445c22);
+    --gnosix-hairline: var(--gnosix-hairline-l921c5);
+    --gnosix-accent: var(--gnosix-signal-orange-base);
+    --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
+    --gnosix-focus: var(--gnosix-royal-blue-base);
+    --gnosix-selection: var(--gnosix-royal-blue-100);
+    --gnosix-info: var(--gnosix-info-l621c123);
+    --gnosix-positive: var(--gnosix-beret-green-base);
+    --gnosix-positive-surface: var(--gnosix-beret-green-100);
+    --gnosix-caution: var(--gnosix-semantic-warn);
+    --gnosix-critical: var(--gnosix-semantic-alert);
+  }
+}
+[data-g6-mode="light"] {
+  --gnosix-surface: var(--gnosix-neutral-shell-white);
+  --gnosix-surface-raised: var(--gnosix-surface-light-l978c1);
+  --gnosix-surface-overlay: var(--gnosix-surface-light-l988c0);
+  --gnosix-surface-sunken: var(--gnosix-surface-light-l920c6);
+  --gnosix-ink: var(--gnosix-neutral-anthracite);
+  --gnosix-ink-muted: var(--gnosix-ink-on-light-l445c22);
+  --gnosix-hairline: var(--gnosix-hairline-l921c5);
+  --gnosix-accent: var(--gnosix-signal-orange-base);
+  --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
+  --gnosix-focus: var(--gnosix-royal-blue-base);
+  --gnosix-selection: var(--gnosix-royal-blue-100);
+  --gnosix-info: var(--gnosix-info-l621c123);
+  --gnosix-positive: var(--gnosix-beret-green-base);
+  --gnosix-positive-surface: var(--gnosix-beret-green-100);
+  --gnosix-caution: var(--gnosix-semantic-warn);
+  --gnosix-critical: var(--gnosix-semantic-alert);
+}
+/* The system's own elements, in the field's spelling. The field's   sheet keeps its own three — the action, the state and the section   — and the contract says where each differs from the system's. */
+/* system — The typographic and numeric system a surface sits in: the family, the tabular numerals that make terse metadata line up, and the measure of a line of reading text. */
+.g6-system {
+  border: 1px solid transparent;
+}
+/* button — The control a person presses. */
+.g6-button {
+  background: var(--gnosix-accent);
+  color: var(--gnosix-accent-ink);
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 0.85em 1.2em;
+  font-weight: var(--gnosix-weight-bold);
+  border: 1px solid transparent;
+}
+.g6-button:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-button[data-variant="primary"] {
+  background: var(--gnosix-accent);
+  color: var(--gnosix-accent-ink);
+}
+.g6-button[data-variant="secondary"] {
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+}
+.g6-button[data-variant="quiet"] {
+  background: transparent;
+  color: var(--gnosix-ink);
+}
+.g6-button[data-variant="destructive"] {
+  background: var(--gnosix-critical);
+  color: var(--gnosix-ink);
+}
+.g6-button:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+.g6-button:active:not(:disabled) {
+  filter: brightness(.94);
+}
+.g6-button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+.g6-button[aria-busy='true'] {
+  cursor: progress;
+}
+/* text-input — A field a person types into, with a visible label and a focus treatment that does not depend on hover. */
+.g6-text-input {
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0.7em 0.9em;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-text-input:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-text-input:hover:not(:disabled) {
+  border-color: var(--gnosix-ink-muted);
+}
+.g6-text-input:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+.g6-text-input[aria-invalid='true'] {
+  border-color: var(--gnosix-critical);
+}
+/* badge — A short mark that says what a thing is: its condition, its category, its count. */
+.g6-badge {
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 6px;
+  min-height: 24px;
+  padding: 0.2em 0.6em;
+  font-weight: var(--gnosix-weight-medium);
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-badge[data-variant="stable"] {
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  background: var(--gnosix-positive);
+}
+.g6-badge[data-variant="attention"] {
+  background: var(--gnosix-caution);
+  color: var(--gnosix-ink);
+  background: var(--gnosix-caution);
+}
+.g6-badge[data-variant="breach"] {
+  background: var(--gnosix-critical);
+  color: var(--gnosix-ink);
+  background: var(--gnosix-critical);
+}
+.g6-badge[data-variant="evidence"] {
+  background: var(--gnosix-surface-sunken);
+  color: var(--gnosix-ink-muted);
+}
+/* card — A raised surface that holds one thing: a record, a result, a summary. */
+.g6-card {
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-card[data-interactive='true'] {
+  cursor: pointer;
+}
+.g6-card__body {
+  background: transparent;
+  color: var(--gnosix-ink);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid transparent;
+}
+.g6-card__body[data-interactive='true'] {
+  cursor: pointer;
+}
+/* dialog — A surface that interrupts to ask for something, and that takes the keyboard until it is answered. */
+.g6-dialog {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 14px;
+  padding: 1.5rem;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-dialog:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-dialog__overlay {
+  background: transparent;
+  color: var(--gnosix-ink);
+  padding: 0;
+  border: 1px solid transparent;
+}
+.g6-dialog__overlay:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-dialog__content {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 14px;
+  padding: 1.5rem;
+  width: 480px;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-dialog__content:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-dialog__header {
+  background: transparent;
+  color: var(--gnosix-ink);
+  padding: 0 0;
+  gap: 8px;
+  border: 1px solid transparent;
+}
+.g6-dialog__header:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-dialog__title {
+  background: transparent;
+  color: var(--gnosix-ink);
+  padding: 0;
+  font-weight: var(--gnosix-weight-bold);
+  font-size: 20px;
+  border: 1px solid transparent;
+}
+.g6-dialog__title:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-dialog__description {
+  background: transparent;
+  color: var(--gnosix-ink-muted);
+  padding: 0;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+.g6-dialog__description:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+/* tooltip — A short explanation that appears beside the thing it explains and goes away when the pointer or the focus leaves. */
+.g6-tooltip {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 8px;
+  padding: 0.4em 0.7em;
+  width: 240px;
+  font-size: 13px;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-tooltip__trigger {
+  background: transparent;
+  color: var(--gnosix-ink);
+  padding: 0;
+  font-size: 13px;
+  border: 1px solid transparent;
+}
+.g6-tooltip__content {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 8px;
+  padding: 0.4em 0.7em;
+  width: 240px;
+  font-size: 13px;
+  border: 1px solid var(--gnosix-hairline);
+}
+/* select — A control that opens a list of choices and shows the one that is chosen. */
+.g6-select {
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0.7em 0.9em;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-select:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-select:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+.g6-select__option {
+  background: transparent;
+  color: var(--gnosix-ink);
+  border-radius: 6px;
+  padding: 0.4em 0.7em;
+  border: 1px solid transparent;
+}
+.g6-select__option:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-select__option:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+.g6-select__option[aria-selected='true'] {
+  background: var(--gnosix-surface-sunken);
+  color: var(--gnosix-ink);
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 0.7em 0.9em;
+  border: 1px solid transparent;
+}
+.g6-select__option[aria-selected='true']:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-select__option[aria-selected='true']:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+/* tabs — A set of panels that share one subject, of which one is shown. */
+.g6-tabs {
+  background: transparent;
+  color: var(--gnosix-ink);
+  gap: 4px;
+  font-weight: var(--gnosix-weight-medium);
+  border: 1px solid transparent;
+}
+.g6-tabs:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-tabs__item {
+  background: transparent;
+  color: var(--gnosix-ink);
+  border-radius: 8px;
+  padding: 0.5em 0.9em;
+  font-weight: var(--gnosix-weight-medium);
+  border: 1px solid transparent;
+}
+.g6-tabs__item:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-tabs__item[aria-selected='true'] {
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 8px;
+  padding: 0.5em 0.9em;
+  font-weight: var(--gnosix-weight-medium);
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-tabs__item[aria-selected='true']:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+/* toaster — The place a transient message arrives, and the place it is read while it is there. */
+.g6-toaster {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  width: 360px;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-toaster:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-toaster__message {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  width: 360px;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-toaster__message:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+/* toggle — A control that turns something on or off, and says which state it is in. */
+.g6-toggle {
+  background: var(--gnosix-surface-sunken);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 999px;
+  width: 44px;
+  height: 24px;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-toggle:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-toggle__thumb {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-radius: 999px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid transparent;
+}
+.g6-toggle__thumb:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+/* command-palette — A field that takes a command rather than a value, and a list of the commands it could be. */
+.g6-command-palette {
+  background: var(--gnosix-surface-overlay);
+  color: var(--gnosix-ink);
+  border-color: var(--gnosix-hairline);
+  border-radius: 12px;
+  width: 560px;
+  border: 1px solid var(--gnosix-hairline);
+}
+.g6-command-palette:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-command-palette__field {
+  background: transparent;
+  color: var(--gnosix-ink);
+  min-height: 44px;
+  padding: 0.6em 0.9em;
+  border: 1px solid transparent;
+}
+.g6-command-palette__field:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-command-palette__list {
+  background: transparent;
+  color: var(--gnosix-ink);
+  padding: 0.4rem;
+  gap: 2px;
+  border: 1px solid transparent;
+}
+.g6-command-palette__list:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-command-palette__option {
+  background: transparent;
+  color: var(--gnosix-ink);
+  border-radius: 6px;
+  padding: 0.45em 0.7em;
+  border: 1px solid transparent;
+}
+.g6-command-palette__option:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+.g6-command-palette__option[aria-selected='true'] {
+  background: var(--gnosix-surface-sunken);
+  color: var(--gnosix-ink);
+  border-radius: 12px;
+  width: 560px;
+  border: 1px solid transparent;
+}
+.g6-command-palette__option[aria-selected='true']:focus-visible {
+  outline: 3px solid var(--gnosix-focus);
+  outline-offset: 3px;
+}
+/* icon — A glyph from the ratified subset, at the size the system says, in the colour the surface says. */
+.g6-icon {
+  background: transparent;
+  color: var(--gnosix-ink);
+  width: 20px;
+  height: 20px;
+  border: 1px solid transparent;
+}
+.g6-icon:disabled {
+  opacity: .55;
+}
+/* section-heading — The heading of a section, with the number that says where the section sits and the action that applies to it. */
+.g6-section-heading {
+  background: transparent;
+  color: var(--gnosix-ink);
+  padding: 0;
+  gap: 12px;
+  font-weight: var(--gnosix-weight-bold);
+  font-size: 20px;
+  border: 1px solid transparent;
+}
+.g6-section-heading__number {
+  background: transparent;
+  color: var(--gnosix-ink-muted);
+  padding: 0;
+  font-weight: var(--gnosix-weight-medium);
+  font-size: 12px;
+  border: 1px solid transparent;
+}
+.g6-section-heading__title {
+  background: transparent;
+  color: var(--gnosix-ink);
+  padding: 0;
+  font-weight: var(--gnosix-weight-bold);
+  font-size: 20px;
+  border: 1px solid transparent;
+}
+.g6-section-heading__intro {
+  background: transparent;
+  color: var(--gnosix-ink-muted);
+  padding: 0;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }

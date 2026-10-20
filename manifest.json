@@ -1,7 +1,7 @@
 {
   "version": "4.1.0",
   "name": "gnosix_DS V4.1.0 motion contract and alpha compositing variants",
-  "contract_digest": "bb357779fe93dacca45433ad09644d2976af34867601e10ac9579d3385430f9a",
+  "contract_digest": "ea6b135f2cadd6ea2cd2da9f18b6c6f3e29da1971bfb0af14a77c0f15a49f2cf",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -32,7 +32,7 @@
     {
       "class": "evidence",
       "path": "README.md",
-      "sha256": "cc38fe41e1136188fcb877caa1f1343c9c05d4ad81a486b5a221a1de9ba6b812"
+      "sha256": "e6680bfe5c35e3a84c19058e123baa9d68a4d83c25875adea3756c8457fea65f"
     },
     {
       "class": "evidence",
@@ -427,7 +427,7 @@
     {
       "class": "core",
       "path": "core/COMPONENTS.json",
-      "sha256": "2e7ee83264f7d6ac65b0a86644cba7a9e2a212812e9b9f729e5d6937f0a1482a"
+      "sha256": "605be202c4c5a3991c59c1fdaf81a566dde4d8de27bd3ddc75a2650a09cc2d4d"
     },
     {
       "class": "core",
@@ -477,12 +477,12 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6-design.lock.json",
-      "sha256": "ca1d605eb2872fa407c71d4943b33d22012e93a07e03d424dcadc40f35cea209"
+      "sha256": "1fe6ac8410764b5a558ebe398e6687e0d826188b6c645f9a5e9cfac565e8a857"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6.css",
-      "sha256": "e8ad5588a15c947540d73306ae45b3cdbf6efe0255e91a9469c18e0e79006eef"
+      "sha256": "160cdb4403ccc93f25bdf512cf395ee7e1f4e4fbebb13fde9510aa12ba28377b"
     },
     {
       "class": "evidence",
@@ -502,7 +502,7 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/legacy/roles.json",
-      "sha256": "b4deacc3ab910e289e7dd58e3acbbcbe0dd92133ba9923b892bd1974380ee734"
+      "sha256": "0e2ad06c6a36cc65cb173b1b2d5b2b1f0affd1d75fc4ecc7043d55389f5821be"
     },
     {
       "class": "profile",
@@ -962,12 +962,12 @@
     {
       "class": "evidence",
       "path": "tools/check_vocabularies.py",
-      "sha256": "6f0be4b40172338ec51415e7d6c13a4a98e469bf0d51094ebf6017c570d3cfac"
+      "sha256": "1ed027e452066db024a65c3951538d870b1fe9a27166bb0997f35833702afdf4"
     },
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "687c8c06874a4e5201519f73dafb8c58a501d63989668abac26b4428d50d5642"
+      "sha256": "a1db917dae6eee69ae13182894fc7c54105d192beffba9848be522819b0e0c67"
     },
     {
       "class": "evidence",
@@ -1017,7 +1017,7 @@
     {
       "class": "evidence",
       "path": "tools/package_gnu6_design.py",
-      "sha256": "a0fbd242b10b18eb9f4e46c0ca0f6c9c0b9a236a549aafb31f85f891465583e5"
+      "sha256": "b7a6e4eebfbc12e474812f04e522bcb078d9aaff61efcf4f0fcebe1980ab6e12"
     },
     {
       "class": "evidence",
@@ -1058,6 +1058,11 @@
       "class": "evidence",
       "path": "tools/repair_mascot_alpha.py",
       "sha256": "d4cd5c1527d4347034df5064bde0ca355905243415b7636b63595d0f731baffb"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/specify_components.py",
+      "sha256": "6e3d6e2709141f16387bff02eeee4ec7c3f8db309c9b84759d6d153ffcea962a"
     },
     {
       "class": "evidence",

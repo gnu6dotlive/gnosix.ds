@@ -57,6 +57,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("the native profile compiles and its tests pass", ["tools/native_check.py"]),
     ("the gnu6-design package is what the contract cuts", ["tools/package_gnu6_design.py", "--check"]),
     ("every name the field declares is classified", ["tools/check_vocabularies.py"]),
+    ("every arrangement is specified as the sheet has it", ["tools/specify_components.py", "--check"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or

@@ -33,7 +33,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
+
 from oklch import hex_to_rgb, rgb_to_oklch  # noqa: E402
+from project_tokens import css_font_stack  # noqa: E402
 
 PACKAGE = ROOT / "packaging/gnu6-design"
 LEGACY = PACKAGE / "legacy/gnu6-1.1.1.css"
@@ -100,6 +102,9 @@ def rebind(text: str) -> tuple[str, list[str]]:
     return GNOSIX_VAR.sub(substitute, text), changed
 
 
+DECLARATION = re.compile(r"(--[\w-]+|[\w-]+)(\s*:\s*)(#[0-9A-Fa-f]{6}\b)")
+
+
 def bind_roles(text: str) -> str:
     """The sheet's own role layer, bound to the system.
 
@@ -107,17 +112,23 @@ def bind_roles(text: str) -> str:
     thirty-four for the light one, by hand. Each colour it declared is
     bound here to the step of the system that carries it, so the sheet
     names the system instead of carrying a colour of its own.
+
+    A colour is never bound into the declaration of the name it binds.
+    The sheet's palette block declares the system's own names, and a
+    name written as a reference to itself is not a colour at all: it is
+    invalid at computed-value time, and it only appears to work because
+    the system declares the same name again further down.
     """
     binding = json.loads(ROLES.read_text(encoding="utf-8"))["colours"]
 
     def substitute(match: re.Match) -> str:
-        value = match.group(0).upper()
-        name = binding.get(value)
-        if not name:
+        prop, separator, value = match.group(1), match.group(2), match.group(3)
+        name = binding.get(value.upper())
+        if not name or name == prop:
             return match.group(0)
-        return f"var({name})"
+        return f"{prop}{separator}var({name})"
 
-    return re.sub(r"#[0-9A-Fa-f]{6}\b", substitute, text)
+    return DECLARATION.sub(substitute, text)
 
 
 def system_block() -> str:
@@ -137,10 +148,90 @@ def system_block() -> str:
         rows.append(f"  {published_name(accent['id'])}: {accent['value'].upper()};")
     for role, weight in tokens["typography"]["weights"].items():
         rows.append(f"  --gnosix-weight-{role}: {int(weight)};")
+    for role, stack in tokens["typography"].items():
+        if role in ("weights", "technical_features") or not isinstance(stack, list):
+            continue
+        rows.append(f"  --gnosix-font-{role}: {css_font_stack(stack)};")
     for step, value in (tokens.get("spacing") or {}).items():
         rows.append(f"  --gnosix-space-{step}: {value}px;")
     rows.append("}")
     return "\n".join(rows) + "\n"
+
+
+def role_block() -> str:
+    """The system's roles, bound to the sheet's substrate.
+
+    The sheet chooses its substrate with data-g6-mode; the system chooses
+    its with data-gnosix-substrate. The package is one file, so the roles
+    follow the sheet: the same three blocks, in the same order, with the
+    system's role names bound to the system's own tokens. The elements
+    below name the roles, and a role that resolves to nothing is a
+    surface that falls back to whatever the cascade gives it.
+    """
+    from project_roles import reference_name
+
+    roles = json.loads((ROOT / "core/ROLES.json").read_text(encoding="utf-8"))["roles"]
+
+    def declarations(substrate: str, indent: str = "  ") -> str:
+        rows = []
+        for name, spec in roles.items():
+            rows.append(f"{indent}--gnosix-{name}: "
+                        f"var({reference_name(spec[substrate])});")
+        return "\n".join(rows)
+
+    lines = [
+        "",
+        "/* The system's roles, bound to the sheet's substrate. The roles say",
+        "   what a thing is for; the sheet says which surface it sits on. */",
+        ':root,',
+        '[data-g6-mode="dark"] {',
+        declarations("dark"),
+        "}",
+        "@media (prefers-color-scheme: light) {",
+        '  :root:not([data-g6-mode="dark"]) {',
+        declarations("light", "    "),
+        "  }",
+        "}",
+        '[data-g6-mode="light"] {',
+        declarations("light"),
+        "}",
+    ]
+    return "\n".join(lines) + "\n"
+
+
+def elements_block() -> str:
+    """The system's own elements, in the field's spelling.
+
+    The package is the contract's projection into the vocabulary the field
+    writes in, so it carries the contract's elements too, under the g6-
+    prefix. The field's own three — the action, the state and the section
+    — keep their names: they are the field's own implementations, the
+    contract says where they differ from the system's, and a name that
+    meant two things would be a name nobody could read.
+    """
+    from project_components import render_component
+
+    spec = json.loads((ROOT / "core/COMPONENTS.json").read_text(encoding="utf-8"))
+    parts = [
+        "",
+        "/* The system's own elements, in the field's spelling. The field's",
+        "   sheet keeps its own three — the action, the state and the section",
+        "   — and the contract says where each differs from the system's. */",
+    ]
+    for name, component in spec["components"].items():
+        parts.append(f"\n/* {name} — {component['description'].split('.')[0]}. */")
+        parts.append(render_component(name, component))
+    parts.append("""
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+""")
+    return "".join(parts).replace(".gnosix-", ".g6-")
 
 
 def system_colours() -> set[str]:
@@ -168,10 +259,13 @@ def foreign(sheet: str) -> list[str]:
 
 def build() -> tuple[str, list[str], str]:
     legacy = LEGACY.read_text(encoding="utf-8")
-    # The hand-made role layer goes first: it is the sheet's own colours
-    # that the system does not have.
-    legacy = bind_roles(legacy)
+    # The names come first, then the colours: a colour is bound to the
+    # step of the system that carries it, and the step's name has to be
+    # the one the system publishes before the two can be compared.
     rebound, changed = rebind(legacy)
+    # The hand-made role layer goes second: it is the sheet's own colours
+    # that the system does not have.
+    rebound = bind_roles(rebound)
     # The header states the version it was cut from, and the re-cut states
     # the version it is cut from now.
     header = re.sub(r"^/\* gnu6-design [^*]*\*/",
@@ -179,7 +273,8 @@ def build() -> tuple[str, list[str], str]:
                     f"   gnosix.ds {(ROOT / 'VERSION').read_text(encoding='utf-8').strip()}. "
                     "Do not edit. */",
                     rebound, count=1)
-    sheet = header.rstrip("\n") + "\n" + system_block()
+    sheet = (header.rstrip("\n") + "\n" + system_block() + role_block()
+             + elements_block())
     return sheet, changed, legacy
 
 

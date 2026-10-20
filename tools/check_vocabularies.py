@@ -33,6 +33,7 @@ def main() -> int:
         return 1
     spec = json.loads(SPEC.read_text(encoding="utf-8"))
     declared = set(spec.get("components", {}))
+    arrangements = set(spec.get("patterns", {})) | set(spec.get("primitives", {}))
     vocabularies = spec.get("vocabularies") or {}
     problems = []
 
@@ -71,6 +72,15 @@ def main() -> int:
                 if target not in declared:
                     problems.append(f"{name}: names the component {target!r}, which "
                                     f"the contract does not declare")
+            elif kind in ("pattern", "primitive"):
+                # A name the field declares and the contract classifies as
+                # an arrangement must be an arrangement the contract holds.
+                if name not in arrangements:
+                    problems.append(f"{name}: classified as a {kind}, which the "
+                                    f"contract does not specify")
+            else:
+                problems.append(f"{name}: classified as {kind!r}, which is "
+                                f"not a component, a pattern or a primitive")
 
     if problems:
         print(f"FAIL: {len(problems)} problem(s) with the vocabularies")

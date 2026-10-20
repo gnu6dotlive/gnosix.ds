@@ -1295,163 +1295,4809 @@
         "action": {
           "is": "component",
           "target": "button",
-          "note": "The control a person presses. The g6 action carries the same four variants the system declares: quiet, portal, disabled and busy."
+          "note": "The field's own spelling of the system's button. The field's code converges on the system's name, so that name is the canonical one; what the sheet does with it is stated here.",
+          "differs": [
+            "The sheet's action is the field's own button, and it is not the system's. It carries two of the system's four variants — quiet, and portal, which the system does not declare — where the system has primary, secondary and destructive.",
+            "It marks itself with a square, and the system declares no mark on the button.",
+            "It carries an arrow, and the system declares no part on the button.",
+            "It knows the pressed state, [aria-pressed='true'], which the system does not declare on the button.",
+            "It is disabled with [aria-disabled='true'] where the system takes :disabled; it is made busy with [aria-busy='true'], as the system does."
+          ],
+          "account": {
+            "parts": [
+              "arrow"
+            ],
+            "states": [
+              "::before",
+              ":active",
+              ":focus-visible",
+              ":hover",
+              "[aria-busy",
+              "[aria-disabled",
+              "[aria-pressed",
+              "[disabled"
+            ],
+            "tokens": [
+              "--g6-action-bg",
+              "--g6-action-bg-hover",
+              "--g6-action-bg-pressed",
+              "--g6-action-disabled-bg",
+              "--g6-action-disabled-text",
+              "--g6-action-text",
+              "--g6-dur-1",
+              "--g6-dur-2",
+              "--g6-ease-out",
+              "--g6-focus",
+              "--g6-radius",
+              "--g6-text-sm",
+              "--g6-weight-semibold"
+            ],
+            "locals": [
+              "--g6-action-marker"
+            ],
+            "rules": [
+              {
+                "at": [],
+                "selector": ".g6-action",
+                "tokens": {
+                  "border-radius": "var(--g6-radius)",
+                  "background": "var(--g6-action-bg)",
+                  "color": "var(--g6-action-text)",
+                  "font-size": "var(--g6-text-sm)",
+                  "font-weight": "var(--g6-weight-semibold)",
+                  "transition": "background-color var(--g6-dur-1) linear, border-color var(--g6-dur-1) linear, color var(--g6-dur-1) linear, transform var(--g6-dur-1) var(--g6-ease-out)"
+                },
+                "geometry": {
+                  "display": "inline-flex",
+                  "align-items": "center",
+                  "justify-content": "center",
+                  "gap": "0.65em",
+                  "min-height": "44px",
+                  "padding": "0.65rem 1.15rem",
+                  "border": "1px solid transparent",
+                  "cursor": "pointer"
+                },
+                "type": {
+                  "letter-spacing": "-0.005em",
+                  "line-height": "1.2",
+                  "text-decoration": "none",
+                  "white-space": "nowrap"
+                },
+                "behaviour": {
+                  "--g6-action-marker": "var(--g6-action-signal)"
+                }
+              },
+              {
+                "at": [],
+                "selector": ".g6-action::before",
+                "tokens": {
+                  "background": "var(--g6-action-marker)",
+                  "transition": "transform var(--g6-dur-2) var(--g6-ease-out)"
+                },
+                "geometry": {
+                  "content": "\"\"",
+                  "flex": "none",
+                  "width": "0.5rem",
+                  "height": "0.5rem"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action:hover",
+                "tokens": {
+                  "background": "var(--g6-action-bg-hover)",
+                  "color": "var(--g6-action-text)"
+                },
+                "geometry": {},
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action:hover::before",
+                "tokens": {},
+                "geometry": {
+                  "transform": "rotate(45deg) scale(0.9)"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action:active, .g6-action[aria-pressed=\"true\"]",
+                "tokens": {
+                  "background": "var(--g6-action-bg-pressed)",
+                  "color": "var(--g6-action-text)"
+                },
+                "geometry": {},
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action:active",
+                "tokens": {},
+                "geometry": {
+                  "transform": "translateY(1px)"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action:focus-visible",
+                "tokens": {
+                  "outline": "2px solid var(--g6-focus)"
+                },
+                "geometry": {
+                  "outline-offset": "3px"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action[disabled], .g6-action[aria-disabled=\"true\"]",
+                "tokens": {
+                  "background": "var(--g6-action-disabled-bg)",
+                  "color": "var(--g6-action-disabled-text)"
+                },
+                "geometry": {
+                  "cursor": "not-allowed",
+                  "border-color": "transparent"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action[disabled]::before, .g6-action[aria-disabled=\"true\"]::before",
+                "tokens": {},
+                "geometry": {
+                  "background": "currentColor",
+                  "opacity": "0.6"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action[aria-busy=\"true\"]",
+                "tokens": {},
+                "geometry": {
+                  "cursor": "progress"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action[aria-busy=\"true\"]::before",
+                "tokens": {},
+                "geometry": {
+                  "width": "0.8em",
+                  "height": "0.8em",
+                  "background": "none",
+                  "border": "1.5px solid currentColor",
+                  "border-radius": "50%",
+                  "animation": "g6-spin 0.8s linear infinite"
+                },
+                "type": {},
+                "behaviour": {
+                  "border-right-color": "transparent"
+                }
+              },
+              {
+                "at": [],
+                "selector": ".g6-action__arrow",
+                "tokens": {
+                  "transition": "transform var(--g6-dur-2) var(--g6-ease-out)"
+                },
+                "geometry": {},
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-action:hover .g6-action__arrow",
+                "tokens": {},
+                "geometry": {
+                  "transform": "translate(2px, -2px)"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [
+                  "@media (prefers-reduced-motion: reduce)"
+                ],
+                "selector": ".g6-action[aria-busy=\"true\"]::before",
+                "tokens": {},
+                "geometry": {
+                  "animation": "none",
+                  "opacity": "0.6"
+                },
+                "type": {},
+                "behaviour": {
+                  "border-right-color": "currentColor"
+                }
+              }
+            ]
+          }
         },
         "brand": {
-          "is": "pattern",
-          "note": "The mark and the name of a product. The identity is the system's ratified artwork; the lockup is a composition of it."
+          "is": "pattern"
         },
         "dia": {
-          "is": "pattern",
-          "note": "A diagram. The system's own content, carried by the system's canvas and type."
+          "is": "pattern"
         },
         "display": {
-          "is": "primitive",
-          "note": "The display type. Governed by the system's type tier."
+          "is": "primitive"
         },
         "doc": {
-          "is": "pattern",
-          "note": "A document region: prose with its own rules. A composition of the system's type and spacing."
+          "is": "pattern"
         },
         "empty": {
-          "is": "pattern",
-          "note": "The state of a surface that has nothing in it yet. A composition of the system's type and spacing."
+          "is": "pattern"
         },
         "enter": {
-          "is": "primitive",
-          "note": "The staggered entrance of a group's children. Governed by the system's motion tier, which states the meaning of motion and the reduced-motion equivalence; it is not a component."
+          "is": "primitive"
         },
         "ext": {
-          "is": "pattern",
-          "note": "A link out of the surface. The system's link semantics apply."
+          "is": "pattern"
         },
         "facts": {
-          "is": "pattern",
-          "note": "The facts of a claim, set out. A composition of the system's evidence semantics."
+          "is": "pattern"
         },
         "figure": {
-          "is": "pattern",
-          "note": "A figure with its caption. A composition of the system's spacing and type."
+          "is": "pattern"
         },
         "files": {
-          "is": "pattern",
-          "note": "A list of files. A composition of the system's card and the tabular numerals."
+          "is": "pattern"
         },
         "footer": {
-          "is": "pattern",
-          "note": "The end of a surface: the links and the credit. A composition of the system's navigation semantics and type."
+          "is": "pattern"
         },
         "frame": {
-          "is": "pattern",
-          "note": "The bounded region a surface sets its content in. A composition of the system's card and spacing."
+          "is": "pattern"
         },
         "goto": {
-          "is": "pattern",
-          "note": "A jump to a named place. A composition of the system's navigation semantics and focus."
+          "is": "pattern"
         },
         "hero": {
-          "is": "pattern",
-          "note": "The opening block of a surface: the title, the words and the actions. A composition of the system's display type, section-heading and button."
+          "is": "pattern"
         },
         "label": {
-          "is": "primitive",
-          "note": "A small label. Governed by the system's type tier."
+          "is": "primitive"
         },
         "lang": {
-          "is": "pattern",
-          "note": "The language switch. A composition of the system's select."
+          "is": "pattern"
         },
         "lede": {
-          "is": "primitive",
-          "note": "The standfirst under a title. Governed by the system's type tier."
+          "is": "primitive"
         },
         "ledger": {
-          "is": "pattern",
-          "note": "A ledger of facts, with the values aligned. A composition of the system's card and the tabular numerals."
+          "is": "pattern"
         },
         "masthead": {
-          "is": "pattern",
-          "note": "The identity block of a surface: the mark, the name, and the words beside them. A composition of the system's identity and section-heading."
+          "is": "pattern"
         },
         "menu": {
-          "is": "pattern",
-          "note": "A menu: a list of choices that opens over the surface. The system declares the choice semantics; the menu is a composition of them."
+          "is": "pattern"
         },
         "menu-anchor": {
-          "is": "pattern",
-          "note": "The element a menu opens from. The system's own focus and selection rules apply to it."
+          "is": "pattern"
         },
         "notice": {
-          "is": "pattern",
-          "note": "A notice: a condition that asks for attention. The system's badge carries the condition; the notice is the surface it sits on."
+          "is": "pattern"
         },
         "num": {
-          "is": "primitive",
-          "note": "A number, aligned with the others. Governed by the system's type tier and its tabular figures."
+          "is": "primitive"
         },
         "page": {
-          "is": "pattern",
-          "note": "The frame of a page. A composition of the system's layout, not an element of its own."
+          "is": "pattern"
         },
         "prose": {
-          "is": "pattern",
-          "note": "A run of reading text. Governed by the system's type tier and its measure, not by a component."
+          "is": "pattern"
         },
         "rail": {
-          "is": "pattern",
-          "note": "The navigation rail of a surface: a column of the sections, with the active one marked. A composition of the system's card, badge and section-heading."
+          "is": "pattern"
         },
         "record": {
-          "is": "pattern",
-          "note": "One record in a ledger. A composition of the system's card and badge."
+          "is": "pattern"
         },
         "section": {
           "is": "component",
           "target": "section-heading",
-          "note": "The heading of a section, with the number that says where the section sits."
+          "note": "The field's own spelling of the system's section-heading. The field's code converges on the system's name, so that name is the canonical one; what the sheet does with it is stated here.",
+          "differs": [
+            "The sheet's section is the field's own section-heading. It is a heading and a note in two parts, where the system has a number, a title and an intro in four.",
+            "It carries the space above the section; the system's section-heading carries none."
+          ],
+          "account": {
+            "parts": [
+              "head",
+              "note"
+            ],
+            "states": [],
+            "tokens": [
+              "--g6-rule-strong",
+              "--g6-text-2xl",
+              "--g6-text-3",
+              "--g6-text-sm",
+              "--g6-track-heading"
+            ],
+            "locals": [],
+            "rules": [
+              {
+                "at": [],
+                "selector": ".g6-section",
+                "tokens": {},
+                "geometry": {
+                  "padding-top": "clamp(2.5rem, 1.5rem + 3vw, 5rem)"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-section__head",
+                "tokens": {
+                  "border-bottom": "1px solid var(--g6-rule-strong)"
+                },
+                "geometry": {
+                  "display": "grid",
+                  "grid-template-columns": "minmax(0, 1fr) auto",
+                  "gap": "0.75rem 2rem",
+                  "align-items": "end",
+                  "padding-bottom": "1.25rem"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-section__head h2",
+                "tokens": {
+                  "font-size": "var(--g6-text-2xl)",
+                  "letter-spacing": "var(--g6-track-heading)"
+                },
+                "geometry": {
+                  "margin-top": "0.6rem"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-section__note",
+                "tokens": {
+                  "color": "var(--g6-text-3)",
+                  "font-size": "var(--g6-text-sm)"
+                },
+                "geometry": {
+                  "max-width": "28em"
+                },
+                "type": {
+                  "text-align": "right"
+                },
+                "behaviour": {}
+              },
+              {
+                "at": [
+                  "@media (max-width: 720px)"
+                ],
+                "selector": ".g6-section__head",
+                "tokens": {},
+                "geometry": {
+                  "grid-template-columns": "1fr"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [
+                  "@media (max-width: 720px)"
+                ],
+                "selector": ".g6-section__note",
+                "tokens": {},
+                "geometry": {},
+                "type": {
+                  "text-align": "left"
+                },
+                "behaviour": {}
+              }
+            ]
+          }
         },
         "skip": {
-          "is": "primitive",
-          "note": "The link that skips to the content. Governed by the system's accessibility rules."
+          "is": "primitive"
         },
         "specimen": {
-          "is": "pattern",
-          "note": "A specimen: a thing shown with its own description. A composition of the system's card, figure and badge."
+          "is": "pattern"
         },
         "state": {
           "is": "component",
           "target": "badge",
-          "note": "A short mark that says what a thing is. The g6 state carries the same five conditions the system declares: stable, attention, breach, empty and planned."
+          "note": "The field's own spelling of the system's badge. The field's code converges on the system's name, so that name is the canonical one; what the sheet does with it is stated here.",
+          "differs": [
+            "The sheet's state is the field's own badge. It carries three of the system's four conditions — stable, attention, breach — and two the system does not declare: empty and planned. The system's evidence condition is not in the sheet.",
+            "It draws its mark as a square of the current colour, where the system declares the mark as a token the badge carries."
+          ],
+          "account": {
+            "parts": [],
+            "states": [
+              "::before"
+            ],
+            "tokens": [
+              "--g6-state-neutral",
+              "--g6-text-sm",
+              "--g6-weight-medium"
+            ],
+            "locals": [],
+            "rules": [
+              {
+                "at": [
+                  "@media (forced-colors: active)"
+                ],
+                "selector": ".g6-state::before, .g6-ledger__rail",
+                "tokens": {},
+                "geometry": {
+                  "forced-color-adjust": "none",
+                  "background": "CanvasText !important"
+                },
+                "type": {},
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-state",
+                "tokens": {
+                  "font-size": "var(--g6-text-sm)",
+                  "font-weight": "var(--g6-weight-medium)",
+                  "color": "var(--g6-state-neutral)"
+                },
+                "geometry": {
+                  "display": "inline-flex",
+                  "align-items": "baseline",
+                  "gap": "0.55em"
+                },
+                "type": {
+                  "line-height": "1.35"
+                },
+                "behaviour": {}
+              },
+              {
+                "at": [],
+                "selector": ".g6-state::before",
+                "tokens": {},
+                "geometry": {
+                  "content": "\"\"",
+                  "flex": "none",
+                  "width": "0.5rem",
+                  "height": "0.5rem",
+                  "background": "currentColor",
+                  "transform": "translateY(-0.05em)"
+                },
+                "type": {},
+                "behaviour": {}
+              }
+            ]
+          }
         },
         "study": {
-          "is": "pattern",
-          "note": "A study unit: the chapters and the exercises. A composition of the system's card and section-heading."
+          "is": "pattern"
         },
         "sysbar": {
-          "is": "pattern",
-          "note": "The system bar at the top of a surface: the identity, the status and the language. A composition, not an element."
+          "is": "pattern"
         },
         "sysmenu": {
-          "is": "pattern",
-          "note": "The menu the system bar opens. A composition of the system's card and menu semantics."
+          "is": "pattern"
         },
         "sysnav": {
-          "is": "pattern",
-          "note": "The navigation inside the system bar. A composition of the system's section-heading and toggle."
+          "is": "pattern"
         },
         "toc": {
-          "is": "pattern",
-          "note": "The table of contents. A composition of the system's navigation semantics."
+          "is": "pattern"
         },
         "toc-inline": {
-          "is": "pattern",
-          "note": "The table of contents, inline with the text. A composition of the system's navigation semantics."
+          "is": "pattern"
         },
         "visually-hidden": {
-          "is": "primitive",
-          "note": "Text a screen reader carries and a screen does not show. Governed by the system's accessibility rules."
+          "is": "primitive"
+        },
+        "button": {
+          "is": "component",
+          "target": "button",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "text-input": {
+          "is": "component",
+          "target": "text-input",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "badge": {
+          "is": "component",
+          "target": "badge",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "card": {
+          "is": "component",
+          "target": "card",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "dialog": {
+          "is": "component",
+          "target": "dialog",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "tooltip": {
+          "is": "component",
+          "target": "tooltip",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "select": {
+          "is": "component",
+          "target": "select",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "tabs": {
+          "is": "component",
+          "target": "tabs",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "toaster": {
+          "is": "component",
+          "target": "toaster",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "toggle": {
+          "is": "component",
+          "target": "toggle",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "command-palette": {
+          "is": "component",
+          "target": "command-palette",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "icon": {
+          "is": "component",
+          "target": "icon",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "section-heading": {
+          "is": "component",
+          "target": "section-heading",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
+        },
+        "system": {
+          "is": "component",
+          "target": "system",
+          "note": "The system's own element, published in the package under the field's prefix. Its specification is the system's; the package carries it in the vocabulary the field writes in."
         }
-      }
+      },
+      "note": [
+        "The field's own vocabularies, and what each of their components is in",
+        "the system's terms. The gnu6-design package carries the g6-*",
+        "vocabulary, which the field uses and the system did not declare. This",
+        "is the translation.",
+        "",
+        "The package carries thirty-nine names of the field's and fourteen of the",
+        "system's, published under the same prefix: the package is the",
+        "contract's projection into the vocabulary the field writes in, and a",
+        "consumer that has adopted it has both without knowing which is which.",
+        "",
+        "Three kinds of entry, and the difference matters:",
+        "",
+        "  a component  the system's own element, under its canonical name",
+        "  a pattern    a composition the system states but does not declare as an",
+        "                element, because it is an arrangement rather than a thing",
+        "  a primitive  a thing the system's type, spacing or accessibility tier",
+        "                governs, with no component of its own",
+        "",
+        "The mapping is checked against the package: a name the package declares and",
+        "the contract does not classify is a failure, so the two cannot drift."
+      ]
+    }
+  },
+  "patterns": {
+    "brand": {
+      "kind": "pattern",
+      "meaning": "The mark and the name of a product. The lockup is the system's identity colour and its own type, in two parts: the mark and the word.",
+      "parts": [
+        "dot",
+        "word"
+      ],
+      "states": [
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-accent-live-text",
+        "--g6-text",
+        "--g6-weight-bold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-brand",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "font-weight": "var(--g6-weight-bold)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "gap": "0.6rem",
+            "min-height": "44px"
+          },
+          "type": {
+            "text-decoration": "none",
+            "font-size": "1.0625rem",
+            "letter-spacing": "-0.03em",
+            "white-space": "nowrap"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-brand:hover",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-brand img",
+          "tokens": {},
+          "geometry": {
+            "width": "28px",
+            "height": "28px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-brand__dot",
+          "tokens": {
+            "color": "var(--g6-accent-live-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 380px)"
+          ],
+          "selector": ".g6-brand__word",
+          "tokens": {},
+          "geometry": {},
+          "type": {
+            "font-size": "0.95rem"
+          },
+          "behaviour": {}
+        }
+      ]
+    },
+    "dia": {
+      "kind": "pattern",
+      "meaning": "A diagram. The system's own content, carried by the system's canvas, its surfaces and its identity colours. It reads what it contains: a diagram marks itself by the drawing it holds.",
+      "parts": [],
+      "states": [
+        ":has"
+      ],
+      "tokens": [
+        "--g6-accent-labs-text",
+        "--g6-accent-live-text",
+        "--g6-canvas",
+        "--g6-state-attention",
+        "--g6-surface-1",
+        "--g6-text",
+        "--g6-text-3"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-dia",
+          "tokens": {},
+          "geometry": {
+            "width": "100%",
+            "height": "auto",
+            "min-width": "40rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-bg",
+          "tokens": {
+            "fill": "var(--g6-surface-1)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-node",
+          "tokens": {
+            "fill": "var(--g6-canvas)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-label",
+          "tokens": {
+            "fill": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-sub, .g6-dia .g6-dia-kicker",
+          "tokens": {
+            "fill": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-edge, .g6-dia .g6-dia-arrowhead",
+          "tokens": {
+            "stroke": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-node.g6-dia-main",
+          "tokens": {
+            "stroke": "var(--g6-accent-labs-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-node.g6-dia-alt",
+          "tokens": {
+            "stroke": "var(--g6-accent-live-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-node.g6-dia-gate",
+          "tokens": {
+            "stroke": "var(--g6-state-attention)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-node.g6-dia-muted",
+          "tokens": {
+            "stroke": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-tab.g6-dia-main",
+          "tokens": {
+            "fill": "var(--g6-accent-labs-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-tab.g6-dia-alt",
+          "tokens": {
+            "fill": "var(--g6-accent-live-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-tab.g6-dia-gate",
+          "tokens": {
+            "fill": "var(--g6-state-attention)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-dia .g6-dia-tab.g6-dia-muted",
+          "tokens": {
+            "fill": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-figure__scroll:has(.g6-dia)",
+          "tokens": {},
+          "geometry": {
+            "padding": "0",
+            "background": "none",
+            "border": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "doc": {
+      "kind": "pattern",
+      "meaning": "A document region: prose with its own rules. Seven parts around the system's type — the navigation, the breadcrumbs, the metadata, the body, the table of contents, the footnotes and the menu.",
+      "parts": [
+        "body",
+        "crumbs",
+        "foot",
+        "menu",
+        "meta",
+        "nav",
+        "toc"
+      ],
+      "states": [
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-bar-h",
+        "--g6-canvas",
+        "--g6-gutter",
+        "--g6-measure",
+        "--g6-rule",
+        "--g6-rule-strong",
+        "--g6-text",
+        "--g6-text-3",
+        "--g6-text-sm"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-doc",
+          "tokens": {},
+          "geometry": {
+            "display": "grid",
+            "grid-template-columns": "16.5rem minmax(0, 1fr) 13rem",
+            "gap": "0 clamp(1.5rem, 3vw, 3.5rem)",
+            "align-items": "start"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__nav",
+          "tokens": {
+            "top": "var(--g6-bar-h)",
+            "max-height": "calc(100vh - var(--g6-bar-h))",
+            "border-right": "1px solid var(--g6-rule)",
+            "scrollbar-color": "var(--g6-rule-strong) transparent"
+          },
+          "geometry": {
+            "position": "sticky",
+            "overflow": "auto",
+            "overscroll-behavior": "contain",
+            "padding": "1.75rem 0.25rem 2rem 0",
+            "scrollbar-width": "thin"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__body",
+          "tokens": {},
+          "geometry": {
+            "min-width": "0",
+            "padding-top": "clamp(1.75rem, 3vw, 3rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__toc",
+          "tokens": {
+            "top": "calc(var(--g6-bar-h) + 1.75rem)",
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "position": "sticky",
+            "padding-top": "clamp(1.75rem, 3vw, 3rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__close, .g6-doc__menu",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__crumbs",
+          "tokens": {
+            "max-width": "var(--g6-measure)"
+          },
+          "geometry": {
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "justify-content": "space-between",
+            "gap": "0.5rem 1.5rem",
+            "align-items": "center",
+            "margin-bottom": "clamp(1.5rem, 3vw, 2.5rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__crumbs a",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__crumbs a:hover",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__meta",
+          "tokens": {
+            "font-size": "var(--g6-text-sm)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "gap": "1rem",
+            "align-items": "baseline"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-doc__foot",
+          "tokens": {
+            "max-width": "var(--g6-measure)",
+            "border-top": "1px solid var(--g6-rule-strong)",
+            "font-size": "var(--g6-text-sm)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "justify-content": "space-between",
+            "align-items": "center",
+            "gap": "1rem 2rem",
+            "margin-top": "clamp(3rem, 6vw, 5rem)",
+            "padding-top": "1.5rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 1180px)"
+          ],
+          "selector": ".g6-doc",
+          "tokens": {},
+          "geometry": {
+            "grid-template-columns": "15rem minmax(0, 1fr)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 1180px)"
+          ],
+          "selector": ".g6-doc__toc",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 860px)"
+          ],
+          "selector": ".g6-doc",
+          "tokens": {},
+          "geometry": {
+            "grid-template-columns": "minmax(0, 1fr)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 860px)"
+          ],
+          "selector": ".g6-doc__menu",
+          "tokens": {},
+          "geometry": {
+            "display": "inline-flex"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 860px)"
+          ],
+          "selector": ".g6-doc__nav",
+          "tokens": {
+            "inset": "var(--g6-bar-h) 0 0 0",
+            "padding": "1.25rem var(--g6-gutter) 2rem",
+            "background": "var(--g6-canvas)"
+          },
+          "geometry": {
+            "display": "none",
+            "position": "fixed",
+            "z-index": "40",
+            "max-height": "none",
+            "border-right": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 860px)"
+          ],
+          "selector": ".g6-doc__nav.open",
+          "tokens": {},
+          "geometry": {
+            "display": "block"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "empty": {
+      "kind": "pattern",
+      "meaning": "The state of a surface that has nothing in it yet. The system's measure, its strong rule and its radius, with a heading and a word inside it.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-measure",
+        "--g6-radius",
+        "--g6-rule-strong",
+        "--g6-text-2",
+        "--g6-text-xl",
+        "--g6-track-heading"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-empty",
+          "tokens": {
+            "border": "1px dashed var(--g6-rule-strong)",
+            "border-radius": "var(--g6-radius)"
+          },
+          "geometry": {
+            "margin": "2rem 0",
+            "padding": "clamp(1.5rem, 3vw, 2.5rem)",
+            "display": "grid",
+            "gap": "0.75rem",
+            "justify-items": "start"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-empty strong",
+          "tokens": {
+            "font-size": "var(--g6-text-xl)",
+            "letter-spacing": "var(--g6-track-heading)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-empty p",
+          "tokens": {
+            "color": "var(--g6-text-2)",
+            "max-width": "var(--g6-measure)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "ext": {
+      "kind": "pattern",
+      "meaning": "A link out of the surface. The system's own third text, and nothing else.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-text-3"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-ext",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {
+            "font-size": "0.85em"
+          },
+          "behaviour": {}
+        }
+      ]
+    },
+    "facts": {
+      "kind": "pattern",
+      "meaning": "The facts of a claim, set out. The system's rule between them, and its own type.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-rule",
+        "--g6-text",
+        "--g6-text-3",
+        "--g6-text-sm"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-facts",
+          "tokens": {
+            "border-top": "1px solid var(--g6-rule)",
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "display": "grid",
+            "grid-template-columns": "minmax(8rem, 13rem) minmax(0, 1fr)",
+            "margin": "1.75rem 0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-facts dt, .g6-facts dd",
+          "tokens": {
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "margin": "0",
+            "padding": "0.75rem 0"
+          },
+          "type": {
+            "line-height": "1.55"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-facts dt",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "padding-right": "1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-facts dd",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {
+            "overflow-wrap": "anywhere"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-facts code",
+          "tokens": {},
+          "geometry": {},
+          "type": {
+            "font-size": "0.95em",
+            "font-variant-numeric": "tabular-nums",
+            "letter-spacing": "0.01em",
+            "overflow-wrap": "anywhere",
+            "word-break": "break-word"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 600px)"
+          ],
+          "selector": ".g6-facts",
+          "tokens": {},
+          "geometry": {
+            "grid-template-columns": "1fr"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 600px)"
+          ],
+          "selector": ".g6-facts dt",
+          "tokens": {},
+          "geometry": {
+            "padding-bottom": "0",
+            "border-bottom": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 600px)"
+          ],
+          "selector": ".g6-facts dd",
+          "tokens": {},
+          "geometry": {
+            "padding-top": "0.2rem"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "figure": {
+      "kind": "pattern",
+      "meaning": "A figure with its caption. A bounded region with the system's surface, its rule and its radius, and the links and the scroll that belong to it.",
+      "parts": [
+        "links",
+        "scroll"
+      ],
+      "states": [
+        ":has"
+      ],
+      "tokens": [
+        "--g6-radius",
+        "--g6-rule",
+        "--g6-surface-1",
+        "--g6-text-3",
+        "--g6-text-sm"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-figure",
+          "tokens": {},
+          "geometry": {
+            "margin": "1.5rem 0 2.5rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-figure__scroll",
+          "tokens": {
+            "background": "var(--g6-surface-1)",
+            "border": "1px solid var(--g6-rule)",
+            "border-radius": "var(--g6-radius)"
+          },
+          "geometry": {
+            "overflow-x": "auto",
+            "padding": "1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-figure__scroll img",
+          "tokens": {},
+          "geometry": {
+            "min-width": "40rem",
+            "width": "100%",
+            "border-radius": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-figure figcaption, .g6-figure__links",
+          "tokens": {
+            "font-size": "var(--g6-text-sm)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "margin-top": "0.6rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-figure__scroll:has(.g6-dia)",
+          "tokens": {},
+          "geometry": {
+            "padding": "0",
+            "background": "none",
+            "border": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "files": {
+      "kind": "pattern",
+      "meaning": "A list of files. The system's surface and its rule, with the system's own type.",
+      "parts": [],
+      "states": [
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-rule",
+        "--g6-surface-1",
+        "--g6-text",
+        "--g6-text-3",
+        "--g6-text-md"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-files",
+          "tokens": {
+            "border-top": "1px solid var(--g6-rule)",
+            "border-left": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "list-style": "none",
+            "margin": "2rem 0",
+            "padding": "0",
+            "display": "grid",
+            "grid-template-columns": "repeat(auto-fill, minmax(min(100%, 15rem), 1fr))"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-files a",
+          "tokens": {
+            "border-right": "1px solid var(--g6-rule)",
+            "border-bottom": "1px solid var(--g6-rule)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "display": "grid",
+            "gap": "0.35rem",
+            "min-height": "7rem",
+            "padding": "1.15rem",
+            "align-content": "space-between"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-files a:hover",
+          "tokens": {
+            "background": "var(--g6-surface-1)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-files strong",
+          "tokens": {
+            "font-size": "var(--g6-text-md)"
+          },
+          "geometry": {},
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-files small",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "footer": {
+      "kind": "pattern",
+      "meaning": "The end of a surface: the links and the credit. The system's rule above them, and its own type, in three parts.",
+      "parts": [
+        "inner",
+        "links",
+        "org"
+      ],
+      "states": [
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-rule",
+        "--g6-text",
+        "--g6-text-2",
+        "--g6-text-3",
+        "--g6-text-sm"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-footer",
+          "tokens": {
+            "border-top": "1px solid var(--g6-rule)",
+            "color": "var(--g6-text-3)",
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "margin-top": "clamp(3rem, 6vw, 6rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-footer__inner",
+          "tokens": {},
+          "geometry": {
+            "display": "grid",
+            "grid-template-columns": "minmax(0, 1.2fr) minmax(0, 1.4fr) auto",
+            "gap": "1.25rem 2.5rem",
+            "padding-block": "1.5rem 2rem",
+            "align-items": "center"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-footer__org",
+          "tokens": {
+            "color": "var(--g6-text-2)"
+          },
+          "geometry": {
+            "display": "flex",
+            "align-items": "center",
+            "gap": "0.6rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-footer__org img",
+          "tokens": {},
+          "geometry": {
+            "width": "20px",
+            "height": "20px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-footer__links",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "gap": "0 1.25rem",
+            "justify-content": "flex-end"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-footer__links a",
+          "tokens": {
+            "color": "var(--g6-text-2)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "min-height": "44px"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-footer__links a:hover",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 860px)"
+          ],
+          "selector": ".g6-footer__inner",
+          "tokens": {},
+          "geometry": {
+            "grid-template-columns": "1fr"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 860px)"
+          ],
+          "selector": ".g6-footer__links",
+          "tokens": {},
+          "geometry": {
+            "justify-content": "flex-start"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "frame": {
+      "kind": "pattern",
+      "meaning": "The bounded region a surface sets its content in. The system's own measure and gutter, and nothing else.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-frame",
+        "--g6-gutter"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-frame",
+          "tokens": {
+            "max-width": "var(--g6-frame)",
+            "padding-inline": "var(--g6-gutter)"
+          },
+          "geometry": {
+            "width": "100%",
+            "margin-inline": "auto"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "goto": {
+      "kind": "pattern",
+      "meaning": "A jump to a named place. The system's own emphasis, its strong rule and its focus.",
+      "parts": [],
+      "states": [
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-rule-strong",
+        "--g6-text",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-goto",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "text-decoration-color": "var(--g6-rule-strong)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "gap": "0.45em",
+            "min-height": "44px"
+          },
+          "type": {
+            "text-decoration": "underline",
+            "text-underline-offset": "0.35em"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-goto:hover",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {
+            "text-decoration-color": "currentColor"
+          },
+          "behaviour": {}
+        }
+      ]
+    },
+    "hero": {
+      "kind": "pattern",
+      "meaning": "The opening block of a surface: the title, the words and the actions. Three parts over the system's display type, its surfaces and its measures.",
+      "parts": [
+        "actions",
+        "aside",
+        "copy"
+      ],
+      "states": [],
+      "tokens": [],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-hero",
+          "tokens": {},
+          "geometry": {
+            "display": "grid",
+            "grid-template-columns": "repeat(12, minmax(0, 1fr))",
+            "column-gap": "clamp(1rem, 2vw, 2rem)",
+            "align-items": "end",
+            "padding-block": "clamp(3rem, 2rem + 6vw, 8.5rem) clamp(2.5rem, 1.5rem + 4vw, 6rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-hero__copy",
+          "tokens": {},
+          "geometry": {
+            "grid-column": "1 / span 8",
+            "display": "grid",
+            "gap": "clamp(1.25rem, 2.5vw, 2rem)",
+            "align-content": "end"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-hero__aside",
+          "tokens": {},
+          "geometry": {
+            "grid-column": "10 / span 3"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-hero__actions",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "gap": "0.75rem 1.25rem",
+            "align-items": "center"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 960px)"
+          ],
+          "selector": ".g6-hero__copy",
+          "tokens": {},
+          "geometry": {
+            "grid-column": "1 / -1"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 960px)"
+          ],
+          "selector": ".g6-hero__aside",
+          "tokens": {},
+          "geometry": {
+            "grid-column": "1 / -1",
+            "margin-top": "2.5rem",
+            "max-width": "15rem"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "lang": {
+      "kind": "pattern",
+      "meaning": "The language switch. The system's own type and emphasis; the choice it offers is the system's.",
+      "parts": [],
+      "states": [
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-text",
+        "--g6-text-2",
+        "--g6-text-xs",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-lang",
+          "tokens": {
+            "color": "var(--g6-text-2)",
+            "font-size": "var(--g6-text-xs)",
+            "font-weight": "var(--g6-weight-semibold)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "min-height": "44px",
+            "min-width": "44px",
+            "justify-content": "center"
+          },
+          "type": {
+            "letter-spacing": "0.1em",
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-lang:hover",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-sysbar__end > .g6-lang",
+          "tokens": {},
+          "geometry": {
+            "min-width": "36px"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "ledger": {
+      "kind": "pattern",
+      "meaning": "A ledger of facts, with the values aligned. The system's surface and its rules, its tabular figures and its heading type, in nine parts: the index, the rail, the rows, the title, the description, the meta and the arrow.",
+      "parts": [
+        "arrow",
+        "desc",
+        "index",
+        "item",
+        "main",
+        "meta",
+        "rail",
+        "row",
+        "title"
+      ],
+      "states": [
+        "::after",
+        "::before",
+        ":focus-visible",
+        ":focus-within",
+        ":has",
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-dur-1",
+        "--g6-dur-2",
+        "--g6-ease-out",
+        "--g6-focus",
+        "--g6-identity-live",
+        "--g6-rule",
+        "--g6-surface-1",
+        "--g6-text",
+        "--g6-text-2",
+        "--g6-text-3",
+        "--g6-text-lg",
+        "--g6-text-md",
+        "--g6-text-sm",
+        "--g6-text-xl",
+        "--g6-track-heading",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [
+            "@media (forced-colors: active)"
+          ],
+          "selector": ".g6-state::before, .g6-ledger__rail",
+          "tokens": {},
+          "geometry": {
+            "forced-color-adjust": "none",
+            "background": "CanvasText !important"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger",
+          "tokens": {},
+          "geometry": {
+            "list-style": "none",
+            "margin": "0",
+            "padding": "0",
+            "counter-reset": "g6-ledger"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__row",
+          "tokens": {
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "position": "relative"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__item",
+          "tokens": {
+            "transition": "background-color var(--g6-dur-2) linear"
+          },
+          "geometry": {
+            "position": "relative",
+            "display": "grid",
+            "grid-template-columns": "3.25rem minmax(0, 1fr) minmax(10rem, 15rem) 1.5rem",
+            "column-gap": "clamp(0.75rem, 2vw, 2rem)",
+            "align-items": "baseline",
+            "padding": "clamp(1.15rem, 1rem + 0.6vw, 1.6rem) 0.5rem clamp(1.15rem, 1rem + 0.6vw, 1.6rem) 0",
+            "color": "inherit"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": "a.g6-ledger__item:hover",
+          "tokens": {
+            "background": "linear-gradient(90deg, var(--g6-surface-1), transparent 85%)"
+          },
+          "geometry": {
+            "color": "inherit"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__rail",
+          "tokens": {
+            "background": "var(--g6-ledger-identity, var(--g6-identity-live))",
+            "transition": "transform var(--g6-dur-2) var(--g6-ease-out)"
+          },
+          "geometry": {
+            "position": "absolute",
+            "left": "0",
+            "top": "-1px",
+            "bottom": "-1px",
+            "width": "2px",
+            "transform": "scaleY(0)",
+            "transform-origin": "top"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": "a.g6-ledger__item:hover .g6-ledger__rail, a.g6-ledger__item:focus-visible .g6-ledger__rail, .g6-ledger__row:has(.g6-ledger__title a):hover .g6-ledger__rail, .g6-ledger__row:focus-within .g6-ledger__rail",
+          "tokens": {},
+          "geometry": {
+            "transform": "scaleY(1)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__row:has(.g6-ledger__title a):hover .g6-ledger__item",
+          "tokens": {
+            "background": "linear-gradient(90deg, var(--g6-surface-1), transparent 85%)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__index",
+          "tokens": {
+            "font-size": "var(--g6-text-sm)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "padding-left": "0.85rem"
+          },
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__main",
+          "tokens": {},
+          "geometry": {
+            "display": "grid",
+            "gap": "0.35rem",
+            "min-width": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__title",
+          "tokens": {
+            "font-size": "var(--g6-text-xl)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "letter-spacing": "var(--g6-track-heading)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {
+            "line-height": "1.2",
+            "overflow-wrap": "anywhere"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__title a",
+          "tokens": {},
+          "geometry": {
+            "color": "inherit"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__title a::after",
+          "tokens": {},
+          "geometry": {
+            "content": "\"\"",
+            "position": "absolute",
+            "inset": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__desc",
+          "tokens": {
+            "color": "var(--g6-text-2)",
+            "font-size": "var(--g6-text-md)"
+          },
+          "geometry": {
+            "max-width": "46em"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__desc a",
+          "tokens": {},
+          "geometry": {
+            "position": "relative",
+            "z-index": "1"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__meta",
+          "tokens": {
+            "font-size": "var(--g6-text-sm)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "display": "grid",
+            "gap": "0.3rem",
+            "justify-items": "start"
+          },
+          "type": {
+            "overflow-wrap": "anywhere"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__arrow",
+          "tokens": {
+            "color": "var(--g6-text-3)",
+            "transition": "transform var(--g6-dur-2) var(--g6-ease-out), color var(--g6-dur-1) linear"
+          },
+          "geometry": {
+            "justify-self": "end"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__item:hover .g6-ledger__arrow, .g6-ledger__row:hover .g6-ledger__arrow",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "transform": "translate(3px, -3px)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger--compact .g6-ledger__title",
+          "tokens": {
+            "font-size": "var(--g6-text-lg)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__row:has(.g6-ledger__title a:focus-visible)",
+          "tokens": {
+            "outline": "2px solid var(--g6-focus)"
+          },
+          "geometry": {
+            "outline-offset": "2px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-ledger__title a:focus-visible",
+          "tokens": {},
+          "geometry": {
+            "outline": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-ledger__item",
+          "tokens": {},
+          "geometry": {
+            "grid-template-columns": "2.5rem minmax(0, 1fr) 1.25rem",
+            "row-gap": "0.75rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-ledger__meta",
+          "tokens": {},
+          "geometry": {
+            "grid-column": "2 / 3",
+            "grid-row": "2"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-ledger__arrow",
+          "tokens": {},
+          "geometry": {
+            "grid-column": "3",
+            "grid-row": "1"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-ledger__index",
+          "tokens": {},
+          "geometry": {
+            "padding-left": "0.65rem"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "masthead": {
+      "kind": "pattern",
+      "meaning": "The identity block of a surface: the mark, the name, and the words beside them. The system's gutter, its rules and its type, in four parts.",
+      "parts": [
+        "inner",
+        "nav",
+        "sub",
+        "title"
+      ],
+      "states": [
+        "::-webkit-scrollbar",
+        ":hover",
+        "[aria-current",
+        "[aria-hidden"
+      ],
+      "tokens": [
+        "--g6-gutter",
+        "--g6-identity-labs",
+        "--g6-rule",
+        "--g6-rule-strong",
+        "--g6-text",
+        "--g6-text-2",
+        "--g6-text-sm",
+        "--g6-weight-medium",
+        "--g6-weight-regular",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-masthead",
+          "tokens": {
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__inner",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "align-items": "center",
+            "justify-content": "space-between",
+            "gap": "1rem",
+            "min-height": "3rem",
+            "padding-block": "0.5rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__title",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "font-size": "var(--g6-text-sm)",
+            "font-weight": "var(--g6-weight-semibold)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "gap": "0.6rem",
+            "min-height": "44px"
+          },
+          "type": {
+            "text-decoration": "none",
+            "letter-spacing": "-0.01em"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__title img",
+          "tokens": {},
+          "geometry": {
+            "width": "22px",
+            "height": "22px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__title span[aria-hidden=\"true\"]",
+          "tokens": {
+            "color": "var(--g6-rule-strong)",
+            "font-weight": "var(--g6-weight-regular)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__sub",
+          "tokens": {
+            "color": "var(--g6-text-2)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__nav",
+          "tokens": {
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "gap": "0.25rem clamp(0.75rem, 2vw, 1.5rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__nav a",
+          "tokens": {
+            "color": "var(--g6-text-2)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "min-height": "44px"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__nav a:hover, .g6-masthead__nav a[aria-current=\"page\"]",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-masthead__nav a[aria-current=\"page\"]",
+          "tokens": {
+            "text-decoration-color": "var(--g6-identity-labs)"
+          },
+          "geometry": {},
+          "type": {
+            "text-decoration": "underline",
+            "text-decoration-thickness": "2px",
+            "text-underline-offset": "0.5em"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 640px)"
+          ],
+          "selector": ".g6-masthead__inner",
+          "tokens": {},
+          "geometry": {
+            "flex-direction": "column",
+            "align-items": "stretch",
+            "gap": "0",
+            "padding-bottom": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 640px)"
+          ],
+          "selector": ".g6-masthead__nav",
+          "tokens": {
+            "margin-inline": "calc(-1 * var(--g6-gutter))",
+            "padding-inline": "var(--g6-gutter)"
+          },
+          "geometry": {
+            "flex-wrap": "nowrap",
+            "overflow-x": "auto",
+            "scrollbar-width": "none",
+            "mask-image": "linear-gradient(90deg, #000 85%, transparent)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 640px)"
+          ],
+          "selector": ".g6-masthead__nav::-webkit-scrollbar",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 640px)"
+          ],
+          "selector": ".g6-masthead__nav a",
+          "tokens": {},
+          "geometry": {},
+          "type": {
+            "white-space": "nowrap"
+          },
+          "behaviour": {}
+        }
+      ]
+    },
+    "menu": {
+      "kind": "pattern",
+      "meaning": "A menu: a list of choices that opens over the surface. The system's surfaces, its rules, its radius and its type, in four parts: the groups, the items, the locked items and the label.",
+      "parts": [
+        "group",
+        "item",
+        "item--locked",
+        "label"
+      ],
+      "states": [
+        ":focus-visible",
+        ":hover",
+        ":last-child",
+        "[open"
+      ],
+      "tokens": [
+        "--g6-bar-h",
+        "--g6-ease-out",
+        "--g6-gutter",
+        "--g6-radius",
+        "--g6-radius-sm",
+        "--g6-rule",
+        "--g6-rule-strong",
+        "--g6-surface-1",
+        "--g6-surface-2",
+        "--g6-text",
+        "--g6-text-3",
+        "--g6-text-sm",
+        "--g6-text-xs",
+        "--g6-track-label",
+        "--g6-weight-medium",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-menu",
+          "tokens": {
+            "width": "min(22rem, calc(100vw - 2 * var(--g6-gutter)))",
+            "max-height": "calc(100vh - var(--g6-bar-h) - 2rem)",
+            "background": "var(--g6-surface-1)",
+            "border": "1px solid var(--g6-rule-strong)",
+            "border-radius": "var(--g6-radius)"
+          },
+          "geometry": {
+            "position": "absolute",
+            "right": "0",
+            "top": "calc(100% + 0.6rem)",
+            "z-index": "60",
+            "overflow": "auto",
+            "padding": "0.5rem",
+            "box-shadow": "0 24px 48px -24px rgb(0 0 0 / 0.6)",
+            "transform-origin": "top right"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-menu__group + .g6-menu__group",
+          "tokens": {
+            "border-top": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "margin-top": "0.35rem",
+            "padding-top": "0.35rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-menu__label",
+          "tokens": {
+            "font-size": "var(--g6-text-xs)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "letter-spacing": "var(--g6-track-label)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "padding": "0.5rem 0.65rem 0.25rem"
+          },
+          "type": {
+            "text-transform": "uppercase"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-menu__item",
+          "tokens": {
+            "border-radius": "var(--g6-radius-sm)",
+            "color": "var(--g6-text)",
+            "font-size": "var(--g6-text-sm)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {
+            "display": "flex",
+            "align-items": "center",
+            "justify-content": "space-between",
+            "gap": "1rem",
+            "min-height": "44px",
+            "padding": "0.5rem 0.65rem"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": "a.g6-menu__item:hover, a.g6-menu__item:focus-visible",
+          "tokens": {
+            "background": "var(--g6-surface-2)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "outline-offset": "-2px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-menu__item--locked",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "cursor": "not-allowed"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-menu__item--locked > span:last-child",
+          "tokens": {
+            "font-size": "var(--g6-text-xs)"
+          },
+          "geometry": {},
+          "type": {
+            "letter-spacing": "0.06em"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-menu, .g6-sysmenu[open] .g6-sysmenu__panel",
+          "tokens": {
+            "animation": "g6-drop 160ms var(--g6-ease-out) both"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "menu-anchor": {
+      "kind": "pattern",
+      "meaning": "The element a menu opens from. It carries no rule of its own: the system's focus and selection rules apply to it.",
+      "parts": [],
+      "states": [],
+      "tokens": [],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-menu-anchor",
+          "tokens": {},
+          "geometry": {
+            "position": "relative"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "notice": {
+      "kind": "pattern",
+      "meaning": "A notice: a condition that asks for attention. The system's measure and its rules, with the system's second text inside it.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-measure",
+        "--g6-rule",
+        "--g6-rule-strong",
+        "--g6-text-2"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-notice",
+          "tokens": {
+            "border-top": "1px solid var(--g6-rule-strong)",
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "display": "grid",
+            "grid-template-columns": "minmax(9rem, 13rem) minmax(0, 1fr)",
+            "gap": "0.75rem 2rem",
+            "align-items": "baseline",
+            "margin-top": "clamp(2.5rem, 4vw, 4rem)",
+            "padding": "clamp(1.25rem, 2vw, 1.75rem) 0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-notice p",
+          "tokens": {
+            "color": "var(--g6-text-2)",
+            "max-width": "var(--g6-measure)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-notice p + p",
+          "tokens": {},
+          "geometry": {
+            "margin-top": "0.75rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-notice code",
+          "tokens": {},
+          "geometry": {},
+          "type": {
+            "overflow-wrap": "anywhere",
+            "word-break": "break-word",
+            "font-size": "0.92em"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 720px)"
+          ],
+          "selector": ".g6-notice",
+          "tokens": {},
+          "geometry": {
+            "grid-template-columns": "1fr"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "page": {
+      "kind": "pattern",
+      "meaning": "The frame of a page. It carries no colour and no type of its own: the arrangement is the whole of it.",
+      "parts": [],
+      "states": [],
+      "tokens": [],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-page",
+          "tokens": {},
+          "geometry": {
+            "padding-bottom": "clamp(3rem, 6vw, 6rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "prose": {
+      "kind": "pattern",
+      "meaning": "A run of reading text. The system's type tier, its measure and its surfaces — the largest arrangement in the sheet, and the one that is almost entirely type.",
+      "parts": [],
+      "states": [
+        "::-webkit-details-marker",
+        "::before",
+        "::marker",
+        ":first-child",
+        ":first-of-type",
+        ":focus-visible",
+        ":is",
+        ":last-child",
+        ":not",
+        "[open",
+        "[tabindex"
+      ],
+      "tokens": [
+        "--g6-identity-labs",
+        "--g6-identity-live",
+        "--g6-measure",
+        "--g6-note-bg",
+        "--g6-radius",
+        "--g6-radius-sm",
+        "--g6-rule",
+        "--g6-rule-strong",
+        "--g6-surface-1",
+        "--g6-surface-2",
+        "--g6-text",
+        "--g6-text-2",
+        "--g6-text-3",
+        "--g6-text-lg",
+        "--g6-text-md",
+        "--g6-text-read",
+        "--g6-text-sm",
+        "--g6-text-xs",
+        "--g6-track-display",
+        "--g6-weight-medium",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-prose",
+          "tokens": {
+            "max-width": "var(--g6-measure)",
+            "font-size": "var(--g6-text-read)",
+            "color": "var(--g6-text-2)"
+          },
+          "geometry": {},
+          "type": {
+            "line-height": "1.7"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose > :first-child",
+          "tokens": {},
+          "geometry": {
+            "margin-top": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose h1",
+          "tokens": {
+            "letter-spacing": "var(--g6-track-display)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "margin": "0 0 1.5rem"
+          },
+          "type": {
+            "font-size": "clamp(2rem, 1.45rem + 2.4vw, 3.5rem)",
+            "line-height": "1.02"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose h2",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "border-top": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "margin": "3.25rem 0 1rem",
+            "padding-top": "1.5rem"
+          },
+          "type": {
+            "font-size": "clamp(1.5rem, 1.25rem + 0.9vw, 2rem)"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose h3",
+          "tokens": {
+            "font-size": "var(--g6-text-lg)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "margin": "2.25rem 0 0.75rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose h4",
+          "tokens": {
+            "font-size": "var(--g6-text-md)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "margin": "1.75rem 0 0.5rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose p, .g6-prose ul, .g6-prose ol, .g6-prose dl, .g6-prose table, .g6-prose pre, .g6-prose blockquote, .g6-prose details, .g6-prose figure",
+          "tokens": {},
+          "geometry": {
+            "margin": "0 0 1.25rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose .lead, .g6-prose > p:first-of-type:is(.lead)",
+          "tokens": {
+            "font-size": "var(--g6-text-lg)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose strong",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "font-weight": "var(--g6-weight-semibold)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose ul, .g6-prose ol",
+          "tokens": {},
+          "geometry": {
+            "padding-left": "1.35em"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose li + li",
+          "tokens": {},
+          "geometry": {
+            "margin-top": "0.4rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose li::marker",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose :not(pre) > code",
+          "tokens": {
+            "background": "var(--g6-surface-2)",
+            "border-radius": "var(--g6-radius-sm)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "padding": "0.1em 0.35em"
+          },
+          "type": {
+            "font-size": "0.9em",
+            "overflow-wrap": "anywhere",
+            "word-break": "break-word"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose pre",
+          "tokens": {
+            "background": "var(--g6-surface-1)",
+            "border": "1px solid var(--g6-rule)",
+            "border-left": "2px solid var(--g6-identity-labs)",
+            "border-radius": "var(--g6-radius)",
+            "color": "var(--g6-text)",
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "position": "relative",
+            "overflow": "auto",
+            "padding": "1.15rem 1.25rem"
+          },
+          "type": {
+            "line-height": "1.65",
+            "tab-size": "2"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose pre code",
+          "tokens": {},
+          "geometry": {},
+          "type": {
+            "font-size": "inherit"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose pre:focus-visible, .g6-prose table:focus-visible, .g6-prose [tabindex=\"0\"]:focus-visible",
+          "tokens": {},
+          "geometry": {
+            "outline-offset": "2px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose blockquote",
+          "tokens": {
+            "background": "var(--g6-note-bg)",
+            "border-left": "2px solid var(--g6-identity-live)",
+            "border-radius": "0 var(--g6-radius) var(--g6-radius) 0",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {
+            "padding": "1rem 1.25rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose blockquote > :last-child",
+          "tokens": {},
+          "geometry": {
+            "margin-bottom": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose table",
+          "tokens": {
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "display": "block",
+            "width": "100%",
+            "max-width": "100%",
+            "overflow-x": "auto",
+            "border-collapse": "collapse"
+          },
+          "type": {
+            "line-height": "1.5"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose th, .g6-prose td",
+          "tokens": {
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "padding": "0.7rem 1rem 0.7rem 0",
+            "min-width": "7rem"
+          },
+          "type": {
+            "text-align": "left",
+            "vertical-align": "top"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose th",
+          "tokens": {
+            "color": "var(--g6-text-3)",
+            "font-size": "var(--g6-text-xs)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "border-bottom-color": "var(--g6-rule-strong)"
+          },
+          "geometry": {},
+          "type": {
+            "letter-spacing": "0.08em",
+            "text-transform": "uppercase",
+            "white-space": "nowrap"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose td:first-child",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose details",
+          "tokens": {
+            "border": "1px solid var(--g6-rule)",
+            "border-radius": "var(--g6-radius)"
+          },
+          "geometry": {
+            "padding": "0 1.15rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose details > summary",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {
+            "display": "flex",
+            "align-items": "center",
+            "gap": "0.75rem",
+            "min-height": "48px",
+            "cursor": "pointer",
+            "list-style": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose details > summary::-webkit-details-marker",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose details > summary::before",
+          "tokens": {
+            "border": "1px solid var(--g6-rule-strong)",
+            "border-radius": "var(--g6-radius-sm)",
+            "color": "var(--g6-text-2)"
+          },
+          "geometry": {
+            "content": "\"+\"",
+            "display": "inline-grid",
+            "place-items": "center",
+            "width": "1.25rem",
+            "height": "1.25rem"
+          },
+          "type": {
+            "font-size": "0.85rem",
+            "line-height": "1"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose details[open] > summary::before",
+          "tokens": {},
+          "geometry": {
+            "content": "\"−\""
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose details[open]",
+          "tokens": {},
+          "geometry": {
+            "padding-bottom": "1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose img",
+          "tokens": {
+            "border-radius": "var(--g6-radius)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose hr",
+          "tokens": {},
+          "geometry": {
+            "margin": "3rem 0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose .method-meta",
+          "tokens": {
+            "border-top": "1px solid var(--g6-rule-strong)",
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "display": "grid",
+            "grid-template-columns": "minmax(7rem, 11rem) minmax(0, 1fr)",
+            "margin": "0 0 2.25rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose .method-meta dt, .g6-prose .method-meta dd",
+          "tokens": {
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "margin": "0",
+            "padding": "0.65rem 0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose .method-meta dt",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "padding-right": "1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose .method-meta dd",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 600px)"
+          ],
+          "selector": ".g6-prose .method-meta",
+          "tokens": {},
+          "geometry": {
+            "grid-template-columns": "1fr"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 600px)"
+          ],
+          "selector": ".g6-prose .method-meta dt",
+          "tokens": {},
+          "geometry": {
+            "padding-bottom": "0",
+            "border-bottom": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "rail": {
+      "kind": "pattern",
+      "meaning": "The navigation rail of a surface: a column of the sections, with the active one marked. The system's surfaces, its rules, its radius, its focus and its stable state, in eight parts.",
+      "parts": [
+        "close",
+        "filter",
+        "head",
+        "no",
+        "progress",
+        "progress-line",
+        "status",
+        "time"
+      ],
+      "states": [
+        "::-moz-progress-bar",
+        "::-webkit-progress-bar",
+        "::-webkit-progress-value",
+        "::before",
+        "::placeholder",
+        ":focus-visible",
+        ":hover",
+        "[aria-current",
+        "[hidden"
+      ],
+      "tokens": [
+        "--g6-focus",
+        "--g6-identity-labs",
+        "--g6-radius",
+        "--g6-radius-sm",
+        "--g6-rule",
+        "--g6-rule-strong",
+        "--g6-state-stable",
+        "--g6-surface-1",
+        "--g6-surface-2",
+        "--g6-text",
+        "--g6-text-2",
+        "--g6-text-3",
+        "--g6-text-sm",
+        "--g6-text-xs",
+        "--g6-track-label",
+        "--g6-weight-medium",
+        "--g6-weight-regular",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-rail__head",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "justify-content": "space-between",
+            "align-items": "center",
+            "gap": "0.5rem",
+            "padding": "0 0.75rem 1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__filter",
+          "tokens": {
+            "background": "var(--g6-surface-1)",
+            "border": "1px solid var(--g6-rule-strong)",
+            "border-radius": "var(--g6-radius)",
+            "color": "var(--g6-text)",
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "display": "block",
+            "width": "calc(100% - 1rem)",
+            "margin": "0 0.5rem 0.5rem",
+            "min-height": "40px",
+            "padding": "0.5rem 0.75rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__filter::placeholder",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "opacity": "1"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__filter:focus-visible",
+          "tokens": {
+            "border-color": "var(--g6-focus)"
+          },
+          "geometry": {
+            "outline-offset": "1px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__status",
+          "tokens": {
+            "font-size": "var(--g6-text-xs)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "margin": "0 0.75rem",
+            "min-height": "1.25rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail h2",
+          "tokens": {
+            "font-size": "var(--g6-text-xs)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "letter-spacing": "var(--g6-track-label)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "display": "flex",
+            "justify-content": "space-between",
+            "margin": "1.25rem 0.75rem 0.4rem"
+          },
+          "type": {
+            "text-transform": "uppercase"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail h2 span",
+          "tokens": {
+            "font-weight": "var(--g6-weight-regular)"
+          },
+          "geometry": {},
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail a",
+          "tokens": {
+            "border-radius": "var(--g6-radius-sm)",
+            "color": "var(--g6-text-2)",
+            "font-size": "var(--g6-text-sm)"
+          },
+          "geometry": {
+            "position": "relative",
+            "display": "grid",
+            "grid-template-columns": "2rem minmax(0, 1fr) auto",
+            "align-items": "baseline",
+            "gap": "0.25rem",
+            "min-height": "40px",
+            "padding": "0.55rem 0.75rem"
+          },
+          "type": {
+            "text-decoration": "none",
+            "line-height": "1.35"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail a:hover",
+          "tokens": {
+            "background": "var(--g6-surface-1)",
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail a[aria-current=\"page\"]",
+          "tokens": {
+            "background": "var(--g6-surface-2)",
+            "color": "var(--g6-text)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail a[aria-current=\"page\"]::before",
+          "tokens": {
+            "background": "var(--g6-identity-labs)"
+          },
+          "geometry": {
+            "content": "\"\"",
+            "position": "absolute",
+            "left": "0",
+            "top": "0.5rem",
+            "bottom": "0.5rem",
+            "width": "2px"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail a[hidden]",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__no",
+          "tokens": {
+            "color": "var(--g6-text-3)",
+            "font-size": "var(--g6-text-xs)"
+          },
+          "geometry": {},
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__time",
+          "tokens": {
+            "color": "var(--g6-text-3)",
+            "font-size": "var(--g6-text-xs)"
+          },
+          "geometry": {},
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress",
+          "tokens": {
+            "border-top": "1px solid var(--g6-rule)",
+            "font-size": "var(--g6-text-xs)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "margin": "1.75rem 0.75rem 0",
+            "padding-top": "1.25rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress-line",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "justify-content": "space-between"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress strong",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress progress",
+          "tokens": {
+            "background": "var(--g6-rule)"
+          },
+          "geometry": {
+            "display": "block",
+            "width": "100%",
+            "height": "4px",
+            "margin-top": "0.6rem",
+            "appearance": "none",
+            "border": "0",
+            "border-radius": "2px",
+            "overflow": "hidden"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress progress::-webkit-progress-bar",
+          "tokens": {
+            "background": "var(--g6-rule)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress progress::-webkit-progress-value",
+          "tokens": {
+            "background": "var(--g6-state-stable)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress progress::-moz-progress-bar",
+          "tokens": {
+            "background": "var(--g6-state-stable)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__progress p",
+          "tokens": {},
+          "geometry": {
+            "margin-top": "0.6rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-rail__close, .g6-doc__menu",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 860px)"
+          ],
+          "selector": ".g6-rail__close",
+          "tokens": {},
+          "geometry": {
+            "display": "inline-flex"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "record": {
+      "kind": "pattern",
+      "meaning": "One record in a ledger. The system's measure and its rules, with the heading type and the links.",
+      "parts": [
+        "head",
+        "links"
+      ],
+      "states": [],
+      "tokens": [
+        "--g6-measure",
+        "--g6-rule",
+        "--g6-text-2",
+        "--g6-text-xl"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-record",
+          "tokens": {
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "padding-block": "clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-record__head",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "justify-content": "space-between",
+            "gap": "0.5rem 1.5rem",
+            "align-items": "baseline"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-record h2",
+          "tokens": {
+            "font-size": "var(--g6-text-xl)"
+          },
+          "geometry": {
+            "margin": "1rem 0 0.75rem",
+            "max-width": "34em"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-record > p",
+          "tokens": {
+            "color": "var(--g6-text-2)",
+            "max-width": "var(--g6-measure)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-record__links",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "flex-wrap": "wrap",
+            "gap": "0.75rem"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "specimen": {
+      "kind": "pattern",
+      "meaning": "A specimen: a thing shown with its own description. The system's rules and its small type, in two parts: the frame and the caption. It declares one variable of its own, the tick it measures with.",
+      "parts": [
+        "caption",
+        "frame"
+      ],
+      "states": [
+        "::after",
+        "::before"
+      ],
+      "tokens": [
+        "--g6-ease-out",
+        "--g6-rule",
+        "--g6-rule-strong",
+        "--g6-text-2",
+        "--g6-text-3",
+        "--g6-text-xs",
+        "--g6-track-label"
+      ],
+      "locals": [
+        "--g6-tick"
+      ],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-specimen",
+          "tokens": {},
+          "geometry": {
+            "margin": "0",
+            "display": "grid",
+            "gap": "1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__frame",
+          "tokens": {
+            "background": "linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) top left / var(--g6-tick) 1px, linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) top left / 1px var(--g6-tick), linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) top right / var(--g6-tick) 1px, linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) top right / 1px var(--g6-tick), linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) bottom left / var(--g6-tick) 1px, linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) bottom left / 1px var(--g6-tick), linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) bottom right / var(--g6-tick) 1px, linear-gradient(var(--g6-rule-strong), var(--g6-rule-strong)) bottom right / 1px var(--g6-tick)"
+          },
+          "geometry": {
+            "position": "relative",
+            "aspect-ratio": "1",
+            "display": "grid",
+            "place-items": "center",
+            "padding": "12%",
+            "background-repeat": "no-repeat"
+          },
+          "type": {},
+          "behaviour": {
+            "--g6-tick": "22px"
+          }
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__frame::before, .g6-specimen__frame::after",
+          "tokens": {
+            "background": "var(--g6-rule)"
+          },
+          "geometry": {
+            "content": "\"\"",
+            "position": "absolute"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__frame::before",
+          "tokens": {},
+          "geometry": {
+            "left": "50%",
+            "top": "0",
+            "width": "1px",
+            "height": "7%"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__frame::after",
+          "tokens": {},
+          "geometry": {
+            "top": "50%",
+            "left": "0",
+            "height": "1px",
+            "width": "7%"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__frame img",
+          "tokens": {},
+          "geometry": {
+            "width": "100%",
+            "height": "auto",
+            "filter": "drop-shadow(0 22px 28px rgb(0 0 0 / 0.28))"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__caption",
+          "tokens": {
+            "font-size": "var(--g6-text-xs)",
+            "color": "var(--g6-text-3)",
+            "border-top": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "display": "grid",
+            "grid-template-columns": "auto minmax(0, 1fr)",
+            "gap": "0.15rem 1rem",
+            "margin": "0",
+            "padding-top": "0.75rem"
+          },
+          "type": {
+            "letter-spacing": "0.04em"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__caption dt",
+          "tokens": {
+            "letter-spacing": "var(--g6-track-label)"
+          },
+          "geometry": {},
+          "type": {
+            "text-transform": "uppercase"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-specimen__caption dd",
+          "tokens": {
+            "color": "var(--g6-text-2)"
+          },
+          "geometry": {
+            "margin": "0"
+          },
+          "type": {
+            "font-variant-numeric": "tabular-nums"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-specimen__frame",
+          "tokens": {
+            "animation": "g6-frame-in 700ms var(--g6-ease-out) both"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "study": {
+      "kind": "pattern",
+      "meaning": "A study unit: the chapters and the exercises. The system's surface, its strong rule and its radius, with the stable state and the semibold type.",
+      "parts": [],
+      "states": [
+        "::before",
+        ":hover",
+        "[aria-pressed"
+      ],
+      "tokens": [
+        "--g6-dur-1",
+        "--g6-radius",
+        "--g6-rule-strong",
+        "--g6-state-stable",
+        "--g6-surface-2",
+        "--g6-text",
+        "--g6-text-sm",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-study",
+          "tokens": {
+            "border": "1px solid var(--g6-rule-strong)",
+            "border-radius": "var(--g6-radius)",
+            "color": "var(--g6-text)",
+            "font-size": "var(--g6-text-sm)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "transition": "background-color var(--g6-dur-1) linear, border-color var(--g6-dur-1) linear"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "gap": "0.6em",
+            "min-height": "44px",
+            "padding": "0.6rem 1.1rem",
+            "background": "transparent",
+            "cursor": "pointer"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-study::before",
+          "tokens": {},
+          "geometry": {
+            "content": "\"\"",
+            "width": "0.75rem",
+            "height": "0.75rem",
+            "box-shadow": "inset 0 0 0 1.5px currentColor"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-study:hover",
+          "tokens": {
+            "background": "var(--g6-surface-2)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-study.done, .g6-study[aria-pressed=\"true\"]",
+          "tokens": {
+            "border-color": "var(--g6-state-stable)",
+            "color": "var(--g6-state-stable)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-study.done::before, .g6-study[aria-pressed=\"true\"]::before",
+          "tokens": {},
+          "geometry": {
+            "background": "currentColor"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "sysbar": {
+      "kind": "pattern",
+      "meaning": "The system bar at the top of a surface: the identity, the status and the language. The system's gutter, its rules and its type, in two parts: the inner region and the end.",
+      "parts": [
+        "end",
+        "inner"
+      ],
+      "states": [],
+      "tokens": [
+        "--g6-bar-h",
+        "--g6-canvas",
+        "--g6-rule"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-sysbar",
+          "tokens": {
+            "background": "color-mix(in oklab, var(--g6-canvas) 92%, transparent)",
+            "border-bottom": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "position": "sticky",
+            "top": "0",
+            "z-index": "50"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@supports (backdrop-filter: blur(1px))"
+          ],
+          "selector": ".g6-sysbar",
+          "tokens": {},
+          "geometry": {
+            "backdrop-filter": "saturate(1.2) blur(14px)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysbar__inner",
+          "tokens": {
+            "height": "var(--g6-bar-h)"
+          },
+          "geometry": {
+            "display": "flex",
+            "align-items": "center",
+            "gap": "clamp(0.75rem, 2.4vw, 2.5rem)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysbar__end",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "align-items": "center",
+            "gap": "clamp(0.5rem, 1.6vw, 1.25rem)",
+            "margin-left": "auto"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-sysbar__end > .g6-lang",
+          "tokens": {},
+          "geometry": {
+            "min-width": "36px"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "sysmenu": {
+      "kind": "pattern",
+      "meaning": "The menu the system bar opens. The system's surfaces, its rules, its radius and its motion, in one part: the panel.",
+      "parts": [
+        "panel"
+      ],
+      "states": [
+        "::-webkit-details-marker",
+        "::after",
+        ":hover",
+        "[aria-current",
+        "[open"
+      ],
+      "tokens": [
+        "--g6-dur-2",
+        "--g6-ease-out",
+        "--g6-gutter",
+        "--g6-radius",
+        "--g6-radius-sm",
+        "--g6-rule-strong",
+        "--g6-surface-1",
+        "--g6-surface-2",
+        "--g6-text",
+        "--g6-text-sm",
+        "--g6-weight-medium"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-sysmenu",
+          "tokens": {},
+          "geometry": {
+            "display": "none",
+            "position": "relative"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysmenu > summary",
+          "tokens": {
+            "border": "1px solid var(--g6-rule-strong)",
+            "border-radius": "var(--g6-radius)",
+            "font-size": "var(--g6-text-sm)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {
+            "list-style": "none",
+            "display": "inline-flex",
+            "align-items": "center",
+            "gap": "0.5rem",
+            "min-height": "44px",
+            "padding-inline": "0.75rem",
+            "cursor": "pointer"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysmenu > summary::-webkit-details-marker",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysmenu > summary::after",
+          "tokens": {
+            "transition": "transform var(--g6-dur-2) var(--g6-ease-out)"
+          },
+          "geometry": {
+            "content": "\"\"",
+            "width": "0.55em",
+            "height": "0.55em",
+            "border-right": "1.5px solid currentColor",
+            "border-bottom": "1.5px solid currentColor",
+            "transform": "translateY(-25%) rotate(45deg)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysmenu[open] > summary::after",
+          "tokens": {},
+          "geometry": {
+            "transform": "translateY(15%) rotate(225deg)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysmenu__panel",
+          "tokens": {
+            "min-width": "min(16rem, calc(100vw - 2 * var(--g6-gutter)))",
+            "background": "var(--g6-surface-1)",
+            "border": "1px solid var(--g6-rule-strong)",
+            "border-radius": "var(--g6-radius)"
+          },
+          "geometry": {
+            "position": "absolute",
+            "right": "0",
+            "top": "calc(100% + 0.5rem)",
+            "padding": "0.5rem",
+            "box-shadow": "0 18px 40px -18px rgb(0 0 0 / 0.55)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysmenu__panel a",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "border-radius": "var(--g6-radius-sm)"
+          },
+          "geometry": {
+            "display": "flex",
+            "justify-content": "space-between",
+            "align-items": "center",
+            "min-height": "44px",
+            "padding": "0.5rem 0.75rem"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysmenu__panel a:hover, .g6-sysmenu__panel a[aria-current=\"page\"]",
+          "tokens": {
+            "background": "var(--g6-surface-2)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-sysmenu",
+          "tokens": {},
+          "geometry": {
+            "display": "block"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-menu, .g6-sysmenu[open] .g6-sysmenu__panel",
+          "tokens": {
+            "animation": "g6-drop 160ms var(--g6-ease-out) both"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "sysnav": {
+      "kind": "pattern",
+      "meaning": "The navigation inside the system bar. The system's identity colours, its type and its motion.",
+      "parts": [],
+      "states": [
+        "::after",
+        ":hover",
+        "[aria-current"
+      ],
+      "tokens": [
+        "--g6-dur-2",
+        "--g6-ease-out",
+        "--g6-identity-live",
+        "--g6-text",
+        "--g6-text-2",
+        "--g6-text-sm",
+        "--g6-weight-medium"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-sysnav",
+          "tokens": {},
+          "geometry": {
+            "display": "flex",
+            "align-items": "stretch",
+            "gap": "clamp(0.25rem, 1.4vw, 1.25rem)",
+            "height": "100%",
+            "margin-right": "auto"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysnav a",
+          "tokens": {
+            "color": "var(--g6-text-2)",
+            "font-size": "var(--g6-text-sm)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {
+            "position": "relative",
+            "display": "inline-flex",
+            "align-items": "center",
+            "gap": "0.3em",
+            "padding-inline": "0.35rem"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysnav a::after",
+          "tokens": {
+            "background": "var(--g6-identity-live)",
+            "transition": "transform var(--g6-dur-2) var(--g6-ease-out)"
+          },
+          "geometry": {
+            "content": "\"\"",
+            "position": "absolute",
+            "left": "0.35rem",
+            "right": "0.35rem",
+            "bottom": "-1px",
+            "height": "2px",
+            "transform": "scaleX(0)",
+            "transform-origin": "left"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysnav a:hover",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysnav a[aria-current=\"page\"], .g6-sysnav a[aria-current=\"true\"]",
+          "tokens": {
+            "color": "var(--g6-text)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-sysnav a[aria-current=\"page\"]::after, .g6-sysnav a[aria-current=\"true\"]::after",
+          "tokens": {},
+          "geometry": {
+            "transform": "scaleX(1)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 760px)"
+          ],
+          "selector": ".g6-sysnav",
+          "tokens": {},
+          "geometry": {
+            "display": "none"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "toc": {
+      "kind": "pattern",
+      "meaning": "The table of contents. The system's rule between the entries, with the title above them.",
+      "parts": [
+        "title"
+      ],
+      "states": [
+        ":hover"
+      ],
+      "tokens": [
+        "--g6-rule",
+        "--g6-text",
+        "--g6-text-3"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-toc__title",
+          "tokens": {},
+          "geometry": {
+            "margin-bottom": "0.75rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc ol",
+          "tokens": {
+            "border-left": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "list-style": "none",
+            "margin": "0",
+            "padding": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc a",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "display": "block",
+            "padding": "0.35rem 0 0.35rem 0.9rem",
+            "margin-left": "-1px",
+            "border-left": "1px solid transparent"
+          },
+          "type": {
+            "text-decoration": "none",
+            "line-height": "1.4"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc a:hover",
+          "tokens": {
+            "color": "var(--g6-text)",
+            "border-left-color": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc-inline .g6-toc",
+          "tokens": {},
+          "geometry": {
+            "padding": "0 1rem 1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "toc-inline": {
+      "kind": "pattern",
+      "meaning": "The table of contents, inline with the text. The system's measure, its rule and its radius, set in the system's own type.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-measure",
+        "--g6-radius",
+        "--g6-rule",
+        "--g6-text-sm",
+        "--g6-weight-medium"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-toc-inline",
+          "tokens": {
+            "border": "1px solid var(--g6-rule)",
+            "border-radius": "var(--g6-radius)",
+            "max-width": "var(--g6-measure)"
+          },
+          "geometry": {
+            "display": "none",
+            "margin": "0 0 2rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc-inline > summary",
+          "tokens": {
+            "font-size": "var(--g6-text-sm)",
+            "font-weight": "var(--g6-weight-medium)"
+          },
+          "geometry": {
+            "min-height": "44px",
+            "display": "flex",
+            "align-items": "center",
+            "padding": "0.5rem 1rem",
+            "cursor": "pointer"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc-inline .g6-toc",
+          "tokens": {},
+          "geometry": {
+            "padding": "0 1rem 1rem"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (max-width: 1180px)"
+          ],
+          "selector": ".g6-toc-inline",
+          "tokens": {},
+          "geometry": {
+            "display": "block"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    }
+  },
+  "primitives": {
+    "display": {
+      "kind": "primitive",
+      "meaning": "The display type. The system's type tier, and the track it sets for it.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-text-3",
+        "--g6-text-display",
+        "--g6-track-display",
+        "--g6-weight-bold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-display",
+          "tokens": {
+            "font-size": "var(--g6-text-display)",
+            "font-weight": "var(--g6-weight-bold)",
+            "letter-spacing": "var(--g6-track-display)"
+          },
+          "geometry": {},
+          "type": {
+            "line-height": "0.98"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-display em",
+          "tokens": {
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {},
+          "type": {
+            "font-style": "normal"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-hero--compact .g6-display",
+          "tokens": {},
+          "geometry": {},
+          "type": {
+            "font-size": "clamp(2.25rem, 1.4rem + 3.6vw, 4.5rem)"
+          },
+          "behaviour": {}
+        }
+      ]
+    },
+    "enter": {
+      "kind": "primitive",
+      "meaning": "The staggered entrance of a group's children. The system's motion tier, which states the meaning of motion and the reduced-motion equivalence; it is not a component.",
+      "parts": [],
+      "states": [
+        ":nth-child"
+      ],
+      "tokens": [
+        "--g6-dur-3",
+        "--g6-ease-out"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *",
+          "tokens": {
+            "animation": "g6-rise var(--g6-dur-3) var(--g6-ease-out) both"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *:nth-child(2)",
+          "tokens": {},
+          "geometry": {
+            "animation-delay": "40ms"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *:nth-child(3)",
+          "tokens": {},
+          "geometry": {
+            "animation-delay": "80ms"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *:nth-child(4)",
+          "tokens": {},
+          "geometry": {
+            "animation-delay": "120ms"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *:nth-child(5)",
+          "tokens": {},
+          "geometry": {
+            "animation-delay": "160ms"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *:nth-child(6)",
+          "tokens": {},
+          "geometry": {
+            "animation-delay": "200ms"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *:nth-child(7)",
+          "tokens": {},
+          "geometry": {
+            "animation-delay": "240ms"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [
+            "@media (prefers-reduced-motion: no-preference)"
+          ],
+          "selector": ".g6-enter > *:nth-child(n + 8)",
+          "tokens": {},
+          "geometry": {
+            "animation-delay": "280ms"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "label": {
+      "kind": "primitive",
+      "meaning": "A small label. The system's type tier, with the strong rule that separates it from what it labels.",
+      "parts": [],
+      "states": [
+        "[aria-hidden"
+      ],
+      "tokens": [
+        "--g6-rule-strong",
+        "--g6-text-3",
+        "--g6-text-xs",
+        "--g6-track-label",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-label",
+          "tokens": {
+            "font-size": "var(--g6-text-xs)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "letter-spacing": "var(--g6-track-label)",
+            "color": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "display": "inline-flex",
+            "align-items": "center",
+            "gap": "0.6em"
+          },
+          "type": {
+            "line-height": "1.3",
+            "text-transform": "uppercase"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-label > span[aria-hidden=\"true\"]",
+          "tokens": {
+            "color": "var(--g6-rule-strong)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "lede": {
+      "kind": "primitive",
+      "meaning": "The standfirst under a title. The system's type tier, in the second text.",
+      "parts": [],
+      "states": [],
+      "tokens": [
+        "--g6-text-2",
+        "--g6-text-lg"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-lede",
+          "tokens": {
+            "font-size": "var(--g6-text-lg)",
+            "color": "var(--g6-text-2)"
+          },
+          "geometry": {
+            "max-width": "36em"
+          },
+          "type": {
+            "line-height": "1.55"
+          },
+          "behaviour": {}
+        }
+      ]
+    },
+    "num": {
+      "kind": "primitive",
+      "meaning": "A number, aligned with the others. The system's type tier and its tabular figures.",
+      "parts": [],
+      "states": [],
+      "tokens": [],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-num",
+          "tokens": {},
+          "geometry": {},
+          "type": {
+            "font-variant-numeric": "tabular-nums",
+            "letter-spacing": "0.02em"
+          },
+          "behaviour": {}
+        }
+      ]
+    },
+    "skip": {
+      "kind": "primitive",
+      "meaning": "The link that skips to the content. The system's accessibility rules: it is seen when it is focused, and it comes first in the tab order.",
+      "parts": [],
+      "states": [
+        ":focus",
+        ":focus-visible"
+      ],
+      "tokens": [
+        "--g6-canvas",
+        "--g6-gutter",
+        "--g6-radius",
+        "--g6-text",
+        "--g6-weight-semibold"
+      ],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-skip",
+          "tokens": {
+            "left": "var(--g6-gutter)",
+            "background": "var(--g6-text)",
+            "color": "var(--g6-canvas)",
+            "font-weight": "var(--g6-weight-semibold)",
+            "border-radius": "0 0 var(--g6-radius) var(--g6-radius)"
+          },
+          "geometry": {
+            "position": "absolute",
+            "top": "0",
+            "z-index": "100",
+            "transform": "translateY(-120%)",
+            "padding": "0.65rem 1rem"
+          },
+          "type": {
+            "text-decoration": "none"
+          },
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-skip:focus, .g6-skip:focus-visible",
+          "tokens": {
+            "color": "var(--g6-canvas)"
+          },
+          "geometry": {
+            "transform": "translateY(0)"
+          },
+          "type": {},
+          "behaviour": {}
+        }
+      ]
+    },
+    "visually-hidden": {
+      "kind": "primitive",
+      "meaning": "Text a screen reader carries and a screen does not show. The system's accessibility rules.",
+      "parts": [],
+      "states": [],
+      "tokens": [],
+      "locals": [],
+      "rules": [
+        {
+          "at": [],
+          "selector": ".g6-visually-hidden",
+          "tokens": {},
+          "geometry": {
+            "position": "absolute !important",
+            "width": "1px",
+            "height": "1px",
+            "padding": "0",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "clip": "rect(0 0 0 0)",
+            "border": "0"
+          },
+          "type": {
+            "white-space": "nowrap"
+          },
+          "behaviour": {}
+        }
+      ]
     }
   }
 }

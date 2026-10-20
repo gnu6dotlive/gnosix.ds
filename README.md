@@ -123,6 +123,35 @@ typography and the accessibility it owes — and the stylesheet is rendered from
 those statements by a renderer that is generic. Adding a component to the
 contract means stating it, not adding a case to the renderer.
 
+### The arrangements
+
+The field uses thirty-six more arrangements the system did not describe:
+twenty-nine patterns and seven primitives. A pattern is an arrangement
+rather than a thing — a ledger, a rail, a notice, a run of prose — and a
+primitive is a thing the type, spacing, motion or accessibility tier
+governs, with no component of its own.
+
+The contract specifies all thirty-six now, and it specifies them by
+*measurement*: the parts each one has, the tokens it consumes, the geometry
+it establishes, the type it sets and the behaviour it carries are read off
+the sheet the field already writes with, and a gate checks both ways. A part
+the contract names that the sheet does not have is a failure; a declaration
+in the sheet that the contract does not name is a failure. Nothing about
+the field's vocabulary is now a matter of opinion.
+
+Three names overlap with the system's elements: the field's `action`,
+`state` and `section` are its own spellings of the `button`, the `badge`
+and the `section-heading`. The field's own code converges on the system's
+names, so those are canonical, and the contract says exactly where the
+sheet's versions differ — the sheet's action carries a mark and an arrow
+the system does not declare, and its badge carries two conditions the
+system's does not have.
+
+The `gnu6-design` package carries all of it: the field's thirty-nine
+names, the system's fourteen elements under the same prefix, and the
+system's own roles and tokens underneath. One stylesheet, one convention,
+and the contract behind it.
+
 ---
 
 ## Using it
