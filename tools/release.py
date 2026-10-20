@@ -289,9 +289,86 @@ def cmd_build(_args) -> int:
 
 # ---------------------------------------------------------------------- tag
 
+PROOF = ROOT / ".release-proof.json"
+
+
+def head_commit() -> str:
+    result = git("rev-parse", "HEAD")
+    return result.stdout.strip()
+
+
+def cmd_prove(args) -> int:
+    """Run the release job locally and record the proof.
+
+    A GitHub Actions run costs money and credit. The release job qualifies
+    the tagged state, builds the archive and publishes it, and every one of
+    those three can be done here first. This runs the first two and
+    records what it found, so that `tag` and the push hook can refuse to
+    publish a state that was never proved.
+    """
+    script = ROOT / "ci" / "local-ci.sh"
+    if not script.is_file():
+        print("no ci/local-ci.sh to run", file=sys.stderr)
+        return 1
+    result = subprocess.run([str(script), "--release"], cwd=ROOT, check=False)
+    if result.returncode != 0:
+        return result.returncode
+
+    # The guard belongs with the proof: a proof nobody is stopped from
+    # ignoring is a note in a file.
+    hook = ROOT / "ci" / "pre-push.sh"
+    installed = ROOT / ".git" / "hooks" / "pre-push"
+    if hook.is_file():
+        installed.parent.mkdir(parents=True, exist_ok=True)
+        if not installed.exists() or installed.read_bytes() != hook.read_bytes():
+            installed.write_bytes(hook.read_bytes())
+            installed.chmod(0o755)
+            print(f"installed the push guard at {installed}")
+
+    version_value = version()
+    _, archive_digest, content_digest = build_archive(version_value)
+    proof = {
+        "version": version_value,
+        "commit": head_commit(),
+        "archive_digest": archive_digest,
+        "content_digest": content_digest,
+    }
+    PROOF.write_text(json.dumps(proof, indent=2) + "\n", encoding="utf-8")
+    print(f"proof recorded for {version_value} at {proof['commit'][:12]}")
+    return 0
+
+
+def check_proof() -> str | None:
+    """Why the state may not be published, or None when it may."""
+    if not PROOF.is_file():
+        return ("no local proof; run `python3 -m tools.release prove` "
+                "before tagging or pushing a tag")
+    try:
+        proof = json.loads(PROOF.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return "the local proof is unreadable; run `python3 -m tools.release prove`"
+    if proof.get("version") != version():
+        return (f"the proof is for {proof.get('version')}, the version is {version()}")
+    if proof.get("commit") != head_commit():
+        return ("the proof is for another commit; run `python3 -m tools.release prove` again")
+    try:
+        _, _, content_digest = build_archive(version())
+    except OSError as exc:
+        return f"the archive could not be built: {exc}"
+    if proof.get("content_digest") != content_digest:
+        return "the archive does not match the proof; run `python3 -m tools.release prove` again"
+    return None
+
+
 def cmd_tag(args) -> int:
     version_value = version()
     name = tag_name(version_value)
+
+    if not args.skip_proof:
+        problem = check_proof()
+        if problem:
+            print(f"the release job has not been proved locally: {problem}")
+            return 1
 
     dirty = tree_is_dirty()
     if dirty and not args.allow_dirty:
@@ -328,6 +405,11 @@ def changelog_section(version_value: str) -> str | None:
 def cmd_publish(args) -> int:
     version_value = version()
     name = tag_name(version_value)
+
+    problem = check_proof()
+    if problem:
+        print(f"the release job has not been proved locally: {problem}")
+        return 1
 
     dirty = tree_is_dirty()
     if dirty:
@@ -386,6 +468,19 @@ def main(argv: list[str] | None = None) -> int:
 
     sub.add_parser("status", help="where the repository stands").set_defaults(func=cmd_status)
 
+    sub.add_parser("prove", help="run the release job locally and record the proof") \
+        .set_defaults(func=cmd_prove)
+
+    def _cmd_check_proof(args) -> int:
+        problem = check_proof()
+        if problem:
+            print(problem, file=sys.stderr)
+            return 1
+        return 0
+
+    sub.add_parser("check-proof", help="exit non-zero when the state is not proved") \
+        .set_defaults(func=_cmd_check_proof)
+
     bump_parser = sub.add_parser("bump", help="move the version and rebuild the manifest")
     bump_group = bump_parser.add_mutually_exclusive_group(required=True)
     bump_group.add_argument("--patch", dest="part", action="store_const", const="patch",
@@ -402,6 +497,8 @@ def main(argv: list[str] | None = None) -> int:
     tag_parser = sub.add_parser("tag", help="create the annotated release tag")
     tag_parser.add_argument("--message")
     tag_parser.add_argument("--allow-dirty", action="store_true")
+    tag_parser.add_argument("--skip-proof", action="store_true",
+                             help="tag without a local proof (not advised)")
     tag_parser.set_defaults(func=cmd_tag)
 
     publish_parser = sub.add_parser("publish", help="publish the GitHub release")
