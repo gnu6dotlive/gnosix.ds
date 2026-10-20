@@ -276,7 +276,7 @@ the two token projections agree               the web code matches the design
 the native profile compiles and its tests pass
 every name the field declares is classified    every arrangement is specified as the sheet has it
 every gate says what it must say               the severity register is honest
-test suite
+the surfaces render as the system carries them test suite
 ```
 
 ### What each gate must say
@@ -291,6 +291,26 @@ gate's own output with what the document says, so a gate that changes its
 mind fails the run instead of passing it quietly. A gate added without a
 section fails the run too, and a section that names a gate that does not
 exist fails it as well.
+
+### The eye
+
+A contract says what it holds. It does not say what it *looks like*: that
+a badge carries its condition as a shape and a word, that a focus ring is
+visible, that a text reads on its ground. Those are facts about pixels,
+and a fact about pixels has to be looked at.
+
+`tools/eye.py` renders the system's own web surfaces on both substrates,
+walks them with axe, and compares the pictures with the ones the system
+carries. The comparison is on the bytes, so the picture the system ships
+is the picture that was looked at. The accessibility findings are a
+ratchet: the system carries the list of what it knows, and a finding
+that is not in it is a new one and a failure.
+
+The browser is pinned by the lockfile and provisioned by
+`ci/provision-browser.sh`, which the CI job, the release job and the
+local simulation all run. Where there is no browser — a copy of the
+package, which carries neither — the gate says so and stops: that is the
+third answer, not a failure.
 
 ### The severity register
 

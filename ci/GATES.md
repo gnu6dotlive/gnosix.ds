@@ -233,4 +233,12 @@ python3 tools/check_containment.py
 
 Expected: `PASS: the gates stay inside the repository`.
 
+## 28. The surfaces render as the system carries them
+
+```bash
+python3 tools/eye.py
+```
+
+Expected: `PASS: the surfaces render as the system carries them`.
+
 ---

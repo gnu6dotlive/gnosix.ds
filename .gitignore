@@ -12,3 +12,9 @@ dist/
 # The Rust build output of the native projection.
 target/
 .release-proof.json
+
+# The eye's browser and its installed packages. The browser is pinned by
+# the lockfile and provisioned by ci/provision-browser.sh; neither the
+# browser nor the packages are package content.
+.ci-cache/
+qa/eye/node_modules/

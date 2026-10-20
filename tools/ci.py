@@ -64,6 +64,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("every gate says what it must say", ["tools/gate_expectations.py", "--check"]),
     ("the severity register is honest", ["tools/check_deviations.py"]),
     ("the gates stay inside the repository", ["tools/check_containment.py"]),
+    ("the surfaces render as the system carries them", ["tools/eye.py"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or

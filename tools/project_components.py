@@ -133,6 +133,25 @@ def length(value) -> str | None:
     raise ValueError(f"a length with no unit: {value}")
 
 
+def pip_properties(geometry: dict) -> list[tuple[str, str]]:
+    """The shape of a mark: a pip, sized by the component that carries it.
+
+    The size is a geometry of the element, not a number written in the
+    projection: the contract says how big the pip is, and the projection
+    says nothing the contract does not say.
+    """
+    size = length((geometry or {}).get("mark"))
+    if not size:
+        size = "0.5rem"
+    return [
+        ("content", '""'),
+        ("flex", "none"),
+        ("width", size),
+        ("height", size),
+        ("border-radius", "50%"),
+    ]
+
+
 def token_properties(tokens: dict) -> list[tuple[str, str]]:
     """The declarations a set of tokens states."""
     out = []
@@ -151,6 +170,9 @@ def token_properties(tokens: dict) -> list[tuple[str, str]]:
 def geometry_properties(geometry: dict) -> list[tuple[str, str]]:
     """The declarations a set of geometry states."""
     out = []
+    display = geometry.get("display")
+    if display:
+        out.append(("display", display))
     radius = length(geometry.get("radius"))
     if radius:
         out.append(("border-radius", radius))
@@ -239,14 +261,22 @@ def render_component(name: str, component: dict) -> str:
         for variant in variants:
             variant_tokens = variant.get("tokens") or {}
             properties = token_properties(variant_tokens)
-            if variant_tokens.get("mark"):
-                properties.append(("background", role_var(variant_tokens["mark"])))
             if variant.get("geometry"):
                 properties += geometry_properties(variant["geometry"])
             if not properties:
                 continue
             out.append(f'\n.{cls}[data-variant="{variant["name"]}"] '
                        f"{declaration_block(properties)}")
+            # A variant's mark is a pip, not a colour. The badge carries the
+            # condition as a shape and a word, never as a colour alone: a
+            # mark written as the element's background painted the whole
+            # badge the condition's colour, and the text with it.
+            mark = variant_tokens.get("mark")
+            if mark:
+                pip = pip_properties(geometry)
+                pip.insert(0, ("background", role_var(mark)))
+                out.append(f'\n.{cls}[data-variant="{variant["name"]}"]::before '
+                           f"{declaration_block(pip)}")
 
         for state in states:
             pseudo = state.get("pseudo")

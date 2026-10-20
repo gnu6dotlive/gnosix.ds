@@ -8,6 +8,39 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [4.3.1] — 2026-10-20
+
+The eye, and the defect it found on the first look.
+
+**The system now looks at itself.** The qualification says what the
+contract holds; it never said what the contract *looks like*. So the eye
+renders the system's own web surfaces, on both substrates, walks them
+with axe, and compares the pictures with the ones the system carries. A
+component that moves by a pixel is caught there, and the comparison is on
+the bytes, so the picture the system ships is the picture that was
+looked at.
+
+The browser is pinned by the lockfile, and the font is the one this
+repository packages, so the rendering is the same on every machine that
+provisions the browser the way `ci/provision-browser.sh` says. The same
+script runs in CI, in the release job and in the local simulation. Where
+there is no browser — a copy of the package, which carries neither — the
+gate says so and stops: that is the third answer, not a failure.
+
+**And it found something on the first look.** The badge carries the
+condition as a shape and a word, never as a colour alone — that is what
+the contract says. The projection wrote the mark as the element's
+*background*, which painted the whole badge the condition's colour, and
+the text with it: the stable badge rendered green, and its text measured
+4.08 against a ground it was never meant to sit on. The contract was
+right and the projection was wrong, and nothing between them said so.
+
+The mark is a pip now — the shape the contract describes, in the
+condition's colour, beside the word — and the badge reads 17.36 against
+its own ground. The eye's findings are at zero, and they are a ratchet:
+a finding that is not in the list the system carries is a new one, and
+the gate fails on it.
+
 ## [4.3.0] — 2026-10-20
 
 What the field has worked on, and the system did not carry.

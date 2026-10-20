@@ -335,6 +335,13 @@
         "padding": {
           "block": "0.2em",
           "inline": "0.6em"
+        },
+        "display": "inline-flex",
+        "gap": {
+          "px": 6
+        },
+        "mark": {
+          "px": 6
         }
       },
       "typography": {

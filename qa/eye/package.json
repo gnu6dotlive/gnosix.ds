@@ -1,0 +1,11 @@
+{
+  "name": "gnosix-ds-eye",
+  "version": "4.3.0",
+  "private": true,
+  "description": "The eye: the surfaces the system renders, looked at.",
+  "type": "module",
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "playwright": "1.61.1"
+  }
+}

@@ -73,6 +73,20 @@ jobs:
           set -euo pipefail
           eval "$(ci/provision-engine.sh)"
 
+      # The eye renders the system's own surfaces and compares the pictures
+      # with the ones the system carries, so it needs a browser, and the
+      # browser is pinned by the lockfile. A machine with another browser
+      # renders another picture, and the gate would fail on a difference
+      # that is not a difference.
+      #
+      # The same script, the same reasoning, the same place in the job as
+      # the engine's: the CI job, the release job and the local simulation
+      # run one script each and cannot drift apart.
+      - name: Provision the browser the eye looks with
+        run: |
+          set -euo pipefail
+          eval "$(ci/provision-browser.sh)"
+
       # Report the environment before the qualification rather than after a
       # failure. A verdict without the versions that produced it is not
       # reproducible, and the versions are part of what the verdict is about.

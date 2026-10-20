@@ -1,5 +1,5 @@
 /* gnu6-design — re-cut by tools/package_gnu6_design.py from
-   gnosix.ds 4.3.0. Do not edit. */
+   gnosix.ds 4.3.1. Do not edit. */
 :root {
   --gnosix-neutral-anthracite: #111418;
   --gnosix-neutral-shell-white: #F7F3ED;
@@ -2527,9 +2527,11 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-raised);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
+  display: inline-flex;
   border-radius: var(--gnosix-radius-sm);
   min-height: 24px;
   padding: 0.2em 0.6em;
+  gap: 6px;
   font-weight: var(--gnosix-weight-medium);
   border: 1px solid var(--gnosix-hairline);
 }
@@ -2537,17 +2539,38 @@ a.g6-menu__item:focus-visible {
   background: var(--gnosix-surface-raised);
   color: var(--gnosix-ink);
   border-color: var(--gnosix-hairline);
+}
+.g6-badge[data-variant="stable"]::before {
   background: var(--gnosix-positive);
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
 }
 .g6-badge[data-variant="attention"] {
   background: var(--gnosix-caution);
   color: var(--gnosix-ink);
+}
+.g6-badge[data-variant="attention"]::before {
   background: var(--gnosix-caution);
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
 }
 .g6-badge[data-variant="breach"] {
   background: var(--gnosix-critical);
   color: var(--gnosix-ink);
+}
+.g6-badge[data-variant="breach"]::before {
   background: var(--gnosix-critical);
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
 }
 .g6-badge[data-variant="evidence"] {
   background: var(--gnosix-surface-sunken);

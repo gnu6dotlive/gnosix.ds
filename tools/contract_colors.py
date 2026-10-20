@@ -43,7 +43,7 @@ HEX = re.compile(r"#[0-9A-Fa-f]{6}\b")
 # that is what it was. The re-cut beside it carries none, and the gate
 # examines the re-cut like any other part of the tree.
 SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "dist", "handoff", "figcraft",
-             "frontend-audit", "legacy"}
+             "frontend-audit", "legacy", "node_modules", ".ci-cache"}
 # The audit's configuration quotes the same colours its reports do, and is
 # exempt for the same reason.
 SKIP_FILES = {"frontend-audit.json"}

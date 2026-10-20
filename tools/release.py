@@ -103,7 +103,8 @@ PACKAGED_FILES = [
 ]
 
 # Never packaged.
-EXCLUDED = {".git", ".github", "dist", "__pycache__", ".pytest_cache"}
+EXCLUDED = {".git", ".github", "dist", "__pycache__", ".pytest_cache",
+            "node_modules", ".ci-cache"}
 
 # A fixed timestamp for every archive member. The commit's own time is not
 # used, because the archive must be identical whether it is built from a

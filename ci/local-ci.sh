@@ -63,6 +63,7 @@ mkdir -p "$RUNNER_TEMP"
 export FIGCRAFT_ENV_FILE="$WORK/engine.env"
 : > "$FIGCRAFT_ENV_FILE"
 "$SOURCE/ci/provision-engine.sh" > /dev/null
+"$SOURCE/ci/provision-browser.sh" > /dev/null
 
 cd "$SOURCE"
 

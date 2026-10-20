@@ -11,6 +11,20 @@ files themselves are the authority.
 | Tabler Icons (outline subset, 41 icons) | 3.49.0 | MIT, © 2018-2026 Paweł Kuna | `assets/icons/licenses/Tabler-Icons-LICENSE.txt` |
 | Tabler Flags (subset, 8 flags) | 0.1.1 | MIT, © 2018-2026 Paweł Kuna | `assets/icons/licenses/Tabler-Flags-LICENSE.txt` |
 
+## Referenced, not redistributed
+
+The eye renders the system's own surfaces and looks at them. It needs a
+browser and an accessibility engine, and neither is redistributed here:
+they are installed from a lockfile that pins their versions, and they
+run only where a browser is provisioned. The licences are the upstream
+ones.
+
+| Dependency | Version | Licence | Where |
+|---|---|---|---|
+| Playwright (browser automation) | 1.61.1 | Apache-2.0 | `qa/eye/package.json` |
+| @axe-core/playwright (accessibility rules) | 4.12.1 | MPL-2.0 | `qa/eye/package.json` |
+| axe-core (the rules themselves) | 4.12.1 | MPL-2.0 | a dependency of the above |
+
 ## What is not third-party
 
 The identity masters in `assets/identity/`, the mascot references in
