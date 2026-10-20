@@ -8,6 +8,56 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [4.2.0] — 2026-10-20
+
+The field's vocabulary is specified, and the sheet the field writes with
+is clean for the first time.
+
+**The contract held thirty-nine names and nothing else.** That is a
+classification, and a classification says only that a name is of a kind:
+it can never be wrong, and it says nothing about what the thing is. The
+contract now holds what each of them is.
+
+The thirty-six arrangements the field writes with — twenty-nine patterns
+and seven primitives — are specified by measurement. Their parts, the
+tokens they consume, the geometry they establish, the type they set and
+the behaviour they carry are read off the sheet and written down, and a
+gate checks both ways: a part the contract names that the sheet does not
+have is a failure, and a declaration in the sheet that the contract does
+not name is a failure. Nothing about the field's vocabulary is a matter
+of opinion any more.
+
+**The three names that overlap the system's elements are the field's own
+implementations, and the contract says how far they differ.** The field's
+`action`, `state` and `section` are its own spellings of the `button`,
+the `badge` and the `section-heading`. The field's own code converges on
+the system's names — `badge` in two lineages, `section-heading` in two —
+so those stay canonical and the sheet's are the field's. What the sheet
+does with them is now written down: the sheet's action carries a mark
+and an arrow the system does not declare and a pressed state the system
+does not declare, and its badge carries two conditions the system's does
+not have. The system specifies; it does not copy, and now it says where
+the field's own thing stops matching the system's.
+
+**The published sheet carried thirteen invalid declarations.** Thirteen of
+its custom properties were written as references to themselves — a name
+that refers to itself is invalid at computed-value time, and it only
+appeared to work because the system declared the same name again further
+down the file. One of the sheet's roles also still carried a colour of
+its own; the binding now covers it. The sheet names the system in every
+place it used to carry a value.
+
+**The package carries the system's own fourteen elements too.** Under the
+field's prefix, with the system's roles bound to the sheet's substrate
+and its own tokens underneath. A consumer that has adopted the package
+has the whole contract in one stylesheet and writes one convention; the
+field's three keep their names, because a name that meant two things
+would be a name nobody could read.
+
+**And a gate counts.** The component layer is measured, not chosen: the
+number of components, the number of arrangements, the number of parts and
+the number of rules are facts a gate can read.
+
 ## [4.1.0] — 2026-10-20
 
 The system publishes the package the field vendors, the field's
