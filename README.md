@@ -6,7 +6,7 @@
 inspectable reference scenes that carry one design system from the browser to
 Compose to GPUI — without turning any toolkit into the design system.
 
-`v4.0.0` · MIT · 21 gates, one command
+`v4.0.0` · MIT · 22 gates, one command
 
 </div>
 
@@ -244,6 +244,7 @@ mascot alpha is repaired                      svg wrappers embed once
 favicons are the right crop                   icon subset is vendored
 no ad-hoc glyphs                              the FigCraft projection matches the source
 the two token projections agree               the web code matches the design
+the native profile compiles and its tests pass
 test suite
 ```
 
