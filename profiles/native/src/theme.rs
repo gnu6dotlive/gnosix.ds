@@ -104,6 +104,7 @@ pub mod surface {
     pub const SURFACE_POSITIVE_L909C18: &str = "#DCE4D8";
     pub const SURFACE_WARM_L971C18: &str = "#FFF3EA";
     pub const SURFACE_SELECTION_L354C90: &str = "#25396B";
+    pub const INFO_L621C123: &str = "#3D8DCC";
 }
 
 /// The measured contrast of each approved pairing.

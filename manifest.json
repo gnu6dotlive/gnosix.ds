@@ -522,7 +522,7 @@
     {
       "class": "profile",
       "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/GnosixColors.kt",
-      "sha256": "fbdfa1ae1fe548b15a6013c22859b686752b2e320a25f0ed54392da696f4fa82"
+      "sha256": "134f81d1b3978583f0af16b0fd681943fcc96e43cd041949c9b0e19b75bf1629"
     },
     {
       "class": "profile",
@@ -657,7 +657,7 @@
     {
       "class": "profile",
       "path": "profiles/native/src/theme.rs",
-      "sha256": "fb812e475de002b6328fcc8b46df8a5ca791f10b96a4f765bbaf59f4abb0a865"
+      "sha256": "910b554ab6d433f3a7e6c8a8015fca1d021d1b09cfdf31c2ecfe8c88026bb9cb"
     },
     {
       "class": "profile",
@@ -722,7 +722,7 @@
     {
       "class": "profile",
       "path": "profiles/web/tokens.css",
-      "sha256": "fd971fdb20b477349ba0e3d2b293a6209b5c0e8ff0980cdf9afec7f4c3a43d3c"
+      "sha256": "df5a4066f9df1d52ce433120c7a2756cb40cf6a986d2d3f5281ddda2303af6ef"
     },
     {
       "class": "evidence",

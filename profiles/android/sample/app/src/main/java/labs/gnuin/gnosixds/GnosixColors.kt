@@ -98,4 +98,5 @@ object GnosixSurfaces {
     val SurfacePositiveL909c18 = Color(0xFFDCE4D8)
     val SurfaceWarmL971c18 = Color(0xFFFFF3EA)
     val SurfaceSelectionL354c90 = Color(0xFF25396B)
+    val InfoL621c123 = Color(0xFF3D8DCC)
 }
