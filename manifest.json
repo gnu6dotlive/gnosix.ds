@@ -931,6 +931,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/consumer_check.py",
+      "sha256": "b4244f85740f4ed007da1a5ec2245adf8e0e17d3ea2660a094daa2d53c3da030"
+    },
+    {
+      "class": "evidence",
       "path": "tools/contract.py",
       "sha256": "5ac6a0d659e3eaa4f97a22123fbdaf4e2440ae7871e44305a4259d735976f00b"
     },
@@ -957,7 +962,7 @@
     {
       "class": "evidence",
       "path": "tools/native_check.py",
-      "sha256": "eaf874aee7669491c6f9c04576feec48a9e189527bd67d494c937dfdfcd9ed55"
+      "sha256": "962f4bac1683de0ae07bb79522731de5d13f2cd2f14ac5d81be80206f7fa1d21"
     },
     {
       "class": "evidence",
@@ -982,7 +987,7 @@
     {
       "class": "evidence",
       "path": "tools/rebuild_manifest.py",
-      "sha256": "e892f271bf420f9bcbf7ccc8629f994982d0fe6b276f7e8c488c06856c03ecbd"
+      "sha256": "8a2a98e21ef5535976f723587c54a53b8f56bbf64dbc52395dc028d4507fc434"
     },
     {
       "class": "evidence",

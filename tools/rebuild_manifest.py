@@ -57,7 +57,9 @@ def iter_package_files(root: Path) -> list[str]:
     # the package is the thing that is built. The manifest describes the
     # package, so a file the package does not carry is not a file the
     # manifest hashes.
-    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "ci", "figcraft", "handoff"}
+    # "target" is the Rust build output of the native projection, and a
+    # build output is never package content.
+    skip_dirs = {".git", "__pycache__", ".pytest_cache", ".venv", "node_modules", ".DS_Store", "dist", ".github", "ci", "figcraft", "handoff", "target"}
 
     # The local release proof is a record of what was proved on this machine,
     # not part of the package.
