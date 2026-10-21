@@ -837,12 +837,12 @@
     {
       "class": "evidence",
       "path": "qa/eye/baselines/reference.png",
-      "sha256": "f11187a9a91dab0f60156aa3eb7a8d9bc8bd311d2e396e2c8940d32b37a7a938"
+      "sha256": "46cb4643eb670fbdf0ceec88b6e3706426efc742f808f3cf80a7f0734d981d32"
     },
     {
       "class": "evidence",
       "path": "qa/eye/expected.json",
-      "sha256": "1371896fba9a1434333304e98e5a1c04f146067e08066d3586d5a9339ea303fa"
+      "sha256": "fdf865f3124797833995842f51d0350b3b2a29ba808bed69a973d88c95aece78"
     },
     {
       "class": "evidence",
@@ -982,7 +982,7 @@
     {
       "class": "evidence",
       "path": "site/reference.css",
-      "sha256": "3a442a77dd509dfc2632b30ac283cc48e42562c350dc65b9d51db59e867f7db8"
+      "sha256": "4b7b61ac67a7fa47ff75d4ac17b99f8effdbf0650b06ad3157d31653fe6147fd"
     },
     {
       "class": "evidence",

@@ -134,8 +134,11 @@ main#main {
   font-weight: var(--gnosix-weight-semibold, 600);
 }
 
+/* The code inherits the page's family, as the site's own code does: the
+ * technical family is not the one the web surface ships, and a page that
+ * asked for it would render differently on a machine that has it and a
+ * machine that does not. */
 .entry code {
-  font-family: var(--gnosix-font-technical, "IBM Plex Mono", monospace);
   font-size: 0.9em;
 }
 
