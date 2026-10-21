@@ -60,8 +60,8 @@
   --g6-accent-live-text: var(--gnosix-royal-blue-300);
   --g6-accent-labs-text: var(--gnosix-beret-green-300);
   --g6-state-stable: var(--gnosix-beret-green-300);
-  --g6-state-attention: var(--gnosix-semantic-warn);
-  --g6-state-breach: var(--gnosix-semantic-alert);
+  --g6-state-attention: var(--gnosix-caution);
+  --g6-state-breach: var(--gnosix-critical);
   --g6-state-neutral: var(--gnosix-ink-on-dark-l678c24);
   --g6-note-bg: var(--gnosix-surface-dark-l220c12);
   --g6-note-attention-bg: var(--gnosix-surface-dark-l220c12);
@@ -96,8 +96,8 @@
     --g6-accent-live-text: var(--gnosix-royal-blue-700);
     --g6-accent-labs-text: var(--gnosix-beret-green-700);
     --g6-state-stable: var(--gnosix-beret-green-700);
-    --g6-state-attention: var(--gnosix-semantic-warn);
-    --g6-state-breach: var(--gnosix-semantic-alert);
+    --g6-state-attention: var(--gnosix-caution);
+    --g6-state-breach: var(--gnosix-critical);
     --g6-state-neutral: var(--gnosix-ink-on-light-l445c22);
     --g6-note-bg: var(--gnosix-surface-light-l920c6);
     --g6-note-attention-bg: var(--gnosix-surface-warm-l971c18);
@@ -132,8 +132,8 @@
   --g6-accent-live-text: var(--gnosix-royal-blue-700);
   --g6-accent-labs-text: var(--gnosix-beret-green-700);
   --g6-state-stable: var(--gnosix-beret-green-700);
-  --g6-state-attention: var(--gnosix-semantic-warn);
-  --g6-state-breach: var(--gnosix-semantic-alert);
+  --g6-state-attention: var(--gnosix-caution);
+  --g6-state-breach: var(--gnosix-critical);
   --g6-state-neutral: var(--gnosix-ink-on-light-l445c22);
   --g6-note-bg: var(--gnosix-surface-light-l920c6);
   --g6-note-attention-bg: var(--gnosix-surface-warm-l971c18);

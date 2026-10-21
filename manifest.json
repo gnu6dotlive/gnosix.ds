@@ -537,12 +537,12 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6-design.lock.json",
-      "sha256": "fedc656b1a307aaea9a23b1bbc8a6a64acd0b45f250207994bafc24e18292af9"
+      "sha256": "e67001badc1a9c38b08f54774020742789510535ff7969d8aee7eddf10b81b78"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6.css",
-      "sha256": "af736df76de43b88935a5d0d8dd9543c35383313c13fe80f3f344f5dc2f5a317"
+      "sha256": "9494f84be432ffe449c6a52370d5cb31e6b301818ccb6bcdb84e8d89927129d5"
     },
     {
       "class": "evidence",
@@ -562,7 +562,7 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/legacy/roles.json",
-      "sha256": "0e2ad06c6a36cc65cb173b1b2d5b2b1f0affd1d75fc4ecc7043d55389f5821be"
+      "sha256": "e4fb76bf360bdc7286bb006723c2c360fcde5dc706725c01025f7a36ca2118ee"
     },
     {
       "class": "profile",
@@ -1202,7 +1202,7 @@
     {
       "class": "evidence",
       "path": "tools/specify_components.py",
-      "sha256": "6e3d6e2709141f16387bff02eeee4ec7c3f8db309c9b84759d6d153ffcea962a"
+      "sha256": "1e64f1b6dc677d61152e6f5e3e88cbdcd08248c9fde011e2356924647fa5e5f0"
     },
     {
       "class": "evidence",

@@ -186,7 +186,13 @@ def class_tokens(selector: str) -> set[str]:
 
 
 def system_names() -> set[str]:
-    """Every name the system publishes."""
+    """Every name the system publishes.
+
+    A role is a published name as much as a layer is. The sheet binds its
+    states to roles so that a state carries the step its substrate needs
+    (COL-006); an arrangement whose state resolves through a role is
+    naming vocabulary the system publishes, not a name it invents.
+    """
     from project_tokens import layer_names, published_name, spacing_names, surface_names
 
     tokens = json.loads(TOKENS.read_text(encoding="utf-8"))
@@ -195,6 +201,9 @@ def system_names() -> set[str]:
     names |= spacing_names(tokens)
     for role, weight in tokens["typography"]["weights"].items():
         names.add(f"--gnosix-weight-{role}")
+    roles = json.loads((TOKENS.parent / "ROLES.json").read_text(encoding="utf-8"))
+    for role in roles.get("roles", {}):
+        names.add(published_name(role))
     return names
 
 
