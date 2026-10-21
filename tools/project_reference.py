@@ -299,14 +299,18 @@ def render_upstream(register: dict) -> tuple[str, list[dict]]:
             + "</article>")
     for pin in register.get("pins", []):
         index.append({"id": f"{pin.get('rail')} pin", "kind": "Pin",
-                      "title": pin.get("revision", "")[:70],
+                      "title": pin.get("exact_identity", "")[:70],
                       "anchor": f"pin-{anchor(str(pin.get('rail')))}"})
         body.append(
-            f"<article class=\"entry\" data-search=\"{searchable(pin.get('exact', ''))}\" "
+            f"<article class=\"entry\" data-search=\"{searchable(pin.get('exact_identity', ''))}\" "
             f"id=\"pin-{anchor(str(pin.get('rail')))}\">"
-            f"<h3><code>{esc(str(pin.get('rail')))}</code></h3>"
-            f"<p class=\"values\"><span>Revision</span> {esc(pin.get('revision', ''))}"
-            f"<span>Exact</span> {esc(pin.get('exact', ''))}</p>"
+            f"<h3><code>{esc(str(pin.get('rail')))}</code>"
+            f"<span class=\"tag tag-truth\">{esc(str(pin.get('verification', '')))}</span></h3>"
+            f"<p class=\"values\"><span>Identity</span> {esc(pin.get('exact_identity', ''))}"
+            f"<span>Authority</span> {esc(pin.get('authority', ''))}</p>"
+            f"<p class=\"observable\"><span>Qualified</span> {esc(pin.get('qualification_scope', ''))}</p>"
+            f"<p class=\"observable\"><span>Divergence</span> {esc(pin.get('known_divergence', ''))}</p>"
+            f"<p class=\"observable\"><span>Refresh when</span> {esc(pin.get('refresh_condition', ''))}</p>"
             f"<p class=\"evidence\"><span>Measured</span> {esc(pin.get('where', ''))} "
             f"({esc(str(pin.get('measured_on', '')))})</p></article>")
     for observation in register.get("observations", []):
@@ -322,13 +326,23 @@ def render_upstream(register: dict) -> tuple[str, list[dict]]:
             f"<h3><code>{esc(identifier)}</code><span class=\"domain\">{esc(str(observation.get('rail', '')))}</span></h3>"
             f"<p class=\"what\">{esc(upstream.get('change', ''))}</p>"
             f"<p class=\"values\"><span>Upstream</span> {esc(upstream.get('what', ''))} "
-            f"({esc(upstream.get('revision', ''))})"
+            f"({esc(upstream.get('exact_identity', ''))})"
+            f"<span>Source</span> {esc(upstream.get('source', ''))}"
             f"<span>Bears on</span> {bears or '—'}"
-            f"<span>Projection</span> {esc(str(observation.get('projection', '')))}"
-            f"<span>Evidence</span> {esc(str(observation.get('evidence', '')))}</p>"
-            f"<p class=\"observable\"><span>Conclusion</span> {esc(observation.get('conclusion', ''))}</p>"
-            + (f"<p class=\"evidence\"><span>Gate</span> {esc(observation.get('gate'))}</p>"
-               if observation.get("gate") else "")
+            f"<span>Level</span> {esc(str(observation.get('evidence_level', '')))}"
+            f"<span>Projection</span> {esc(str(observation.get('projection', '')))}</p>"
+            f"<p class=\"observable\"><span>Observed</span> {esc(observation.get('observed_fact', ''))}</p>"
+            f"<p class=\"observable\"><span>Inferred</span> {esc(observation.get('inference', ''))}</p>"
+            f"<p class=\"observable\"><span>Evidence</span> {esc(observation.get('local_evidence', ''))} "
+            f"— {esc(observation.get('evidence_limits', ''))}</p>"
+            f"<p class=\"observable\"><span>Scope affected</span></p>"
+            f"<ul class=\"variants\">{''.join(f'<li>{esc(item)}</li>' for item in observation.get('scope_affected', []))}</ul>"
+            f"<p class=\"observable\"><span>Scope unaffected</span></p>"
+            f"<ul class=\"variants\">{''.join(f'<li>{esc(item)}</li>' for item in observation.get('scope_unaffected', []))}</ul>"
+            f"<p class=\"observable\"><span>Next experiment</span> {esc(observation.get('next_experiment', ''))}</p>"
+            f"<p class=\"evidence\"><span>Gate</span> {esc(str(observation.get('gate') or observation.get('gate_reason') or '—'))}"
+            f"<span>Owner</span> {esc(str(observation.get('decision_owner', '')))}</p>"
+            f"<p class=\"state\"><span>Disposition</span> {esc(observation.get('disposition', ''))}</p>"
             + "</article>")
     return "".join(body), index
 
@@ -520,6 +534,16 @@ def build() -> tuple[str, str]:
 
     body, entries = render_upstream(load(UPSTREAM))
     index += entries
+    handoffs = load(UPSTREAM).get("handoffs", [])
+    if handoffs:
+        listed = "".join(
+            f"<article class=\"entry\" data-search=\"{searchable(h.get('what', ''))}\" "
+            f"id=\"handoff-{anchor(str(h.get('id')))}\">"
+            f"<h3><code>{esc(str(h.get('id')))}</code></h3>"
+            f"<p class=\"what\">{esc(h.get('what', ''))}</p>"
+            f"<p class=\"evidence\"><span>Where</span> {esc(h.get('where', ''))} "
+            f"<span>State</span> {esc(str(h.get('state', '')))}</p></article>" for h in handoffs)
+        body += listed
     sections.append(("upstream", "The upstream", body))
 
     return render_page(sections, index, version), render_script(index)

@@ -295,6 +295,6 @@ Expected: `PASS: the consultation suite is what the contract says`.
 python3 tools/check_upstream.py
 ```
 
-Expected: `PASS: the register of upstream holds (4 rails, 4 pins, 1 observations)`.
+Expected: `PASS: the register of upstream holds (4 rails, 4 pins, 1 observations, 1 handoffs)`.
 
 ---

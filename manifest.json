@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "04b21f260c7a016a320b9eaaf246c6979b34e5c77e38faacb153333435abbad2",
+  "contract_digest": "9253db5c9c44c3a6d9ab102d802a9f7c54afd9c8842591cc2394d5f04980baa9",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -462,7 +462,7 @@
     {
       "class": "evidence",
       "path": "ci/GATES.md",
-      "sha256": "04ded953cae99c9f91d1a3926c2a5a559467cd2051791dcdee97c8439bbc3462"
+      "sha256": "1b9f2d438c256107fd92d69133040c3d806dfb43408364c8274a13c1bb54b89c"
     },
     {
       "class": "core",
@@ -482,7 +482,7 @@
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "831586e71942b065244c65e9b0b0faa32ad1bf5f6ed1dfb1b09b1765eecb4ba3"
+      "sha256": "3cdd2aee9dde7d325f4ce52423c4f15e822c918f45bc7fd3bd9618c3c9931a26"
     },
     {
       "class": "core",
@@ -497,7 +497,7 @@
     {
       "class": "core",
       "path": "core/INTENT.json",
-      "sha256": "877537bf40abccbce62d5257678560988c2a9b2a50a97a28ee99ecc07ff9bab9"
+      "sha256": "b24a4b58bb6df01afa4852c8b2dd5790fa47427c7cb0786ce3abf9c442fcb470"
     },
     {
       "class": "core",
@@ -532,7 +532,7 @@
     {
       "class": "core",
       "path": "core/UPSTREAM.json",
-      "sha256": "5df623d688373e24f2fc44833c2e1eb31b689485326729da030623155ebd84d7"
+      "sha256": "547458e1474790d689d4184f7325536582600e0895736e4d37e20ae3f32cc926"
     },
     {
       "class": "core",
@@ -842,12 +842,12 @@
     {
       "class": "evidence",
       "path": "qa/eye/baselines/reference.png",
-      "sha256": "e17bbcd0f8acaba354c12639fb0274f2682ffd2b65d69ef5e2bb233df4af758d"
+      "sha256": "bf7b1ea5b486353dec22ee5340cf59451e0a0a59795f79dd77e785c48fe3e768"
     },
     {
       "class": "evidence",
       "path": "qa/eye/expected.json",
-      "sha256": "03de5f5992008ae9607a3fb7a6be904c762c7dc369acd34619e0c5d83d4141a1"
+      "sha256": "c879593447136b779ebfece15a117a4eec4ab31461cd3758c0e29c094d4d4f7c"
     },
     {
       "class": "evidence",
@@ -946,6 +946,11 @@
     },
     {
       "class": "evidence",
+      "path": "research/UPSTREAM-FIELD-VERIFICATION-HANDOFF-20261021.md",
+      "sha256": "822f24273adabfeb06286d442de803352da45d8b110869b6ba8b464e1f0328a0"
+    },
+    {
+      "class": "evidence",
       "path": "site/favicon-16.png",
       "sha256": "8609b63015e34ec8da83347ccf84ccafa730d1c19b68dd89b7cd54810638c977"
     },
@@ -992,12 +997,12 @@
     {
       "class": "evidence",
       "path": "site/reference.html",
-      "sha256": "f29858e7cc6f0331c31cf0df39b4decf5b7593ebdf0c296ec47ccb8f94501e30"
+      "sha256": "869d8e235d6edd145eb098d697a238442baea806688502161119cf39833e178d"
     },
     {
       "class": "evidence",
       "path": "site/reference.js",
-      "sha256": "5190aa0323b0e6963803a1aa9f6977189369e4d16da430d9825b111db26c2408"
+      "sha256": "3acbffb9016b141f31e8f43232783c0c5ea3fdb82fb5e12cb90d6f557849bfd2"
     },
     {
       "class": "evidence",
@@ -1077,7 +1082,7 @@
     {
       "class": "evidence",
       "path": "tests/test_upstream.py",
-      "sha256": "b7491e06f298fbd08dd4d231acfe281ec64e9bad1185c5e92dd591ba8496fb1d"
+      "sha256": "c46706b858b08415153ace71e4589018a67226af5a197e648fd62665559a3301"
     },
     {
       "class": "evidence",
@@ -1157,7 +1162,7 @@
     {
       "class": "evidence",
       "path": "tools/check_upstream.py",
-      "sha256": "898ed2e8c7ea0eb9a00b4f6e9b12183ba30dcbf0092466e62259b1e570c75842"
+      "sha256": "b251a9f956b1497c1c7e4d8e1a4ff51c1cc3b7f3e84a5176d69adf9ac2b47a00"
     },
     {
       "class": "evidence",
@@ -1247,7 +1252,7 @@
     {
       "class": "evidence",
       "path": "tools/project_reference.py",
-      "sha256": "221d06d32a96639b0a9a8fa0ff813747351622e80c2ca3dfca3f06b49503233d"
+      "sha256": "0203a64df45403aa824af1d4d9a4b88e421e2b210eb630c5b591a5e9955c75c2"
     },
     {
       "class": "evidence",
@@ -1262,7 +1267,7 @@
     {
       "class": "evidence",
       "path": "tools/rebuild_manifest.py",
-      "sha256": "5ce765fd79c14642cf0cb5c953c1e63628b4568baa1ab00d03d1c372205dbe95"
+      "sha256": "6102adb61123f80ece203ddb6f5b8d586261774744074d9d115dd8baff835609"
     },
     {
       "class": "evidence",
@@ -1277,7 +1282,7 @@
     {
       "class": "evidence",
       "path": "tools/release.py",
-      "sha256": "6a954ad8dd4ebac483d0bb12d5e27884098e11427482a50e72e604271f3a26cd"
+      "sha256": "8d063382c20efbca5a161d25e1543ac208a8aa51a31644bbf749278f67856df7"
     },
     {
       "class": "evidence",

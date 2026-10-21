@@ -40,7 +40,7 @@ def infer_class(rel: str) -> str:
         return "core"
     if rel.startswith(PROFILE_PREFIX):
         return "profile"
-    if rel.startswith("references/"):
+    if rel.startswith("references/") or rel.startswith("research/"):
         return "reference"
     return DEFAULT_CLASS
 

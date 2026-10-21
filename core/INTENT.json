@@ -220,11 +220,12 @@
     {
       "id": "CAP-007",
       "kind": "capability",
-      "what": "The register of upstream holds what the system's projections and the field's evidence are qualified against: the rails that are watched, the exact revision each is pinned to, and every measured change with the contract element it bears on, whether a projection changes, and the gate that holds the answer.",
+      "what": "The register of upstream holds what the system's projections and the field's evidence are qualified against: the rails that are watched, the exact identity each is pinned to, the authority that owns each pin, whether this repository checks it, and every measured change with the contract element it bears on, whether a projection changes, and the gate that holds the answer. A passing registry checker proves that the record satisfies its schema; it does not resolve the behavioural divergence, and it does not widen any qualification beyond the level its evidence reaches.",
       "where": "core/UPSTREAM.json",
       "provenance": "the owner's upstream intake, issue 1, 2026-10-21",
       "state": "ratified",
-      "carried_in": "4.7.0"
+      "carried_in": "4.7.0",
+      "disposition": "Open. The register is the mechanism, and the mechanism is not a verdict: the layer-shell divergence stays open, no projection changes, and no behaviour change is authorised by the intake."
     }
   ]
 }
