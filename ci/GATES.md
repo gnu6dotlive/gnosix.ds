@@ -273,4 +273,20 @@ python3 tools/check_retractions.py
 
 Expected: `PASS: nothing is retracted`.
 
+## 33. The register of intent is honest
+
+```bash
+python3 tools/check_intent.py
+```
+
+Expected: `PASS: the register of intent holds (21 statements: 6 capability, 5 goal, 6 invariant, 4 truth; 1 stated and not yet carried into a release)`.
+
+## 34. The consultation suite is what the contract says
+
+```bash
+python3 tools/project_reference.py --check
+```
+
+Expected: `PASS: the consultation suite is what the contract says`.
+
 ---

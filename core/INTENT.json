@@ -1,0 +1,221 @@
+{
+  "schema": "gnosix_DS.intent.v1",
+  "note": [
+    "What the owner stated.",
+    "",
+    "A rule is the system's own statement: the contract writes it, and the",
+    "gates hold it. This register is the other half — the statements the",
+    "owner made, kept apart by kind, because they are not the same kind of",
+    "thing and a contract that mixes them lies about what it knows.",
+    "",
+    "  goal        something to reach. It is not true yet, and it says what",
+    "              reaching it looks like.",
+    "  invariant   something that must never stop being true. It says what",
+    "              holds it: a gate in this repository, or a practice of the",
+    "              field that the contract can point at but not check.",
+    "  truth       something that is true now. It says the evidence, and the",
+    "              evidence is a file in this repository, so a truth that",
+    "              stops being true fails the gate instead of ageing",
+    "              quietly.",
+    "  capability  something that exists. It says where.",
+    "",
+    "A statement carries its provenance: the document in this repository,",
+    "the decision record of the field, or the owner's own word with the day",
+    "it was said. A statement the owner made to the agent is recorded as",
+    "stated, and it is carried into a release to become ratified — the",
+    "contract is the owner's word, and the word enters the contract by",
+    "being published with it."
+  ],
+  "statements": [
+    {
+      "id": "GOAL-001",
+      "kind": "goal",
+      "what": "The contract is what the private frontends absorb, and the absorption is measured rather than asserted: a consumer declares what it keeps, what it renames and what its colours are, and the system's own gate judges it against the contract's guarantees.",
+      "done_when": "every consumer of record declares its version, its scheme and its own vocabulary, and audits green against the guarantees it claims to keep.",
+      "provenance": "ROADMAP.md — the order of the whole; and the owner, 2026-10-21",
+      "state": "ratified",
+      "carried_in": "4.4.0"
+    },
+    {
+      "id": "GOAL-002",
+      "kind": "goal",
+      "what": "The system's own work comes before the field's absorptions, because a contract that cannot express what the field has decided cannot judge the field.",
+      "done_when": "no absorption is started while a task of the system's own work is open against the same vocabulary.",
+      "provenance": "ROADMAP.md — the order of the whole",
+      "state": "ratified",
+      "carried_in": "4.3.0"
+    },
+    {
+      "id": "GOAL-003",
+      "kind": "goal",
+      "what": "One palette across the system: a colour is written once, in the theme, and a consumer declares the colours that are its own content with the reason it carries them.",
+      "done_when": "no consumer carries a colour the contract does not have, outside the colours it declares as its content.",
+      "provenance": "core/rules.json COL-001 and COL-004; and the owner, 2026-10-21",
+      "state": "ratified",
+      "carried_in": "4.2.0"
+    },
+    {
+      "id": "GOAL-004",
+      "kind": "goal",
+      "what": "The contract can be corrected after it has been published, without the correction erasing what it corrects: an element withdrawn stays where it is, marked, with the version that carried it and the reason it was withdrawn.",
+      "done_when": "the register of retractions exists, every mark travels to the projections a consumer reads, and a gate holds all of it.",
+      "provenance": "the owner, 2026-10-21 — the right to disqualify retroactively",
+      "state": "ratified",
+      "carried_in": "4.7.0"
+    },
+    {
+      "id": "GOAL-005",
+      "kind": "goal",
+      "what": "The system is consulted, not only obeyed: a person and an agent can look up what a thing is, what it guarantees, who uses it and where it stands, and see every component in every state.",
+      "done_when": "the consultation suite answers a lookup, shows the specimen, and shows where each product stands, from the contract's own records and nowhere else.",
+      "provenance": "the owner, 2026-10-21",
+      "state": "stated",
+      "stated_on": "2026-10-21"
+    },
+    {
+      "id": "INV-001",
+      "kind": "invariant",
+      "what": "Nothing is pushed to a repository of the field without the owner's word.",
+      "held_by": "the field's practice — a branch is prepared, qualified locally and left",
+      "provenance": "ROADMAP.md — the rule about pushes",
+      "state": "ratified",
+      "carried_in": "4.2.0"
+    },
+    {
+      "id": "INV-002",
+      "kind": "invariant",
+      "what": "A tag is the owner's. A release is a deliberate human-controlled transition, and the local release proof is run before the tag is pushed.",
+      "held_by": "the release job and ci/local-ci.sh --release, and the pre-push hook",
+      "provenance": "CONTRIBUTING.md — before pushing; ROADMAP.md D-1",
+      "state": "ratified",
+      "carried_in": "4.3.0"
+    },
+    {
+      "id": "INV-003",
+      "kind": "invariant",
+      "what": "No change is claimed without the evidence that proves it, and every number the contract states is regenerated by a tool rather than remembered.",
+      "held_by": "the qualification: tools/gate_expectations.py holds what each gate must say, and tools/audit_frontends.py regenerates the numbers rather than remembering them",
+      "provenance": "ROADMAP.md — a task without a proof is a wish; ROADMAP.md D-3",
+      "state": "ratified",
+      "carried_in": "4.3.0"
+    },
+    {
+      "id": "INV-004",
+      "kind": "invariant",
+      "what": "The gate that judges a consumer is the system's own gate, run at the version the consumer declares. A copy of the gate goes stale, and a stale gate lies.",
+      "held_by": "tools/consumer_check.py, and the workflow in the consumer's own repository that clones the system at the declared version",
+      "provenance": "ROADMAP.md C-0, the fourth step; and the fourth step of every absorption",
+      "state": "ratified",
+      "carried_in": "4.3.0"
+    },
+    {
+      "id": "INV-005",
+      "kind": "invariant",
+      "what": "A difference is a fact, not a task. The register of deviations records what the system and the field do not agree about, and what each difference is worth; it does not become a queue.",
+      "held_by": "tools/check_deviations.py, and the probe every closed deviation carries",
+      "provenance": "core/DEVIATIONS.json — the note; ROADMAP.md D-2",
+      "state": "ratified",
+      "carried_in": "4.2.0"
+    },
+    {
+      "id": "INV-006",
+      "kind": "invariant",
+      "what": "A retraction does not erase what it withdraws, and a mark that does not travel to the projections a consumer reads is a failure of the contract, not of the consumer.",
+      "held_by": "tools/check_retractions.py",
+      "provenance": "the owner, 2026-10-21 — the right to disqualify retroactively",
+      "state": "ratified",
+      "carried_in": "4.7.0"
+    },
+    {
+      "id": "TRU-001",
+      "kind": "truth",
+      "what": "The current native product does not consume the contract: it writes forty-seven colours the contract does not have, uses none of the contract's names, and names no dependency on the contract.",
+      "evidence": "profiles/frontend-audit/INVENTORY.md",
+      "provenance": "the measurement, and core/DEVIATIONS.json DEV-020",
+      "state": "ratified",
+      "carried_in": "4.7.0"
+    },
+    {
+      "id": "TRU-002",
+      "kind": "truth",
+      "what": "The ancestor repository is not a target of the programme. It is kept for its record, it cannot be qualified in its entirety, and nothing in it is to be brought back to life.",
+      "evidence": "ROADMAP.md \u00a7C-3",
+      "provenance": "the owner, 2026-10-21",
+      "state": "ratified",
+      "carried_in": "4.7.0"
+    },
+    {
+      "id": "TRU-003",
+      "kind": "truth",
+      "what": "Every colour in this repository is one the contract has, and the sheet's own names name the system rather than carry a colour of their own.",
+      "evidence": "tools/contract_colors.py",
+      "provenance": "the qualification — every colour is one of ours",
+      "state": "ratified",
+      "carried_in": "4.2.0"
+    },
+    {
+      "id": "TRU-004",
+      "kind": "truth",
+      "what": "The two archived repositories are read-only, so nothing can be absorbed into them and they will not take the contract's components.",
+      "evidence": "core/DEVIATIONS.json",
+      "provenance": "core/DEVIATIONS.json DEV-009; ROADMAP.md C-8",
+      "state": "ratified",
+      "carried_in": "4.2.0"
+    },
+    {
+      "id": "CAP-001",
+      "kind": "capability",
+      "what": "The native profile publishes the contract's roles and states as a no-dependency Rust crate, so a native target can read the system without adopting a framework.",
+      "where": "profiles/native",
+      "provenance": "ROADMAP.md A-6",
+      "state": "ratified",
+      "carried_in": "4.4.0"
+    },
+    {
+      "id": "CAP-002",
+      "kind": "capability",
+      "what": "The consumer gate reads a consumer's own declaration — its version, its components, its content colours, its scheme — and judges it against the contract's guarantees.",
+      "where": "tools/consumer_check.py",
+      "provenance": "ROADMAP.md A-1; the first absorption's own gate",
+      "state": "ratified",
+      "carried_in": "4.4.0"
+    },
+    {
+      "id": "CAP-003",
+      "kind": "capability",
+      "what": "The eye renders the system's own surfaces and compares the pictures with the ones the system carries, byte for byte, and walks them with axe.",
+      "where": "tools/eye.py",
+      "provenance": "ROADMAP.md B-3",
+      "state": "ratified",
+      "carried_in": "4.4.0"
+    },
+    {
+      "id": "CAP-004",
+      "kind": "capability",
+      "what": "The audit measures every frontend the contract knows: what it uses, what it violates, how far it has come — against the repositories as they are today.",
+      "where": "tools/audit_frontends.py",
+      "provenance": "ROADMAP.md D-3",
+      "state": "ratified",
+      "carried_in": "4.4.0"
+    },
+    {
+      "id": "CAP-005",
+      "kind": "capability",
+      "what": "The interchange profile publishes the tokens in the open formats, so a consumer that builds its own pipeline reads the system without adopting this one's.",
+      "where": "profiles/interchange",
+      "provenance": "ROADMAP.md — the field's own tools, C-0",
+      "state": "ratified",
+      "carried_in": "4.4.0"
+    },
+    {
+      "id": "CAP-006",
+      "kind": "capability",
+      "what": "The design board carries the design, and the handoff gate keeps the code in step with it: the same tokens, projected into the board and compared.",
+      "where": "figcraft",
+      "published": false,
+      "provenance": "ROADMAP.md B-1 — the board is design work in the repository, and it does not travel with the contract",
+      "state": "ratified",
+      "carried_in": "4.4.0"
+    }
+  ]
+}

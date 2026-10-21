@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "4c318460162eefff7820c2d43937f2db35301d939daabbf312047c22f7dad796",
+  "contract_digest": "cd6eac31d5b7417315653291fdba9ba3bca98188a11a1039fc204709235e7c36",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -462,7 +462,7 @@
     {
       "class": "evidence",
       "path": "ci/GATES.md",
-      "sha256": "229f27c1200b6c67a3771e8bb6880d9685914be38e6f02a9ca1f917690ebb5ad"
+      "sha256": "48bc28187e27588bfd929cbfaabc01f0f8fa8117e99c0f4a9ff25a20a525c50b"
     },
     {
       "class": "core",
@@ -493,6 +493,11 @@
       "class": "core",
       "path": "core/IDENTITY.md",
       "sha256": "ca783706273faa0911e8776041068985fdbd1c1617b4a700ce3c680b9e79560b"
+    },
+    {
+      "class": "core",
+      "path": "core/INTENT.json",
+      "sha256": "1098a87183cc6c811a8efa9ba833fb74617e4a96a9d1fd5af6871b04fa1bdaa2"
     },
     {
       "class": "core",
@@ -817,7 +822,7 @@
     {
       "class": "evidence",
       "path": "qa/eye/audit.mjs",
-      "sha256": "2b6c6af22036239c6ca52f52e171986dccc9787c8f0dfddc98bc33cb2dc8a4bc"
+      "sha256": "593ba48b2f0e5ed09e8ac733203bf5a46903815ac14aa6295757822f60e58e66"
     },
     {
       "class": "evidence",
@@ -831,8 +836,13 @@
     },
     {
       "class": "evidence",
+      "path": "qa/eye/baselines/reference.png",
+      "sha256": "f11187a9a91dab0f60156aa3eb7a8d9bc8bd311d2e396e2c8940d32b37a7a938"
+    },
+    {
+      "class": "evidence",
       "path": "qa/eye/expected.json",
-      "sha256": "037058bcb4490678f30be320c05b72f57a40881f1b8c4767a1918b9ec9b82843"
+      "sha256": "1371896fba9a1434333304e98e5a1c04f146067e08066d3586d5a9339ea303fa"
     },
     {
       "class": "evidence",
@@ -967,7 +977,22 @@
     {
       "class": "evidence",
       "path": "site/index.html",
-      "sha256": "49c64d1acd6be1343b615a95fefde7da96b659786706a00348334be4c5b6113e"
+      "sha256": "b14afc429cb28346fe991e506783c41462bd1c8c5b9cb8c5646a5b14d002f7a3"
+    },
+    {
+      "class": "evidence",
+      "path": "site/reference.css",
+      "sha256": "3a442a77dd509dfc2632b30ac283cc48e42562c350dc65b9d51db59e867f7db8"
+    },
+    {
+      "class": "evidence",
+      "path": "site/reference.html",
+      "sha256": "cbf8380e85d10d5e2dc602619ce0e156e6f66488873730d5970a43bef28dae03"
+    },
+    {
+      "class": "evidence",
+      "path": "site/reference.js",
+      "sha256": "dac196bd3fea2790ce7168e5b099cb2f98a4dac8efc16fe202dd5f3525d4fce9"
     },
     {
       "class": "evidence",
@@ -1028,6 +1053,11 @@
       "class": "evidence",
       "path": "tests/test_motion.py",
       "sha256": "ab75b3fe18266727a7b5c87cd8236be308251b26bae918ea1b35394fdf270946"
+    },
+    {
+      "class": "evidence",
+      "path": "tests/test_reference.py",
+      "sha256": "bfae160a57feebae070fcc1360b1edc50e4ac8d02a503aef029b2353a15443dc"
     },
     {
       "class": "evidence",
@@ -1106,6 +1136,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/check_intent.py",
+      "sha256": "3c496e56e2d65662f5e01e369ee1668ef7bc67c0a51b28e493c9d0e829c5e590"
+    },
+    {
+      "class": "evidence",
       "path": "tools/check_retractions.py",
       "sha256": "c4e557abcc09dfd5c87ee4ea83b03f42d3fd728ff3bafae9427e3e30f1137925"
     },
@@ -1122,7 +1157,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "aa911a8a60b1de0dfb30d3c46e7a233f1d71758c35d548f06c5d5625e42b4361"
+      "sha256": "547e00abde7afda68de414a263e7bb34cc0a6bef23868f6412f53bd23af2d4cc"
     },
     {
       "class": "evidence",
@@ -1193,6 +1228,11 @@
       "class": "evidence",
       "path": "tools/project_native_states.py",
       "sha256": "4bc66bb68dcb0241b7f73af4310d5367bcc09d220c6333063f960e2360ed2ded"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/project_reference.py",
+      "sha256": "4fc4998526bde3b92ceab4f80a83a0cca58a0f9ed0a48011a3c4319e83e32b8c"
     },
     {
       "class": "evidence",

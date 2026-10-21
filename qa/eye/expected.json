@@ -3,6 +3,7 @@
   "findings": [],
   "surfaces": {
     "components-light": "ed54257306c5343d8ac63dc73f069fcf31e0aa1d94eb019ecc1698291f721c0d",
-    "components-dark": "bc473c24a4af4e3143639b83d5df26a8c729c5faefd924cb42583fe75aced26c"
+    "components-dark": "bc473c24a4af4e3143639b83d5df26a8c729c5faefd924cb42583fe75aced26c",
+    "reference": "f11187a9a91dab0f60156aa3eb7a8d9bc8bd311d2e396e2c8940d32b37a7a938"
   }
 }

@@ -69,6 +69,8 @@ GATES: list[tuple[str, list[str]]] = [
     ("the native profile carries the contract's states", ["tools/project_native_states.py", "--check"]),
     ("every scheme keeps the system's guarantees", ["tools/audit_scheme.py"]),
     ("the register of retractions is honest", ["tools/check_retractions.py"]),
+    ("the register of intent is honest", ["tools/check_intent.py"]),
+    ("the consultation suite is what the contract says", ["tools/project_reference.py", "--check"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or

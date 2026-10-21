@@ -1,0 +1,205 @@
+/* The consultation suite: the system, looked up.
+ *
+ * Generated alongside site/reference.html by tools/project_reference.py.
+ * Every colour here is one of the system's own: the roles, the inks and the
+ * hairlines, and nothing else.
+ */
+
+main#main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--gnosix-space-lg, 24px) var(--gnosix-space-md, 16px) var(--gnosix-space-xl, 40px);
+}
+
+.block {
+  margin-block: var(--gnosix-space-xl, 40px);
+}
+
+/* The site's own accent labels are the accent at 11px, and the accent's
+ * darkest step reads 4.00:1 on the light substrate — below the 4.5 a text
+ * role is read at. A label that small takes the ink, not the accent. */
+.ref-eyebrow {
+  font-size: 11px;
+  font-weight: var(--gnosix-weight-bold, 700);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+  margin-bottom: var(--gnosix-space-sm, 8px);
+}
+
+.block h1 {
+  font-family: var(--gnosix-font-display, "Space Grotesk", sans-serif);
+  font-size: 2rem;
+  font-weight: var(--gnosix-weight-semibold, 600);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--gnosix-space-md, 16px);
+}
+
+.block > h2 {
+  font-family: var(--gnosix-font-display, "Space Grotesk", sans-serif);
+  font-size: 1.6rem;
+  font-weight: var(--gnosix-weight-semibold, 600);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--gnosix-space-md, 16px);
+}
+
+.block h2,
+.block h3 {
+  font-size: 1.05rem;
+  font-weight: var(--gnosix-weight-semibold, 600);
+  margin-block: var(--gnosix-space-lg, 24px) var(--gnosix-space-sm, 8px);
+  color: var(--gnosix-ink, var(--gnosix-neutral-anthracite));
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--gnosix-space-sm, 8px);
+  margin-block: var(--gnosix-space-md, 16px);
+}
+
+.search label {
+  font-weight: var(--gnosix-weight-semibold, 600);
+  font-size: 0.95rem;
+}
+
+.search input {
+  flex: 1 1 320px;
+  min-width: 240px;
+  padding: 10px 12px;
+  border: 1px solid var(--gnosix-neutral-hairline, var(--gnosix-hairline-l921c5, #E3E5E8));
+  border-radius: var(--gnosix-radius-md, 8px);
+  background: var(--gnosix-neutral-pure-white, #FFFFFF);
+  color: inherit;
+}
+
+.q-count {
+  font-size: 0.85rem;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+}
+
+.index {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gnosix-space-md, 16px);
+  margin-block: var(--gnosix-space-md, 16px);
+}
+
+.index-group {
+  border: 1px solid var(--gnosix-neutral-hairline, var(--gnosix-hairline-l921c5, #E3E5E8));
+  border-radius: var(--gnosix-radius-lg, 12px);
+  padding: var(--gnosix-space-md, 16px);
+  background: var(--gnosix-neutral-pure-white, #FFFFFF);
+}
+
+.index-group h2 {
+  margin-top: 0;
+}
+
+.index-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.index-group li {
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+}
+
+.index-group li code {
+  color: var(--gnosix-ink, var(--gnosix-neutral-anthracite));
+  margin-right: 4px;
+}
+
+.entry {
+  border-top: 1px solid var(--gnosix-neutral-hairline, var(--gnosix-hairline-l921c5, #E3E5E8));
+  padding-block: var(--gnosix-space-md, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.entry h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gnosix-space-sm, 8px);
+  font-size: 1rem;
+  font-weight: var(--gnosix-weight-semibold, 600);
+}
+
+.entry code {
+  font-family: var(--gnosix-font-technical, "IBM Plex Mono", monospace);
+  font-size: 0.9em;
+}
+
+.entry p {
+  font-size: 0.92rem;
+  color: var(--gnosix-ink, var(--gnosix-neutral-anthracite));
+}
+
+.entry p span {
+  display: inline-block;
+  min-width: 8.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+}
+
+.entry p.provenance,
+.entry p.state {
+  font-size: 0.82rem;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+}
+
+.tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: var(--gnosix-radius-pill, 999px);
+  background: var(--gnosix-neutral-hairline, var(--gnosix-hairline-l921c5, #E3E5E8));
+  color: var(--gnosix-ink, var(--gnosix-neutral-anthracite));
+}
+
+.level {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+}
+
+.domain {
+  font-size: 0.75rem;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+}
+
+.swatch {
+  width: 44px;
+  height: 18px;
+  border-radius: var(--gnosix-radius-sm, 4px);
+  border: 1px solid var(--gnosix-neutral-hairline, var(--gnosix-hairline-l921c5, #E3E5E8));
+  background: linear-gradient(90deg, var(--light) 0 50%, var(--dark) 50% 100%);
+}
+
+.variants {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 8.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.86rem;
+  color: var(--gnosix-ink-muted, var(--gnosix-ink-on-light-l445c22, #4B5560));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

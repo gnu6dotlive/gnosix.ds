@@ -35,6 +35,7 @@ const ROOT = resolve(HERE, "..", "..");
 const SURFACES = [
   { name: "components-light", file: "profiles/web/demo.html", substrate: "light" },
   { name: "components-dark", file: "profiles/web/demo.html", substrate: "dark" },
+  { name: "reference", file: "site/reference.html", substrate: "light" },
 ];
 
 const VIEWPORT = { width: 1280, height: 1024 };
