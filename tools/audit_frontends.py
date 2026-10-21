@@ -37,6 +37,12 @@ HEX = re.compile(r"(?<![#0-9A-Fa-f])#[0-9A-Fa-f]{6}\b")
 # A native frontend writes its palette as 0xRRGGBB, or as the three bytes
 # it is made of: Color32::from_rgb(0x0d, 0x12, 0x18).
 HEX_RUST = re.compile(r"0x([0-9A-Fa-f]{6})\b")
+# Or as one packed word, which is how a GPUI surface writes it:
+# rgba(0x0d1218ff), where the low byte is the alpha. The rule above cannot
+# see this form — the word boundary after six digits is not a boundary — so a
+# native frontend that packs its colours was measured as if it had none.
+HEX_PACKED = re.compile(
+    r"\b(?:rgba?|hsla?)\s*\(\s*0x([0-9A-Fa-f]{8})\b")
 HEX_BYTES = re.compile(
     r"(?:from_rgb|from_rgba_unmultiplied|from_rgb_premultiplied|rgb)\s*\(\s*"
     r"0x([0-9A-Fa-f]{2})\s*,\s*0x([0-9A-Fa-f]{2})\s*,\s*0x([0-9A-Fa-f]{2})")
@@ -149,6 +155,11 @@ def audit(entry: dict, contract: dict) -> dict:
         found += ["#" + h.upper() for h in HEX_RUST.findall(text)]
         found += ["#" + "".join(h.upper() for h in triple)
                   for triple in HEX_BYTES.findall(text)]
+        # A packed word carries its alpha in the low byte, and the contract's
+        # own rule is that a colour at alpha zero is not a colour: it paints
+        # nothing, so it is not a palette of its own.
+        found += ["#" + packed[:6].upper() for packed in HEX_PACKED.findall(text)
+                  if int(packed[6:8], 16) != 0]
         for value in found:
             result["colours"][value] = result["colours"].get(value, 0) + 1
         for match in FONT_NAME.finditer(text):

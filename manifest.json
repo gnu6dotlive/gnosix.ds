@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "eaed5943c29838937edc758330e26c6701171d581cfaecb9f82282f5f02b40b9",
+  "contract_digest": "4c318460162eefff7820c2d43937f2db35301d939daabbf312047c22f7dad796",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -37,7 +37,7 @@
     {
       "class": "evidence",
       "path": "ROADMAP.md",
-      "sha256": "5419e61020626f8e59c61cb5a33a412fa8e3770210f042c1544eec41d2dcb984"
+      "sha256": "3f68b77c4c8ed952c6ef672f12ee3e1c10e1ceca7bd0f94c7609f9448c1e67de"
     },
     {
       "class": "evidence",
@@ -462,7 +462,7 @@
     {
       "class": "evidence",
       "path": "ci/GATES.md",
-      "sha256": "ae82d12fa569eb932007aa15add5a50d9309922f67e592ed9f75d7491db9d295"
+      "sha256": "229f27c1200b6c67a3771e8bb6880d9685914be38e6f02a9ca1f917690ebb5ad"
     },
     {
       "class": "core",
@@ -482,7 +482,7 @@
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "e1b157978bd39d9a7985f0fa574c5271a61541baf3cbbb9b8fb592be0deac634"
+      "sha256": "831586e71942b065244c65e9b0b0faa32ad1bf5f6ed1dfb1b09b1765eecb4ba3"
     },
     {
       "class": "core",
@@ -498,6 +498,11 @@
       "class": "core",
       "path": "core/MAPPING.md",
       "sha256": "95540204d964b76f5846c1ac64442151363b0942d37c9a15a8a3cad04d62089b"
+    },
+    {
+      "class": "core",
+      "path": "core/RETRACTIONS.json",
+      "sha256": "7becc809375aa9f76fdf973e6011fe0628cc270b8ab6a99d138ef2b7fb71b5b9"
     },
     {
       "class": "core",
@@ -647,22 +652,22 @@
     {
       "class": "profile",
       "path": "profiles/frontend-audit/CONVERGENCE.md",
-      "sha256": "6ad1c4ed084e50f19c3e1a59cedac2c64e3a83ab583b84a0e3803b8dbc26a636"
+      "sha256": "b2d9e44f2f5903f93ab3527769d8097fd93abb090a74060ad43fdcd66f8d5db8"
     },
     {
       "class": "profile",
       "path": "profiles/frontend-audit/INVENTORY.md",
-      "sha256": "990bbf08d3202c55355a055908bcb8cea2c1b36503d76467aeedf098130e7a78"
+      "sha256": "71014ed727e0142f1628f38ce1757a1c8bf63bc83f13ae4db3c73051d30cea2a"
     },
     {
       "class": "profile",
       "path": "profiles/frontend-audit/MATRIX.md",
-      "sha256": "3c81c0bbd3f8eb88c3fedb93add664ad751a004528b9a4e9f6921bbba3bb0347"
+      "sha256": "dcf66c540fafae8a8958e865f7926258ad4af8daf2898a00deddc4e8f72da5d3"
     },
     {
       "class": "profile",
       "path": "profiles/frontend-audit.json",
-      "sha256": "34ab6735ae571ec69ea63f5a989ed2bc65738304ca9db5a105d9a266ed9621ea"
+      "sha256": "87c908f391eb40d69d624439a66aadf5b971730b55d87e40606fbd8ddb8433a6"
     },
     {
       "class": "profile",
@@ -1031,6 +1036,11 @@
     },
     {
       "class": "evidence",
+      "path": "tests/test_retractions.py",
+      "sha256": "9204a035952aa59968e6aaca362ba8d0e0065c86075e67852fe5cb40922b9334"
+    },
+    {
+      "class": "evidence",
       "path": "tests/test_version.py",
       "sha256": "40fd5d4746892f67619e8067eba186562219e3b0401c6a956bab19821fd70c2e"
     },
@@ -1062,7 +1072,7 @@
     {
       "class": "evidence",
       "path": "tools/audit_frontends.py",
-      "sha256": "4dc1f86f541ab270ffd02e426bec263dbf25a68bb006ae4c763288fbd8530050"
+      "sha256": "f98bc55e924800a0e8dfca79a97c6bcb53f5aab0ceec6b0d1d259e7844b87f3e"
     },
     {
       "class": "evidence",
@@ -1096,6 +1106,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/check_retractions.py",
+      "sha256": "c4e557abcc09dfd5c87ee4ea83b03f42d3fd728ff3bafae9427e3e30f1137925"
+    },
+    {
+      "class": "evidence",
       "path": "tools/check_vocabularies.py",
       "sha256": "dc8f52e29b5d99066186bc93f4518f9ddcdbc832db6f64fe649c1a2b48849474"
     },
@@ -1107,7 +1122,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "ed1341a5411a5446750c34906c01b2889a91796169295cb71351343ac2a98515"
+      "sha256": "aa911a8a60b1de0dfb30d3c46e7a233f1d71758c35d548f06c5d5625e42b4361"
     },
     {
       "class": "evidence",
@@ -1182,7 +1197,7 @@
     {
       "class": "evidence",
       "path": "tools/project_roles.py",
-      "sha256": "c76c7b793c6fc71bf01a2742a4ec0646d7471c2e974d6130da80bf987df70ead"
+      "sha256": "547911682d1e6385be9ff887f25b80bec4171f5fe020d673b1a006b9267bbca8"
     },
     {
       "class": "evidence",
@@ -1213,6 +1228,11 @@
       "class": "evidence",
       "path": "tools/repair_mascot_alpha.py",
       "sha256": "d4cd5c1527d4347034df5064bde0ca355905243415b7636b63595d0f731baffb"
+    },
+    {
+      "class": "evidence",
+      "path": "tools/retractions.py",
+      "sha256": "0adb48983b3a046af928ddac3cb89f1bacf5e8b01313e337588ea44cd4f79221"
     },
     {
       "class": "evidence",

@@ -1,0 +1,24 @@
+{
+  "schema": "gnosix_DS.retractions.v1",
+  "note": [
+    "The register of what has been disqualified.",
+    "",
+    "A retraction is not a deletion. The contract keeps every element it has",
+    "ever published — the identifier, the meaning, the value — because a",
+    "correction that erases the thing it corrects cannot be read afterwards.",
+    "What a retraction does is mark the element: it is not live, it was",
+    "carried in a named version, it was retracted on a named day, and the",
+    "reason is written down in one place.",
+    "",
+    "The owner reserves the right to retract retroactively. This register is",
+    "how that right is exercised without rewriting the history: the element",
+    "stays where it is, marked; the projections carry the mark; and the gate",
+    "checks that the mark travelled, that nothing retracted is presented as",
+    "live, and that every mark has a reason.",
+    "",
+    "A retraction is a fact about the system, like a deviation: it is not a",
+    "task, and it is not closed by a fix. It is superseded by a version that",
+    "carries the correction, and the mark says which."
+  ],
+  "retractions": []
+}

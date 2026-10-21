@@ -76,6 +76,16 @@ def published_name(*parts: str) -> str:
     return "--gnosix-" + "-".join(word.lower() for word in out)
 
 
+def marks() -> dict[str, str]:
+    """The mark each retracted element carries, by the name it is marked under."""
+    import retractions
+
+    found: dict[str, str] = {}
+    for key, entry in retractions.marked().items():
+        found[key] = retractions.note(entry)
+    return found
+
+
 def load() -> tuple[dict, dict, dict]:
     return (json.loads(ROLES.read_text(encoding="utf-8")),
             json.loads(TOKENS.read_text(encoding="utf-8")),
@@ -158,7 +168,7 @@ def readings(roles: dict, tokens: dict, surfaces: dict) -> list[str]:
     return out
 
 
-def render_web(roles: dict) -> str:
+def render_web(roles: dict, marks: dict) -> str:
     lines = [
         "/* Generated from core/ROLES.json. Do not edit.",
         " *",
@@ -175,13 +185,16 @@ def render_web(roles: dict) -> str:
         lines.append(f"{selector} {{")
         for name, spec in roles["roles"].items():
             reference = spec[substrate]
+            mark = marks.get(f"role:{name}")
+            if mark:
+                lines.append(f"  /* {mark} */")
             lines.append(f"  --gnosix-{name}: var({reference_name(reference)});")
         lines.append("}")
         lines.append("")
     return "\n".join(lines)
 
 
-def render_rust(roles: dict) -> str:
+def render_rust(roles: dict, marks: dict) -> str:
     lines = [
         "//! Generated from core/ROLES.json. Do not edit.",
         "//!",
@@ -196,6 +209,9 @@ def render_rust(roles: dict) -> str:
         "pub struct Substrate {",
     ]
     for name in roles["roles"]:
+        mark = marks.get(f"role:{name}")
+        if mark:
+            lines.append(f"    /// {mark}")
         lines.append(f"    pub {kebab(name).replace('-', '_')}: &'static str,")
     lines.append("}")
     lines.append("")
@@ -214,7 +230,7 @@ def render_rust(roles: dict) -> str:
     return "\n".join(lines)
 
 
-def render_kotlin(roles: dict, tokens: dict, surfaces: dict) -> str:
+def render_kotlin(roles: dict, tokens: dict, surfaces: dict, marks: dict) -> str:
     lines = [
         "// Generated from core/ROLES.json. Do not edit.",
         "//",
@@ -232,6 +248,9 @@ def render_kotlin(roles: dict, tokens: dict, surfaces: dict) -> str:
         lines.append(f"    val {substrate.capitalize()}: Map<String, Color> = mapOf(")
         for name, spec in roles["roles"].items():
             value = resolve(spec[substrate], tokens, surfaces)
+            mark = marks.get(f"role:{name}")
+            if mark:
+                lines.append(f"        // {mark}")
             lines.append(f'        "{name}" to Color(0xFF{value[1:]}),')
         lines.append("    )")
         lines.append("")
@@ -244,11 +263,11 @@ def render_kotlin(roles: dict, tokens: dict, surfaces: dict) -> str:
     return "\n".join(lines)
 
 
-def outputs(roles: dict, tokens: dict, surfaces: dict) -> dict:
+def outputs(roles: dict, tokens: dict, surfaces: dict, marks: dict) -> dict:
     return {
-        WEB: render_web(roles),
-        NATIVE: render_rust(roles),
-        ANDROID: render_kotlin(roles, tokens, surfaces),
+        WEB: render_web(roles, marks),
+        NATIVE: render_rust(roles, marks),
+        ANDROID: render_kotlin(roles, tokens, surfaces, marks),
     }
 
 
@@ -266,7 +285,7 @@ def main(argv=None) -> int:
             print(f"  - {failure}")
         return 1
 
-    for path, text in outputs(roles, tokens, surfaces).items():
+    for path, text in outputs(roles, tokens, surfaces, marks()).items():
         if args.write:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(text, encoding="utf-8")

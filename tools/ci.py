@@ -68,6 +68,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("the work's own places are inside the repository", ["tools/check_workplace.py"]),
     ("the native profile carries the contract's states", ["tools/project_native_states.py", "--check"]),
     ("every scheme keeps the system's guarantees", ["tools/audit_scheme.py"]),
+    ("the register of retractions is honest", ["tools/check_retractions.py"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or

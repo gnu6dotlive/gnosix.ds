@@ -6,6 +6,7 @@ A repository is not an opinion. gnu6-live and gnu6.live are two checkouts of one
 
 | component | lineages | repositories | count |
 |---|---|---|---|
+| `button` | gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work); gnu6 (gnu6-live) | gnosis.OS, gnu.in.work, gnu6-live | 3 |
 | `dialog` | diagram.studio (diagram.studio); gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | diagram.studio, gnosis.OS, gnu.in.work | 3 |
 | `tooltip` | diagram.studio (diagram.studio); gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | diagram.studio, gnosis.OS, gnu.in.work | 3 |
 | `badge` | gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | gnosis.OS, gnu.in.work | 2 |
@@ -22,8 +23,10 @@ A repository is not an opinion. gnu6-live and gnu6.live are two checkouts of one
 | `dialog-portal` | diagram.studio (diagram.studio); gnu.in.work (gnu.in.work) | diagram.studio, gnu.in.work | 2 |
 | `dialog-title` | diagram.studio (diagram.studio); gnu.in.work (gnu.in.work) | diagram.studio, gnu.in.work | 2 |
 | `icon` | diagram.studio (diagram.studio); gnu.in.work (gnu.in.work) | diagram.studio, gnu.in.work | 2 |
+| `input` | diagram.studio (diagram.studio); gnu.in.work (gnu.in.work) | diagram.studio, gnu.in.work | 2 |
 | `section-heading` | gnu.in.work (gnu.in.work); gnu6 (gnu6-live) | gnu.in.work, gnu6-live | 2 |
 | `select` | gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | gnosis.OS, gnu.in.work | 2 |
+| `switch` | gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | gnosis.OS, gnu.in.work | 2 |
 | `tab-item` | gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | gnosis.OS, gnu.in.work | 2 |
 | `tabs` | gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | gnosis.OS, gnu.in.work | 2 |
 | `text-input` | gnosis.OS (gnosis.OS); gnu.in.work (gnu.in.work) | gnosis.OS, gnu.in.work | 2 |
@@ -33,4 +36,4 @@ A repository is not an opinion. gnu6-live and gnu6.live are two checkouts of one
 | `tooltip-provider` | diagram.studio (diagram.studio); gnu.in.work (gnu.in.work) | diagram.studio, gnu.in.work | 2 |
 | `tooltip-trigger` | diagram.studio (diagram.studio); gnu.in.work (gnu.in.work) | diagram.studio, gnu.in.work | 2 |
 
-26 name(s) at or above the threshold, out of 1271 distinct names across the field.
+29 name(s) at or above the threshold, out of 1276 distinct names across the field.

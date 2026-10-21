@@ -265,4 +265,12 @@ python3 tools/audit_scheme.py
 
 Expected: `PASS: every scheme keeps the system's guarantees`.
 
+## 32. The register of retractions is honest
+
+```bash
+python3 tools/check_retractions.py
+```
+
+Expected: `PASS: nothing is retracted`.
+
 ---

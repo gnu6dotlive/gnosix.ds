@@ -87,10 +87,10 @@
     },
     {
       "id": "DEV-008",
-      "what": "The GPUI launcher carries 299 colours the contract does not have, and thirty-four components of its own. Its licence is not yet a fact: the root says AGPL-3.0 and forty-seven crate manifests say GPL-3.0-or-later. The repository's name is a former one and is not used here; the git remote carries it.",
-      "severity": "major",
+      "what": "The ancestor repository carries 280 colours the contract does not have, and thirty-four components of its own. It is an ancestor of the current product: it is kept for its record, it is not a target of the programme, and it cannot be qualified in its entirety. Its licence is not a fact: the root says AGPL-3.0 and forty-seven crate manifests say GPL-3.0-or-later. The repository's name is a former one and is not used here; the git remote carries it.",
+      "severity": "none",
       "state": "open",
-      "owner": "the GPUI launcher",
+      "owner": "the ancestor",
       "proof": "profiles/frontend-audit/INVENTORY.md"
     },
     {
@@ -186,8 +186,16 @@
       "what": "The launcher's accent comes from the wallpaper, and the ink written on it is chosen against that accent. The system's own two inks guarantee 4.087:1 against a ground the system cannot see — enough for a mark and short of the 4.5 a text role is read at — so the launcher clamps the derived accent's tone until the better of the two inks reaches 4.5. The clamp runs in the launcher, on a colour the contract never sees: the contract can read the declaration and the fallback, not the computation on a given wallpaper.",
       "severity": "major",
       "state": "open",
-      "owner": "the GPUI launcher",
+      "owner": "the ancestor's theme crate",
       "proof": "engine/gnosis-gpui-theme/src/palette.rs — the clamp, and the test that walks the accent's tone range and measures the better of the two inks on every stop"
+    },
+    {
+      "id": "DEV-020",
+      "what": "The current native product writes a palette of its own — forty-seven colours the contract does not have, in its own ProductPalette — and it does not depend on the contract at all: no gnosix name, no version declared, and the native profile the system publishes is unread.",
+      "severity": "major",
+      "state": "open",
+      "owner": "the native product",
+      "proof": "profiles/frontend-audit/INVENTORY.md — the gnosix row, measured by tools/audit_frontends.py; and the product's own manifest, which names no dependency on the contract"
     }
   ]
 }

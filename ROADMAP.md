@@ -176,43 +176,22 @@ left. A push is a decision, not a step.
 - **Its own qualification** `scripts/check.py` — the corpus's evidence
   discipline — is green at 159 files, and it is the repository's own.
 
-### C-3 · The GPUI launcher — the first real migration
-- **Measured** **334** colours outside the contract, **32** components of
-  its own, no version declared. The surface is Rust: 825 source files,
-  and no QML at all, as its own manifest records. The native surface
-  carries a second interface library's palette — the blue, green, red and
-  amber of Element — and the ink of a dark scheme.
-- **The steps**
-  1. The branch.
-  2. The palette, in the files that hold it: `engine/gnosis-ui/src/theme.rs`
-     (the two static styles), `engine/gnosis-gpui-theme/src/palette.rs`
-     (the resolution), `engine/gnosis-ui/src/theme.rs`'s three styles.
-     The static styles become the system's two substrates.
-  3. The dynamic theme stays dynamic — that is the field's decision
-     (TASTE.md §0, INV-01 *blocking*) — and the *scheme* it produces is
-     declared, so the auditor can hold it to the guarantees. The
-     identity orange stays fixed and separate, on the cube, the badge and
-     the splash, never on the chrome.
-  4. The views follow the theme: the launcher view (40 literals), the
-     dock (31), the quick panel (24), the settings chrome (18), the
-     omnibar (16), the palette crate (21).
-  5. The content colours — the ones the product *shows* — are declared
-     with their reason.
-  6. The version, the components of its own (the domain vocabulary:
-     `omnibar-*`, `quick-*`, `notification-*`, `ui-theme-*`,
-     `endpoint-alias`, `urgency`, `slider`), the seven that are the
-     system's under another spelling.
-  7. The workflow, the qualification, the push.
-- **Proved by** the consumer gate green, with the scheme audited.
-- **Needs** A-1 and A-2: without the declaration form, the scheme
-  cannot be declared, and the dynamic chrome cannot be held to the
-  guarantees.
-- **Cost** one run, on the owner's push. This is the largest of the six.
-- **The licence** its root says AGPL-3.0 and forty-seven crates say
-  GPL-3.0-or-later; the licence of the workspace is not yet a fact. The
-  migration copies no code from the system — only token values, which
-  are facts — so the licence does not block the work, but it is an open
-  fact about the repository.
+### C-3 · The ancestor's launcher — a record, not a target
+- **What changed** this was the first real migration, and it is the one that
+  taught the programme its six steps: the declaration form (`gnosix.json`),
+  the derived scheme the auditor can read, the clamped accent, and the
+  palette gate that measures a crate's own colours. The repository is an
+  **ancestor** of the current product. It is kept for its record, it is not
+  a target of the programme, and it cannot be qualified in its entirety.
+  Its measured numbers stand in the inventory — **280** colours outside
+  the contract and **34** components of its own — and the deviation that
+  named it is now a difference of severity *none*: the field's debt, held
+  by an ancestor.
+- **What transfers** the six steps of C-0, and the rehearsal itself: the
+  declaration, the scheme, the gate, and the ratchet that holds a crate to
+  a measured baseline. They go to C-9.
+- **Proved by** the inventory row, and the register's entry.
+- **Cost** no run. The programme does not push to it.
 
 ### C-4 · `gnu6-live` — the rehearsal transfers
 - **Measured** **373** colours, **98** components of its own, no version
@@ -281,13 +260,15 @@ left. A push is a decision, not a step.
 ### D-2 · The register says what is still open
 - **What** six deviations are open: the field's three spellings
   (DEV-003, minor, the field's), the debts of `gnu.in.work` (DEV-006,
-  critical), `diagram.studio` (DEV-007, major), the GPUI launcher (DEV-008,
-  major), the archived pair (DEV-009, none), `spjoaillerie-live`
-  (DEV-010, none). One more opens with A-3.
+  critical), `diagram.studio` (DEV-007, major), the ancestor's launcher
+  (DEV-008, now *none*: an ancestor is kept for its record, not absorbed),
+  the archived pair (DEV-009, none), `spjoaillerie-live` (DEV-010, none),
+  and the current native product (DEV-020, major: forty-seven colours of
+  its own and no dependency on the contract). One more opens with A-3.
 - **Proved by** `tools/check_deviations.py` — every closed deviation
   carries a probe that keeps it closed.
 
-### D-3 · The audit's own numbers are current
+### D-3 · The audit's own numbers are current — *done*
 - **What** `profiles/frontend-audit/` was measured before the gate read
   the native surfaces. `gnu.in.work` was 1957 and is 1966; the GPUI launcher
   was 225 and is 334; the two re-vendored repositories were 1 and are 0.
@@ -295,6 +276,33 @@ left. A push is a decision, not a step.
 - **Lands in** `profiles/frontend-audit/INVENTORY.md`, `MATRIX.md`,
   `ABSORPTION.md`.
 - **Proved by** the audit's own tool.
+- **What the regeneration found** the instrument could not see a native
+  frontend that writes a colour as one packed word — `rgba(0x0d1218ff)`,
+  which is how a GPUI surface writes it. The rule that read `0xRRGGBB` and
+  `from_rgb(0x0d, 0x12, 0x18)` had no word boundary after six digits in
+  front of it, so the current product was measured as carrying almost no
+  palette at all: **3** colours, where it carries **47**. The rule now
+  reads the packed form, and reads its alpha the way the contract's own
+  consumer check reads it — a colour at alpha zero paints nothing and is
+  not a colour. The ancestor's count moved from 231 to 280 for the same
+  reason. The current native product is now in the inventory at all, and
+  the ancestor's row says what it is: an ancestor, kept for its record.
+
+### C-9 · The current native product — the target that is current
+- **Measured** **47** colours outside the contract, **34** lengths outside
+  the spacing scale, **0** of the contract's names, **0** of its fourteen
+  components, and no version declared. The surface is Rust and GPUI: a
+  workspace of 24 crates under `gnos.ux`, with the AppStack, the Deck,
+  the Bar, the Dock and the Workspace Envelope. Its licence is MIT, so the
+  flow of token values is two-way.
+- **What it is** it does not depend on the contract at all. The native
+  profile the system publishes in `profiles/native` is unread, and the
+  product writes its own palette in `product_design.rs`.
+- **The steps** the six of C-0, with the rehearsal of C-3 transferred:
+  the branch, the declaration, the migration, the guarantee, the
+  qualification, the push.
+- **Proved by** the consumer gate green, with the scheme audited.
+- **Cost** one run, on the owner's push.
 
 ### D-4 · The rules that the code contradicts
 - **What** COL-002 says *white* essential text on Signal Orange, and its
