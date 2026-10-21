@@ -65,6 +65,19 @@ else
   SOURCE="$REPO"
 fi
 
+# Say what is being qualified. A clone carries the committed tree, not the
+# work in progress, and a reader who reads "32 gates passed" has to know
+# which of the two it was: the commit that is about to be pushed, or the
+# tree that is still being written. The pre-push hook requires a clean tree,
+# so a clone at push time is the commit itself; a run before the commit is
+# the previous one, and saying so is the difference between a green light
+# and a false one.
+if [[ $CLONE -eq 1 ]]; then
+  echo "▸ qualifying the committed tree at $(git -C "$SOURCE" rev-parse --short HEAD)"
+else
+  echo "▸ qualifying the working tree, which is not committed"
+fi
+
 # The engine and the font, from the same script the workflows call.
 export RUNNER_TEMP="$REPO/.ci-cache/runner"
 mkdir -p "$RUNNER_TEMP"
