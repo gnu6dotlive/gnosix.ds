@@ -1,0 +1,69 @@
+{
+  "schema": "gnosix_DS.schemes.v1",
+  "note": [
+    "Two schemes, and the reason there are two: a system that only works in",
+    "one palette is not finished. These are the two the field's own preview",
+    "puts side by side — the committed mauve scheme and an amber one from",
+    "another wallpaper — and the system's guarantees are checked against both.",
+    "",
+    "A scheme says what it changes and leaves the rest alone. A role the",
+    "scheme does not mention keeps the system's own value, so a consumer",
+    "that carries a scheme for one role still has the system's other roles,",
+    "and the guarantees are checked against the whole and not against the",
+    "part.",
+    "",
+    "The state grounds travel with the ink. A scheme that changes the ink",
+    "changes the ground the ink is written on, or the pairing breaks — the",
+    "green the system declares is not dark enough to carry a light ink, and",
+    "the audit is what says so. That is why these two carry a positive",
+    "surface of their own.",
+    "",
+    "The mapping from the field's Material 3 roles to the system's roles is:",
+    "layer0 to the surface, layer1 to the sunken ground, layer2 to the",
+    "overlay, layer3 to the raised ground, the primary to the accent, the",
+    "on-primary to the accent's ink, the on-surface to the ink and the",
+    "on-surface-variant to the muted ink. The mapping is the field's; the",
+    "guarantees are the system's, and the audit measures them.",
+    "",
+    "The light substrate is not carried by these two schemes: the field's",
+    "shell forces the dark one, so the light half of a dynamic scheme is",
+    "written and never read. The system keeps its own light values there,",
+    "and that is a known gap rather than a decision."
+  ],
+  "schemes": [
+    {
+      "name": "mauve",
+      "source": "the committed matugen scheme — the cool/mauve half of preview/colors-dynamic.html, with the on-surface the field's own resolved Material 3 output gives (port-data/tokens.json)",
+      "roles": {
+        "dark": {
+          "surface": "#141313",
+          "surface-sunken": "#1c1b1c",
+          "surface-overlay": "#201f20",
+          "surface-raised": "#2b2a2a",
+          "accent": "#cbc4cb",
+          "accent-ink": "#322f34",
+          "ink": "#e6e1e1",
+          "ink-muted": "#948f94",
+          "positive-surface": "#455F3D"
+        }
+      }
+    },
+    {
+      "name": "amber",
+      "source": "the alt wallpaper — the warm/amber half of preview/colors-dynamic.html",
+      "roles": {
+        "dark": {
+          "surface": "#161210",
+          "surface-sunken": "#1f1814",
+          "surface-overlay": "#251c16",
+          "surface-raised": "#30231a",
+          "accent": "#FF6A00",
+          "accent-ink": "#111418",
+          "ink": "#e8c9b3",
+          "ink-muted": "#948f94",
+          "positive-surface": "#455F3D"
+        }
+      }
+    }
+  ]
+}

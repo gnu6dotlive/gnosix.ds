@@ -187,6 +187,17 @@
       ],
       "observable": "The colours a product declares as content are named in one place with a reason, and every colour in the interface is one of the system's.",
       "test": "The consumer check reports the colours a consumer carries that the system does not have, and a consumer that has declared a content palette is absorbed when what is left is nothing."
+    },
+    {
+      "id": "COL-005",
+      "level": "MUST",
+      "domain": "color",
+      "statement": "A scheme that changes the ink changes the ground the ink is written on. The system's grounds are not dark enough to carry every ink, so a scheme carries the grounds its own ink needs.",
+      "applies_to": [
+        "all"
+      ],
+      "observable": "Run python3 tools/audit_scheme.py against the scheme: every pairing the system states must still read, on both substrates.",
+      "test": "The contract's own two schemes pass the audit, and a consumer's scheme passes it before the scheme is applied."
     }
   ]
 }

@@ -10,6 +10,40 @@ package states a version is a slot that `tools/version.py` keeps in step, and
 
 ## [4.4.0] — 2026-10-20
 
+The system learns to be audited against a palette that is not its own.
+
+**The field's decision is now executable.** The chrome is dynamic — its
+surfaces and its accent are derived from the wallpaper — and the
+system's roles are static in their meaning and dynamic in their value.
+The system had no way to say that, and no way to check it.
+
+So it does both. `tools/audit_scheme.py` takes a scheme — the values a
+wallpaper yields — and asks the system's own question: do the
+guarantees still hold? Every text on the ground it is written on, every
+mark against the ground it is seen on, on both substrates. The pairing
+list is the system's, read from the same place the projection reads it,
+so there is one rule and not two.
+
+**And it found something on the first run.** The system's grounds are not
+dark enough to carry every ink: the green it declares measures 4.19
+under a light ink, where the system requires 4.5. So a scheme that
+changes the ink has to change the ground the ink is written on, and the
+contract now says so — COL-005 — and the two schemes the contract
+carries say it with their own values.
+
+**The contract carries two schemes**, because a system that only works
+in one palette is not finished: the committed mauve scheme and an amber
+one from another wallpaper, the two the field's own preview puts side by
+side. The values are the field's, taken from its resolved Material 3
+output and not from an approximation of it — the first attempt used an
+approximation, and the audit said the approximation was wrong.
+
+The light substrate is a known gap and not a decision: the field's shell
+forces the dark one, so the light half of a dynamic scheme is written
+and never read.
+
+## [4.4.0] — 2026-10-20
+
 The native profile carries the states, and the consumer gate reads the
 native surfaces.
 

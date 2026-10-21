@@ -1,7 +1,7 @@
 {
   "version": "4.4.0",
   "name": "gnosix_DS V4.4.0 motion contract and alpha compositing variants",
-  "contract_digest": "5d8713c25dc52ebb7abe4fde0c13c58b4a9f8df78fd4f68edb986fede960ecc3",
+  "contract_digest": "a378954614479263c2f7b26908239f961c3e2077858adc4bb1cdd2be46c1aa9b",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "5970635d04eabd9c300f9ecce54de5ec4867b5d91ea1e611cb0576a26c9a2a5d"
+      "sha256": "16717e27ca85c1dcf94c20a09ba023463cc4fdcb4d9ed0042cf69e4e32e12a6c"
     },
     {
       "class": "evidence",
@@ -422,7 +422,7 @@
     {
       "class": "evidence",
       "path": "ci/GATES.md",
-      "sha256": "81405db10bcae6d2205ab6c3a88a546bd83327fe47de8f7d4ed234169fcac232"
+      "sha256": "ae82d12fa569eb932007aa15add5a50d9309922f67e592ed9f75d7491db9d295"
     },
     {
       "class": "core",
@@ -477,7 +477,12 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "a727fe084a24f1f11211f6d9798b7da186fc8c575f2cef844db356a8abf74182"
+      "sha256": "30ed093344dbcdab7f5db8e645a774e22462b6bdfd2ffa5069722b6d991fd6d7"
+    },
+    {
+      "class": "core",
+      "path": "core/schemes.json",
+      "sha256": "5109ffe9bb9d5f3303e2629f91d4d5ff58bd65c84c0cedd42b4a025e1bd13fc7"
     },
     {
       "class": "evidence",
@@ -996,6 +1001,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/audit_scheme.py",
+      "sha256": "2ea4d48daad28c8d8bb1b55c274aaccd6b9d99f324bec9adcc3d91bb0ed15ef7"
+    },
+    {
+      "class": "evidence",
       "path": "tools/build_favicons.py",
       "sha256": "4c03a90fdff246665611e0abc7ffe21f9701609d025234ff36f36059a5a47b19"
     },
@@ -1032,7 +1042,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "0aaeaf6831a068e5106d0f03f9372cdbead119830ba7db4bb52117bbaf9afa95"
+      "sha256": "ed1341a5411a5446750c34906c01b2889a91796169295cb71351343ac2a98515"
     },
     {
       "class": "evidence",
@@ -1052,7 +1062,7 @@
     {
       "class": "evidence",
       "path": "tools/contract_colors.py",
-      "sha256": "1ae1e2436e8727d20f7b5d0086dc3aa94160e37cb1870986bd8d7a0a3dac7978"
+      "sha256": "ffecd4b22457f6156da48d484f0b09b5f99ef2b30ec9ab41f6e54d51de1f99a5"
     },
     {
       "class": "evidence",

@@ -257,4 +257,12 @@ python3 tools/project_native_states.py --check
 
 Expected: `PASS: the native profile carries the contract's states`.
 
+## 31. Every scheme keeps the system's guarantees
+
+```bash
+python3 tools/audit_scheme.py
+```
+
+Expected: `PASS: every scheme keeps the system's guarantees`.
+
 ---

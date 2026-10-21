@@ -46,7 +46,12 @@ SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "dist", "handoff", "figcraf
              "frontend-audit", "legacy", "node_modules", ".ci-cache"}
 # The audit's configuration quotes the same colours its reports do, and is
 # exempt for the same reason.
-SKIP_FILES = {"frontend-audit.json"}
+#
+# The schemes are exempt for the same reason again: they are the field's
+# own palettes, carried so that the system can prove its guarantees hold
+# against a palette that is not its own. A gate that asked a scheme to be
+# the system's colours would forbid the very thing the schemes are for.
+SKIP_FILES = {"frontend-audit.json", "schemes.json"}
 SKIP_SUFFIX = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".ttf", ".woff2", ".ico", ".zip"}
 
 # The assets tree is artwork, not surface. A flag carries its country's
