@@ -82,6 +82,14 @@ cd "$SOURCE"
 # method rather than of the code. So the qualification runs with the
 # machine's data hidden and its toolchains kept — the same conditions,
 # the same failure.
+# The temporary directory follows the work: on the disk of the repository,
+# not on the memory filesystem. That filesystem is sixteen gigabytes shared
+# by every session on the machine, and it was full — a tool that wrote
+# its arguments there failed with "no space left on device" while the
+# disk had a hundred and thirty gigabytes free.
+export TMPDIR="$REPO/.ci-cache/tmp"
+mkdir -p "$TMPDIR"
+
 ORIGINAL_HOME="$HOME"
 EMPTY_HOME="$WORK/home"
 mkdir -p "$EMPTY_HOME"
