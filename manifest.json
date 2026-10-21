@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "6cf3c3a32b884a6ad6a31d8e9c23393b1fccad5f69505839b956b1d67fb41792",
+  "contract_digest": "35a15001e7825e0a96fb4c15db851678e1d11c6fff04fb1ac876d38e24eaf489",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -32,7 +32,7 @@
     {
       "class": "evidence",
       "path": "README.md",
-      "sha256": "3a4f445dd637f73ef91e1c32d83006b0e1096c93f993dd745e9476bfa65055c6"
+      "sha256": "c4262f481ec3339e6f18dfde05f5782b47b30824f214052520c7526363e598a8"
     },
     {
       "class": "evidence",
@@ -476,8 +476,13 @@
     },
     {
       "class": "core",
+      "path": "core/DERIVATIONS.json",
+      "sha256": "78722a11cfc12fa573a39a7e7e9dbe2cc69e80b1918c4dc62cdb9dbc2e0f682c"
+    },
+    {
+      "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "cd10e1e1c870e5efa7f6aacfcdc98549f0af071202f2926ca9bb76943a207cf1"
+      "sha256": "b5d92853a2c1684aefd52ca66eca8e9539b3abb67a9c803d29c42b5ee1606aa0"
     },
     {
       "class": "core",
@@ -522,7 +527,7 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "97a7c9e0e0ad266a827d582431e3137f8738e389bc2706a147c04ed5d5096f89"
+      "sha256": "390b21f7c25164884dd344f103055b91cb049f1830c187290acdcd90edf84b67"
     },
     {
       "class": "core",
@@ -1001,6 +1006,11 @@
     },
     {
       "class": "evidence",
+      "path": "tests/test_derivations.py",
+      "sha256": "38ef264a733a47110538d6b3818da058c85ed05874dc158754c30d366154379a"
+    },
+    {
+      "class": "evidence",
       "path": "tests/test_fixtures.py",
       "sha256": "7f6c43f00a4c8d05c276f9b58a1a2cb1b22f030fb61354f7e21b1e4ce7e45117"
     },
@@ -1052,7 +1062,7 @@
     {
       "class": "evidence",
       "path": "tools/audit_scheme.py",
-      "sha256": "950d1e4aee744a1fe41227163cb1f8efed2d97b2ceba6c84d24923157aab5c00"
+      "sha256": "63ba04a061f745a797258a54f6b2b9945fc77d5df3def75550dff09712aafed6"
     },
     {
       "class": "evidence",
@@ -1072,7 +1082,7 @@
     {
       "class": "evidence",
       "path": "tools/check_deviations.py",
-      "sha256": "7fc44c183995fbaf0a7753744afe8ce7242bdf6a04b6375ffd3d90b400488852"
+      "sha256": "0c1d92091a42dd98a85106a89e5f46a6b8d3a68810e851f56b436a88bac2fee4"
     },
     {
       "class": "evidence",

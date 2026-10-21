@@ -299,6 +299,18 @@
       "test": "Read the state and the path of a surface, and assert that no value is NaN or infinite."
     },
     {
+      "id": "SUR-011",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "A scheme that does not know its values states the computation and the floor that computation guarantees. A derived role is read at its floor, not at a value.",
+      "applies_to": [
+        "color",
+        "surface"
+      ],
+      "observable": "Every role a scheme derives names a derivation the contract holds, and that derivation's floor clears every minimum the pairing the role is read in requires.",
+      "test": "Declare a scheme that derives an ink from an unknown ground and run tools/audit_scheme.py. A floor under the pairing's minimum fails, and a clamped derivation with no deviation fails."
+    },
+    {
       "id": "COL-006",
       "level": "MUST",
       "domain": "color",

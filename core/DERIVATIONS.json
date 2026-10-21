@@ -1,0 +1,31 @@
+{
+  "schema": "gnosix_DS.derivations.v1",
+  "status": "CURRENT",
+  "note": "A derivation is a computation a consumer puts in place of a value, because the value is not known until the product runs: a wallpaper decides the accent, and the ink has to follow it. The system admits a derivation only when it can compute the floor that computation guarantees, and it reads the role at that floor rather than at a value. A floor under the minimum of a pairing the role is read in is not something the contract can accept — the consumer may still do it, and then it owes a deviation, not a value.",
+  "derivations": {
+    "from-source": {
+      "statement": "The role takes its value from the product's own source — a wallpaper, a document, a frame — and the system does not know it in advance.",
+      "inputs": ["the source, read when the product runs"],
+      "floor": null,
+      "floor_basis": "A ground carries nothing. The floor is the floor of the pairings it is read against, and those are checked on the inks, not here.",
+      "ground": true
+    },
+    "best-of-extremes": {
+      "statement": "The role takes whichever of the substrate's two inks measures higher against the ground it is written on.",
+      "inputs": ["the ground, unknown until the product runs"],
+      "floor": 4.087,
+      "floor_basis": "sqrt((L_shellWhite + 0.05) / (L_anthracite + 0.05)) with L_shellWhite = 0.8999 and L_anthracite = 0.0069. The worst ground is the one where the two inks read the same; there the reading is the geometric mean of the two extremes, 4.087:1. That clears a mark and it does not clear text — the system's own two inks are warm and near-black, not white and black, and the geometry of the choice is worth exactly 4.09.",
+      "ground": false
+    },
+    "best-of-extremes-clamped": {
+      "statement": "The ground is moved to the nearest tone at which the better of the substrate's two inks reaches the minimum the pairing requires, and the role takes that ink.",
+      "inputs": ["the ground, unknown until the product runs"],
+      "floor": 4.5,
+      "floor_basis": "The clamp is defined as the tone at which the reading reaches 4.5, so the reading reaches 4.5. The clamp is the consumer's operation, and the system cannot see it: the derivation is admitted only when the consumer names the deviation that carries the proof, and that deviation stays open while the proof is a test and not a measurement.",
+      "ground": false,
+      "requires": {
+        "deviation": true
+      }
+    }
+  }
+}

@@ -217,6 +217,59 @@ def probe_the_text_roles_declare_their_pairing() -> list[str]:
     return problems
 
 
+def probe_the_derivation_floor_is_computed() -> list[str]:
+    """A derivation's floor is the number the system's own inks give.
+
+    A derivation is admitted because of a number, and a number somebody
+    typed is a wish. The floor of best-of-extremes is the geometric mean
+    of the two extremes, because the worst ground is the one where the two
+    inks read the same — and it is recomputed here from the roles, so that
+    changing an ink changes the floor and the derivation is re-admitted on
+    the new one or not at all.
+    """
+    import math
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT / "tools"))
+    from contrast import resolve
+    from oklch import hex_to_rgb
+
+    tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
+    roles = json.loads((ROOT / "core/ROLES.json").read_text(encoding="utf-8"))["roles"]
+    document = json.loads((ROOT / "core/DERIVATIONS.json").read_text(encoding="utf-8"))
+    derivations = document.get("derivations") or {}
+
+    def luminance(colour: str) -> float:
+        def channel(value: int) -> float:
+            c = value / 255
+            return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+
+        red, green, blue = (channel(v) for v in hex_to_rgb(colour))
+        return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+
+    problems = []
+    for name, entry in derivations.items():
+        if not entry.get("statement"):
+            problems.append(f"{name}: states no computation")
+        if not entry.get("floor_basis"):
+            problems.append(f"{name}: states no basis for its floor")
+        if entry.get("floor") is None and not entry.get("ground"):
+            problems.append(f"{name}: has no floor and does not say it is a ground")
+
+    light = resolve(tokens, roles["ink"]["dark"])
+    dark = resolve(tokens, roles["ink"]["light"])
+    if light and dark:
+        high, low = sorted((luminance(light), luminance(dark)), reverse=True)
+        computed = math.sqrt((high + 0.05) / (low + 0.05))
+        stated = (derivations.get("best-of-extremes") or {}).get("floor")
+        if not isinstance(stated, (int, float)):
+            problems.append("best-of-extremes: states no floor to check")
+        elif abs(computed - stated) > 0.01:
+            problems.append(
+                f"best-of-extremes: its floor is stated as {stated:.3f} and the "
+                f"system's two inks give {computed:.3f}")
+    return problems
+
+
 PROBES = {
     "no_self_reference": probe_no_self_reference,
     "the_text_roles_declare_their_pairing": probe_the_text_roles_declare_their_pairing,
@@ -228,6 +281,7 @@ PROBES = {
     "the_components_name_a_radius_step": probe_the_components_name_a_radius_step,
     "the_spacing_scale_has_ten_steps": probe_the_spacing_scale_has_ten_steps,
     "the_native_profile_carries_the_states": probe_the_native_profile_carries_the_states,
+    "the_derivation_floor_is_computed": probe_the_derivation_floor_is_computed,
 }
 
 

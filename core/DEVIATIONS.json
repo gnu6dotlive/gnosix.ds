@@ -171,6 +171,15 @@
       "owner": "the system",
       "closed_by": "4.6.0",
       "probe": "the_text_roles_declare_their_pairing"
+    },
+    {
+      "id": "DEV-018",
+      "what": "A consumer could declare a scheme whose values it does not know — a wallpaper decides them — and the contract had no way to read the promise. It audited the fixed values and said nothing about the part that runs, so a derived ink could be declared, never measured, and still count as absorbed.",
+      "severity": "major",
+      "state": "closed",
+      "owner": "gnosix.ds",
+      "probe": "the_derivation_floor_is_computed",
+      "proof": "core/DERIVATIONS.json states the computations the contract admits, each with the floor it guarantees; tools/audit_scheme.py reads a derived role at its floor against every pairing minimum, and a clamped derivation is admitted only with the deviation that carries its proof. The probe recomputes the floor from the system's own inks."
     }
   ]
 }

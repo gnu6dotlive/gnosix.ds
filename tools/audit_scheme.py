@@ -24,6 +24,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ROLES = ROOT / "core" / "ROLES.json"
 SCHEMES = ROOT / "core" / "schemes.json"
+DERIVATIONS = ROOT / "core" / "DERIVATIONS.json"
+DEVIATIONS = ROOT / "core" / "DEVIATIONS.json"
 
 sys.path.insert(0, str(ROOT / "tools"))
 
@@ -53,6 +55,72 @@ def scheme_values(scheme: dict, substrate: str, roles: dict, tokens: dict,
     return values
 
 
+def derivations() -> dict[str, dict]:
+    """The computations the system admits in place of a value."""
+    document = json.loads(DERIVATIONS.read_text(encoding="utf-8"))
+    return document.get("derivations") or {}
+
+
+def deviation_register() -> dict[str, dict]:
+    """The register a clamped derivation has to name."""
+    document = json.loads(DEVIATIONS.read_text(encoding="utf-8"))
+    return {entry["id"]: entry for entry in document.get("deviations") or []}
+
+
+def derived_problems(scheme: dict, roles: dict) -> list[str]:
+    """What a scheme's derivations break, if they break anything.
+
+    A derivation is admitted at its floor, not at a value: the system
+    cannot see the wallpaper, so it reads the guarantee the computation
+    gives for every ground the wallpaper might be. A floor under the
+    minimum of a pairing the role is read in is a promise the derivation
+    cannot keep, and the contract says so here rather than at run time on
+    somebody's desktop.
+    """
+    name = scheme.get("name", "?")
+    derived = scheme.get("derived") or {}
+    if not isinstance(derived, dict):
+        return [f"{name}: 'derived' has to be an object of role to derivation"]
+
+    known = derivations()
+    register = deviation_register()
+    problems = []
+    for role, spec in derived.items():
+        if role not in roles:
+            problems.append(f"{name}: derives {role}, which the system does not have")
+            continue
+        by = spec.get("by") if isinstance(spec, dict) else None
+        derivation = known.get(by)
+        if derivation is None:
+            problems.append(f"{name}: derives {role} by {by!r}, which the system "
+                            f"does not hold")
+            continue
+        floor = derivation.get("floor")
+        for ink, ground, minimum in READS + GRAPHIC:
+            if ink != role or floor is None:
+                continue
+            if floor + 1e-9 < minimum:
+                problems.append(
+                    f"{name}: derives {role} by {by}, whose floor is "
+                    f"{floor:.2f}, and the system requires {minimum:.1f} for "
+                    f"{role} on {ground}")
+        if (derivation.get("requires") or {}).get("deviation"):
+            ident = spec.get("deviation") if isinstance(spec, dict) else None
+            entry = register.get(ident or "")
+            if not ident:
+                problems.append(
+                    f"{name}: derives {role} by {by}, which is admitted only with "
+                    f"the deviation that carries its proof, and the scheme names none")
+            elif entry is None:
+                problems.append(f"{name}: derives {role} by {by} and names {ident}, "
+                                f"which the register does not carry")
+            elif entry.get("state") != "open":
+                problems.append(
+                    f"{name}: derives {role} by {by} and names {ident}, which is "
+                    f"{entry.get('state')} — a derivation still owes its proof")
+    return problems
+
+
 def audit(scheme: dict, roles: dict, tokens: dict, surfaces: dict) -> list[str]:
     """What a scheme breaks, if it breaks anything."""
     problems = []
@@ -78,6 +146,7 @@ def audit(scheme: dict, roles: dict, tokens: dict, surfaces: dict) -> list[str]:
                     f"{scheme.get('name', '?')}: on the {substrate} substrate, "
                     f"{ink_role} on {surface_role} measures {ratio:.2f}, and "
                     f"the system requires {minimum:.1f}")
+    problems.extend(derived_problems(scheme, roles))
     return problems
 
 
