@@ -86,11 +86,19 @@
     },
     "semantic": {
       "alert": {
-        "value": "#E5484D",
+        "value": "#F26367",
         "type": "color"
       },
       "warn": {
         "value": "#F5A524",
+        "type": "color"
+      },
+      "alert-on-light": {
+        "value": "#A32126",
+        "type": "color"
+      },
+      "warn-on-light": {
+        "value": "#8A5600",
         "type": "color"
       }
     }
@@ -382,6 +390,10 @@
     },
     "info-l621c123": {
       "value": "#3D8DCC",
+      "type": "color"
+    },
+    "info-on-light-l53c112": {
+      "value": "#2E6FA8",
       "type": "color"
     }
   },

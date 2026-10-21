@@ -35,7 +35,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 from oklch import hex_to_rgb, rgb_to_oklch  # noqa: E402
-from project_tokens import css_font_stack  # noqa: E402
+from project_tokens import css_font_stack, published_name  # noqa: E402
 
 PACKAGE = ROOT / "packaging/gnu6-design"
 LEGACY = PACKAGE / "legacy/gnu6-1.1.1.css"
@@ -120,12 +120,27 @@ def bind_roles(text: str) -> str:
     the system declares the same name again further down.
     """
     binding = json.loads(ROLES.read_text(encoding="utf-8"))["colours"]
+    tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
+    current: dict[str, str] = {}
+    for family, ramp in tokens["color"].items():
+        for shade, value in ramp.items():
+            current[published_name(family, shade)] = value.upper()
 
     def substitute(match: re.Match) -> str:
         prop, separator, value = match.group(1), match.group(2), match.group(3)
+        if prop in current:
+            # The property already carries a name the system publishes, so
+            # the value is the system's current value: the sheet never
+            # carries a colour the system does not have.
+            return f"{prop}{separator}{current[prop]}"
         name = binding.get(value.upper())
-        if not name or name == prop:
+        if not name:
             return match.group(0)
+        if name == prop:
+            replacement = current.get(name)
+            if not replacement:
+                return match.group(0)
+            return f"{prop}{separator}{replacement}"
         return f"{prop}{separator}var({name})"
 
     return DECLARATION.sub(substitute, text)

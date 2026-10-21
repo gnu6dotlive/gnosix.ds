@@ -176,8 +176,50 @@ def probe_the_rule_count_is_stated() -> list[str]:
     return []
 
 
+def probe_the_text_roles_declare_their_pairing() -> list[str]:
+    """Every role that carries text is measured against the ground it sits on.
+
+    The table holds the pairings where text is written on a ground, and
+    each of them measures at least 4.5:1. A role that carries text wears a
+    colour, and that colour has to be in the table: the defect this probe
+    keeps closed was a state colour that was never measured against the
+    light substrate at all.
+    """
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT / "tools"))
+    from contrast import resolve
+    from oklch import contrast_ratio, hex_to_rgb
+
+    tokens = json.loads((ROOT / "core/TOKENS.json").read_text(encoding="utf-8"))
+    roles = json.loads((ROOT / "core/ROLES.json").read_text(encoding="utf-8"))
+    problems = []
+    for pairing, declared in (tokens.get("contrast") or {}).items():
+        ink, substrate = pairing.split("_on_")
+        got = contrast_ratio(hex_to_rgb(resolve(tokens, ink)), hex_to_rgb(resolve(tokens, substrate)))
+        if got < 4.5:
+            problems.append(f"{pairing}: text is written on that ground at "
+                            f"{round(got, 2)}:1, and 4.5:1 is the floor")
+    inks = {resolve(tokens, pairing.split("_on_")[0]) for pairing in tokens.get("contrast", {})}
+    for name, role in (roles.get("roles") or {}).items():
+        if role.get("carries") != "text":
+            continue
+        for substrate in ("light", "dark"):
+            binding = role.get(substrate)
+            if not binding:
+                continue
+            value = resolve(tokens, binding)
+            if value is None:
+                problems.append(f"{name}: its {substrate} binding {binding} names no colour")
+                continue
+            if value.upper() not in {i.upper() for i in inks if i}:
+                problems.append(f"{name}: the {substrate} colour {binding} is not measured "
+                                f"against any ground in the contrast table")
+    return problems
+
+
 PROBES = {
     "no_self_reference": probe_no_self_reference,
+    "the_text_roles_declare_their_pairing": probe_the_text_roles_declare_their_pairing,
     "the_rule_count_is_stated": probe_the_rule_count_is_stated,
     "no_foreign_literal": probe_no_foreign_literal,
     "the_field_spellings_are_accounted": probe_the_field_spellings_are_accounted,

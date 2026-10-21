@@ -89,11 +89,19 @@
       "semantic": {
         "alert": {
           "$type": "color",
-          "$value": "#E5484D"
+          "$value": "#F26367"
         },
         "warn": {
           "$type": "color",
           "$value": "#F5A524"
+        },
+        "alert-on-light": {
+          "$type": "color",
+          "$value": "#A32126"
+        },
+        "warn-on-light": {
+          "$type": "color",
+          "$value": "#8A5600"
         }
       }
     },
@@ -385,6 +393,10 @@
       "info-l621c123": {
         "$type": "color",
         "$value": "#3D8DCC"
+      },
+      "info-on-light-l53c112": {
+        "$type": "color",
+        "$value": "#2E6FA8"
       }
     },
     "fontFamily": {

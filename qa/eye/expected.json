@@ -2,7 +2,7 @@
   "note": "The accessibility findings the system knows. A finding that is not in this list is a new one, and the eye fails on it.",
   "findings": [],
   "surfaces": {
-    "components-light": "5477bdf15091a13528a06c009a45d0504443fbf0c2f5e5eac02a9be21df3cd7f",
-    "components-dark": "d8be9332b290304e7fae03495dee9b13deacaae706651075ee5201a40596d8a1"
+    "components-light": "ed54257306c5343d8ac63dc73f069fcf31e0aa1d94eb019ecc1698291f721c0d",
+    "components-dark": "bc473c24a4af4e3143639b83d5df26a8c729c5faefd924cb42583fe75aced26c"
   }
 }

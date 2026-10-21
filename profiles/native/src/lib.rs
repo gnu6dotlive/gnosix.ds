@@ -30,7 +30,9 @@ mod tests {
     #[test]
     fn the_measured_pairings_are_the_approved_ones() {
         assert!(super::theme::contrast::ANTHRACITE_ON_SHELL_WHITE > 15.0);
-        assert!(super::theme::contrast::PURE_WHITE_ON_SIGNAL_ORANGE < 3.0);
+        // White on Signal Orange measures 2.87 and the system refuses it;
+        // the pairing the sheet carries is the one that reads.
+        assert!(super::theme::contrast::ANTHRACITE_ON_SIGNAL_ORANGE > 4.5);
         assert!(super::theme::contrast::PURE_WHITE_ON_BERET_GREEN > 4.5);
     }
 

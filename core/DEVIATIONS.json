@@ -155,11 +155,22 @@
     },
     {
       "id": "DEV-016",
-      "what": "The semantic state colours fail on the light substrate, and nothing in the system was looking. On the light surface (#E9E9E6) the attention amber measures 1.68:1, the breach red 3.22:1 and the stable green 2.12:1 — a normal-sized text needs 4.5:1. On the dark substrate they pass (8.74, 4.56, 6.91). The contract's contrast table holds seven pairings and every one of them is a brand colour: the semantic colours and the surface ramps are not in it. The eye cannot see it either, because the pages it renders carry no state element. The field's axe run found it: the portal's live route fails colour-contrast on g6-state--attention.",
+      "what": "The semantic state colours failed on the light substrate, and nothing in the system was looking. On the light surface (#E9E9E6) the attention amber measured 1.68:1, the breach red 3.22:1 and the stable green 2.12:1 — a normal-sized text needs 4.5:1. The contract's contrast table held seven pairings and every one of them was a brand colour, so the semantic colours and the surface ramps were not in it, and the eye rendered no state element to look at. The field's axe run found it: the portal's live route failed colour-contrast on g6-state--attention. Closed by giving the semantic family a step for the light substrate, pointing the light theme's states at it, putting the states into the contrast table, and adding a rule and a probe that hold them there.",
       "severity": "critical",
-      "state": "open",
+      "state": "closed",
       "owner": "the system",
-      "proof": "core/DEVIATIONS.json"
+      "proof": "core/DEVIATIONS.json",
+      "closed_by": "4.6.0",
+      "probe": "the_text_roles_declare_their_pairing"
+    },
+    {
+      "id": "DEV-017",
+      "what": "The information colour was a single tint for both substrates, and it measured 2.94:1 against the light surface — below the 3:1 a graphic needs, so an information mark would not have been seen on the light substrate's raised surface. It now wears a deeper tint there, which measures 4.36:1.",
+      "severity": "minor",
+      "state": "closed",
+      "owner": "the system",
+      "closed_by": "4.6.0",
+      "probe": "the_text_roles_declare_their_pairing"
     }
   ]
 }

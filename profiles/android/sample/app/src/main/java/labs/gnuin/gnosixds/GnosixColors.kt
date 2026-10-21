@@ -22,8 +22,10 @@ object GnosixColors {
     val RoyalBlue300 = Color(0xFF87A0F4)
     val RoyalBlueBase = Color(0xFF4169E1)
     val RoyalBlue700 = Color(0xFF2446A8)
-    val SemanticAlert = Color(0xFFE5484D)
+    val SemanticAlert = Color(0xFFF26367)
     val SemanticWarn = Color(0xFFF5A524)
+    val SemanticAlertOnLight = Color(0xFFA32126)
+    val SemanticWarnOnLight = Color(0xFF8A5600)
 }
 
 object GnosixSurfaces {
@@ -99,4 +101,5 @@ object GnosixSurfaces {
     val SurfaceWarmL971c18 = Color(0xFFFFF3EA)
     val SurfaceSelectionL354c90 = Color(0xFF25396B)
     val InfoL621c123 = Color(0xFF3D8DCC)
+    val InfoOnLightL53c112 = Color(0xFF2E6FA8)
 }

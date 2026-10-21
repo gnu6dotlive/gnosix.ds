@@ -82,12 +82,12 @@
       "id": "COL-002",
       "level": "MUST NOT",
       "domain": "color",
-      "statement": "Put white essential normal text on Signal Orange.",
+      "statement": "Put anthracite essential normal text on Signal Orange — it measures 6.43 — and never white, which measures 2.87 and would not read.",
       "applies_to": [
         "all"
       ],
-      "observable": "Essential text uses an approved legible pairing such as Anthracite on Signal Orange.",
-      "test": "Inspect contrast of actual text/substrate pairs."
+      "observable": "No white text is written on Signal Orange anywhere in the system's own surfaces.",
+      "test": "Render every surface that carries the signal and read the text against it."
     },
     {
       "id": "COL-003",
@@ -297,6 +297,17 @@
       ],
       "observable": "Every number in a surface's state and in its path is finite.",
       "test": "Read the state and the path of a surface, and assert that no value is NaN or infinite."
+    },
+    {
+      "id": "COL-006",
+      "level": "MUST",
+      "domain": "color",
+      "statement": "A role that carries text is measured against the ground it is written on, and the pairing measures at least 4.5:1. A role that carries a mark measures at least 3:1, and the ground where it does not reach it is excluded from the role.",
+      "applies_to": [
+        "role"
+      ],
+      "observable": "Every pairing in the contrast table measures 4.5:1 or more, and every role that carries text wears a colour the table measures against a ground.",
+      "test": "Read the contrast table and the role layer: every text role's colour is measured against the ground it sits on."
     }
   ]
 }

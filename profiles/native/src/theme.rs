@@ -27,8 +27,10 @@ pub mod colour {
     pub const ROYAL_BLUE_300: &str = "#87A0F4";
     pub const ROYAL_BLUE_BASE: &str = "#4169E1";
     pub const ROYAL_BLUE_700: &str = "#2446A8";
-    pub const SEMANTIC_ALERT: &str = "#E5484D";
+    pub const SEMANTIC_ALERT: &str = "#F26367";
     pub const SEMANTIC_WARN: &str = "#F5A524";
+    pub const SEMANTIC_ALERT_ON_LIGHT: &str = "#A32126";
+    pub const SEMANTIC_WARN_ON_LIGHT: &str = "#8A5600";
 }
 
 /// The surface layer.
@@ -105,6 +107,7 @@ pub mod surface {
     pub const SURFACE_WARM_L971C18: &str = "#FFF3EA";
     pub const SURFACE_SELECTION_L354C90: &str = "#25396B";
     pub const INFO_L621C123: &str = "#3D8DCC";
+    pub const INFO_ON_LIGHT_L53C112: &str = "#2E6FA8";
 }
 
 /// The measured contrast of each approved pairing.
@@ -112,10 +115,32 @@ pub mod contrast {
     pub const ANTHRACITE_ON_SHELL_WHITE: f64 = 16.71;
     pub const SHELL_WHITE_ON_ANTHRACITE: f64 = 16.71;
     pub const ANTHRACITE_ON_SIGNAL_ORANGE: f64 = 6.43;
-    pub const PURE_WHITE_ON_SIGNAL_ORANGE: f64 = 2.87;
     pub const PURE_WHITE_ON_BERET_GREEN: f64 = 4.52;
     pub const PURE_WHITE_ON_ROYAL_BLUE: f64 = 4.85;
-    pub const SHELL_WHITE_ON_ROYAL_BLUE: f64 = 4.38;
+    pub const WARN_ON_SURFACE_DARK_L207C10: f64 = 8.74;
+    pub const ALERT_ON_SURFACE_DARK_L207C10: f64 = 5.74;
+    pub const BERET_GREEN_300_ON_SURFACE_DARK_L207C10: f64 = 6.91;
+    pub const WARN_ON_LIGHT_ON_PURE_WHITE: f64 = 6.16;
+    pub const WARN_ON_LIGHT_ON_SURFACE_LIGHT_L933C4: f64 = 5.06;
+    pub const WARN_ON_LIGHT_ON_SHELL_WHITE: f64 = 5.57;
+    pub const ALERT_ON_LIGHT_ON_PURE_WHITE: f64 = 7.49;
+    pub const ALERT_ON_LIGHT_ON_SURFACE_LIGHT_L933C4: f64 = 6.16;
+    pub const ALERT_ON_LIGHT_ON_SHELL_WHITE: f64 = 6.78;
+    pub const BERET_GREEN_700_ON_PURE_WHITE: f64 = 7.1;
+    pub const BERET_GREEN_700_ON_SURFACE_LIGHT_L933C4: f64 = 5.84;
+    pub const NEUTRAL_ANTHRACITE_ON_NEUTRAL_PURE_WHITE: f64 = 18.47;
+    pub const INK_ON_LIGHT_L445C22_ON_PURE_WHITE: f64 = 7.59;
+    pub const INK_ON_LIGHT_L445C22_ON_SURFACE_LIGHT_L933C4: f64 = 6.24;
+    pub const INK_ON_DARK_L678C24_ON_SURFACE_DARK_L207C10: f64 = 6.15;
+    pub const ROYAL_BLUE_BASE_ON_PURE_WHITE: f64 = 4.85;
+    pub const BERET_GREEN_BASE_ON_PURE_WHITE: f64 = 4.52;
+    pub const INFO_L621C123_ON_SURFACE_DARK_L207C10: f64 = 5.0;
+    pub const WARN_ON_LIGHT_ON_SURFACE_LIGHT_L978C1: f64 = 5.79;
+    pub const ALERT_ON_LIGHT_ON_SURFACE_LIGHT_L978C1: f64 = 7.04;
+    pub const BERET_GREEN_700_ON_SURFACE_LIGHT_L978C1: f64 = 6.67;
+    pub const WARN_ON_SURFACE_DARK_L250C14: f64 = 7.84;
+    pub const ALERT_ON_SURFACE_DARK_L250C14: f64 = 5.15;
+    pub const BERET_GREEN_300_ON_SURFACE_DARK_L250C14: f64 = 6.2;
 }
 
 /// The ratified spacing steps.

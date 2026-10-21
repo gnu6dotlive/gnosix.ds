@@ -102,8 +102,9 @@ select {
   color: var(--gnosix-ink);
 }
 .gnosix-button[data-variant="destructive"] {
-  background: var(--gnosix-critical);
-  color: var(--gnosix-ink);
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-critical);
+  border-color: var(--gnosix-critical);
 }
 .gnosix-button:hover:not(:disabled) {
   filter: brightness(1.06);
@@ -169,8 +170,8 @@ select {
   border-radius: 50%;
 }
 .gnosix-badge[data-variant="attention"] {
-  background: var(--gnosix-caution);
-  color: var(--gnosix-ink);
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-caution);
 }
 .gnosix-badge[data-variant="attention"]::before {
   background: var(--gnosix-caution);
@@ -181,8 +182,8 @@ select {
   border-radius: 50%;
 }
 .gnosix-badge[data-variant="breach"] {
-  background: var(--gnosix-critical);
-  color: var(--gnosix-ink);
+  background: var(--gnosix-surface-raised);
+  color: var(--gnosix-critical);
 }
 .gnosix-badge[data-variant="breach"]::before {
   background: var(--gnosix-critical);

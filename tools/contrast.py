@@ -24,20 +24,52 @@ from oklch import contrast_ratio, hex_to_rgb  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 TOKENS = ROOT / "core/TOKENS.json"
+SURFACES = ROOT / "core/SURFACES.json"
 
 # How far a declared ratio may sit from the computed one. The table rounds
 # to two decimals, so this is the rounding and a little of it.
 TOLERANCE = 0.005
 
 
-def resolve(tokens: dict, name: str) -> str | None:
-    """The value of a shade, or of a family's base."""
+def resolve(tokens: dict, name: str, surfaces: dict | None = None) -> str | None:
+    """The value of a shade, of a family's base, or of a surface's step.
+
+    Three ways to name a colour, because the contract uses all three: a
+    family means that family's base, a bare shade means that shade
+    wherever it is unique, and `family/shade` names one step exactly —
+    the way the role layer names it. A surface's step is named by its own
+    identifier, because the ground a thing is written on is a surface
+    and not a colour of the palette.
+    """
     colour = tokens["color"]
+    if "/" in name:
+        family, shade = name.split("/", 1)
+        ramp = colour.get(family)
+        if isinstance(ramp, dict):
+            return ramp.get(shade)
+        return None
     if name in colour and isinstance(colour[name], dict) and "base" in colour[name]:
         return colour[name]["base"]
     for ramp in colour.values():
         if isinstance(ramp, dict) and name in ramp:
             return ramp[name]
+    if surfaces:
+        for family in surfaces.get("families", {}).values():
+            for step in family.get("steps") or []:
+                if step.get("id") == name:
+                    return step.get("value")
+        for accent in surfaces.get("accents") or []:
+            if accent.get("id") == name:
+                return accent.get("value")
+    if surfaces is None and SURFACES.is_file():
+        loaded = json.loads(SURFACES.read_text(encoding="utf-8"))
+        for family in loaded.get("families", {}).values():
+            for step in family.get("steps") or []:
+                if step.get("id") == name:
+                    return step.get("value")
+        for accent in loaded.get("accents") or []:
+            if accent.get("id") == name:
+                return accent.get("value")
     return None
 
 

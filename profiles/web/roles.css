@@ -19,11 +19,11 @@
   --gnosix-accent-ink: var(--gnosix-neutral-anthracite);
   --gnosix-focus: var(--gnosix-royal-blue-base);
   --gnosix-selection: var(--gnosix-royal-blue-100);
-  --gnosix-info: var(--gnosix-info-l621c123);
+  --gnosix-info: var(--gnosix-info-on-light-l53c112);
   --gnosix-positive: var(--gnosix-beret-green-base);
   --gnosix-positive-surface: var(--gnosix-beret-green-100);
-  --gnosix-caution: var(--gnosix-semantic-warn);
-  --gnosix-critical: var(--gnosix-semantic-alert);
+  --gnosix-caution: var(--gnosix-semantic-warn-on-light);
+  --gnosix-critical: var(--gnosix-semantic-alert-on-light);
 }
 
 [data-gnosix-substrate="dark"] {

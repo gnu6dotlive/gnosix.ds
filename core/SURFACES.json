@@ -766,6 +766,17 @@
       "role": "the blue of an information: what a reader is told, as distinct from what they can act on",
       "neutral": false,
       "aliases": []
+    },
+    {
+      "id": "info-on-light-l53c112",
+      "role_id": "info-on-light",
+      "value": "#2E6FA8",
+      "lightness": 0.5274,
+      "chroma": 0.1115,
+      "hue": 248.203,
+      "role": "the blue of an information, on the light substrate",
+      "neutral": false,
+      "aliases": []
     }
   ]
 }

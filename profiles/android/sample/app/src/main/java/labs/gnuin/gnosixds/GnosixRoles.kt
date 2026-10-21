@@ -21,11 +21,11 @@ object GnosixRoles {
         "accent-ink" to Color(0xFF111418),
         "focus" to Color(0xFF4169E1),
         "selection" to Color(0xFFE8EDFF),
-        "info" to Color(0xFF3D8DCC),
+        "info" to Color(0xFF2E6FA8),
         "positive" to Color(0xFF5F7F52),
         "positive-surface" to Color(0xFFE8EFE5),
-        "caution" to Color(0xFFF5A524),
-        "critical" to Color(0xFFE5484D),
+        "caution" to Color(0xFF8A5600),
+        "critical" to Color(0xFFA32126),
     )
 
     /** The dark substrate. */
@@ -45,7 +45,7 @@ object GnosixRoles {
         "positive" to Color(0xFF8DA982),
         "positive-surface" to Color(0xFF455F3D),
         "caution" to Color(0xFFF5A524),
-        "critical" to Color(0xFFE5484D),
+        "critical" to Color(0xFFF26367),
     )
 
     /** The role, in the substrate the theme is in. */

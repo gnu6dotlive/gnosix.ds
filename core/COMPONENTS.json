@@ -132,11 +132,11 @@
         {
           "name": "destructive",
           "role": "destructive-action",
-          "description": "An operation with a material negative consequence. It never wears the accent, because the accent means the principal operation.",
+          "description": "An operation with a material negative consequence. It never wears the accent, because the accent means the principal operation. The failure is the word and the edge, on a neutral ground, so it reads.",
           "tokens": {
-            "background": "critical",
-            "text": "ink",
-            "border": null
+            "background": "surface-raised",
+            "text": "critical",
+            "border": "critical"
           }
         }
       ],
@@ -288,10 +288,10 @@
         {
           "name": "attention",
           "role": "status-attention",
-          "description": "A condition that is observed and asks for inspection.",
+          "description": "A condition that is observed and asks for inspection. The state is the word, on a neutral ground: the amber is a text colour and it reads against the raised surface.",
           "tokens": {
-            "background": "caution",
-            "text": "ink",
+            "background": "surface-raised",
+            "text": "caution",
             "border": null,
             "mark": "caution"
           }
@@ -299,10 +299,10 @@
         {
           "name": "breach",
           "role": "status-breach",
-          "description": "A condition that is observed and is a failure.",
+          "description": "A condition that is observed and is a failure. The state is the word, on a neutral ground: the red is a text colour and it reads against the raised surface.",
           "tokens": {
-            "background": "critical",
-            "text": "ink",
+            "background": "surface-raised",
+            "text": "critical",
             "border": null,
             "mark": "critical"
           }

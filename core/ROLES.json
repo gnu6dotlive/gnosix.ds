@@ -58,7 +58,8 @@
       "dark": "neutral/shellWhite",
       "rules": [
         "COL-001"
-      ]
+      ],
+      "carries": "text"
     },
     "ink-muted": {
       "meaning": "Text that supports the reading text and is not read first: a caption, a secondary label.",
@@ -66,7 +67,8 @@
       "dark": "ink-on-dark-l678c24",
       "rules": [
         "COL-001"
-      ]
+      ],
+      "carries": "text"
     },
     "hairline": {
       "meaning": "The line between two surfaces. Never a divider drawn in a colour of its own.",
@@ -82,7 +84,8 @@
       "dark": "signalOrange/base",
       "rules": [
         "COL-002"
-      ]
+      ],
+      "carries": "graphic"
     },
     "accent-ink": {
       "meaning": "The text that sits on the accent.",
@@ -90,15 +93,17 @@
       "dark": "neutral/anthracite",
       "rules": [
         "COL-002"
-      ]
+      ],
+      "carries": "text"
     },
     "focus": {
-      "meaning": "The indicator that says where the keyboard is. It never depends on hover.",
+      "meaning": "The ring that says where the keyboard is. It is a graphic and not a text colour: the royal blue measures 4.85 against white and 3.68 against the dark surface, and it marks a ring, a line or an edge, and it never carries a sentence.",
       "light": "royalBlue/base",
       "dark": "royalBlue/base",
       "rules": [
         "A11Y-001"
-      ]
+      ],
+      "carries": "graphic"
     },
     "selection": {
       "meaning": "The ground of a chosen thing. The choice is carried by a surface and by the accessible state, never by a hue alone.",
@@ -109,23 +114,25 @@
       ]
     },
     "info": {
-      "meaning": "The colour of an information: what a reader is told, as distinct from what they can act on. It is a deliberate tint and not a step of the royal blue, because the field uses it for information and not for identity or focus. It is a graphic colour and not a text colour: against the light substrate it measures 3.23, so it marks a line, a dot or an edge, and it never carries a sentence. It is excluded from the sunken light surface, where it measures 2.82 and would not be seen.",
-      "light": "info-l621c123",
+      "meaning": "The colour of an information: what a reader is told, as distinct from what they can act on. It is a deliberate tint and not a step of the royal blue, because the field uses it for information and not for identity or focus. It is a graphic colour and not a text colour, and it never carries a sentence. On the light substrate it wears the deeper tint, which measures 5.31 against white and 4.36 against the light surface, where the tint that serves the dark substrate would measure 2.94 and would not be seen. It is excluded from the sunken light surface, where it would not be seen either.",
+      "light": "info-on-light-l53c112",
       "dark": "info-l621c123",
       "rules": [
         "A11Y-001"
       ],
       "excludes": [
         "surface-sunken"
-      ]
+      ],
+      "carries": "graphic"
     },
     "positive": {
-      "meaning": "A condition that is observed and is well, carried as a mark: a pip, a dot, an edge. It is never a background behind body text, because the approved green measures 4.09 against the light substrate and would not read.",
+      "meaning": "A condition that is observed and is well, carried as a mark: a pip, a dot, an edge. It is never a background behind body text, because the approved green measures 4.52 against white and 3.72 against the light surface and would not read. It is excluded from the sunken light surface, where it measures less than three and would not be seen.",
       "light": "beretGreen/base",
       "dark": "beretGreen/300",
       "rules": [
         "A11Y-001"
-      ]
+      ],
+      "carries": "graphic"
     },
     "positive-surface": {
       "meaning": "A tinted surface that carries the text of a condition that is well.",
@@ -136,20 +143,22 @@
       ]
     },
     "caution": {
-      "meaning": "A condition that is observed and asks for attention.",
-      "light": "semantic/warn",
+      "meaning": "A condition that is observed and asks for attention. On the light substrate it wears the darker step of its family — the amber measures 2.04 against white and would not read — and the darker step measures 6.16, so a sentence of caution can be written in it.",
+      "light": "semantic/warnOnLight",
       "dark": "semantic/warn",
       "rules": [
         "A11Y-001"
-      ]
+      ],
+      "carries": "text"
     },
     "critical": {
-      "meaning": "A condition that is observed and is a failure.",
-      "light": "semantic/alert",
+      "meaning": "A condition that is observed and is a failure. On the light substrate it wears the darker step of its family — the red measures 3.91 against white and would not read — and the darker step measures 7.49, so a sentence of failure can be written in it.",
+      "light": "semantic/alertOnLight",
       "dark": "semantic/alert",
       "rules": [
         "A11Y-001"
-      ]
+      ],
+      "carries": "text"
     }
   },
   "substrates": {

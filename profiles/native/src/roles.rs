@@ -40,11 +40,11 @@ pub const LIGHT: Substrate = Substrate {
     accent_ink: crate::theme::colour::NEUTRAL_ANTHRACITE,
     focus: crate::theme::colour::ROYAL_BLUE_BASE,
     selection: crate::theme::colour::ROYAL_BLUE_100,
-    info: crate::theme::surface::INFO_L621C123,
+    info: crate::theme::surface::INFO_ON_LIGHT_L53C112,
     positive: crate::theme::colour::BERET_GREEN_BASE,
     positive_surface: crate::theme::colour::BERET_GREEN_100,
-    caution: crate::theme::colour::SEMANTIC_WARN,
-    critical: crate::theme::colour::SEMANTIC_ALERT,
+    caution: crate::theme::colour::SEMANTIC_WARN_ON_LIGHT,
+    critical: crate::theme::colour::SEMANTIC_ALERT_ON_LIGHT,
 };
 
 /// The dark substrate.

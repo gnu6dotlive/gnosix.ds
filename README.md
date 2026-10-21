@@ -27,7 +27,7 @@ The system is in four tiers, and each one is a file you can read:
 
 | Tier | File | What it holds |
 |---|---|---|
-| Rules | `core/rules.json` | 27 numbered obligations — `COL-001`, `A11Y-001`, `SUR-001` — each with an observable and a test |
+| Rules | `core/rules.json` | 28 numbered obligations — `COL-001`, `A11Y-001`, `SUR-001` — each with an observable and a test |
 | Envelope | `core/ENVELOPE.md` | the shell's composition invariants — compose first and paint once, one curvature authority, a settled pose rebuilt from the canonical state — and what the field's prototype proves of them |
 | Palette & surfaces | `core/TOKENS.json`, `core/SURFACES.json` | the approved colours, the elevation ramps, the spacing steps, the family and the weights |
 | Semantic roles | `core/ROLES.json` | 14 roles — `surface`, `ink`, `accent`, `focus`, `positive` — bound to a token on each substrate |
@@ -79,8 +79,8 @@ is worth on each substrate.
 | `focus` | Royal Blue | Royal Blue | where the keyboard is |
 | `positive` | Beret Green | `#8DA982` | a condition that is well, as a mark |
 | `positive-surface` | `#E8EFE5` | `#455F3D` | the tinted surface behind the word |
-| `caution` | `#F5A524` | `#F5A524` | a condition that asks for inspection |
-| `critical` | `#E5484D` | `#E5484D` | a condition that is a failure |
+| `caution` | `#8A5600` | `#F5A524` | a condition that asks for inspection |
+| `critical` | `#A32126` | `#F26367` | a condition that is a failure |
 
 The split between `positive` and `positive-surface` is measured, not tasteful:
 the approved green measures **4.09** against the light substrate and cannot
