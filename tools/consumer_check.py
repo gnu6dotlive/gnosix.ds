@@ -164,6 +164,25 @@ GENERIC = {"inherit", "initial", "unset", "revert", "none", "var", "auto",
            "blinkmacsystemfont", "segoe ui", "roboto", "helvetica", "arial"}
 
 
+def is_transparent(value: str, alpha_first: bool = False) -> bool:
+    """Whether a colour with an alpha carries none of itself.
+
+    A colour at alpha zero is not a colour the interface paints: it is
+    the absence of a fill, and a shell writes `0x00000000` where it means
+    "nothing here". Counting it asks the system to own a black it never
+    draws — sixty-seven of one field's colours were this and nothing else.
+    The alpha is not a colour, and the gate reads colours.
+    """
+    value = value.strip()
+    if len(value) == 8:
+        alpha = value[:2] if alpha_first else value[-2:]
+        return alpha.upper() == "00"
+    if len(value) == 4:
+        alpha = value[0] if alpha_first else value[-1]
+        return alpha.upper() == "0"
+    return False
+
+
 def expand_hex(value: str) -> str | None:
     """A hex colour, expanded to six digits."""
     value = value.strip()
@@ -224,6 +243,9 @@ def colour_forms(text: str) -> dict[str, tuple[str, float | None]]:
         value = "#" + f"{int(match.group(1)):02X}{int(match.group(2)):02X}{int(match.group(3)):02X}"
         forms[match.group(0)] = (value, alpha_of(match.group("alpha")))
     for match in HSL.finditer(text):
+        alpha = (match.group("alpha") or "1").strip().rstrip("%")
+        if alpha and float(alpha) == 0:
+            continue
         try:
             value = hsl_to_hex(float(match.group(1)), float(match.group(2)),
                                float(match.group(3)))
@@ -231,6 +253,9 @@ def colour_forms(text: str) -> dict[str, tuple[str, float | None]]:
             continue
         forms[match.group(0)] = (value, alpha_of(match.group("alpha")))
     for match in OKLCH.finditer(text):
+        alpha = (match.group("alpha") or "1").strip().rstrip("%")
+        if alpha and float(alpha) == 0:
+            continue
         try:
             value = rgb_to_hex(
                 oklch_to_rgb(float(match.group(1)) / 100.0,
@@ -267,6 +292,8 @@ def colours_in(text: str) -> list[str]:
     found = []
     text = MASK.sub(" ", text)
     for value in HEX.findall(text):
+        if is_transparent(value):
+            continue
         expanded = expand_hex(value)
         if expanded:
             found.append(expanded)
@@ -274,21 +301,34 @@ def colours_in(text: str) -> list[str]:
         # `argb` puts the alpha first, `rgb` and `rgba` put it last, and a
         # bare constant follows the field's own ARGB convention.
         if call in ("rgb", "rgba"):
+            if is_transparent(value):
+                continue
             expanded = expand_hex(value[:6])
         else:
+            if is_transparent(value, alpha_first=True):
+                continue
             expanded = expand_hex(value[-6:])
         if expanded:
             found.append(expanded)
     for match in RGB.finditer(text):
+        alpha = (match.group("alpha") or "1").strip().rstrip("%")
+        if alpha and float(alpha) == 0:
+            continue
         found.append("#" + f"{int(match.group(1)):02X}{int(match.group(2)):02X}"
                           f"{int(match.group(3)):02X}")
     for match in HSL.finditer(text):
+        alpha = (match.group("alpha") or "1").strip().rstrip("%")
+        if alpha and float(alpha) == 0:
+            continue
         try:
             found.append(hsl_to_hex(float(match.group(1)), float(match.group(2)),
                                     float(match.group(3))))
         except ValueError:
             continue
     for match in OKLCH.finditer(text):
+        alpha = (match.group("alpha") or "1").strip().rstrip("%")
+        if alpha and float(alpha) == 0:
+            continue
         try:
             found.append(rgb_to_hex(oklch_to_rgb(float(match.group(1)) / 100.0,
                                                  float(match.group(2)),

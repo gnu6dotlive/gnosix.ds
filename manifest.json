@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "35a15001e7825e0a96fb4c15db851678e1d11c6fff04fb1ac876d38e24eaf489",
+  "contract_digest": "eaed5943c29838937edc758330e26c6701171d581cfaecb9f82282f5f02b40b9",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -482,7 +482,7 @@
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "b5d92853a2c1684aefd52ca66eca8e9539b3abb67a9c803d29c42b5ee1606aa0"
+      "sha256": "e1b157978bd39d9a7985f0fa574c5271a61541baf3cbbb9b8fb592be0deac634"
     },
     {
       "class": "core",
@@ -996,6 +996,11 @@
     },
     {
       "class": "evidence",
+      "path": "tests/test_consumer_check.py",
+      "sha256": "0752ec3777b4f80099bed34d528c90829bc75ffb7b7e6d9c8783972fc0ffb527"
+    },
+    {
+      "class": "evidence",
       "path": "tests/test_contract.py",
       "sha256": "47ed8f89f8ee670afef2dc98a024be0b71710603e08baf192cfa18529dc98982"
     },
@@ -1112,7 +1117,7 @@
     {
       "class": "evidence",
       "path": "tools/consumer_check.py",
-      "sha256": "3d26a473c193fbc69b9bed5e41313ccdbe9406642524cc598e6ad115221927e7"
+      "sha256": "34ea7e6de0e101d1bb5a4c5142348d6ce4b38d8314595b6853e75a7e785db13a"
     },
     {
       "class": "evidence",

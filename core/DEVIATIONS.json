@@ -180,6 +180,14 @@
       "owner": "gnosix.ds",
       "probe": "the_derivation_floor_is_computed",
       "proof": "core/DERIVATIONS.json states the computations the contract admits, each with the floor it guarantees; tools/audit_scheme.py reads a derived role at its floor against every pairing minimum, and a clamped derivation is admitted only with the deviation that carries its proof. The probe recomputes the floor from the system's own inks."
+    },
+    {
+      "id": "DEV-019",
+      "what": "The launcher's accent comes from the wallpaper, and the ink written on it is chosen against that accent. The system's own two inks guarantee 4.087:1 against a ground the system cannot see — enough for a mark and short of the 4.5 a text role is read at — so the launcher clamps the derived accent's tone until the better of the two inks reaches 4.5. The clamp runs in the launcher, on a colour the contract never sees: the contract can read the declaration and the fallback, not the computation on a given wallpaper.",
+      "severity": "major",
+      "state": "open",
+      "owner": "the GPUI launcher",
+      "proof": "engine/gnosis-gpui-theme/src/palette.rs — the clamp, and the test that walks the accent's tone range and measures the better of the two inks on every stop"
     }
   ]
 }
