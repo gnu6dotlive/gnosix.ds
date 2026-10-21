@@ -55,6 +55,14 @@ STATE_MODIFIER = re.compile(
     r"^(is|has|js)-|-(active|open|closed|disabled|enabled|selected|hover|focus|focus-visible|"
     r"active|expanded|collapsed|loading|visible|hidden|checked|invalid|valid|empty|error)$")
 
+# Names that are never components, in any form: the words of the language
+# and of the build. A type called `Default` is a default, and a component
+# called `App` is the application.
+NEVER_COMPONENTS = {
+    "default", "from", "return", "component", "components", "app", "main",
+    "index", "new", "self", "super", "crate", "module", "package",
+}
+
 # Names that are not components: the vocabulary of the web platform, of the
 # build, and of the design system itself.
 NOT_COMPONENTS = {
@@ -155,6 +163,8 @@ def collect(root: Path, exclude: list[str] | None = None) -> set[str]:
     out = set()
     for name, is_class in found:
         if len(name) < 3:
+            continue
+        if canonical(name) in NEVER_COMPONENTS:
             continue
         if is_class and name in NOT_COMPONENTS:
             continue
