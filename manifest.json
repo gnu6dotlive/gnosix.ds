@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "432d4081e2cf98e844563e4b2b0853cf567bc2676fc03d567099914f58077bab",
+  "contract_digest": "24b16fc13680b7cfec3afef6de313c55992d37ecd209e85b1e7eec6ca2c4305d",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -477,7 +477,7 @@
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "57a8d3a4de40ccdbdd6e46e3420f5d3203dc4217a546d77378f706cc9bc8a4d3"
+      "sha256": "878ec6bd29982f07b7b1a4b8613a8255defffe0cc901d7b8b42a0813b80ffdae"
     },
     {
       "class": "core",
