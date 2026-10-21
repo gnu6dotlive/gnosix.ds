@@ -25,13 +25,31 @@ Occupancy is stated, never inferred from dimensions, and each output
 resolves its own policy. A configuration epoch isolates what a profile
 may not bleed into another.
 
-These were worked out in the field — in the envelope's composition lab,
-where twenty-one contracts hold a surface to them — and the contract
-held only the principle that made them possible, not the invariants
-themselves. The contract now carries both: SUR-001 says the material and
-the depth may vary without changing a role, and SUR-002 to SUR-006 say
-how a surface is composed, painted, curved, settled, occupied and
-isolated.
+These were worked out in the field — in the envelope's composition lab —
+and the contract held only the principle that made them possible, not the
+invariants themselves. The contract now carries both: SUR-001 says the
+material and the depth may vary without changing a role, and SUR-002 to
+SUR-006 say how a surface is composed, painted, curved, settled, occupied
+and isolated.
+
+**The sweep of the lab, to the end.** The lab announces twenty-one
+contracts. Its gate raises fifteen distinct failures; the other six of the
+lab's eighteen statements are held by inspection or by a metric on the
+page, and a surface that broke them would look right and pass. The four
+that were still missing from the contract now join the nine: the axes are
+ordered and a settled axis carries no residue (SUR-007); the topology of
+a surface is not its behaviour, and the policies beside it are never
+inferred from it (SUR-008); a surface a policy suppresses paints nothing
+(SUR-009); a surface's geometry is finite (SUR-010).
+
+`core/ENVELOPE.md` records the envelope's eighteen obligations, the nine
+rules that carry them, the fifteen failures the lab raises, and the six
+statements that have none behind them. `DEV-014` names that gap and its
+owner: the system holds no composition engine, so the rules are proven
+where the engine is — in the launcher.
+
+The README said sixteen obligations while the contract held twenty-three:
+prose drifts. It reads twenty-seven now, and a probe holds it there.
 
 ## [4.5.0] — 2026-10-20
 

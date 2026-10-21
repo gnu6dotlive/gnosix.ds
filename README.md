@@ -27,7 +27,8 @@ The system is in four tiers, and each one is a file you can read:
 
 | Tier | File | What it holds |
 |---|---|---|
-| Rules | `core/rules.json` | 16 numbered obligations — `COL-001`, `A11Y-001`, `SUR-001` — each with an observable and a test |
+| Rules | `core/rules.json` | 27 numbered obligations — `COL-001`, `A11Y-001`, `SUR-001` — each with an observable and a test |
+| Envelope | `core/ENVELOPE.md` | the shell's composition invariants — compose first and paint once, one curvature authority, a settled pose rebuilt from the canonical state — and what the field's prototype proves of them |
 | Palette & surfaces | `core/TOKENS.json`, `core/SURFACES.json` | the approved colours, the elevation ramps, the spacing steps, the family and the weights |
 | Semantic roles | `core/ROLES.json` | 14 roles — `surface`, `ink`, `accent`, `focus`, `positive` — bound to a token on each substrate |
 | Components | `core/COMPONENTS.json` | 14 elements: their roles, states, variants, geometry, typography and the accessibility they owe |

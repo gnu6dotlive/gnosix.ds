@@ -253,6 +253,50 @@
       ],
       "observable": "Applying a configuration to one output does not change the state of another, and a profile's private state does not survive its epoch.",
       "test": "Apply a configuration on one output and read the other; it is unchanged."
+    },
+    {
+      "id": "SUR-007",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "A surface's axes are ordered. One axis settles before the next begins, and a settled axis carries no residue into the next.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "While one axis is moving the other holds its canonical value, and a settled surface's axes read zero, one or their canonical value — never a leftover.",
+      "test": "Move one axis and read the other; it is at its canonical value."
+    },
+    {
+      "id": "SUR-008",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "The topology of a surface is not its behaviour. A topology says how the material is arranged; the policies — the workarea, the fullscreen response, the overlap response — are stated beside it and are never inferred from it.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "Changing the topology of a profile changes how the material is arranged and nothing else: the resolved policies are the same.",
+      "test": "Hold the policies and change the topology; the resolved policies do not move."
+    },
+    {
+      "id": "SUR-009",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "A surface that a policy suppresses paints nothing, and no boundary of it remains in the surface.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "A suppressed surface has no painted boundary, and the surface it settles into is the one it would have reached had it never been suppressed.",
+      "test": "Suppress a surface, settle it, and compare with a surface that was never suppressed."
+    },
+    {
+      "id": "SUR-010",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "A surface's geometry is finite. No non-finite value reaches a path, an axis or a wave.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "Every number in a surface's state and in its path is finite.",
+      "test": "Read the state and the path of a surface, and assert that no value is NaN or infinite."
     }
   ]
 }

@@ -135,6 +135,23 @@
       "proof": "profiles/native/status.json",
       "closed_by": "4.4.0",
       "probe": "the_native_profile_carries_the_states"
+    },
+    {
+      "id": "DEV-014",
+      "what": "The contract states the envelope's invariants — SUR-002 to SUR-010 — but nothing proves them. The system's own prototype of the envelope applies fifteen of the eighteen statements as failures and holds six by inspection alone: the curvature's global authority, the trigger's internality, the policies' independence per output, the topology's neutrality, the epoch's isolation and the workarea's explicitness. A surface that breaks those six would look right and pass.",
+      "severity": "major",
+      "state": "open",
+      "owner": "the GPUI launcher",
+      "proof": "core/ENVELOPE.md"
+    },
+    {
+      "id": "DEV-015",
+      "what": "The README counted sixteen obligations while the contract carried twenty-three: the count was prose, and prose drifts. It now reads what the contract holds, and a probe holds it there.",
+      "severity": "minor",
+      "state": "closed",
+      "owner": "the system",
+      "closed_by": "4.6.0",
+      "probe": "the_rule_count_is_stated"
     }
   ]
 }

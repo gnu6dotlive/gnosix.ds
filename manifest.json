@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "177d25b564fa5911e16eb80bf0aa2ec9c068509c57e3f06a1ade55f5146d7632",
+  "contract_digest": "432d4081e2cf98e844563e4b2b0853cf567bc2676fc03d567099914f58077bab",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "e06cfad6a8f14da78f93e46f8acee22c01bfb2bb3495ca0079b1795a5c8f9f94"
+      "sha256": "195f406f06ba78f48ae5a5842090b82c29f101a40fa9b30dde43f599f29b8a46"
     },
     {
       "class": "evidence",
@@ -32,7 +32,7 @@
     {
       "class": "evidence",
       "path": "README.md",
-      "sha256": "b0447c52ef0aa1cc42410346e9872070da97367d2c2c345f4872061d238bf5e1"
+      "sha256": "40757a1dfb4593821ebf5ed4cf7e0b072a045b9ad2a6721bbf5bf973c737d1e8"
     },
     {
       "class": "evidence",
@@ -477,7 +477,12 @@
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "7bece9d57a04d65f59d34e923185534326bf852007174daea648fed06c7008f4"
+      "sha256": "57a8d3a4de40ccdbdd6e46e3420f5d3203dc4217a546d77378f706cc9bc8a4d3"
+    },
+    {
+      "class": "core",
+      "path": "core/ENVELOPE.md",
+      "sha256": "6cce1e2b8f615f200788d616be5c4da4ec1d183b6440319d5401788000de31c1"
     },
     {
       "class": "core",
@@ -517,7 +522,7 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "3884dd0e5dea1dd946f7c399bfce5bae48a5b613fa7fdf91a71e10cfb260cdf0"
+      "sha256": "c6540f6cab81395c99837a9f9887460e11db4e47bb1ff8be51d1cd5b1783a7fa"
     },
     {
       "class": "core",
@@ -1067,7 +1072,7 @@
     {
       "class": "evidence",
       "path": "tools/check_deviations.py",
-      "sha256": "1d618fde795b43f1d4f446d9d9f4e913daadb6cbb59183e1c620940d435c1b31"
+      "sha256": "e77547bba0f9b2d57a9e13d988b83d4c46ab7401ca24dce1845112bce628c2a1"
     },
     {
       "class": "evidence",

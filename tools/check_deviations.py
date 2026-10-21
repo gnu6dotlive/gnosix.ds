@@ -157,8 +157,28 @@ def probe_the_native_profile_carries_the_states() -> list[str]:
     return problems
 
 
+def probe_the_rule_count_is_stated() -> list[str]:
+    """The README counts the obligations the contract holds, and counts them right.
+
+    The number is prose, and prose drifts: the README said sixteen while
+    the contract carried twenty-three. The count is read from the
+    contract and compared with what the README says.
+    """
+    rules = json.loads((ROOT / "core" / "rules.json").read_text(encoding="utf-8"))
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    wanted = len(rules["rules"])
+    spoken = re.search(r"(\d+)\s+numbered obligations", readme)
+    if not spoken:
+        return ["the README does not say how many obligations the contract holds"]
+    if int(spoken.group(1)) != wanted:
+        return [f"the README says {spoken.group(1)} obligations and the contract "
+                f"holds {wanted}"]
+    return []
+
+
 PROBES = {
     "no_self_reference": probe_no_self_reference,
+    "the_rule_count_is_stated": probe_the_rule_count_is_stated,
     "no_foreign_literal": probe_no_foreign_literal,
     "the_field_spellings_are_accounted": probe_the_field_spellings_are_accounted,
     "the_package_carries_the_elements": probe_the_package_carries_the_elements,
