@@ -147,21 +147,19 @@ left. A push is a decision, not a step.
 - **Cost** one runner run in the consumer's repository, and the owner's
   time to push.
 
-### C-1 · `gnu6-docs-portal` — *the state is met; the guarantee is not*
+### C-1 · `gnu6-docs-portal` — *done*
 - **Measured** 0 colours outside the contract, 0 components of its own,
-  version **4.2.1** declared, the package vendored and locked.
-- **What is left** the workflow that carries the gate, and the push.
-- **Proved by** `contract` green in the runner.
-- **Cost** one run, on the owner's push.
+  version **4.2.1** declared, the package vendored and locked, and the
+  gate green in the runner (`contract 39491049280`).
+- **The guarantee** the workflow clones the system at the declared
+  version, beside the repository, and runs the system's own gate. It is
+  not a copy of the gate: a copy goes stale, and a stale gate lies.
 
-### C-2 · `engineering-corpus` — *the state is met; the guarantee is not*
+### C-2 · `engineering-corpus` — *done*
 - **Measured** 0 colours, 0 components, version **4.2.1** declared, the
-  package vendored and locked, its own qualification green (159 files).
-- **What is left** the workflow, and the push. Its own check
-  (`scripts/check.py`, the corpus's evidence discipline) is the
-  qualification the repository already knows.
-- **Proved by** `contract` green in the runner.
-- **Cost** one run, on the owner's push.
+  package vendored and locked, and the gate green in the runner.
+- **Its own qualification** `scripts/check.py` — the corpus's evidence
+  discipline — is green at 159 files, and it is the repository's own.
 
 ### C-3 · `gnosis.OS` — the first real migration
 - **Measured** **334** colours outside the contract, **32** components of
