@@ -25,7 +25,7 @@
   --gnosix-font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --gnosix-font-navigation: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --gnosix-font-controls: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --gnosix-font-technical: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-technical: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --gnosix-weight-regular: 400;
   --gnosix-weight-medium: 500;
   --gnosix-weight-semibold: 600;

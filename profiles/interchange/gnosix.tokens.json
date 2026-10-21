@@ -436,10 +436,11 @@
       "technical": {
         "$type": "fontFamily",
         "$value": [
-          "Space Grotesk",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif"
+          "IBM Plex Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "monospace"
         ]
       },
       "technical_features": {

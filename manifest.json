@@ -1,7 +1,7 @@
 {
-  "version": "4.4.0",
-  "name": "gnosix_DS V4.4.0 motion contract and alpha compositing variants",
-  "contract_digest": "8d81cfa3d155578207804d6822104255224de6c8b5907a6223aff9e2264607dc",
+  "version": "4.5.0",
+  "name": "gnosix_DS V4.5.0 motion contract and alpha compositing variants",
+  "contract_digest": "ba3ba7ae9a3d6982eccb3254cb5c3087d17abc96bfc4f8690a17e4db281a362a",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "16717e27ca85c1dcf94c20a09ba023463cc4fdcb4d9ed0042cf69e4e32e12a6c"
+      "sha256": "2365eae3a22f151d5b3d39af8572b9e1fce0c77e92be4f4c5e3ae0c0b8855dc9"
     },
     {
       "class": "evidence",
@@ -42,17 +42,52 @@
     {
       "class": "evidence",
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "fbbf50ab434a3812409862a665f819e9577fb54964439a4c1bf088d9524961d7"
+      "sha256": "2dbc1adf376bd523e82a6471949a4bd814448b5619fc30162d773dfc295fb68c"
     },
     {
       "class": "evidence",
       "path": "VERSION",
-      "sha256": "d4e4d4e812e1dafc4e760f5ee12c48ef76f8af41d27cbf3bf2ff065505b9cfe6"
+      "sha256": "195790f73af85f22cd306965e5fa5f5a73399c51b74065aa3ee1d4d571d6eef4"
     },
     {
       "class": "evidence",
       "path": "assets/LICENSES.md",
-      "sha256": "6cb93ac08b92f781cd5ad0fc1b740113d1f51f469ec0be135dc64f4046794ae6"
+      "sha256": "aa5d48cbe2de52d9f3a3c8723e4769b2d6d09338c930d7ce49a72e9a88632b26"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/IBMPlexMono-400.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/IBMPlexMono-500.woff2",
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/IBMPlexMono-600.woff2",
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/IBMPlexMono-OFL.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/IBMPlexMono-native-400.ttf",
+      "sha256": "5c6be3be05cc075aa0c353d818a8eb22a1f06b7f3d25a537b22c4c7751d7ae0e"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/IBMPlexMono-native-500.ttf",
+      "sha256": "2c8c2e6c958ca6a3ad2c4f4eea1a9eafde9d6ef6bc6219103878a86fdbd45586"
+    },
+    {
+      "class": "core",
+      "path": "assets/fonts/IBMPlexMono-native-600.ttf",
+      "sha256": "aa6a6a54da1c0d5104b31b45550fd27eb493e4a0d44c85195555bae332eff2e0"
     },
     {
       "class": "core",
@@ -472,7 +507,7 @@
     {
       "class": "core",
       "path": "core/TOKENS.json",
-      "sha256": "69ac3e0d4d3e4bccff749050fbfa41bdf9b93aae41bfe5f80646054f9aef931b"
+      "sha256": "c91244858b5b6cc5fcb4893fdac39be2a61febac90c54d90a65cec82944e133c"
     },
     {
       "class": "core",
@@ -482,7 +517,7 @@
     {
       "class": "core",
       "path": "core/rules.json",
-      "sha256": "30ed093344dbcdab7f5db8e645a774e22462b6bdfd2ffa5069722b6d991fd6d7"
+      "sha256": "a62b418c1576000ad0aa63b01f1f10a7beb3b0f86e56265a4b72119929934ed2"
     },
     {
       "class": "core",
@@ -497,12 +532,12 @@
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6-design.lock.json",
-      "sha256": "92e278b69154efd6189ff41c6f25b0052a9b57e371d9a2ea76df69a160fdb2d9"
+      "sha256": "1f4e9e8e95cb6750c53f7410374b4966b7d66582f9c5d990ef42af655b8de5b9"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6.css",
-      "sha256": "5a67f5abd8679d9d4aa8fafab0d1180a86c0a73ccd9c7eab249be9f43bc40ad6"
+      "sha256": "6b533434a9eac54af51bc1146be036ac414fcf3f19495850cd73a3bb009b4caf"
     },
     {
       "class": "evidence",
@@ -527,7 +562,7 @@
     {
       "class": "profile",
       "path": "profiles/android/README.md",
-      "sha256": "b7afd7abc1eed253d5005027879cbf99ba2e1b4c3d125232e9ff44e87a2adfd2"
+      "sha256": "aba66a8881ba38dda697fcd6b926dd6208f26747885f4ed1a8afc4a87c376005"
     },
     {
       "class": "profile",
@@ -568,6 +603,11 @@
       "class": "profile",
       "path": "profiles/android/sample/app/src/main/java/labs/gnuin/gnosixds/StateProjection.kt",
       "sha256": "dda5ad0c91391c0e63d95d4f61be3729a12ef69c5f14be3686b40358c86d4735"
+    },
+    {
+      "class": "profile",
+      "path": "profiles/android/sample/app/src/main/res/font/ibm_plex_mono.ttf",
+      "sha256": "5c6be3be05cc075aa0c353d818a8eb22a1f06b7f3d25a537b22c4c7751d7ae0e"
     },
     {
       "class": "profile",
@@ -622,12 +662,12 @@
     {
       "class": "profile",
       "path": "profiles/interchange/gnosix.style-dictionary.json",
-      "sha256": "a103e37eee05e793832294e74a3ff33a907de2e40be6b00b7aa76e213ce5128e"
+      "sha256": "eb952247b76bd9dced39496bc71ff8aa92ae41b8b5cc231c94fe40a7465f306b"
     },
     {
       "class": "profile",
       "path": "profiles/interchange/gnosix.tokens.json",
-      "sha256": "ef2db8bb22e3968c2490ba612f54d6ebc4e072591e08858bb376b551ecea965c"
+      "sha256": "963fb8963391f7fac5bed3ad6636f85792e7c9fbe49d94e782dc7109aca99f61"
     },
     {
       "class": "profile",
@@ -642,7 +682,7 @@
     {
       "class": "profile",
       "path": "profiles/motion/motion.json",
-      "sha256": "5cdebc421268256f20070ca3c9780080daf9c64359078957576296bcac1e0603"
+      "sha256": "bfc48a03c2d4a9a08413b533a9aabe90d5976804397517feda273df2e49d31bc"
     },
     {
       "class": "profile",
@@ -662,7 +702,7 @@
     {
       "class": "profile",
       "path": "profiles/native/README.md",
-      "sha256": "c8ee250c107a2282f877817b3b41cb42782d63b24e971946e2aa323cf13e24dc"
+      "sha256": "0303781be94002adc0098130c72982944c622f17b89e99cfa83034bda3799502"
     },
     {
       "class": "profile",
@@ -702,7 +742,7 @@
     {
       "class": "profile",
       "path": "profiles/projection-map.json",
-      "sha256": "d72f2c6940302df12b1ae76e049b679e2544c0b87f3f1d328be4049ed940e05c"
+      "sha256": "1252976077c35b8aae41ae5b7e9c6e5ed65f569d8e336381acb3b5d2e86e92e6"
     },
     {
       "class": "profile",
@@ -717,7 +757,7 @@
     {
       "class": "profile",
       "path": "profiles/web/components.css",
-      "sha256": "1673edc76cfe909ab73856afd1e2a7a5948b58980a28fea1527adc8d0f95cf8a"
+      "sha256": "a8821d270b5c003624a00e891a3e95a86fe76137f63f1a0ccef16064c81acbd3"
     },
     {
       "class": "profile",
@@ -752,7 +792,7 @@
     {
       "class": "profile",
       "path": "profiles/web/tokens.css",
-      "sha256": "2f05da1c222ba5231f8d0f5073b29fb67569e9a8dab4ea3fc0118ff1ab5b8999"
+      "sha256": "f51609c25aa68d2f62927f621c52c648fd3a50984f7b44bef621f6431407eb9c"
     },
     {
       "class": "evidence",
@@ -792,62 +832,62 @@
     {
       "class": "reference",
       "path": "references/actions.json",
-      "sha256": "ab904ab89e143a9f81018e976b9e847107d4c2ba6cf6465b5c4b215780849509"
+      "sha256": "84cbb446f7e13ef013e5686615b77218ec86a06b12a715f55afbdbc64c62b8dc"
     },
     {
       "class": "reference",
       "path": "references/actions.svg",
-      "sha256": "68be0b0e8e7f3a5bd31a151a9a818006403f43f3500e25dff9d61ca4f35396a1"
+      "sha256": "26c27d5d48ba7c49d5810255ccdc60a19fd7e8bdfdcc1942390dbe08528fd5f4"
     },
     {
       "class": "reference",
       "path": "references/adaptive.json",
-      "sha256": "8baea2b3e9319741019056e331a07abaf1b0dcb27fe365f20410b10297fc38e1"
+      "sha256": "2fcbbea9f2e2264725691f5fb53cfdd17f45e25d29a5d1f81af82019407bdb30"
     },
     {
       "class": "reference",
       "path": "references/adaptive.svg",
-      "sha256": "6b433d2bdf6982a8c88422d7f1e1d8c647b1bdb18e7d5ed08495a4ea7ccb8959"
+      "sha256": "7c255c0700db29317a2c0ca908795eea3f7ad4af4946ee19161d2e9ca09fdde7"
     },
     {
       "class": "reference",
       "path": "references/fields.json",
-      "sha256": "a58fe86fbdc521f2904ecc6a06165c23a965f6a1e6a43f19cb71956e18eaaafc"
+      "sha256": "c34b95464c138121c41041cd167df4e4d77a675e3d5cfe36d4cc4fa93fc68433"
     },
     {
       "class": "reference",
       "path": "references/fields.svg",
-      "sha256": "2d795226baadfc9dc15285894f7052eef499e85cfff9ad3d259cd9d1fdc05411"
+      "sha256": "f1e725236a09d94b4825623dad3ba7372386e8bf7d86f39bde0388d742448869"
     },
     {
       "class": "reference",
       "path": "references/identity.json",
-      "sha256": "50714d85316a8d8eda183b0f6156ad8b621f66f9a38db4a605b3c27fad15cd3f"
+      "sha256": "e7f8cf1b5e2affa2b4f8ea04410c78024e5cdc3784f76789c51c070619d62f37"
     },
     {
       "class": "reference",
       "path": "references/identity.svg",
-      "sha256": "e0b547411b9552ec47294689ad5bfa999204151c315bf615e6dff39234032111"
+      "sha256": "acce0665e11fa93f4748cbd507280ba96e5b3f7478f20628454372530e89426f"
     },
     {
       "class": "reference",
       "path": "references/state.json",
-      "sha256": "2a695056b2b5947ef4129e75a5ecf89469dd65a4c1063b001543831e1285e228"
+      "sha256": "e81c33e6472148ec739fec7b2dc89f9712477302eac43cd8e27ef605978984e4"
     },
     {
       "class": "reference",
       "path": "references/state.svg",
-      "sha256": "1023eafc96fd3d547ddd31a65eb8768abc71127afb9269d7dab8b7a559eef621"
+      "sha256": "a6f2b0a6a7696e1d51466e4be0c7f2eb495da9b8dfd1b11b5ac4c9acae0ff471"
     },
     {
       "class": "reference",
       "path": "references/surfaces.json",
-      "sha256": "7d460695d22feb9309a2dafa8ef90454c4d35ba3212a46e5aad0fbdf48183cb3"
+      "sha256": "011b583ec4de6ec28da3950440e965c85c7237214897579dbd13e9b96f77296d"
     },
     {
       "class": "reference",
       "path": "references/surfaces.svg",
-      "sha256": "6815146811a7879b4a4ce7ad89ff4fb9e62bf5083e3f3106059a5513ff585ec5"
+      "sha256": "99f4539bc261efda0383a4e50c86bf99cf3fa20c3cc7027efb687c20bf1b2925"
     },
     {
       "class": "evidence",
@@ -912,7 +952,7 @@
     {
       "class": "evidence",
       "path": "site/index.html",
-      "sha256": "6d1a5d8f02fc8cb74c9b46b1230026bdd738c49e3eb68c8c7fc2716b157f3261"
+      "sha256": "ad54966b2b2c466de82cd6dd75bb6ccff5b6adfc99f81c925cbd877908941ca7"
     },
     {
       "class": "evidence",
@@ -922,7 +962,7 @@
     {
       "class": "evidence",
       "path": "site/site.webmanifest",
-      "sha256": "3b194b0efcbec328b7daf7c3f590d77c3936f9fef01b191213be5050afde3d58"
+      "sha256": "4eb034944533a5ec5d1d7711d007cf6f6c7f12b51779166c6a3d4c8fa5f89aba"
     },
     {
       "class": "evidence",
@@ -952,7 +992,7 @@
     {
       "class": "evidence",
       "path": "tests/test_core.py",
-      "sha256": "0d24c410bbf9e61415724bb000567f8fbbe4a9c222ce61a0cd4b9dc76990393c"
+      "sha256": "9a6211d29f1e0a782f93e3607dc4a27cec5bc3236d72b7b02af94ff6ef61f9cd"
     },
     {
       "class": "evidence",
@@ -977,7 +1017,7 @@
     {
       "class": "evidence",
       "path": "tests/test_web.py",
-      "sha256": "e1c12315077035b69c3cba1b051ecdfeefd4aeb7c3520f0e32a8be7414132c5d"
+      "sha256": "482e9d58ebd9df9ec600c1ff794eac1bdb14d56e0eaa0781b3a7cc50e4430132"
     },
     {
       "class": "evidence",
@@ -1112,7 +1152,7 @@
     {
       "class": "evidence",
       "path": "tools/project_components.py",
-      "sha256": "140dbe1408fa68faaee7c514fd9cfe1574b776056680cf39fbb3d521f7d912f8"
+      "sha256": "8a4a5c0a7a28313f7952d3c2bcb02ac522117352248c4882566ae036786bc1da"
     },
     {
       "class": "evidence",

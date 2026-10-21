@@ -1,6 +1,6 @@
 {
   "id": "surfaces",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "artwork": "references/surfaces.svg",
   "roles": [
     "content",
@@ -29,7 +29,7 @@
     "canvas": "1200×720 authored fixture only; sizes and timings are not global tokens"
   },
   "source_hashes": {
-    "core/TOKENS.json": "69ac3e0d4d3e4bccff749050fbfa41bdf9b93aae41bfe5f80646054f9aef931b",
+    "core/TOKENS.json": "c91244858b5b6cc5fcb4893fdac39be2a61febac90c54d90a65cec82944e133c",
     "references/visual-evidence/material-families.png": "217e8b6f6434f69c503a04a9df009bd10af2482b007079e9da2a0a1f123a1129",
     "references/visual-evidence/depth-cues.png": "ba09e2f6788809d451c26bbc8d20f2f3776336e63f9926930a75867f6986f919"
   },

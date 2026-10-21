@@ -11,7 +11,7 @@ from tools.project_tokens import (check_projection, layer_names, radius_names,
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_SHA = "69ac3e0d4d3e4bccff749050fbfa41bdf9b93aae41bfe5f80646054f9aef931b"
+SOURCE_SHA = "c91244858b5b6cc5fcb4893fdac39be2a61febac90c54d90a65cec82944e133c"
 
 
 class CoreTests(unittest.TestCase):

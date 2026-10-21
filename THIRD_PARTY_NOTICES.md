@@ -8,6 +8,7 @@ files themselves are the authority.
 | Asset | Version | Licence | Verbatim text |
 |---|---|---|---|
 | Space Grotesk (variable WOFF2, native TTF) | — | SIL Open Font License 1.1 | `assets/fonts/SpaceGrotesk-OFL.txt` |
+| IBM Plex Mono (WOFF2, native TTF) | — | SIL Open Font License 1.1 | `assets/fonts/IBMPlexMono-OFL.txt` |
 | Tabler Icons (outline subset, 41 icons) | 3.49.0 | MIT, © 2018-2026 Paweł Kuna | `assets/icons/licenses/Tabler-Icons-LICENSE.txt` |
 | Tabler Flags (subset, 8 flags) | 0.1.1 | MIT, © 2018-2026 Paweł Kuna | `assets/icons/licenses/Tabler-Flags-LICENSE.txt` |
 

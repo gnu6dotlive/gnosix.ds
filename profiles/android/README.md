@@ -1,6 +1,6 @@
 # Android / Compose mapping
 
-This profile maps the portable gnosix contract to Compose semantics. Colors come only from generated `GnosixColors.kt`. V3.4.1 packages `SpaceGrotesk-native.ttf` as `res/font/space_grotesk.ttf`; `GnosixType.primary` and `GnosixType.technical` both resolve to that family so visible reference/interface text does not switch typefaces.
+This profile maps the portable gnosix contract to Compose semantics. Colors come only from generated `GnosixColors.kt`. V3.4.1 packages `SpaceGrotesk-native.ttf` as `res/font/space_grotesk.ttf`; `GnosixType.primary` resolves to that family; `GnosixType.technical` resolves to **IBM Plex Mono**, packaged as `res/font/ibm_plex_mono.ttf`, because TYP-002 opens the technical text to the technical family.
 
 The sample pins AGP 9.1.1, Compose compiler plugin 2.2.10 and BOM 2026.09.00. Compatibility and build output remain **unverified in this environment**: the presence of a native font asset closes the previous font-asset gap, but it does not prove Android rendering. Install a compatible Android SDK and Gradle, then run `gradle :app:assembleDebug :app:testDebugUnitTest` in `sample/` and capture a real render before promoting the profile to `rendered`.
 

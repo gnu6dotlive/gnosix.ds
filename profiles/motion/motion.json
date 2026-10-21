@@ -1,6 +1,6 @@
 {
   "schema": "gnosix_DS.motion.v1",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "status": "specified",
   "principle": "Motion explains causality, is interruptible, and preserves meaning under reduced motion. The meaning layer under `portable` is authoritative and travels to every target. Every number under `targets` is target-local expression: it is deliberately NOT promoted to core/TOKENS.json, for the same reason fixture viewports are not breakpoints.",
   "portable": {

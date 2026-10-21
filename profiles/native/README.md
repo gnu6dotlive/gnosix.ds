@@ -4,7 +4,7 @@ This profile maps the gnosix portable contract to gnos.ux surfaces implemented w
 
 ## Typography
 
-Use the packaged `assets/fonts/SpaceGrotesk-native.ttf` as the application font asset and select **Space Grotesk** for visible UI, reference labels, metadata and technical strings. Current upstream GPUI supports application-supplied raw TTF/OTF fonts through its text system / font-loading path; V3.4.1 therefore maps the shipped TTF directly instead of relying on a host-installed family. Keep the exact API behind a small gnos.ux font adapter because GPUI remains pre-1.0 and changes frequently.
+Use the packaged `assets/fonts/SpaceGrotesk-native.ttf` as the application font asset and select **Space Grotesk** for visible UI, reference labels and metadata. The **technical** family is **IBM Plex Mono**, packaged beside it as `assets/fonts/IBMPlexMono-native-*.ttf`: technical and evidence text — paths, identifiers, measurements — is expressed in the technical family, and TYP-002 says so. Current upstream GPUI supports application-supplied raw TTF/OTF fonts through its text system / font-loading path; V3.4.1 therefore maps the shipped TTF directly instead of relying on a host-installed family. Keep the exact API behind a small gnos.ux font adapter because GPUI remains pre-1.0 and changes frequently.
 
 Typography gate: load the TTF before the first reference surface, verify `éàçîœ>_$#`, verify weights 300–700, and capture the computed/selected family in runtime evidence. No second interface family is part of the V3.4.1 visual contract; baked identity artwork is not interface typography.
 

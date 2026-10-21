@@ -1,6 +1,6 @@
 {
   "id": "state",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "artwork": "references/state.svg",
   "roles": [
     "prompt",
@@ -42,7 +42,7 @@
     "canvas": "1200×720 authored fixture only; sizes and timings are not global tokens"
   },
   "source_hashes": {
-    "core/TOKENS.json": "69ac3e0d4d3e4bccff749050fbfa41bdf9b93aae41bfe5f80646054f9aef931b"
+    "core/TOKENS.json": "c91244858b5b6cc5fcb4893fdac39be2a61febac90c54d90a65cec82944e133c"
   },
   "annotations": [
     "Use only core/TOKENS.json for exact color values.",

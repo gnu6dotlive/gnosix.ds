@@ -63,6 +63,30 @@ BASE = '''@import url("./tokens.css");
   font-display: swap;
 }
 
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../../assets/fonts/IBMPlexMono-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../../assets/fonts/IBMPlexMono-500.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../../assets/fonts/IBMPlexMono-600.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
 :root {
   font-family: var(--gnosix-font-primary);
   color: var(--gnosix-ink);

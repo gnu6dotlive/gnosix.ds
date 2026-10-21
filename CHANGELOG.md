@@ -8,7 +8,7 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
-## [4.4.0] — 2026-10-20
+## [4.5.0] — 2026-10-20
 
 The system learns to be audited against a palette that is not its own.
 
@@ -42,7 +42,55 @@ The light substrate is a known gap and not a decision: the field's shell
 forces the dark one, so the light half of a dynamic scheme is written
 and never read.
 
+The system embeds the technical family, and the gate measures the
+surface a consumer ships.
+
+**A second typeface, on purpose.** The contract said technical and
+evidence text is expressed in Space Grotesk "instead of switching to a
+second typeface". The field does the opposite: its identity layer pairs
+Space Grotesk with IBM Plex Mono, and the live documentation repository
+uses it. The system now carries IBM Plex Mono beside Space Grotesk — both
+SIL OFL, both vendored with their licence, as the icon subsets already
+are — and TYP-002 opens to the technical family. The rule was written
+for a world that had one typeface; the world has two, and the contract
+now says which is which.
+
+**And the gate measures the surface the consumer ships.** A repository
+may hold code it never ships: a stylesheet nothing links, a feature no
+route reaches, a laboratory the product abandoned. That code is not the
+consumer's interface, and a gate that reads it measures a debt the
+consumer does not owe — and one it cannot pay without an answer nobody
+asked for. So the consumer says what it serves, and the gate follows the
+imports from the entries. A repository that says nothing is measured
+whole, as it always was.
+
+**And the gate stopped reading build outputs.** A bundle compiled into
+public/, an unpacked AppImage: they carry the palette of the tool that
+made them. Git already knows which is which, so the gate takes the
+tracked files and the untracked ones git does not ignore. In one
+repository that was 373 of the 513 colours it reported.
+
 ## [4.4.0] — 2026-10-20
+
+The native profile carries the states.
+
+Its doctrine has always said that roles and state cross the boundary and
+the HTML/CSS structure does not. The roles crossed; the states did not,
+and the contract's own elements declare ten of them. So a native surface
+had a role to read and no state to read it in, and it guessed.
+
+The profile now names every state the contract declares — `default`,
+`hover`, `focus-visible`, `active`, `disabled`, `busy`, `open`,
+`interactive`, `invalid`, `on` — and for each one it says what the state
+means, the role it wears when it wears one, the treatment a native
+surface gives it, and the evidence the target must produce. They are
+projected into the native crate the way the roles are.
+
+The list is checked against the contract, both ways: a state the
+contract declares and the profile does not name is a gap, and a state
+the profile names and the contract does not declare is an invention. The
+deviation that said the native profile carried no vocabulary is closed,
+and a probe keeps it closed.
 
 The native profile carries the states, and the consumer gate reads the
 native surfaces.
@@ -80,28 +128,6 @@ And the native surface of `gnosis.OS` carries a second interface
 library's palette — the blue, the green, the red and the amber of
 Element — which the contract does not have and which nothing was
 measuring.
-
-## [4.4.0] — 2026-10-20
-
-The native profile carries the states.
-
-Its doctrine has always said that roles and state cross the boundary and
-the HTML/CSS structure does not. The roles crossed; the states did not,
-and the contract's own elements declare ten of them. So a native surface
-had a role to read and no state to read it in, and it guessed.
-
-The profile now names every state the contract declares — `default`,
-`hover`, `focus-visible`, `active`, `disabled`, `busy`, `open`,
-`interactive`, `invalid`, `on` — and for each one it says what the state
-means, the role it wears when it wears one, the treatment a native
-surface gives it, and the evidence the target must produce. They are
-projected into the native crate the way the roles are.
-
-The list is checked against the contract, both ways: a state the
-contract declares and the profile does not name is a gap, and a state
-the profile names and the contract does not declare is an invention. The
-deviation that said the native profile carried no vocabulary is closed,
-and a probe keeps it closed.
 
 ## [4.3.1] — 2026-10-20
 
@@ -560,7 +586,6 @@ is a real gap - the contract's components are used in one place out of two -
 and it is the next thing to settle, not something to paper over here.
 
 ## [Unreleased]
-
 Nothing yet. The next release is cut with
 `python -m tools.release bump --patch|minor|major`, which moves `VERSION`,
 syncs every slot and rebuilds the manifest in one step.
@@ -612,7 +637,7 @@ intrinsic size. The favicon was a 128px fully opaque dark square.
 Full detail, including two test bugs found while writing the new gates, is
 in [`qa/QA.md`](qa/QA.md).
 
-## [3.4.1] — 2026-10
+## [3.4.1] — 2026-10-20
 
 Repaired the asset containers and the validation that missed them. The
 ratified opaque masters are unchanged. The alpha masters, the mascots, the
@@ -621,7 +646,7 @@ artefacts are all as described under 3.4.2 above, which carried these repairs
 forward. The motion contract and the alpha compositing variants were
 introduced in 3.4.0 and are unchanged by both.
 
-## [3.4.0] — 2026-10
+## [3.4.0] — 2026-10-20
 
 Introduced the motion contract and the alpha compositing variants. The motion
 profile supplies the motion *meaning* — six laws, four prohibitions, seven
@@ -632,6 +657,5 @@ motion roles each with a declared reduced-motion projection, and seven seams
 `*-cube-alpha.png` plus an exact-fidelity SVG wrapper.
 
 ## Older releases
-
 Releases before 3.4.0 were distributed as tarballs and are not reconstructed
 here. The packaged history begins at 3.4.0.

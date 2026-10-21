@@ -1,5 +1,5 @@
 /* gnu6-design — re-cut by tools/package_gnu6_design.py from
-   gnosix.ds 4.4.0. Do not edit. */
+   gnosix.ds 4.5.0. Do not edit. */
 :root {
   --gnosix-neutral-anthracite: #111418;
   --gnosix-neutral-shell-white: #F7F3ED;
@@ -2377,7 +2377,7 @@ a.g6-menu__item:focus-visible {
   --gnosix-font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --gnosix-font-navigation: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --gnosix-font-controls: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --gnosix-font-technical: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --gnosix-font-technical: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --gnosix-space-2xs: 4px;
   --gnosix-space-xs: 8px;
   --gnosix-space-sm: 12px;

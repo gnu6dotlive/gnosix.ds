@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0",
+  "version": "4.5.0",
   "rules": [
     {
       "id": "ID-001",
@@ -60,11 +60,11 @@
       "id": "TYP-002",
       "level": "MUST",
       "domain": "typography",
-      "statement": "Express technical or evidence text with Space Grotesk using weight, tracking and tabular numerals instead of switching to a second typeface.",
+      "statement": "Express technical or evidence text with the technical family — IBM Plex Mono — and, where the field says so, with Space Grotesk using weight, tracking and tabular numerals.",
       "applies_to": [
         "all"
       ],
-      "observable": "Paths, IDs, measurements and evidence labels remain in Space Grotesk; numeric metadata may use tabular figures.",
+      "observable": "Paths, IDs, measurements and evidence labels resolve to the technical family; numeric metadata may use tabular figures.",
       "test": "Search profile/reference styles for undeclared font-family overrides and inspect technical specimens."
     },
     {

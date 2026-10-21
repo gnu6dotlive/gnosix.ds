@@ -88,7 +88,9 @@ class WebTests(unittest.TestCase):
         self.assertIn('font-family: "Space Grotesk"', site)
         self.assertIn('--gnosix-font-primary: "Space Grotesk"', tokens)
         self.assertNotIn('ui-monospace', site)
-        self.assertNotIn('IBM Plex Mono', site + components)
+        # The technical family is the system's own now: TYP-002 opens to
+        # it, and the sheet declares it.
+        self.assertIn('IBM Plex Mono', site + components)
 
     def test_ratified_identity_assets_are_used_by_site(self):
         html = (ROOT / "site/index.html").read_text()

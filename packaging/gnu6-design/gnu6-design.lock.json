@@ -1,9 +1,9 @@
 {
   "package": "gnu6-design",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "source": "gnosix.ds — packaging/gnu6-design, re-cut from the contract",
   "files": {
-    "gnu6.css": "5a67f5abd8679d9d4aa8fafab0d1180a86c0a73ccd9c7eab249be9f43bc40ad6"
+    "gnu6.css": "6b533434a9eac54af51bc1146be036ac414fcf3f19495850cd73a3bb009b4caf"
   },
   "note": "The package a consumer vendors. The sheet is the field's component vocabulary with the system's own namespace; the names are the ones the system publishes, and the values are the contract's."
 }
