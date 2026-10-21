@@ -32,7 +32,12 @@
     {
       "class": "evidence",
       "path": "README.md",
-      "sha256": "4f5b1d979f4183c27501535f8b1c38f613fb35f86969c94c5c2042509d0f8130"
+      "sha256": "b0447c52ef0aa1cc42410346e9872070da97367d2c2c345f4872061d238bf5e1"
+    },
+    {
+      "class": "evidence",
+      "path": "ROADMAP.md",
+      "sha256": "51e4f77e2dbd67da050c7952562dd04d603dee8fd4d1a09a8f616f456ac29993"
     },
     {
       "class": "evidence",
@@ -587,7 +592,7 @@
     {
       "class": "profile",
       "path": "profiles/frontend-audit/ABSORPTION.md",
-      "sha256": "b0a3fccf9d202e61d51b9aea1bb7fa2d2d7811c376cd875ad8574644514f2e81"
+      "sha256": "c7c231fc746dd4f4f1e6ad29d87f3e9ca6c29dc99d6aa3bf3490c2d7836117a3"
     },
     {
       "class": "profile",
@@ -1142,7 +1147,7 @@
     {
       "class": "evidence",
       "path": "tools/release.py",
-      "sha256": "b12baa087c5eaea0b4adb5b05753821a0e0cb6f95bd18b27012edfc1cb9f46c7"
+      "sha256": "6a954ad8dd4ebac483d0bb12d5e27884098e11427482a50e72e604271f3a26cd"
     },
     {
       "class": "evidence",

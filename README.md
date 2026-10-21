@@ -242,6 +242,14 @@ two places is one artefact, not two agreements.
 
 ---
 
+## What is left
+
+The task inventory is [`ROADMAP.md`](ROADMAP.md): every task with its
+objective, where it lands, what proves it is finished, what it needs
+first and what it costs. A task without a proof is a wish.
+
+---
+
 ## Working on it
 
 The package is qualified by one command, and it is the same command locally

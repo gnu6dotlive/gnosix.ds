@@ -92,6 +92,7 @@ PACKAGED_FILES = [
     "CONTRIBUTING.md",
     "LICENSE",
     "README.md",
+    "ROADMAP.md",
     "THIRD_PARTY_NOTICES.md",
     "VERSION",
     "manifest.json",

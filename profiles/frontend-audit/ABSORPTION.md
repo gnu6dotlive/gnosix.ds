@@ -286,7 +286,7 @@ consent; the *decisions* can be taken now.
 ### 4. gnu.in.work
 
 *Must change:* `--gnu-beret` and `--gnu-orange` onto the system's names;
-and the largest single job in the audit — 1262 colours outside the
+and the largest single job in the audit — 1966 colours outside the
 contract, most of them Radix scale values across a 3039-line
 `colors.css`.
 
@@ -417,6 +417,17 @@ lock that is not checked is a promise, not a control.
 ---
 
 ## What the system must add before any of this can start
+
+> **This list is answered.** The naming rule is NAM-001 in the contract and
+> the gate that checks it; the component layer is the contract's own, with
+> the field's thirty-nine names specified against the sheet and the
+> `info` accent carrying `#3D8DCC`; the consume recipe is the consumer
+> gate, which reads a repository and says what it carries. What remains is
+> the inventory in [`ROADMAP.md`](../../ROADMAP.md), with the numbers
+> below measured before the gate learned to read the native surfaces and
+> therefore to be re-measured.
+
+
 
 1. **The naming rule, in the contract.** The rule that a published name is
    the layer id, kebab-cased, currently lives in `tools/project_tokens.py`
