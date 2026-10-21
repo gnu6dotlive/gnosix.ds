@@ -8,6 +8,31 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [4.6.0] — 2026-10-20
+
+The envelope's invariants, which the contract had not carried.
+
+**Compose first, paint once.** A surface is composed into one canonical
+boundary before it is filled or stroked, and it is painted by one path
+and one owner: no independently stroked shell region, no duplicate shell
+stroke, no profile-private deformation survives a settled surface. The
+curvature is one authority for the whole composition — a region carries
+no radius of its own, and a window's rounding is the shell's rounding.
+A settled surface is a canonical state rebuilt from the composition, not
+the residue of an animation: a transition has no independently
+renderable primitive, and a rebuild at rest equals a fresh build.
+Occupancy is stated, never inferred from dimensions, and each output
+resolves its own policy. A configuration epoch isolates what a profile
+may not bleed into another.
+
+These were worked out in the field — in the envelope's composition lab,
+where twenty-one contracts hold a surface to them — and the contract
+held only the principle that made them possible, not the invariants
+themselves. The contract now carries both: SUR-001 says the material and
+the depth may vary without changing a role, and SUR-002 to SUR-006 say
+how a surface is composed, painted, curved, settled, occupied and
+isolated.
+
 ## [4.5.0] — 2026-10-20
 
 The system learns to be audited against a palette that is not its own.

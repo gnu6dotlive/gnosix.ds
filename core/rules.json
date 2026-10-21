@@ -1,5 +1,5 @@
 {
-  "version": "4.5.0",
+  "version": "4.6.0",
   "rules": [
     {
       "id": "ID-001",
@@ -198,6 +198,61 @@
       ],
       "observable": "Run python3 tools/audit_scheme.py against the scheme: every pairing the system states must still read, on both substrates.",
       "test": "The contract's own two schemes pass the audit, and a consumer's scheme passes it before the scheme is applied."
+    },
+    {
+      "id": "SUR-002",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "Compose first, paint once. A surface is composed into one canonical boundary before it is filled or stroked: semantic regions compose into a single material boundary, and the surface is painted by one path and one owner.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "No independently stroked shell region, no duplicate shell stroke and no profile-private deformation survives a settled surface.",
+      "test": "Compose the regions of a surface and compare the resulting boundary with the one that is painted: they are the same."
+    },
+    {
+      "id": "SUR-003",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "The curvature of a shell is one authority for the whole composition. A region does not carry a radius of its own, and a window's rounding is the shell's rounding.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "A window's corner radius equals the shell's radius, and the exposed lower turns consume the same global curvature.",
+      "test": "Read the radius of the shell and of every window on the output; they are one number."
+    },
+    {
+      "id": "SUR-004",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "A settled surface is a canonical state rebuilt from the composition, not the residue of an animation. A transition has no independently renderable primitive, and a rebuild at rest equals a fresh build.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "The settled pose is byte-for-byte the pose a fresh build produces, and the transition contributes no layer of its own.",
+      "test": "Settle a surface, rebuild it from the canonical state, and compare the two renders."
+    },
+    {
+      "id": "SUR-005",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "A surface's occupancy is stated, never inferred from its dimensions, and each output resolves its own policy. A compositor's fullscreen is an explicit occupancy class.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "The occupancy class is present in the state that the compositor receives; no policy is chosen from a width or a height.",
+      "test": "Compare the occupancy and the policy of two outputs of the same session; they are resolved independently."
+    },
+    {
+      "id": "SUR-006",
+      "level": "MUST",
+      "domain": "surfaces",
+      "statement": "A configuration epoch isolates what a profile may not bleed into another. Private motion state does not cross an epoch.",
+      "applies_to": [
+        "surface"
+      ],
+      "observable": "Applying a configuration to one output does not change the state of another, and a profile's private state does not survive its epoch.",
+      "test": "Apply a configuration on one output and read the other; it is unchanged."
     }
   ]
 }
