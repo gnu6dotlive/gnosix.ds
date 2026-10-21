@@ -95,7 +95,7 @@ def canonical(name: str) -> str:
 def collect(root: Path, exclude: list[str] | None = None) -> set[str]:
     """The component names a frontend declares."""
     excluded = set(exclude or [])
-    found: set[str] = set()
+    found: set[tuple[str, bool]] = set()
 
     for path in sorted(root.rglob("*")):
         if not path.is_file() or path.suffix.lower() not in SOURCE_SUFFIXES:
@@ -123,18 +123,18 @@ def collect(root: Path, exclude: list[str] | None = None) -> set[str]:
             if not (in_component_dir or named_after_itself):
                 continue
             for match in REACT_EXPORT.finditer(text):
-                found.add(match.group(1))
+                found.add((match.group(1), False))
             for match in REACT_DECL.finditer(text):
-                found.add(match.group(1))
+                found.add((match.group(1), False))
         elif path.suffix.lower() == ".rs":
             if not in_component_dir:
                 continue
             for match in RUST_TYPE.finditer(text):
-                found.add(match.group(1))
+                found.add((match.group(1), False))
         elif path.suffix.lower() == ".astro":
             match = Astro_FILE.match(str(relative))
             if match:
-                found.add(match.group(1))
+                found.add((match.group(1), False))
 
         # A stylesheet's class names are components only when they carry a
         # dash: a single word is a utility or an element, and the field's
@@ -144,14 +144,24 @@ def collect(root: Path, exclude: list[str] | None = None) -> set[str]:
             if not (is_module or in_component_dir):
                 continue
             for match in CSS_CLASS.finditer(text):
-                found.add(match.group(1))
+                found.add((match.group(1), True))
 
+    # The excluded names are the web platform's vocabulary — `button`,
+    # `switch`, `import` — and they are excluded because a *stylesheet class*
+    # of that name is a utility or an element, not a component. A type that
+    # declares itself is different: a Rust `struct Button` is a component
+    # whatever the web calls a button, and excluding it hid two real
+    # components in one repository.
     out = set()
-    for name in found:
-        if name in NOT_COMPONENTS or len(name) < 3:
+    for name, is_class in found:
+        if len(name) < 3:
+            continue
+        if is_class and name in NOT_COMPONENTS:
             continue
         key = canonical(name)
-        if not key or key in NOT_COMPONENTS:
+        if not key:
+            continue
+        if is_class and key in NOT_COMPONENTS:
             continue
         if STATE_MODIFIER.search(key):
             continue

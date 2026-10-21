@@ -87,7 +87,7 @@
     },
     {
       "id": "DEV-008",
-      "what": "gnosis.OS carries colours the contract does not have, and its licence is not yet a fact: the root says AGPL-3.0 and forty-seven crate manifests say GPL-3.0-or-later.",
+      "what": "gnosis.OS carries 299 colours the contract does not have, and thirty-four components of its own. Its licence is not yet a fact: the root says AGPL-3.0 and forty-seven crate manifests say GPL-3.0-or-later.",
       "severity": "major",
       "state": "open",
       "owner": "gnosis.OS",

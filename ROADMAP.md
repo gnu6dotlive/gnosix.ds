@@ -200,7 +200,7 @@ left. A push is a decision, not a step.
   fact about the repository.
 
 ### C-4 · `gnu6-live` — the rehearsal transfers
-- **Measured** **373** colours, **97** components of its own, no version
+- **Measured** **373** colours, **98** components of its own, no version
   declared.
 - **What** it is the twin of `gnu6.live`, whose absorption was
   rehearsed and never pushed, so the patch exists and transfers. Its
@@ -209,7 +209,7 @@ left. A push is a decision, not a step.
 - **Cost** one run, on the owner's push.
 
 ### C-5 · `diagram.studio`
-- **Measured** **513** colours, **72** components of its own.
+- **Measured** **513** colours, **74** components of its own.
 - **What** the third party's copyright: the migration may not copy code
   from the system into a repository whose licence is not the owner's.
   Token values are facts and travel; the components would not.
@@ -219,7 +219,7 @@ left. A push is a decision, not a step.
   party.
 
 ### C-6 · `gnu.in.work` — the heaviest, and the last
-- **Measured** **1966** colours, **1005** components of its own.
+- **Measured** **1966** colours, **1014** components of its own.
 - **What** the field's largest debt: forty-four shadcn primitives and
   the own vocabulary of a workbench. It is last because it is the
   largest, and because the system's vocabulary has to be complete

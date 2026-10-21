@@ -40,11 +40,18 @@ SKIP_DIRS = {".git", "node_modules", "dist", "build", "target", "vendor", ".next
 
 # Every notation CSS accepts for a colour.
 HEX = re.compile(r"(?<![#\w-])#([0-9A-Fa-f]{3,8})\b")
-# A native surface writes its colours as 0xRRGGBB, with the alpha last
-# when it has one — the same order as the eight-digit CSS form. A gate
-# that reads the web and not the native surface measures half a
-# repository and calls it whole.
-RUST_HEX = re.compile(r"(?<![0-9A-Za-z_])0x([0-9A-Fa-f]{6,8})\b")
+# A native surface writes its colours in hex, and the field uses two
+# orders: `argb(0xAARRGGBB)` puts the alpha first, `rgb(0xRRGGBB)` and
+# `rgba(0xRRGGBBAA)` put it last, and a bare constant is ARGB by the
+# field's own convention. Reading the first six digits of everything
+# turns the ARGB constants into colours that were never there — six
+# phantom values in one repository, and a count that is wrong.
+#
+# So the call decides, and a bare constant follows the field's
+# convention. The eight-digit CSS form puts the alpha last, and so does
+# the eight-digit Rust form that comes from a colour call.
+RUST_COLOUR = re.compile(
+    r"(?:\b(argb|rgb|rgba)\(\s*)?(?<![0-9A-Za-z_])0x([0-9A-Fa-f]{6,8})\b")
 RGB = re.compile(
     r"rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})"
     r"\s*(?:,\s*(?P<alpha>[\d.]+%?)\s*)?\)")
@@ -254,8 +261,13 @@ def colours_in(text: str) -> list[str]:
         expanded = expand_hex(value)
         if expanded:
             found.append(expanded)
-    for value in RUST_HEX.findall(text):
-        expanded = expand_hex(value[:6])
+    for call, value in RUST_COLOUR.findall(text):
+        # `argb` puts the alpha first, `rgb` and `rgba` put it last, and a
+        # bare constant follows the field's own ARGB convention.
+        if call in ("rgb", "rgba"):
+            expanded = expand_hex(value[:6])
+        else:
+            expanded = expand_hex(value[-6:])
         if expanded:
             found.append(expanded)
     for match in RGB.finditer(text):
@@ -341,6 +353,24 @@ def contract_vocabulary() -> set[str]:
     for name in vocabulary.get("components", {}):
         names.add(f"{vocabulary.get('prefix', 'g6-')}{name}")
     return names
+
+
+def declared_scheme(manifest: dict | None) -> dict | None:
+    """The scheme a consumer's chrome runs on, if it declares one.
+
+    A consumer that lets the wallpaper decide the colour of its chrome
+    says so here: the scheme, in the system's own role names. The roles
+    it does not mention keep the system's own values, and the audit
+    checks the whole — the scheme and the system's, together.
+    """
+    if not isinstance(manifest, dict):
+        return None
+    scheme = manifest.get("scheme")
+    if not isinstance(scheme, dict):
+        return None
+    if not isinstance(scheme.get("roles"), dict):
+        return None
+    return scheme
 
 
 def declared_components(manifest: dict | None) -> tuple[set[str], set[str], list[str]]:
@@ -526,6 +556,22 @@ def report(consumer: Path, scan_result: dict) -> tuple[str, list[str]]:
         problems.append(f"{len(undeclared)} component(s) the contract does not have "
                         f"and the consumer does not declare as its own")
     problems.extend(mistargeted)
+
+    # A declared scheme is audited: the system's guarantees have to hold
+    # on the palette the consumer actually runs on, not only on the
+    # system's own.
+    scheme = declared_scheme(declared)
+    if scheme:
+        from audit_scheme import audit
+        from project_roles import load as load_roles
+
+        document, tokens, surfaces = load_roles()
+        broken = audit({"name": scheme.get("name", "the declared scheme"),
+                        "roles": scheme["roles"]},
+                       document["roles"], tokens, surfaces)
+        lines.append(f"- **The scheme it declares:** "
+                     f"{scheme.get('name', 'unnamed')}")
+        problems.extend(broken)
     return "\n".join(lines) + "\n", problems
 
 

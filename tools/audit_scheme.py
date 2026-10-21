@@ -88,13 +88,24 @@ def main(argv=None) -> int:
                         help="a scheme file; the contract's samples by default")
     parser.add_argument("--check", action="store_true",
                         help="check the contract's own schemes")
+    parser.add_argument("--name", default="the declared scheme",
+                        help="the name a scheme is reported under")
     args = parser.parse_args(argv)
 
     document, tokens, surfaces = load()
     roles = document["roles"]
     if args.scheme:
         document = json.loads(Path(args.scheme).read_text(encoding="utf-8"))
-        schemes = document.get("schemes", [document])
+        # A consumer writes its scheme in its own declaration, and the
+        # contract's samples write a family of them. One shape reaches the
+        # audit either way: a scheme is a name and the roles it decides.
+        if "schemes" in document:
+            schemes = document["schemes"]
+        elif "roles" in document:
+            schemes = [{"name": document.get("name", "the declared scheme"),
+                        "roles": document["roles"]}]
+        else:
+            schemes = [document]
         source = args.scheme
     else:
         if not SCHEMES.is_file():
