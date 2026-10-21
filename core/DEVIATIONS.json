@@ -87,10 +87,10 @@
     },
     {
       "id": "DEV-008",
-      "what": "gnosis.OS carries 299 colours the contract does not have, and thirty-four components of its own. Its licence is not yet a fact: the root says AGPL-3.0 and forty-seven crate manifests say GPL-3.0-or-later.",
+      "what": "The GPUI launcher carries 299 colours the contract does not have, and thirty-four components of its own. Its licence is not yet a fact: the root says AGPL-3.0 and forty-seven crate manifests say GPL-3.0-or-later. The repository's name is a former one and is not used here; the git remote carries it.",
       "severity": "major",
       "state": "open",
-      "owner": "gnosis.OS",
+      "owner": "the GPUI launcher",
       "proof": "profiles/frontend-audit/INVENTORY.md"
     },
     {

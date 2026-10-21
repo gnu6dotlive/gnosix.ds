@@ -176,7 +176,7 @@ left. A push is a decision, not a step.
 - **Its own qualification** `scripts/check.py` — the corpus's evidence
   discipline — is green at 159 files, and it is the repository's own.
 
-### C-3 · `gnosis.OS` — the first real migration
+### C-3 · The GPUI launcher — the first real migration
 - **Measured** **334** colours outside the contract, **32** components of
   its own, no version declared. The surface is Rust: 825 source files,
   and no QML at all, as its own manifest records. The native surface
@@ -281,7 +281,7 @@ left. A push is a decision, not a step.
 ### D-2 · The register says what is still open
 - **What** six deviations are open: the field's three spellings
   (DEV-003, minor, the field's), the debts of `gnu.in.work` (DEV-006,
-  critical), `diagram.studio` (DEV-007, major), `gnosis.OS` (DEV-008,
+  critical), `diagram.studio` (DEV-007, major), the GPUI launcher (DEV-008,
   major), the archived pair (DEV-009, none), `spjoaillerie-live`
   (DEV-010, none). One more opens with A-3.
 - **Proved by** `tools/check_deviations.py` — every closed deviation
@@ -289,7 +289,7 @@ left. A push is a decision, not a step.
 
 ### D-3 · The audit's own numbers are current
 - **What** `profiles/frontend-audit/` was measured before the gate read
-  the native surfaces. `gnu.in.work` was 1957 and is 1966; `gnosis.OS`
+  the native surfaces. `gnu.in.work` was 1957 and is 1966; the GPUI launcher
   was 225 and is 334; the two re-vendored repositories were 1 and are 0.
   The inventory must be regenerated, not remembered.
 - **Lands in** `profiles/frontend-audit/INVENTORY.md`, `MATRIX.md`,

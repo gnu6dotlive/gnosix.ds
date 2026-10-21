@@ -42,6 +42,11 @@ SOURCE_SUFFIXES = {".css", ".scss", ".html", ".tsx", ".jsx", ".ts", ".js",
 SKIP_DIRS = {".git", "node_modules", "dist", "dist-electron", "build", "target", "vendor", ".next", "out",
              "coverage", "test-results", "playwright-report"}
 
+# The imports a module graph is made of.
+IMPORT = re.compile(
+    r"""(?:from|import|require)\s*\(?\s*['"](\.[^'"]+)['"]""")
+IMPORT_CANDIDATES = ("", ".ts", ".tsx", ".js", ".jsx", ".mjs", ".css", ".json")
+
 # Every notation CSS accepts for a colour.
 HEX = re.compile(r"(?<![#\w-])#([0-9A-Fa-f]{3,8})\b")
 # A native surface writes its colours in hex, and the field uses two
@@ -414,6 +419,17 @@ def declared_components(manifest: dict | None) -> tuple[set[str], set[str], list
     return own, translated, mistargeted
 
 
+def read_manifest(consumer: Path) -> dict | None:
+    """The consumer's declaration, if it has one."""
+    path = consumer / "gnosix.json"
+    if not path.is_file():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {"error": "gnosix.json is not valid JSON"}
+
+
 def exempt_paths(consumer: Path) -> list[str]:
     """The paths a consumer declares as not being its interface."""
     manifest = consumer / "gnosix.json"
@@ -438,6 +454,66 @@ def consumer_components(consumer: Path, exempt: list[str]) -> set[str]:
     from component_convergence import collect
 
     return collect(consumer, exempt)
+
+
+def served_files(consumer: Path, manifest: dict | None) -> list[Path] | None:
+    """The surface the consumer actually ships, or None when it does not say.
+
+    A repository may hold code that is never served: a stylesheet nothing
+    links, a feature no route reaches, a laboratory the product abandoned.
+    That code is not the consumer's interface, and a gate that reads it
+    measures a debt the consumer does not owe — and one it cannot pay
+    without an answer nobody asked for.
+
+    So the consumer says what it serves: the entries the application
+    starts from, and the static roots it publishes. The gate follows the
+    imports from the entries, and takes the static roots whole. A
+    repository that says nothing is measured whole, as it always was.
+    """
+    if not isinstance(manifest, dict):
+        return None
+    served = manifest.get("served")
+    if not isinstance(served, dict):
+        return None
+    entries = served.get("entries") or []
+    static = served.get("static") or []
+    if not entries and not static:
+        return None
+
+    reachable: set[Path] = set()
+    pending = []
+    for entry in entries:
+        path = consumer / entry
+        if path.is_file():
+            pending.append(path)
+    while pending:
+        path = pending.pop()
+        if path in reachable or not path.is_file():
+            continue
+        reachable.add(path)
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        for spec in IMPORT.findall(text):
+            target = (path.parent / spec).resolve()
+            for candidate in IMPORT_CANDIDATES:
+                option = target.with_name(target.name + candidate)
+                if option.is_file():
+                    pending.append(option)
+                    break
+            else:
+                if target.is_file():
+                    pending.append(target)
+    for root in static:
+        path = consumer / root
+        if path.is_dir():
+            for child in path.rglob("*"):
+                if child.is_file():
+                    reachable.add(child)
+        elif path.is_file():
+            reachable.add(path)
+    return sorted(reachable)
 
 
 def source_files(consumer: Path) -> list[Path]:
@@ -477,7 +553,10 @@ def scan(consumer: Path) -> dict:
     gnosix_vars: set[str] = set()
 
     exempt = exempt_paths(consumer)
-    for path in source_files(consumer):
+    manifest = read_manifest(consumer)
+    served = served_files(consumer, manifest)
+    candidates = served if served is not None else source_files(consumer)
+    for path in candidates:
         if not path.is_file() or path.suffix.lower() not in SOURCE_SUFFIXES:
             continue
         if set(path.parts) & SKIP_DIRS:
@@ -489,7 +568,7 @@ def scan(consumer: Path) -> dict:
             text = path.read_text(encoding="utf-8", errors="replace")
         except OSError:
             continue
-        files += 1
+        files += 1  # the count of files read
         for value in colours_in(text):
             colours[value] = colours.get(value, 0) + 1
         for match in FONT_FAMILY.finditer(text):
@@ -507,13 +586,7 @@ def scan(consumer: Path) -> dict:
             if "-" in match.group(1):
                 own_classes.add(match.group(1))
 
-    manifest = consumer / "gnosix.json"
-    declared = None
-    if manifest.is_file():
-        try:
-            declared = json.loads(manifest.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            declared = {"error": "gnosix.json is not valid JSON"}
+    declared = read_manifest(consumer)
 
     return {"files": files, "colours": colours, "families": families,
             "own_classes": own_classes, "gnosix_vars": gnosix_vars,
