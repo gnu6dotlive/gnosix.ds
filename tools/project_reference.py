@@ -40,6 +40,7 @@ INTENT = ROOT / "core" / "INTENT.json"
 DEVIATIONS = ROOT / "core" / "DEVIATIONS.json"
 DERIVATIONS = ROOT / "core" / "DERIVATIONS.json"
 RETRACTIONS = ROOT / "core" / "RETRACTIONS.json"
+UPSTREAM = ROOT / "core" / "UPSTREAM.json"
 STATES = ROOT / "profiles" / "native" / "states.json"
 MATRIX = ROOT / "profiles" / "frontend-audit" / "MATRIX.md"
 VERSION = ROOT / "VERSION"
@@ -281,6 +282,57 @@ def render_register(title: str, entries, kind: str) -> tuple[str, list[dict]]:
     return f"<h3>{esc(title)}</h3>" + "".join(body), index
 
 
+def render_upstream(register: dict) -> tuple[str, list[dict]]:
+    """The watches: the rails, the pins, and what was measured."""
+    body = []
+    index = []
+    for rail in register.get("rails", []):
+        identifier = rail["id"]
+        index.append({"id": identifier, "kind": "Rail", "title": rail.get("subject", "")[:70],
+                      "anchor": f"rail-{anchor(identifier)}"})
+        body.append(
+            f"<article class=\"entry\" data-search=\"{searchable(rail.get('subject', ''))}\" "
+            f"id=\"rail-{anchor(identifier)}\">"
+            f"<h3><code>{esc(identifier)}</code></h3>"
+            f"<p class=\"what\">{esc(rail.get('subject', ''))}</p>"
+            f"<p class=\"observable\"><span>Material when</span> {esc(rail.get('materiality', ''))}</p>"
+            + "</article>")
+    for pin in register.get("pins", []):
+        index.append({"id": f"{pin.get('rail')} pin", "kind": "Pin",
+                      "title": pin.get("revision", "")[:70],
+                      "anchor": f"pin-{anchor(str(pin.get('rail')))}"})
+        body.append(
+            f"<article class=\"entry\" data-search=\"{searchable(pin.get('exact', ''))}\" "
+            f"id=\"pin-{anchor(str(pin.get('rail')))}\">"
+            f"<h3><code>{esc(str(pin.get('rail')))}</code></h3>"
+            f"<p class=\"values\"><span>Revision</span> {esc(pin.get('revision', ''))}"
+            f"<span>Exact</span> {esc(pin.get('exact', ''))}</p>"
+            f"<p class=\"evidence\"><span>Measured</span> {esc(pin.get('where', ''))} "
+            f"({esc(str(pin.get('measured_on', '')))})</p></article>")
+    for observation in register.get("observations", []):
+        identifier = observation["id"]
+        upstream = observation.get("upstream", {})
+        index.append({"id": identifier, "kind": "Observation",
+                      "title": upstream.get("change", "")[:70],
+                      "anchor": f"observation-{identifier.lower()}"})
+        bears = " ".join(f"<code>{esc(element)}</code>" for element in observation.get("bears_on", []))
+        body.append(
+            f"<article class=\"entry\" data-search=\"{searchable(upstream.get('change', ''))}\" "
+            f"id=\"observation-{identifier.lower()}\">"
+            f"<h3><code>{esc(identifier)}</code><span class=\"domain\">{esc(str(observation.get('rail', '')))}</span></h3>"
+            f"<p class=\"what\">{esc(upstream.get('change', ''))}</p>"
+            f"<p class=\"values\"><span>Upstream</span> {esc(upstream.get('what', ''))} "
+            f"({esc(upstream.get('revision', ''))})"
+            f"<span>Bears on</span> {bears or '—'}"
+            f"<span>Projection</span> {esc(str(observation.get('projection', '')))}"
+            f"<span>Evidence</span> {esc(str(observation.get('evidence', '')))}</p>"
+            f"<p class=\"observable\"><span>Conclusion</span> {esc(observation.get('conclusion', ''))}</p>"
+            + (f"<p class=\"evidence\"><span>Gate</span> {esc(observation.get('gate'))}</p>"
+               if observation.get("gate") else "")
+            + "</article>")
+    return "".join(body), index
+
+
 def render_page(sections: list[tuple[str, str, str]], index: list[dict], version: str) -> str:
     """The page: a header, a search, the index, and the sections."""
     rows = []
@@ -325,6 +377,7 @@ def render_page(sections: list[tuple[str, str, str]], index: list[dict], version
       <a href="#guidelines">Guidelines</a>
       <a href="#field">The field</a>
       <a href="#registers">Registers</a>
+      <a href="#upstream">Upstream</a>
     </nav>
     <span class="version">{esc(version)} / CONSULTATION</span>
   </header>
@@ -464,6 +517,10 @@ def build() -> tuple[str, str]:
     registers.append(body)
     index += entries
     sections.append(("registers", "The registers", "".join(registers)))
+
+    body, entries = render_upstream(load(UPSTREAM))
+    index += entries
+    sections.append(("upstream", "The upstream", body))
 
     return render_page(sections, index, version), render_script(index)
 

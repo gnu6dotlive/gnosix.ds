@@ -1,0 +1,93 @@
+{
+  "schema": "gnosix_DS.upstream.v1",
+  "note": [
+    "What the system's projections and the field's evidence are qualified against.",
+    "",
+    "gnosix.ds is the semantic contract. Wayland, GPUI/Zed and Hyprland are",
+    "projection targets or evidence sources, and never authorities over the",
+    "contract: when an upstream changes, the contract does not follow it. The",
+    "change is measured against what the contract already says, and the",
+    "contract changes only when a rule or a guarantee does.",
+    "",
+    "A rail is a thing to watch. A pin is the exact revision the system's",
+    "projections, or the evidence the field produced, are qualified against —",
+    "so that the next change is a difference and not a surprise. An",
+    "observation is a change that was measured, and it says four things: the",
+    "exact revision, the contract element it bears on, whether a projection",
+    "changes, and either the gate that holds the answer or the reason there",
+    "is no effect.",
+    "",
+    "A negative result is a result. The observations that changed nothing are",
+    "kept, because 'nothing changed' is only worth knowing if it was looked",
+    "for. What is not kept is a guess: an observation without a pinned",
+    "revision is not an observation."
+  ],
+  "rails": [
+    {
+      "id": "wayland-surface",
+      "subject": "The Wayland core and the staging protocols a native surface is built on: surface identity, presentation timing, focus.",
+      "materiality": "A change to identity, timing or focus that alters an observable the contract states."
+    },
+    {
+      "id": "gpui-window-display",
+      "subject": "GPUI/Zed: window and display identity, visibility and suspension, input, and the sizing of a layer-shell surface.",
+      "materiality": "A change that alters an observable contract obligation or a projection gate."
+    },
+    {
+      "id": "hyprland-compositor",
+      "subject": "Hyprland: workspace sharing, toplevel mapping, focus grabs, input capture, pointer constraints and popups.",
+      "materiality": "A change that would turn a compositor behaviour into a portability requirement."
+    },
+    {
+      "id": "design-engine",
+      "subject": "The engine the design board is projected through, and the fonts the projection is laid out with.",
+      "materiality": "A change in the projection of the tokens, of the board, or of the rendered bytes."
+    }
+  ],
+  "pins": [
+    {
+      "rail": "hyprland-compositor",
+      "revision": "0.56.2",
+      "exact": "v0.56.2 @ efb50993780079460b0cbed1363e2166a2de1d9f",
+      "where": "the field's host, measured with hyprctl version",
+      "measured_on": "2026-10-21"
+    },
+    {
+      "rail": "wayland-surface",
+      "revision": "wayland-protocols 1.49",
+      "exact": "wayland-protocols 1.49 (ext-workspace-v1 in staging), libwayland 1.26.0",
+      "where": "the field's host",
+      "measured_on": "2026-10-21"
+    },
+    {
+      "rail": "gpui-window-display",
+      "revision": "gpui-pre 0.3.5",
+      "exact": "gpui_linux as a snapshot of zed-industries/zed@d89e9c2, vendored by the field as gpui-pre-linux 0.3.5",
+      "where": "the field's vendor/gpui-pre-linux-0.3.5, and the field's workspace patch note",
+      "measured_on": "2026-10-21"
+    },
+    {
+      "rail": "design-engine",
+      "revision": "figcraft 0.7.0",
+      "exact": "figcraft 0.7.0, sha256 f3ddf6194d2bbd523cd3195df90fa2cd5782d3946fc7833b7f6bf88fda37908d",
+      "where": "ci/provision-engine.sh",
+      "measured_on": "2026-10-21"
+    }
+  ],
+  "observations": [
+    {
+      "id": "UP-001",
+      "rail": "gpui-window-display",
+      "upstream": {
+        "what": "gpui_linux, the layer-shell surface path",
+        "revision": "gpui-pre-linux 0.3.5 (zed@d89e9c2)",
+        "change": "The compositor chooses an axis when the layer-shell request is zero, and the published toolkit pins the first configured pixel size instead of preserving the request. The field's vendored snapshot preserves it, so a compositor-sized axis stays compositor-sized across a hot output resize."
+      },
+      "bears_on": ["SUR-001", "SUR-007", "SUR-010"],
+      "projection": "none",
+      "evidence": "source",
+      "gate": "tools/native_check.py",
+      "conclusion": "No projection changes: the native profile publishes values and names, and carries no behaviour. The obligation is on the evidence — the field's surface qualifications rest on a toolkit that differs from the published one in exactly the axis the contract's geometry rules speak about, so a qualification against a different revision is a different qualification."
+    }
+  ]
+}

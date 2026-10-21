@@ -127,6 +127,12 @@ const GNOSIX_INDEX = [
   "anchor": "statement-cap-006"
  },
  {
+  "id": "CAP-007",
+  "kind": "Capability",
+  "title": "The register of upstream holds what the system's projections and the f",
+  "anchor": "statement-cap-007"
+ },
+ {
   "id": "surface",
   "kind": "Role",
   "title": "The page itself, behind everything.",
@@ -773,6 +779,60 @@ const GNOSIX_INDEX = [
   "kind": "Derivation",
   "title": "",
   "anchor": "derivation-best-of-extremes-clamped"
+ },
+ {
+  "id": "wayland-surface",
+  "kind": "Rail",
+  "title": "The Wayland core and the staging protocols a native surface is built o",
+  "anchor": "rail-wayland-surface"
+ },
+ {
+  "id": "gpui-window-display",
+  "kind": "Rail",
+  "title": "GPUI/Zed: window and display identity, visibility and suspension, inpu",
+  "anchor": "rail-gpui-window-display"
+ },
+ {
+  "id": "hyprland-compositor",
+  "kind": "Rail",
+  "title": "Hyprland: workspace sharing, toplevel mapping, focus grabs, input capt",
+  "anchor": "rail-hyprland-compositor"
+ },
+ {
+  "id": "design-engine",
+  "kind": "Rail",
+  "title": "The engine the design board is projected through, and the fonts the pr",
+  "anchor": "rail-design-engine"
+ },
+ {
+  "id": "hyprland-compositor pin",
+  "kind": "Pin",
+  "title": "0.56.2",
+  "anchor": "pin-hyprland-compositor"
+ },
+ {
+  "id": "wayland-surface pin",
+  "kind": "Pin",
+  "title": "wayland-protocols 1.49",
+  "anchor": "pin-wayland-surface"
+ },
+ {
+  "id": "gpui-window-display pin",
+  "kind": "Pin",
+  "title": "gpui-pre 0.3.5",
+  "anchor": "pin-gpui-window-display"
+ },
+ {
+  "id": "design-engine pin",
+  "kind": "Pin",
+  "title": "figcraft 0.7.0",
+  "anchor": "pin-design-engine"
+ },
+ {
+  "id": "UP-001",
+  "kind": "Observation",
+  "title": "The compositor chooses an axis when the layer-shell request is zero, a",
+  "anchor": "observation-up-001"
  }
 ];
 

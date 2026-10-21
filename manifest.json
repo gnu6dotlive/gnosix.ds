@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "cd6eac31d5b7417315653291fdba9ba3bca98188a11a1039fc204709235e7c36",
+  "contract_digest": "04b21f260c7a016a320b9eaaf246c6979b34e5c77e38faacb153333435abbad2",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -462,7 +462,7 @@
     {
       "class": "evidence",
       "path": "ci/GATES.md",
-      "sha256": "48bc28187e27588bfd929cbfaabc01f0f8fa8117e99c0f4a9ff25a20a525c50b"
+      "sha256": "04ded953cae99c9f91d1a3926c2a5a559467cd2051791dcdee97c8439bbc3462"
     },
     {
       "class": "core",
@@ -497,7 +497,7 @@
     {
       "class": "core",
       "path": "core/INTENT.json",
-      "sha256": "1098a87183cc6c811a8efa9ba833fb74617e4a96a9d1fd5af6871b04fa1bdaa2"
+      "sha256": "877537bf40abccbce62d5257678560988c2a9b2a50a97a28ee99ecc07ff9bab9"
     },
     {
       "class": "core",
@@ -528,6 +528,11 @@
       "class": "core",
       "path": "core/TOKENS.json",
       "sha256": "eab7050df2a8b9b8ff4da33e680c51667310ee4743c839dd3a96c1c683bf2d22"
+    },
+    {
+      "class": "core",
+      "path": "core/UPSTREAM.json",
+      "sha256": "5df623d688373e24f2fc44833c2e1eb31b689485326729da030623155ebd84d7"
     },
     {
       "class": "core",
@@ -837,12 +842,12 @@
     {
       "class": "evidence",
       "path": "qa/eye/baselines/reference.png",
-      "sha256": "46cb4643eb670fbdf0ceec88b6e3706426efc742f808f3cf80a7f0734d981d32"
+      "sha256": "e17bbcd0f8acaba354c12639fb0274f2682ffd2b65d69ef5e2bb233df4af758d"
     },
     {
       "class": "evidence",
       "path": "qa/eye/expected.json",
-      "sha256": "fdf865f3124797833995842f51d0350b3b2a29ba808bed69a973d88c95aece78"
+      "sha256": "03de5f5992008ae9607a3fb7a6be904c762c7dc369acd34619e0c5d83d4141a1"
     },
     {
       "class": "evidence",
@@ -987,12 +992,12 @@
     {
       "class": "evidence",
       "path": "site/reference.html",
-      "sha256": "cbf8380e85d10d5e2dc602619ce0e156e6f66488873730d5970a43bef28dae03"
+      "sha256": "f29858e7cc6f0331c31cf0df39b4decf5b7593ebdf0c296ec47ccb8f94501e30"
     },
     {
       "class": "evidence",
       "path": "site/reference.js",
-      "sha256": "dac196bd3fea2790ce7168e5b099cb2f98a4dac8efc16fe202dd5f3525d4fce9"
+      "sha256": "5190aa0323b0e6963803a1aa9f6977189369e4d16da430d9825b111db26c2408"
     },
     {
       "class": "evidence",
@@ -1071,6 +1076,11 @@
     },
     {
       "class": "evidence",
+      "path": "tests/test_upstream.py",
+      "sha256": "b7491e06f298fbd08dd4d231acfe281ec64e9bad1185c5e92dd591ba8496fb1d"
+    },
+    {
+      "class": "evidence",
       "path": "tests/test_version.py",
       "sha256": "40fd5d4746892f67619e8067eba186562219e3b0401c6a956bab19821fd70c2e"
     },
@@ -1146,6 +1156,11 @@
     },
     {
       "class": "evidence",
+      "path": "tools/check_upstream.py",
+      "sha256": "898ed2e8c7ea0eb9a00b4f6e9b12183ba30dcbf0092466e62259b1e570c75842"
+    },
+    {
+      "class": "evidence",
       "path": "tools/check_vocabularies.py",
       "sha256": "dc8f52e29b5d99066186bc93f4518f9ddcdbc832db6f64fe649c1a2b48849474"
     },
@@ -1157,7 +1172,7 @@
     {
       "class": "evidence",
       "path": "tools/ci.py",
-      "sha256": "547e00abde7afda68de414a263e7bb34cc0a6bef23868f6412f53bd23af2d4cc"
+      "sha256": "e625aca4ea355c6caceb39fbf3ddb2884e0b645407f505d4ac8cfad8d8bb171c"
     },
     {
       "class": "evidence",
@@ -1232,7 +1247,7 @@
     {
       "class": "evidence",
       "path": "tools/project_reference.py",
-      "sha256": "4fc4998526bde3b92ceab4f80a83a0cca58a0f9ed0a48011a3c4319e83e32b8c"
+      "sha256": "221d06d32a96639b0a9a8fa0ff813747351622e80c2ca3dfca3f06b49503233d"
     },
     {
       "class": "evidence",

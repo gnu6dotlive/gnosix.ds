@@ -71,6 +71,7 @@ GATES: list[tuple[str, list[str]]] = [
     ("the register of retractions is honest", ["tools/check_retractions.py"]),
     ("the register of intent is honest", ["tools/check_intent.py"]),
     ("the consultation suite is what the contract says", ["tools/project_reference.py", "--check"]),
+    ("the register of upstream is honest", ["tools/check_upstream.py"]),
 ]
 
 # A gate may report that it could not run, rather than that it passed or
