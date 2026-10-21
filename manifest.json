@@ -950,6 +950,11 @@
       "sha256": "822f24273adabfeb06286d442de803352da45d8b110869b6ba8b464e1f0328a0"
     },
     {
+      "class": "reference",
+      "path": "research/UPSTREAM-PRESENTATION-INTAKE-20261021.md",
+      "sha256": "f6e4cbe2f6fac496247d9411de088fd8a3806ee14baa31de386d51f68a826050"
+    },
+    {
       "class": "evidence",
       "path": "site/favicon-16.png",
       "sha256": "8609b63015e34ec8da83347ccf84ccafa730d1c19b68dd89b7cd54810638c977"
