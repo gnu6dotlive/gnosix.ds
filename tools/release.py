@@ -75,6 +75,7 @@ DIST = ROOT / "dist"
 # is to be distributed is not distributed otherwise.
 PACKAGED_DIRS = [
     "assets",
+    "research",
     "packaging",
     "core",
     "profiles",

@@ -196,6 +196,14 @@
       "state": "open",
       "owner": "the native product",
       "proof": "profiles/frontend-audit/INVENTORY.md — the gnosix row, measured by tools/audit_frontends.py; and the product's own manifest, which names no dependency on the contract"
+    },
+    {
+      "id": "DEV-021",
+      "what": "The field's vendored toolkit keeps a layer-shell request at zero — the compositor chooses that axis — where the published toolkit rewrites the compositor-selected size to the configured pixel size. The difference is deliberate in the field, and it is material to the provenance of the field's surface qualifications: a qualification made with the patched snapshot is a qualification of that snapshot. It changes no projection, because the contract's native profile publishes values and names and carries no behaviour. The contract is not altered to accommodate either implementation, and the field's implementation is not rewritten to match the published one.",
+      "severity": "minor",
+      "state": "open",
+      "owner": "the field",
+      "proof": "core/UPSTREAM.json — UP-001: the exact vendored revision, the source location, the observed fact and its limits, the scope of the claims that depend on the affected behaviour, and the smallest falsifiable next experiment"
     }
   ]
 }

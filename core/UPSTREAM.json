@@ -1,0 +1,153 @@
+{
+  "schema": "gnosix_DS.upstream.v1",
+  "note": [
+    "What the system's projections and the field's evidence are qualified against.",
+    "",
+    "gnosix.ds is the semantic contract. Wayland, GPUI/Zed and Hyprland are",
+    "projection targets and sources of evidence, and never authorities over the",
+    "contract: when an upstream changes, the contract does not follow it. The",
+    "change is measured against what the contract already says, and the",
+    "contract changes only when a rule or a guarantee does.",
+    "",
+    "A rail is a thing to watch. A pin is the exact revision the system's",
+    "projections, or the evidence the field produced, are qualified against —",
+    "so that the next change is a difference and not a surprise. An",
+    "observation is a change that was measured, and it says what the exit",
+    "condition asks for: the exact identity and the source of the upstream,",
+    "the contract elements it bears on, whether a projection changes, and",
+    "either the gate that holds the answer or the reason there is no effect.",
+    "",
+    "A pin is not a name in a file. Every pin says six things: the exact",
+    "identity, the authority that owns and records it, whether this",
+    "repository actually checks it, what behaviour was qualified against it,",
+    "the divergence that is known, and what would justify refreshing it. A",
+    "pin this repository cannot check is labelled as one — referenced, or",
+    "declared — and is never promoted to verified on the strength of a name.",
+    "",
+    "A negative result is a result. The observations that changed nothing are",
+    "kept, because 'nothing changed' is only worth knowing if it was looked",
+    "for. What is not kept is a guess: an observation without a pinned",
+    "identity is not an observation.",
+    "",
+    "The levels are kept apart, because a record at one level is not a",
+    "record at another: semantic (what a role means), declared (what an",
+    "implementation says it can do), source (a qualification of the source),",
+    "observed (behaviour seen against an exact revision), and installed (a",
+    "product-level qualification on a real machine). A green gate at one",
+    "level says nothing at the next."
+  ],
+  "levels": ["semantic", "declared", "source", "observed", "installed"],
+  "verifications": ["verified", "referenced", "declared"],
+  "rails": [
+    {
+      "id": "wayland-surface",
+      "subject": "The Wayland core and the staging protocols a native surface is built on: surface identity, presentation timing, focus.",
+      "materiality": "A change to identity, timing or focus that alters an observable the contract states."
+    },
+    {
+      "id": "gpui-window-display",
+      "subject": "GPUI/Zed: window and display identity, visibility and suspension, input, and the sizing of a layer-shell surface.",
+      "materiality": "A change that alters an observable contract obligation or a projection gate."
+    },
+    {
+      "id": "hyprland-compositor",
+      "subject": "Hyprland: workspace sharing, toplevel mapping, focus grabs, input capture, pointer constraints and popups.",
+      "materiality": "A change that would turn a compositor behaviour into a portability requirement."
+    },
+    {
+      "id": "design-engine",
+      "subject": "The engine the design board is projected through, and the fonts the projection is laid out with.",
+      "materiality": "A change in the projection of the tokens, of the board, or of the rendered bytes."
+    }
+  ],
+  "pins": [
+    {
+      "rail": "hyprland-compositor",
+      "exact_identity": "0.56.2 — v0.56.2 @ efb50993780079460b0cbed1363e2166a2de1d9f, package hyprland 0.56.2-4.1",
+      "authority": "the field's host: gnosix records the compositor it qualified against; this repository does not own the pin",
+      "verification": "referenced",
+      "qualification_scope": "the field's installed-path qualifications of the surfaces and the activation paths the compositor mediates. The contract's samples and projections were not run against it.",
+      "known_divergence": "none recorded",
+      "refresh_condition": "a compositor release that changes surface identity, presentation timing, workspace or focus behaviour, or a change of the field's host image",
+      "where": "the field's host, measured with hyprctl version",
+      "measured_on": "2026-10-21"
+    },
+    {
+      "rail": "wayland-surface",
+      "exact_identity": "wayland-protocols 1.49 (ext-workspace-v1 in staging), libwayland 1.26.0",
+      "authority": "the field's host: the protocols a native surface is built on; this repository does not own the pin",
+      "verification": "referenced",
+      "qualification_scope": "the protocol surface the field's native surfaces are built on. The contract carries no protocol dependency and nothing of it was qualified against these protocols.",
+      "known_divergence": "none recorded",
+      "refresh_condition": "a wayland-protocols release that changes the protocols the field's surfaces use, or a libwayland release that changes the core semantics",
+      "where": "the field's host",
+      "measured_on": "2026-10-21"
+    },
+    {
+      "rail": "gpui-window-display",
+      "exact_identity": "gpui-pre 0.3.5, whose Linux platform is a snapshot of zed-industries/zed@d89e9c2, vendored by the field as gpui-pre-linux 0.3.5",
+      "authority": "the field's vendor/ directory and its workspace patch note: the field owns this pin, and the vendored snapshot is a divergence from the published crate",
+      "verification": "referenced",
+      "qualification_scope": "the field's source-level qualification of the native surfaces, on this snapshot. The contract's native profile is a dependency-free projection and was never qualified against a toolkit.",
+      "known_divergence": "the layer-shell path preserves the compositor-sized request where the published toolkit pins the configured pixel size — see UP-001",
+      "refresh_condition": "a new gpui-pre release, a change in the field's vendored snapshot, or an upstream change to the layer-shell sizing",
+      "where": "the field's vendor/gpui-pre-linux-0.3.5, and the field's workspace patch note",
+      "measured_on": "2026-10-21"
+    },
+    {
+      "rail": "design-engine",
+      "exact_identity": "figcraft 0.7.0, sha256 f3ddf6194d2bbd523cd3195df90fa2cd5782d3946fc7833b7f6bf88fda37908d",
+      "authority": "this repository: ci/provision-engine.sh",
+      "verification": "verified",
+      "qualification_scope": "the projection of the tokens and of the board, and the rendering of the surfaces the eye compares",
+      "known_divergence": "none recorded",
+      "refresh_condition": "an engine release, a change in the projection, or a change in the packaged font",
+      "where": "ci/provision-engine.sh",
+      "measured_on": "2026-10-21"
+    }
+  ],
+  "observations": [
+    {
+      "id": "UP-001",
+      "rail": "gpui-window-display",
+      "upstream": {
+        "what": "gpui_linux, the layer-shell surface path",
+        "exact_identity": "gpui-pre-linux 0.3.5, a snapshot of zed-industries/zed@d89e9c2",
+        "source": "the field's vendored source: vendor/gpui-pre-linux-0.3.5/src/linux/wayland/window.rs:311, and the request at :442",
+        "published_behaviour": "the published toolkit rewrites the compositor-selected layer-shell size (0) to the configured pixel size after the first configure",
+        "field_behaviour": "the field's snapshot preserves a zero-sized request across compositor configures, because in layer-shell zero means the compositor chooses that axis"
+      },
+      "bears_on": ["SUR-001", "SUR-007", "SUR-010"],
+      "materiality": "a primitive's observable behaviour relevant to geometry: the axis a surface asks for is not the axis it keeps, and the contract's rules speak of an axis settling and of geometry being finite",
+      "observed_fact": "In the field's vendored snapshot the layer-shell state carries two flags for the compositor-sized axes, and the configure handler re-requests zero for those axes rather than the configured pixels. The published crate is recorded by the field's own patch note as rewriting the compositor-selected size to the configured pixel size after the first configure.",
+      "inference": "The contract's geometry rules are read against a surface whose axes may be compositor-sized. Which implementation is intended is not decided here: the contract states what a surface is, not how a toolkit asks for one, and neither implementation is labelled correct without a behavioural evaluation.",
+      "local_evidence": "the field's vendored source at the recorded location, and the field's workspace patch note, which states the reason the field carries the divergence",
+      "evidence_limits": "source-level only. No runtime observation of the compositor's behaviour on either implementation is part of this record, and the published crate's source was not compared line by line against the field's snapshot in this repository.",
+      "evidence_level": "source",
+      "projection": "none",
+      "projection_reason": "the native profile publishes values and names and carries no behaviour, so no projection of the contract changes",
+      "gate": "tools/native_check.py",
+      "next_experiment": "the smallest falsifiable one: on the field's host, request one layer-shell surface with a zero-sized width and read the size the compositor grants across one hot output resize; then give the published implementation the same surface and compare. The two differ, or they do not.",
+      "decision_owner": "the owner",
+      "disposition": "recorded. No projection change, no behaviour change authorised, and the divergence stays open: the contract is not altered to accommodate the vendored implementation, and the vendored implementation is not rewritten to match the published one.",
+      "scope_affected": [
+        "the field's qualifications that depend on a compositor-sized axis remaining compositor-sized across a configure and across a hot output resize — the geometry claims the field's own patch was made for, and therefore the provenance of any qualification made with the patched snapshot",
+        "which of the field's recorded qualifications those are is a field-side question this repository cannot answer: the field's evidence ledger does not say which of its claims depend on the resize path"
+      ],
+      "scope_unaffected": [
+        "the contract's semantic roles, tokens, rules and guarantees, which are stated independently of any toolkit and projected into a dependency-free profile",
+        "the field's qualifications of identity, activation, launch lifetime and input arbitration, none of which is a layer-shell axis",
+        "the contract's own samples, gates and projections, which run on no toolkit and no compositor"
+      ]
+    }
+  ],
+  "handoffs": [
+    {
+      "id": "HO-001",
+      "what": "The field-side gate that verifies the compositor and vendored-toolkit pins this repository can only reference.",
+      "where": "research/UPSTREAM-FIELD-VERIFICATION-HANDOFF-20261021.md",
+      "state": "open",
+      "note": "The handoff states the work and its exit conditions. It states no pin and no observation: the pins and the observations live in this register, and the field's gate reports against them."
+    }
+  ]
+}

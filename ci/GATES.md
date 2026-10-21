@@ -279,7 +279,7 @@ Expected: `PASS: nothing is retracted`.
 python3 tools/check_intent.py
 ```
 
-Expected: `PASS: the register of intent holds (21 statements: 6 capability, 5 goal, 6 invariant, 4 truth; 1 stated and not yet carried into a release)`.
+Expected: `PASS: the register of intent holds (22 statements: 7 capability, 5 goal, 6 invariant, 4 truth; 1 stated and not yet carried into a release)`.
 
 ## 34. The consultation suite is what the contract says
 
@@ -288,5 +288,13 @@ python3 tools/project_reference.py --check
 ```
 
 Expected: `PASS: the consultation suite is what the contract says`.
+
+## 35. The register of upstream is honest
+
+```bash
+python3 tools/check_upstream.py
+```
+
+Expected: `PASS: the register of upstream holds (4 rails, 4 pins, 1 observations, 1 handoffs)`.
 
 ---
