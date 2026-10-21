@@ -1,7 +1,7 @@
 {
   "version": "4.4.0",
   "name": "gnosix_DS V4.4.0 motion contract and alpha compositing variants",
-  "contract_digest": "64e798035ccc97e26d6a125ce44094452529075a807ca0f984763136ead3eced",
+  "contract_digest": "40552d157b42a0fb6fcbedba6f0881ab92c9b7be367ce47c41d36f76ea313d18",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -37,7 +37,7 @@
     {
       "class": "evidence",
       "path": "ROADMAP.md",
-      "sha256": "4339f67ac60a43aef903cf551b02bd471b500f15d036cd654507fc42468bdb19"
+      "sha256": "0c1e3f6de08590644d37e7c5b7949108d7330d1f608defdea0b5f2fc9f950606"
     },
     {
       "class": "evidence",
@@ -442,7 +442,7 @@
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "38456eef7167b894fcb4492f307c08f8ac0bf1e79b4d92ad03306e21541f224c"
+      "sha256": "2084b251acdb9666efe72bc6bb88376b3e54806ccacb4fc3c35f6f347b4e28b6"
     },
     {
       "class": "core",
@@ -1057,7 +1057,7 @@
     {
       "class": "evidence",
       "path": "tools/consumer_check.py",
-      "sha256": "0511ed47ea79989de8a3e5b4afdc09752860babbc2b0c952642b721696b349a7"
+      "sha256": "843c1c10f04454f633a436c066c61c358ae330c9754a54a5496d07ccff30d013"
     },
     {
       "class": "evidence",

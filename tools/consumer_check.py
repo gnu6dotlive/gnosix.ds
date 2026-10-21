@@ -35,7 +35,11 @@ from oklch import hex_to_rgb, oklch_to_rgb, rgb_to_hex  # noqa: E402
 # The files that carry a consumer's styling.
 SOURCE_SUFFIXES = {".css", ".scss", ".html", ".tsx", ".jsx", ".ts", ".js",
                    ".vue", ".svelte", ".rs", ".qml"}
-SKIP_DIRS = {".git", "node_modules", "dist", "build", "target", "vendor", ".next", "out",
+# The build outputs are not the consumer's source. A bundle compiled
+# into public/, an unpacked AppImage, a generated site — they carry the
+# palette of the tools that made them, and a gate that reads them
+# measures a third party's build rather than the consumer's interface.
+SKIP_DIRS = {".git", "node_modules", "dist", "dist-electron", "build", "target", "vendor", ".next", "out",
              "coverage", "test-results", "playwright-report"}
 
 # Every notation CSS accepts for a colour.
@@ -436,6 +440,34 @@ def consumer_components(consumer: Path, exempt: list[str]) -> set[str]:
     return collect(consumer, exempt)
 
 
+def source_files(consumer: Path) -> list[Path]:
+    """The consumer's source: what git follows, and what it does not ignore.
+
+    A build output is not the consumer's interface. A bundle compiled
+    into public/, an unpacked AppImage, a generated site — they carry the
+    palette of the tools that made them, and a gate that reads them
+    measures a third party's build rather than the consumer's own code.
+    Git already knows which is which: the tracked files, and the untracked
+    ones that are not ignored. A file a developer has just written is
+    still measured; a file a build has just written is not.
+    """
+    if not (consumer / ".git").exists():
+        return sorted(consumer.rglob("*"))
+    import subprocess
+
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(consumer), "ls-files", "-z",
+             "--cached", "--others", "--exclude-standard"],
+            capture_output=True, text=True, check=False)
+    except OSError:
+        return sorted(consumer.rglob("*"))
+    if result.returncode != 0:
+        return sorted(consumer.rglob("*"))
+    names = [name for name in result.stdout.split("\0") if name]
+    return [consumer / name for name in names]
+
+
 def scan(consumer: Path) -> dict:
     """What a consumer uses, and what it says about the system."""
     colours: dict[str, int] = {}
@@ -445,7 +477,7 @@ def scan(consumer: Path) -> dict:
     gnosix_vars: set[str] = set()
 
     exempt = exempt_paths(consumer)
-    for path in sorted(consumer.rglob("*")):
+    for path in source_files(consumer):
         if not path.is_file() or path.suffix.lower() not in SOURCE_SUFFIXES:
             continue
         if set(path.parts) & SKIP_DIRS:

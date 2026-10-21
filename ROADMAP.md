@@ -70,7 +70,22 @@ left. A push is a decision, not a step.
 - **Needs** nothing.
 - **Cost** one rule, no run.
 
-### A-5 · The native profile carries the states — *done*
+### A-5 · The system embeds the second typeface
+- **What** The contract (TYP-002) says technical and evidence text is
+  expressed in Space Grotesk "instead of switching to a second typeface".
+  The field does the opposite: its identity layer pairs Space Grotesk
+  with IBM Plex Mono, and the live documentation repository uses it. The
+  system embeds IBM Plex Mono beside Space Grotesk — both SIL OFL, both
+  vendorable, as the icon subsets already are — and TYP-002 opens to the
+  technical family.
+- **Lands in** `assets/fonts/`, the licences beside them, `core/TOKENS.json`
+  (the technical role), `core/rules.json` (TYP-002), and the three
+  projections.
+- **Proved by** the naming gate (the font names are published like the
+  others) and the test that currently forbids the second family.
+- **Cost** one asset, one notice, one rule, and the projections.
+
+### A-6 · The native profile carries the states — *done*
 - **What** The native profile had roles and no states, and the contract's
   elements declare ten. It now names all ten, with the meaning, the role
   and the treatment, and projects them into the crate.
@@ -209,12 +224,20 @@ left. A push is a decision, not a step.
 - **Cost** one run, on the owner's push.
 
 ### C-5 · `diagram.studio`
-- **Measured** **513** colours, **73** components of its own.
-- **What** the third party's copyright: the migration may not copy code
-  from the system into a repository whose licence is not the owner's.
-  Token values are facts and travel; the components would not.
-- **Needs** the holder's consent, or a migration that states the system's
-  vocabulary without copying it.
+- **Measured** **140** colours, **73** components of its own. The gate
+  measures the source git follows: the Mermaid bundle and the unpacked
+  AppImage are not the consumer's interface.
+- **What** the third party's copyright. Its code is a fork of GitDiagram
+  (MIT, 2024, Ahmed Khaleel), and it redistributes shadcn, Radix, lucide,
+  Mermaid and four OFL fonts without a single notice. MIT does not ask the
+  holder's consent — it asks that the notice travel with the code — so the
+  register's line was stricter than the law. What the system does **not**
+  take is an implementation: eleven of its fourteen elements are already
+  declared, with the same parts, so the migration is a class name on a tag
+  that already exists.
+- **Needs** the fonts' OFL texts (a breach in that repository, independent
+  of any absorption), the removed Gitingest attribution restored, and a
+  notice file. Two decisions remain: the third theme, and the hard shadow.
 - **Cost** one run, on the owner's push, and a conversation with a third
   party.
 
