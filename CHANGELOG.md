@@ -49,7 +49,49 @@ owner: the system holds no composition engine, so the rules are proven
 where the engine is — in the launcher.
 
 The README said sixteen obligations while the contract held twenty-three:
-prose drifts. It reads twenty-seven now, and a probe holds it there.
+prose drifts. It reads twenty-eight now, and a probe holds it there.
+
+**The states read on the light substrate, and the system can see it.**
+
+The field's axe run found it: the portal's live route failed
+colour-contrast on `g6-state--attention`. Against the light surface the
+attention amber measured **1.68:1**, the breach red **3.22:1** and the
+stable green **2.12:1**; a normal-sized text needs 4.5:1. On the dark
+substrate they passed. Nothing in the system could have found it: the
+contrast table held seven pairings and every one of them was a brand
+colour, so the semantic colours and the surface ramps were not in it,
+and the eye rendered no state element to look at.
+
+The repair took the shape the system already knew. The semantic family
+takes a step for the light substrate, the way the beret green takes one
+for the stable state; the light theme's states wear that step; the
+information colour takes a deeper tint there, where the tint that
+serves the dark substrate measures 2.94:1 and would not be seen; the
+dark substrate's breach red brightens, so that it reads on the raised
+surface and not only on the flat one.
+
+The contrast table now holds twenty-nine pairings and every one of them
+measures 4.5:1 or more: the table is where text is written on a ground,
+and the pairings that carry a mark rather than a sentence live in the
+roles that wear them. `COL-002` said to put white text on Signal
+Orange, which measures 2.87: it says anthracite now, which measures
+6.43, and the native profile's test says the same.
+
+The badge carried the state as a background with the ink on it — a
+pairing nothing measured. The state is the word now, on a neutral
+ground, with the shaped pip beside it, which is what `CMP-001` has
+always said. The destructive button had the same fault and the same
+repair.
+
+`COL-006` says a role that carries text is measured against the ground
+it is written on, and the probe that holds it reads the table and the
+role layer: it would have caught this. The eye renders the states now,
+so a state that stops reading is a failure of the eye and not a finding
+in the field.
+
+The ratification hash of `core/TOKENS.json` changes with the repair, and
+the hash in the test that ratifies it and in the six reference scenes
+carries the new value.
 
 ## [4.5.0] — 2026-10-20
 
