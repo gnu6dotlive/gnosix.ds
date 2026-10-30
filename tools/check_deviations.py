@@ -176,6 +176,40 @@ def probe_the_rule_count_is_stated() -> list[str]:
     return []
 
 
+def probe_the_readme_counts_are_stated() -> list[str]:
+    """The README counts the gates and the roles, and names every gate.
+
+    The README announced twenty-two gates and fourteen roles while the
+    qualification ran thirty-six and the contract bound sixteen, and its
+    list of gates had lost seven of them. Both counts are read from where
+    they live — the qualification's own list and the role register — and
+    every gate the qualification runs has to be named in the README.
+    """
+    sys.path.insert(0, str(ROOT))
+    from tools.ci import GATES
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    roles = json.loads((ROOT / "core" / "ROLES.json").read_text(encoding="utf-8"))["roles"]
+    gates = [label for label, _ in GATES] + ["test suite"]
+    problems = []
+    spoken = re.search(r"(\d+) gates, one command", readme)
+    if not spoken:
+        problems.append("the README does not say how many gates qualify the package")
+    elif int(spoken.group(1)) != len(gates):
+        problems.append(f"the README says {spoken.group(1)} gates and the "
+                        f"qualification runs {len(gates)}")
+    spoken = re.search(r"(\d+) roles —", readme)
+    if not spoken:
+        problems.append("the README does not say how many roles the contract binds")
+    elif int(spoken.group(1)) != len(roles):
+        problems.append(f"the README says {spoken.group(1)} roles and the "
+                        f"contract binds {len(roles)}")
+    for label in gates:
+        if label not in readme:
+            problems.append(f"the README does not name the gate {label!r}")
+    return problems
+
+
 def probe_the_text_roles_declare_their_pairing() -> list[str]:
     """Every role that carries text is measured against the ground it sits on.
 
@@ -274,6 +308,7 @@ PROBES = {
     "no_self_reference": probe_no_self_reference,
     "the_text_roles_declare_their_pairing": probe_the_text_roles_declare_their_pairing,
     "the_rule_count_is_stated": probe_the_rule_count_is_stated,
+    "the_readme_counts_are_stated": probe_the_readme_counts_are_stated,
     "no_foreign_literal": probe_no_foreign_literal,
     "the_field_spellings_are_accounted": probe_the_field_spellings_are_accounted,
     "the_package_carries_the_elements": probe_the_package_carries_the_elements,

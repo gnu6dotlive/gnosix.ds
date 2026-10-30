@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "78688fc381484f9db7745ca2e3b2f35d1411acfa2aef052576c587493ec1850b",
+  "contract_digest": "4cfb6f143beee1ace7d38dd4b0510e065057da42201c0e94e3c35c717098a03b",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "fc6ef7e433149a389cc68859928270f908b5d19a3cd336939ce43110fafa3e40"
+      "sha256": "e65669ae528f107d875f660b09bf5f8fe3c62ff29fa917a093fcc766581d9851"
     },
     {
       "class": "evidence",
@@ -32,7 +32,7 @@
     {
       "class": "evidence",
       "path": "README.md",
-      "sha256": "c4262f481ec3339e6f18dfde05f5782b47b30824f214052520c7526363e598a8"
+      "sha256": "a360c4b24613bc79391e652dc89ba5255065c2f6eda8fa89bf473d10aebde7c5"
     },
     {
       "class": "evidence",
@@ -482,7 +482,7 @@
     {
       "class": "core",
       "path": "core/DEVIATIONS.json",
-      "sha256": "3cdd2aee9dde7d325f4ce52423c4f15e822c918f45bc7fd3bd9618c3c9931a26"
+      "sha256": "3b33a4e6728ec1d9b91af03db974380588e01ae5a1c94110b502b13d8915afc1"
     },
     {
       "class": "core",
@@ -847,12 +847,12 @@
     {
       "class": "evidence",
       "path": "qa/eye/baselines/reference.png",
-      "sha256": "bf7b1ea5b486353dec22ee5340cf59451e0a0a59795f79dd77e785c48fe3e768"
+      "sha256": "2a019e59b31ae3cfd7492150edfdfbc460c868eb52d21b2d0cb79a59b547c860"
     },
     {
       "class": "evidence",
       "path": "qa/eye/expected.json",
-      "sha256": "c879593447136b779ebfece15a117a4eec4ab31461cd3758c0e29c094d4d4f7c"
+      "sha256": "3298d29317ca64030305a892f54cbc414eac300858a23c2c7fa026fd9f7e4a6e"
     },
     {
       "class": "evidence",
@@ -1007,12 +1007,12 @@
     {
       "class": "evidence",
       "path": "site/reference.html",
-      "sha256": "869d8e235d6edd145eb098d697a238442baea806688502161119cf39833e178d"
+      "sha256": "c10917764038b9b48e04511a32db74cc2fc02830137ffd6b4023a2abc4e1b5fa"
     },
     {
       "class": "evidence",
       "path": "site/reference.js",
-      "sha256": "3acbffb9016b141f31e8f43232783c0c5ea3fdb82fb5e12cb90d6f557849bfd2"
+      "sha256": "256168e4c8e909d327a4730bca62be83f76bc046b809fb82c9cdfae39d9cc54d"
     },
     {
       "class": "evidence",
@@ -1152,7 +1152,7 @@
     {
       "class": "evidence",
       "path": "tools/check_deviations.py",
-      "sha256": "0c1d92091a42dd98a85106a89e5f46a6b8d3a68810e851f56b436a88bac2fee4"
+      "sha256": "bedd6e7864fd1b9440a0f6e01503e628e44bb8deedb0c008280ee419c61f614e"
     },
     {
       "class": "evidence",
@@ -1322,7 +1322,7 @@
     {
       "class": "evidence",
       "path": "tools/version.py",
-      "sha256": "98651f9004bdaad74dab8d95d89f9141bea797d11bcad8945a180d99b402d301"
+      "sha256": "555c5c557d37a5ff1a668efb9cc4d67bca6c7ebfe31a51c4b37d82c15b8e930e"
     }
   ]
 }

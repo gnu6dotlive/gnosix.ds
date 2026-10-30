@@ -204,6 +204,14 @@
       "state": "open",
       "owner": "the field",
       "proof": "core/UPSTREAM.json — UP-001: the exact vendored revision, the source location, the observed fact and its limits, the scope of the claims that depend on the affected behaviour, and the smallest falsifiable next experiment"
+    },
+    {
+      "id": "DEV-022",
+      "what": "The README announced v4.0.0, twenty-two gates and fourteen roles while the package was at 4.6.0, the qualification ran thirty-six gates and the contract bound sixteen roles; its list of gates had lost seven of them. The version line is now a slot the version authority keeps in step, and a probe reads both counts and every gate's name from where they live.",
+      "severity": "minor",
+      "state": "closed",
+      "owner": "the system",
+      "probe": "the_readme_counts_are_stated"
     }
   ]
 }
