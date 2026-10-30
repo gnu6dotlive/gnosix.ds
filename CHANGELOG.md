@@ -8,6 +8,23 @@ The canonical version lives in [`VERSION`](VERSION). Every other place the
 package states a version is a slot that `tools/version.py` keeps in step, and
 `python -m tools.version --check` fails the build if any of them drifts.
 
+## [Unreleased]
+
+**The chip.** The rule on the left edge of a note and of a code block
+becomes a row of equal triangles, joined and pointing at the content, in
+the element's identity colour; the table of contents points at the entry
+under the pointer with a single triangle instead of lighting its rule.
+
+The change is the first **amendment** (AMD-001). The package's sheet is
+re-cut from the field's legacy copy, which three repositories vendor byte
+for byte; a change written into that copy would be overwritten by the next
+cut, or would make the copy lie about what it is. What the system changes
+in the field's components is now written once in
+`packaging/gnu6-design/amendments.css` and appended last by
+`tools/package_gnu6_design.py`, so it wins the cascade and the legacy copy
+stays the one the field vendors. The specification of the arrangements is
+measured again from the re-cut sheet.
+
 ## [4.6.0] — 2026-10-20
 
 The envelope's invariants, which the contract had not carried.

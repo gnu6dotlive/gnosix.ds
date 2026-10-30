@@ -1,7 +1,7 @@
 {
   "version": "4.6.0",
   "name": "gnosix_DS V4.6.0 motion contract and alpha compositing variants",
-  "contract_digest": "9253db5c9c44c3a6d9ab102d802a9f7c54afd9c8842591cc2394d5f04980baa9",
+  "contract_digest": "78688fc381484f9db7745ca2e3b2f35d1411acfa2aef052576c587493ec1850b",
   "digest_scope": "all class=core files plus class=reference JSON annotations",
   "files": [
     {
@@ -17,7 +17,7 @@
     {
       "class": "evidence",
       "path": "CHANGELOG.md",
-      "sha256": "e2a94ff8cdf7609600856d00c0c8b31ed83aab78ae11b6ac0e2ab5097ad2306e"
+      "sha256": "fc6ef7e433149a389cc68859928270f908b5d19a3cd336939ce43110fafa3e40"
     },
     {
       "class": "evidence",
@@ -472,7 +472,7 @@
     {
       "class": "core",
       "path": "core/COMPONENTS.json",
-      "sha256": "36c92dfcf35e1cf3acb33e1ceadb732587779174a275b4bf08cbbd535c9f7ff4"
+      "sha256": "a1fac3f9f8910a3891471620e6f0b91bcd39b2c5999ebe47cc07480f5b0be2cc"
     },
     {
       "class": "core",
@@ -556,13 +556,18 @@
     },
     {
       "class": "evidence",
+      "path": "packaging/gnu6-design/amendments.css",
+      "sha256": "168ec93a0aa6661a11a0386c7416573ee79cab8763b317304857c7dc125bd882"
+    },
+    {
+      "class": "evidence",
       "path": "packaging/gnu6-design/gnu6-design.lock.json",
-      "sha256": "e67001badc1a9c38b08f54774020742789510535ff7969d8aee7eddf10b81b78"
+      "sha256": "89a0df550b55ed7f71597a6173f31479e18dff5b2ab63f171e8a2caf97f69e67"
     },
     {
       "class": "evidence",
       "path": "packaging/gnu6-design/gnu6.css",
-      "sha256": "9494f84be432ffe449c6a52370d5cb31e6b301818ccb6bcdb84e8d89927129d5"
+      "sha256": "2af8bb340a6dd10571fc6fe50bdbeb74e7c24f78a6c850a92bbce1ddfcc07f3b"
     },
     {
       "class": "evidence",
@@ -1242,7 +1247,7 @@
     {
       "class": "evidence",
       "path": "tools/package_gnu6_design.py",
-      "sha256": "5e6d718345691879c52cab2534e3f26a522ce10aab6694d6dbbf64ca251c07d6"
+      "sha256": "245c640be4ee7b30a50e850c86aa9520655cfce40df8dbc7d5640077037f17d6"
     },
     {
       "class": "evidence",

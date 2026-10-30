@@ -19,6 +19,10 @@ exists and is gated:
                    were always right; only the spelling had drifted.
   the vocabulary  the system's own names are added: the colours the
   of the system  sheet omits, the surfaces, the roles, the spacing.
+  the amendments  what the system changes in the field's components is
+                  written once in amendments.css and appended last, so it
+                  wins the cascade while the legacy copy stays the one the
+                  field vendors, byte for byte.
 
     python3 tools/package_gnu6_design.py --write
     python3 tools/package_gnu6_design.py --check
@@ -41,6 +45,7 @@ PACKAGE = ROOT / "packaging/gnu6-design"
 LEGACY = PACKAGE / "legacy/gnu6-1.1.1.css"
 ROLES = PACKAGE / "legacy/roles.json"
 SHEET = PACKAGE / "gnu6.css"
+AMENDMENTS = PACKAGE / "amendments.css"
 LOCK = PACKAGE / "gnu6-design.lock.json"
 
 GNOSIX_VAR = re.compile(r"--gnosix-[A-Za-z0-9-]+")
@@ -272,6 +277,13 @@ def foreign(sheet: str) -> list[str]:
                    if value.upper() not in sanctioned})
 
 
+def amendments_block() -> str:
+    """What the system changes in the field's components, appended last."""
+    if not AMENDMENTS.exists():
+        return ""
+    return "\n" + AMENDMENTS.read_text(encoding="utf-8").rstrip("\n") + "\n"
+
+
 def build() -> tuple[str, list[str], str]:
     legacy = LEGACY.read_text(encoding="utf-8")
     # The names come first, then the colours: a colour is bound to the
@@ -289,7 +301,7 @@ def build() -> tuple[str, list[str], str]:
                     "Do not edit. */",
                     rebound, count=1)
     sheet = (header.rstrip("\n") + "\n" + system_block() + role_block()
-             + elements_block())
+             + elements_block() + amendments_block())
     return sheet, changed, legacy
 
 

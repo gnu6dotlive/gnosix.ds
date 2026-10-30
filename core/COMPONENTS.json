@@ -4799,6 +4799,61 @@
           },
           "type": {},
           "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose pre, .g6-prose blockquote",
+          "tokens": {
+            "border-left": "1px solid var(--g6-rule)"
+          },
+          "geometry": {
+            "position": "relative",
+            "padding-left": "calc(1.25rem + 8px)"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose blockquote",
+          "tokens": {
+            "border-radius": "var(--g6-radius)"
+          },
+          "geometry": {
+            "border": "0"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose pre::before, .g6-prose blockquote::before",
+          "tokens": {
+            "background": "var(--g6-identity-labs)"
+          },
+          "geometry": {
+            "content": "\"\"",
+            "position": "absolute",
+            "top": "12px",
+            "bottom": "12px",
+            "left": "6px",
+            "width": "8px"
+          },
+          "type": {},
+          "behaviour": {
+            "-webkit-mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E\") no-repeat space top left / 8px 10px",
+            "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E\") no-repeat space top left / 8px 10px"
+          }
+        },
+        {
+          "at": [],
+          "selector": ".g6-prose blockquote::before",
+          "tokens": {
+            "background": "var(--g6-identity-live)"
+          },
+          "geometry": {},
+          "type": {},
+          "behaviour": {}
         }
       ]
     },
@@ -5886,6 +5941,7 @@
         "title"
       ],
       "states": [
+        "::before",
         ":hover"
       ],
       "tokens": [
@@ -5957,6 +6013,47 @@
           },
           "type": {},
           "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc li",
+          "tokens": {},
+          "geometry": {
+            "position": "relative"
+          },
+          "type": {},
+          "behaviour": {}
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc a:hover",
+          "tokens": {},
+          "geometry": {},
+          "type": {},
+          "behaviour": {
+            "border-left-color": "transparent"
+          }
+        },
+        {
+          "at": [],
+          "selector": ".g6-toc a:hover::before",
+          "tokens": {
+            "background": "var(--g6-text-3)"
+          },
+          "geometry": {
+            "content": "\"\"",
+            "position": "absolute",
+            "left": "2px",
+            "top": "50%",
+            "width": "6px",
+            "height": "8px",
+            "margin-top": "-4px"
+          },
+          "type": {},
+          "behaviour": {
+            "-webkit-mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E\") no-repeat center / 6px 8px",
+            "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E\") no-repeat center / 6px 8px"
+          }
         }
       ]
     },
