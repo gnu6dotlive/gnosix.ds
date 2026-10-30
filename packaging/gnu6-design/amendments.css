@@ -1,0 +1,64 @@
+/* What the system changes in the field's components.
+
+   The legacy sheet is the field's vocabulary as three repositories vendor it,
+   and it stays byte-identical. A change the system makes to a component is
+   written here once, appended last by tools/package_gnu6_design.py, and so
+   wins the cascade without rewriting history. Every declaration here wears
+   the system's tokens; a colour of its own would fail the gate. */
+
+/* AMD-001 · The chip: a row of equal triangles, joined, pointing at the
+   content, instead of a solid rule on the left edge. The mask spaces whole
+   triangles over the height; the colour is the element's identity. */
+
+.g6-prose pre,
+.g6-prose blockquote {
+  position: relative;
+  border-left: 1px solid var(--g6-rule);
+  padding-left: calc(1.25rem + 8px);
+}
+
+.g6-prose blockquote {
+  border: 0;
+  border-radius: var(--g6-radius);
+}
+
+.g6-prose pre::before,
+.g6-prose blockquote::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 6px;
+  width: 8px;
+  background: var(--g6-identity-labs);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E") no-repeat space top left / 8px 10px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E") no-repeat space top left / 8px 10px;
+}
+
+.g6-prose blockquote::before {
+  background: var(--g6-identity-live);
+}
+
+/* The table of contents points with a single triangle on hover, instead of
+   lighting its rule. */
+
+.g6-toc li {
+  position: relative;
+}
+
+.g6-toc a:hover {
+  border-left-color: transparent;
+}
+
+.g6-toc a:hover::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  width: 6px;
+  height: 8px;
+  margin-top: -4px;
+  background: var(--g6-text-3);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E") no-repeat center / 6px 8px;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='10'%3E%3Cpath d='M0 0L8 5L0 10Z'/%3E%3C/svg%3E") no-repeat center / 6px 8px;
+}
