@@ -6,7 +6,7 @@
 inspectable reference scenes that carry one design system from the browser to
 Compose to GPUI — without turning any toolkit into the design system.
 
-`v4.0.0` · MIT · 22 gates, one command
+`v4.6.0` · MIT · 36 gates, one command
 
 </div>
 
@@ -30,7 +30,7 @@ The system is in four tiers, and each one is a file you can read:
 | Rules | `core/rules.json` | 29 numbered obligations — `COL-001`, `A11Y-001`, `SUR-001` — each with an observable and a test |
 | Envelope | `core/ENVELOPE.md` | the shell's composition invariants — compose first and paint once, one curvature authority, a settled pose rebuilt from the canonical state — and what the field's prototype proves of them |
 | Palette & surfaces | `core/TOKENS.json`, `core/SURFACES.json` | the approved colours, the elevation ramps, the spacing steps, the family and the weights |
-| Semantic roles | `core/ROLES.json` | 14 roles — `surface`, `ink`, `accent`, `focus`, `positive` — bound to a token on each substrate |
+| Semantic roles | `core/ROLES.json` | 16 roles — `surface`, `ink`, `accent`, `focus`, `positive` — bound to a token on each substrate |
 | Components | `core/COMPONENTS.json` | 14 elements: their roles, states, variants, geometry, typography and the accessibility they owe |
 
 Everything below the tiers is a **projection**: generated from the contract,
@@ -77,6 +77,8 @@ is worth on each substrate.
 | `accent` | Signal Orange | Signal Orange | the principal operation, and only that |
 | `accent-ink` | Anthracite | Anthracite | the text that sits on the accent |
 | `focus` | Royal Blue | Royal Blue | where the keyboard is |
+| `selection` | `#E8EDFF` | `#25396B` | the ground of a chosen thing |
+| `info` | `#2E6FA8` | `#3D8DCC` | what a reader is told, as a mark |
 | `positive` | Beret Green | `#8DA982` | a condition that is well, as a mark |
 | `positive-surface` | `#E8EFE5` | `#455F3D` | the tinted surface behind the word |
 | `caution` | `#8A5600` | `#F5A524` | a condition that asks for inspection |
@@ -272,20 +274,24 @@ does not always run.
 ### The gates
 
 ```
-tokens project cleanly                        the role layer is bound to the contract
-the surface layer is derived                  the component stylesheet is what the spec projects
-the contrast table measures what it says      every colour is one of ours
-the token exports are current                 the surfaces use the system's colours
-version authority                             contract validates
-manifest matches the tree                     alpha masters are straight
-mascot alpha is repaired                      svg wrappers embed once
-favicons are the right crop                   icon subset is vendored
-no ad-hoc glyphs                              the FigCraft projection matches the source
-the two token projections agree               the web code matches the design
-the native profile compiles and its tests pass
-every name the field declares is classified    every arrangement is specified as the sheet has it
-every gate says what it must say               the severity register is honest
-the surfaces render as the system carries them test suite
+tokens project cleanly                              the surface layer is derived
+the contrast table measures what the palette says   the token exports are current
+the role layer is bound to the contract             the component stylesheet is what the spec projects
+every colour is one of ours                         the surfaces use the system's colours
+version authority                                   contract validates
+manifest matches the tree                           alpha masters are straight
+mascot alpha is repaired                            svg wrappers embed once
+favicons are the right crop                         icon subset is vendored
+no ad-hoc glyphs                                    the FigCraft projection matches the source
+the two token projections agree                     the web code matches the design
+the native profile compiles and its tests pass      the gnu6-design package is what the contract cuts
+every name the field declares is classified         every arrangement is specified as the sheet has it
+every gate says what it must say                    the severity register is honest
+the gates stay inside the repository                the surfaces render as the system carries them
+the work's own places are inside the repository     the native profile carries the contract's states
+every scheme keeps the system's guarantees          the register of retractions is honest
+the register of intent is honest                    the consultation suite is what the contract says
+the register of upstream is honest                  test suite
 ```
 
 ### What each gate must say

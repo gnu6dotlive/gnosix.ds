@@ -126,6 +126,9 @@ TEXT_SLOTS: list[tuple[str, str, str]] = [
     ("site/site.webmanifest",
      r'(?P<pre>"name": "gnosix_DS 0)' + VERSION_PATTERN + r'(?P<post> — Portable visual reference")',
      "the installed application name"),
+    ("README.md",
+     r'(?P<pre>`v)' + VERSION_PATTERN + r'(?P<post>` · MIT · )',
+     "the README's version line"),
 ]
 
 

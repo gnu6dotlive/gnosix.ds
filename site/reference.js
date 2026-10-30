@@ -769,6 +769,12 @@ const GNOSIX_INDEX = [
   "anchor": "deviation-dev-021"
  },
  {
+  "id": "DEV-022",
+  "kind": "Deviation",
+  "title": "The README announced v4.0.0, twenty-two gates and fourteen roles while",
+  "anchor": "deviation-dev-022"
+ },
+ {
   "id": "from-source",
   "kind": "Derivation",
   "title": "",
